@@ -220,7 +220,13 @@ def planned_pairs():
         'xiaomi': ChatProvider(
             provider_id='xiaomi',
             model_id=os.environ.get('QRSI_XIAOMI_MODEL', 'mimo-v2.6-pro'),
+            # Unauthenticated TLS probe (2026-10-08) on this machine:
+            #   batch-api-cn.xiaomimimo.com -> 404 on every API path, root is an
+            #   openresty batch service; it does not serve the chat API.
+            #   api.xiaomimimo.com -> 401 on /v1/models, 405 on GET
+            #   /v1/chat/completions, i.e. the OpenAI-compatible surface.
+            # Override with QRSI_XIAOMI_BASE_URL if the provider confirms otherwise.
             base_url=os.environ.get('QRSI_XIAOMI_BASE_URL',
-                                    'https://batch-api-cn.xiaomimimo.com/v1'),
+                                    'https://api.xiaomimimo.com/v1'),
             api_key_env='XIAOMI_API_KEY'),
     }
