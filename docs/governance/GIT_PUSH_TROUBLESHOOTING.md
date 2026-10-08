@@ -188,3 +188,16 @@ git push -u origin main --force-with-lease
 ```
 
 （`--force-with-lease` 是安全的：若远端在此期间被别人改动，它会拒绝而不是覆盖。）
+
+## 附：模型 API 端点连通性（2026-10-08 实测，未使用凭据）
+
+GitHub 的问题**不影响模型 API**：两个厂商端点在本机 TCP 443 均可达。
+
+| 端点 | DNS | TCP 443 | 无凭据探测结果 |
+|---|---|---|---|
+| `api.deepseek.com` | `36.150.244.216` | OPEN | `/v1/models` → **401**；`/v1/chat/completions` POST → **401**（路径正确，仅缺认证） |
+| `api.xiaomimimo.com` | — | OPEN | `/v1/models` → **401**；GET `/v1/chat/completions` → **405**（路径正确，需 POST） |
+| `batch-api-cn.xiaomimimo.com` | `111.13.40.48` | OPEN | 根路径 → 200，但**所有 API 路径 → 404**（openresty 批处理服务，非 chat 接口） |
+
+**结论：`batch-api-cn.xiaomimimo.com` 不是 OpenAI 兼容的 chat 端点**，尽管已确认
+可达。`ChatProvider` 默认已改为 `https://api.xiaomimimo.com/v1`。
