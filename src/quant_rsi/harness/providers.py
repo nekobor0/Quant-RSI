@@ -220,6 +220,7 @@ def planned_pairs():
         'xiaomi': ChatProvider(
             provider_id='xiaomi',
             model_id=os.environ.get('QRSI_XIAOMI_MODEL', 'mimo-v2.6-pro'),
-            base_url=os.environ.get('QRSI_XIAOMI_BASE_URL', 'https://api.xiaomi.com/v1'),
+            base_url=os.environ.get('QRSI_XIAOMI_BASE_URL',
+                                    'https://batch-api-cn.xiaomimimo.com/v1'),
             api_key_env='XIAOMI_API_KEY'),
     }
