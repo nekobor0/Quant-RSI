@@ -1,9 +1,36 @@
 # Git 到 GitHub 的推送问题：根因与排查手册
 
-日期：2026-10-08
-适用：`D:\Claude_work_Territory\Quant-RSI` → `https://github.com/nekobor0/Quant-RSI.git`
+日期：2026-10-08（2026-10-08 更新：已切换到 SSH over 443，问题解决）
+适用：`D:\Claude_work_Territory\Quant-RSI` → `github.com:nekobor0/Quant-RSI`
 
-## 结论摘要
+## 当前状态：已解决
+
+**远端已切换为 SSH（走 443 端口），`git push` 恢复正常。** 无需 VPN、无需代理、无需 API 回退。
+
+```
+origin  git@github.com:nekobor0/Quant-RSI.git
+~/.ssh/config:  Host github.com → ssh.github.com:443
+验证: ssh -T git@github.com → "Hi nekobor0! You've successfully authenticated"
+```
+
+**为什么这条路可行（实测数据）：**
+
+| 通道 | 结果 |
+|---|---|
+| HTTPS `github.com:443` | 间歇性：同一地址曾在 5 分钟内从 `0/5 可用` 变成 `5/5 可用`，每次失败耗 ~21 秒 |
+| SSH `ssh.github.com:443` | **稳定可用，一次成功** |
+| SSH `github.com:22` | 也可用（但 22 端口在更多网络下会被封） |
+| `api.github.com:443` | 稳定可用（回退方案） |
+
+关键洞察：**SSH 与 HTTPS 虽然都走 443，但走的是不同的地址和协议栈** —— `ssh.github.com` 解析到 `20.205.243.160`，而 `github.com` 解析到 `20.205.243.166`。所以 HTTPS 那条路坏掉时，SSH 这条路可以完全正常。这是**换路**，不是碰运气撞窗口。
+
+---
+
+## 历史记录：HTTPS 路线为何失败
+
+以下保留完整的故障分析，供将来参考或用于其他机器。
+
+## 结论摘要（HTTPS 路线）
 
 **根因是网络路径，不是仓库、凭据或 GitHub。**
 
