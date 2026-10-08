@@ -33,6 +33,7 @@ critic_probe_tmp/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest_tmp/
 .ruff_cache/
 .mypy_cache/
 *.egg-info/
@@ -44,6 +45,11 @@ venv/
 # reconstructible from the acceptance snapshots kept at the repo root.
 artifacts/
 archive/stage_c2_research_path/snapshots/
+
+# ---- Capability comparison run outputs ---------------------------------
+# Bulk per-run records and traces. The curated result report beside them is
+# versioned; complete run directories are archived separately.
+benchmark/capability_public/runs/
 
 # ---- Narrative archive bundle ------------------------------------------
 # The conversation archive is a readable record, not build input. Its
