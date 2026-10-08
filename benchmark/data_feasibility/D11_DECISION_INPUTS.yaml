@@ -1,0 +1,14 @@
+decision_id: D11
+status: DEFERRED
+output_type: DECISION_INPUTS_ONLY
+audit: C1-02
+candidate_data_source: 'Tushare documented API schemas plus original SSE/SZSE rules; not a selected or licensed production source'
+feasibility: feasible_with_gap
+documented_components: [daily_unadjusted_bars_and_units, trade_calendar, listing_and_delisting_fields, historical_name_intervals, daily_industry_label_from_2016, SW_membership_effective_dates, financial_announcement_dates_and_some_pre_adjusted_report_types, dividend_events, suspension_dates, daily_limit_prices]
+unverified_or_unavailable_critical_components: [full_published_available_ingested_effective_revision_tuple, historical_vintage_completeness, delisted_daily_bar_coverage, complete_historical_ST, index_membership_effective_vintages, actual_250_to_1500_session_and_50_to_1000_universe_coverage, original_source_hashes, E9_forward_only_capture]
+licensing_gate: 'Tushare service terms inspected 2026-09-29 describe personal noncommercial viewing and revocable access. Benchmark dataset construction, redistribution, or organizational use requires a separate rights determination or alternative licensed source.'
+snapshot: null
+sample_dates: null
+cleaning_calibration: null
+next_evidence_needed: [licensed_raw_data_access, original_release_archive_and_timestamp, preregistered_small_PIT_sample_if_documentation_remains_insufficient, source_bytes_hashes, historical_coverage_counts_and_missingness, independent_critic_review]
+freeze_allowed_now: false

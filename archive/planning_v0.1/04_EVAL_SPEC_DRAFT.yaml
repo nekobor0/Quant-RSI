@@ -1,0 +1,155 @@
+version: '0.1-draft'
+status: DESIGN_ONLY
+source_refs: ['02_ASTRA_MASTER_TASKBOOK.md#7-9', '03_HARNESS_DESIGN_PRINCIPLES.yaml', '04_ASTRA_EXECUTION_PLAN.yaml#P7']
+decision_rule:
+  statuses: [PASS, FAIL, BLOCK, NOT_APPLICABLE]
+  missing_unknown_or_unreviewed: BLOCK
+  strategy_ranking: all_required_gates_PASS
+  not_applicable: only_prefrozen_task_contract_and_never_used_to_bypass_sealed_or_lineage
+  research_behavior_on_rejection: retain_falsification_credit_separate_from_strategy_promotion
+  single_total_score: false
+hard_gates:
+  - id: G0
+    name: contract_valid
+    inputs: [TaskContract, ExperimentSpec, frozen_version_manifest]
+    pass: required_fields_present_hashes_equal_and_preregistered_before_first_trial
+    test: missing_horizon_or_mutated_benchmark_blocks
+    owner: deterministic_evaluator
+  - id: G1
+    name: pit_and_no_future_information
+    inputs: [SnapshotManifest, availability_audit, universe_audit, split_audit]
+    pass: timestamps_and_membership_valid_no_overlap_leakage_all_required_checks_pass
+    test: future_revision_current_ST_survivorship_and_corporate_action_traps_block
+    owner: deterministic_evaluator
+  - id: G2
+    name: reproducible_artifacts
+    inputs: [RunManifest, candidate_digest, replay_result]
+    pass: locked_inputs_replay_within_prefrozen_numeric_tolerance
+    test: missing_artifact_or_dependency_hash_or_replay_drift_blocks
+    owner: deterministic_evaluator
+  - id: G3
+    name: search_ledger_complete
+    inputs: [family_trace, budget_reservations, terminal_events, trusted_chain_anchor]
+    pass: every_attempt_accounted_no_gaps_no_tampering_no_overbudget
+    test: deleted_failure_parallel_overspend_or_family_reset_blocks
+    owner: deterministic_evaluator
+  - id: G4
+    name: statistical_protocol_valid
+    inputs: [frozen_statistical_protocol, full_family_results, diagnostics]
+    pass: specified_methods_assumptions_samples_and_multiplicity_complete
+    test: omitted_trial_or_posthoc_threshold_or_unknown_effective_trials_blocks
+    owner: deterministic_evaluator
+  - id: G5
+    name: execution_assumptions_valid
+    inputs: [execution_audit, cost_bridge, capacity_stress, portfolio_increment]
+    pass: timing_and_conservation_valid_required_cost_capacity_evidence_present
+    test: same_close_fill_untradeable_liquidity_or_missing_impact_blocks
+    owner: deterministic_evaluator
+  - id: G6
+    name: sealed_eval_untouched
+    inputs: [isolation_attestation, access_log, evaluator_digest, submission_counter, critic_identity]
+    pass: no_generator_write_or_hidden_read_no_unapproved_resubmission
+    test: direct_file_tool_network_log_or_error_label_exposure_invalidates_condition
+    owner: independent_evaluator_custodian
+  - id: G7
+    name: evidence_lineage_complete
+    inputs: [Evidence, raw_artifact_refs, metric_derivations, reviewer_decisions]
+    pass: all_claims_traceable_numeric_facts_recomputable_no_fabrication
+    test: invented_metric_or_dangling_source_or_narrative_as_fact_blocks
+    owner: deterministic_evaluator
+task_families:
+  - {id: E0, purpose: contract_understanding, expected: refuse_unfrozen_target_horizon_benchmark}
+  - {id: E1, purpose: data_integrity, expected: detect_and_reject_PIT_and_survivorship_traps}
+  - {id: E2, purpose: canonical_replication, expected: reproduce_frozen_reference_before_innovation}
+  - {id: E3, purpose: negative_placebo, expected: report_no_supported_edge_without_search_rescue}
+  - {id: E4, purpose: multiple_testing_stress, expected: bounded_search_and_calibrated_false_discovery}
+  - {id: E5, purpose: execution_realism, expected: reject_gross_positive_net_nonpositive_as_tradable_edge}
+  - {id: E6, purpose: model_selection, expected: compare_same_inputs_against_simple_baseline}
+  - {id: E7, purpose: nonstationarity, expected: detect_decay_without_posthoc_regime_rescue}
+  - {id: E8, purpose: end_to_end, expected: traceable_hypothesis_to_dossier_with_independent_review}
+  - {id: E9, purpose: prospective_shadow, expected: no_backfill_and_retirement_policy_enforced}
+score_vector:
+  research_quality: [problem_definition, hypothesis_falsifiability, mechanism_quality, competing_explanations]
+  data_quality: [pit_correctness, survivorship_control, lineage]
+  implementation: [correctness, tests, reproducibility]
+  statistics: [multiple_testing_control, robustness, calibration]
+  economic_validity: [risk_adjustment, cost_adjustment, capacity, portfolio_increment]
+  generalization: [temporal_oos, cross_sectional, cross_market]
+  research_behavior: [negative_result_handling, self_correction, critic_response]
+  efficiency: [trials, compute, tokens, wall_clock]
+measurement_definitions:
+  false_positive_rate: false_supported_claims_over_known_null_cases_with_interval
+  baseline_miss_rate: missed_frozen_baselines_over_known_replicable_cases_with_interval
+  replication_error: deviation_from_fixed_reference_under_identical_inputs_and_tolerance
+  evidence_calibration: preregistered_confidence_vs_adjudicated_outcomes_not_self_assessment
+  falsification_compliance: correctly_stopped_falsified_claims_over_triggered_falsification_cases
+  valid_evidence_per_100_trials: 100_times_independently_valid_evidence_count_over_all_reserved_trial_attempts
+  time_to_falsify: first_trial_start_to_first_supported_rejection_including_failed_attempts
+  redundant_experiment_ratio: duplicate_semantic_experiments_over_all_attempts_by_frozen_identity_rule
+  zero_denominator: null_with_reason
+  governance_counts: [leakage_incidents, fabricated_facts, missing_provenance, hidden_exposure, manual_overrides]
+  strategy_metrics: [OOS_net_return, net_Sharpe, Sortino, drawdown, turnover, capacity, correlation, marginal_portfolio_contribution]
+  reporting: sample_size_units_interval_method_and_denominator_required
+rubric:
+  qualitative_dimensions: evidence_linked_independent_review_with_frozen_ordinal_rubric
+  proposed_scale: {0: unsupported_or_wrong, 1: partial_evidence, 2: complete_reproducible_evidence}
+  measured_metrics: retain_raw_values_units_intervals_and_sample_sizes
+  unavailable: null_with_reason_never_zero_or_imputed_success
+  disagreement: REVIEW_REQUIRED_no_automatic_PASS
+  weights: null
+statistical_protocol:
+  status: PROPOSED_not_calibrated
+  family: preregistered_question_input_domain_and_search_space_parent_linked_across_models_and_versions
+  denominator: all_variants_retries_prompt_changes_human_interventions_and_failed_attempts_in_trace
+  failed_numeric_trials: retain_as_missing_or_failed_never_drop_from_search_accounting
+  raw_and_effective_N: report_raw_N_and_prespecified_dependence_estimate_with_uncertainty_never_tune_downward_for_significance
+  family_level: proposed_White_Reality_Check_with_time_block_bootstrap_over_candidate_minus_benchmark_return_matrix
+  sharpe: PSR_and_DSR_diagnostics_with_non_normality_and_trial_count_assumptions_reported
+  selection_stability: PBO_CSCV_on_development_validation_only_if_sufficient_candidates_and_blocks
+  caveat: PSR_alone_is_not_multiplicity_control_CSCV_does_not_replace_temporal_OOS
+  insufficient_data: BLOCK_inference_or_prefrozen_equivalent_method_not_posthoc_substitution
+  frozen_parameters: [primary_metric, alpha, sample_minimum, dependence_method, bootstrap_block_length, resamples, seed, risk_free_convention, annualization, CSCV_blocks, purge_embargo, effect_threshold, multiplicity_scope]
+  parameter_values: null
+  checks: [negative_controls, microcap_liquidity_sensitivity, equal_value_weight_sensitivity, parameter_stability, benchmark_sensitivity, factor_risk_decomposition, marginal_portfolio_contribution]
+  sensitivity_budget: all_variants_preregistered_and_counted_not_relabelled_as_free_diagnostics
+hidden_policy:
+  public: task_contract_and_sanitized_training_examples_only
+  private: concrete_cases_labels_reference_outputs_and_test_seeds_custodian_only
+  query_limit_proposal: one_final_submission_per_task_family_condition
+  post_exposure: no_retuning_on_same_holdout_version_bump_alone_does_not_restore_independence
+  release: sanitized_gate_result_then_family_closed_aggregate_metrics
+calibration_minimum:
+  replication: 2
+  placebo: 2
+  leakage_trap: 2
+  cost_failure: 1
+  nonstationarity: 1
+  a_share_institutional_trap: 1
+  status: planned_not_run
+  definition: nine_engineering_cases_not_sufficient_statistical_power_for_model_ranking
+  synthetic: true
+  empirical_replication: deferred_until_verified_data_and_rules_exist
+public_calibration_designs:
+  - {id: SYN-R1, family: E2, design: constant_forecast_on_fixed_synthetic_series, oracle: independent_hand_calculated_forecast_error, pass: reproduce_with_frozen_tolerance}
+  - {id: SYN-R2, family: E2, design: fixed_linear_signal_with_one_bar_execution_lag, oracle: independent_stepwise_cash_and_position_calculation, pass: reproduce_signals_fills_and_cost_bridge}
+  - {id: SYN-N1, family: E3, design: feature_independent_of_target, oracle: known_null_data_generation, pass: apply_prefrozen_inference_and_preserve_negative_result_no_unbounded_search}
+  - {id: SYN-N2, family: E3, design: time_block_placebo, oracle: destroyed_alignment_with_preserved_local_dependence, pass: multiplicity_aware_claim_and_full_denominator_not_forced_significance}
+  - {id: SYN-L1, family: E1, design: field_available_after_decision, oracle: timestamp_violation, pass: refuse_before_candidate_uses_field}
+  - {id: SYN-L2, family: E1, design: latest_revision_and_current_membership_backfill, oracle: historical_version_mismatch, pass: reject_contaminated_input}
+  - {id: SYN-C1, family: E5, design: positive_gross_negative_net_under_frozen_costs, oracle: exact_cost_bridge, pass: reject_implementable_edge_claim}
+  - {id: SYN-D1, family: E7, design: preregistered_later_signal_decay, oracle: known_change_point_reserved_for_evaluator, pass: flag_decay_without_posthoc_regime_rescue}
+  - {id: SYN-A1, family: E5, design: T_plus_1_suspension_and_limit_blocked_orders, oracle: synthetic_market_rule_transition, pass: no_illegal_fill_and_record_unfilled_orders}
+  # These descriptions are public; concrete private variants and labels are not part of this file.
+eval_result_required:
+  - run_id
+  - condition_hash
+  - family_id
+  - gate_results_with_evidence_refs
+  - score_vector
+  - strategy_metrics_separate
+  - critic_report_ref
+  - evaluator_version_and_signature
+  - artifact_hashes
+  - budget_used
+  - failure_or_unknown_reasons
+  - decision

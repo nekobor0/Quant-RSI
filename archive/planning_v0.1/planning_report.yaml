@@ -1,0 +1,218 @@
+planning_report:
+  version: 0.1-draft
+  date: '2026-09-28'
+  status: FIRST_ROUND_PLANNING_DELIVERED
+  project: Quant-RSI
+  scope: independent_new_project_authorized_seven_documents_only
+  scope_override: 最新用户指示覆盖输入中的既有系统复用前提；外部读取与测试结果排除，相关临时文件已移除。
+  inspected_paths:
+  - 00_START_HERE.md
+  - 01_LITERATURE_TO_HARNESS_TAKEAWAYS.md
+  - 02_ASTRA_MASTER_TASKBOOK.md
+  - 03_HARNESS_DESIGN_PRINCIPLES.yaml
+  - 04_ASTRA_EXECUTION_PLAN.yaml
+  - 05_SOURCE_INDEX.yaml
+  - 06_DECISION_REGISTER.md
+  reused_canonical_objects:
+  - objects:
+    - Mechanism
+    - Hypothesis
+    - Observable
+    - Proxy
+    - Feature
+    - Experiment
+    - Evidence
+    - Candidate
+    source: 01_LITERATURE_TO_HARNESS_TAKEAWAYS.md#4
+    reuse_level: concept_only_no_existing_code_claim
+  - objects:
+    - H01-H15
+    - G0-G7
+    - E0-E9
+    - role_contracts
+    - work_item_schema
+    - benchmark_version_keys
+    source: 03_HARNESS_DESIGN_PRINCIPLES.yaml + 02 + 04 + 06
+    reuse_level: normative_identifiers_and_requirements
+  proposed_new_objects:
+  - objects:
+    - TaskContract
+    - DataSpec
+    - SnapshotManifest
+    - EnvSpec
+    - EvalSpec
+    - EvalResult
+    - ResearchTraceEvent
+    - RunManifest
+    reason: 把输入已命名/要求的对象形成项目内唯一可执行绑定；目前仅草案
+    owner_map: 02_TARGET_ARCHITECTURE.md#唯一对象归属
+  conflicts_found:
+  - id: CF01
+    source: 02_ASTRA_MASTER_TASKBOOK.md#2
+    resolution: 独立新项目，不导入外部 canonical；保留原始输入并在 scope 明示覆盖
+  - id: CF02
+    source: 06_DECISION_REGISTER.md
+    resolution: seed 默认值不等于已冻结决策；保留 pending，工程实施前阻断
+  p0_blockers:
+  - id: B01
+    reason: Task/数据/统计/预算/边界决定未冻结
+    work_items:
+    - W01
+    - W04
+  - id: B02
+    reason: 没有运行时 PIT 与固定数据清洗证据
+    work_items:
+    - W03
+    - W07
+  - id: B03
+    reason: 没有 append-only trace 和原子预算执行证据
+    work_items:
+    - W05
+    - W06
+  - id: B04
+    reason: 没有 sealed 隔离与独立裁决的运行证据
+    work_items:
+    - W09
+    - W11
+    - W13
+    - W16
+  - id: B05
+    reason: 没有成本容量/统计/复现/校准的运行证据
+    work_items:
+    - W08
+    - W10
+    - W15
+    - W20
+  assumptions_needing_human_decision:
+  - D01
+  - D02
+  - D03
+  - D04
+  - D05
+  - D09
+  - D11
+  - D12
+  decisions:
+  - id: D01
+    question: 首版市场
+    proposal: A 股日频；无 ETF/港股扩展
+    freeze_before: before_W02_W03
+    status: USER_DECISION_PENDING
+  - id: D02
+    question: 评价对象
+    proposal: Research Agent；execution agent 单独赛道
+    freeze_before: before_W04
+    status: USER_DECISION_PENDING
+  - id: D03
+    question: 网络赛道
+    proposal: 首个可运行版本 closed-data；open-research 后续独立赛道
+    freeze_before: before_W09
+    status: USER_DECISION_PENDING
+  - id: D04
+    question: 预算与统计阈值
+    proposal: 工程工作项预算已给提案；科学 Task 数字/alpha/功效未冻结
+    freeze_before: before_W06_W10
+    status: USER_DECISION_PENDING
+  - id: D05
+    question: sealed 托管
+    proposal: 独立身份/存储；一次提交；污染后更换未暴露样本
+    freeze_before: before_W09_W16
+    status: USER_DECISION_PENDING
+  - id: D06
+    question: 排行榜
+    proposal: hard gates + score vector；不设单一总分
+    freeze_before: before_W11_W17
+    status: PROPOSED_FROM_SEED
+  - id: D07
+    question: workers
+    proposal: 可替换 GPT-6 Sol/DeepSeek；先 fake provider
+    freeze_before: before_W12
+    status: PROPOSED_FROM_USER
+  - id: D08
+    question: critic
+    proposal: 独立上下文/权限，优先不同模型；不能自审
+    freeze_before: before_W13
+    status: PROPOSED_FROM_SEED
+  - id: D09
+    question: shadow 时长与退役
+    proposal: 需要功效/日历/停止规则；具体天数 null，不凭空指定
+    freeze_before: before_W18_activation
+    status: USER_DECISION_PENDING
+  - id: D10
+    question: 真实订单
+    proposal: v0.1 禁止自动真实下单
+    freeze_before: all_work
+    status: APPLIED_AS_SCOPE_CONSTRAINT
+  - id: D11
+    question: 数据和清洗
+    proposal: 真实 source/snapshot/许可、时间区间、清洗、基准和历史 universe 待冻结
+    freeze_before: before_empirical_task
+    status: USER_DECISION_PENDING
+  - id: D12
+    question: 资本及执行规则
+    proposal: 资本规模、ADV、成本费率、impact 模型与参考组合待证据支持
+    freeze_before: before_tradable_promotion
+    status: USER_DECISION_PENDING
+  - id: D13
+    question: 项目边界
+    proposal: 独立 Quant-RSI，仅七份输入；不引用其他项目
+    freeze_before: immediate
+    status: CONFIRMED_BY_LATEST_USER
+  implementation_order:
+  - W01
+  - W02
+  - W03
+  - W04
+  - W05
+  - W06
+  - W07
+  - W08
+  - W09
+  - W10
+  - W20
+  - W11
+  - W12
+  - W13
+  - W14
+  - W15
+  - W16
+  - W17
+  - W18
+  - W19
+  work_items_ref: 06_WORK_BREAKDOWN.md#work_items
+  gap_matrix_ref: 01_GAP_MATRIX.yaml
+  dispatch_status: NOT_AUTHORIZED_THIS_ROUND
+  work_item_count: 20
+  first_round_outputs:
+  - 00_SCOPE_AND_NON_GOALS.md
+  - 01_CURRENT_STATE_AUDIT.md
+  - 01_GAP_MATRIX.yaml
+  - 02_TARGET_ARCHITECTURE.md
+  - 03_ENV_SPEC_DRAFT.yaml
+  - 04_EVAL_SPEC_DRAFT.yaml
+  - 05_AGENT_ORCHESTRATION_DRAFT.yaml
+  - 06_WORK_BREAKDOWN.md
+  - planning_report.yaml
+  validation:
+    scope: planning_structure_and_consistency_only
+    command: python planning/validate_planning.py
+    result: PASS
+    checks_passed: 365
+    checks_total: 365
+    artifact: planning_validation.json
+    harness_runtime_tests: NOT_RUN
+    independent_critic_review: NOT_PERFORMED
+    market_or_strategy_experiments: 0
+  completion_claim:
+    first_round_documents: PRESENT_AND_STRUCTURALLY_VALIDATED_DESIGN_DRAFTS
+    harness_implementation: NOT_STARTED
+    runtime_gates: UNVERIFIED
+    strategy_performance: NOT_MEASURED
+    production_ready: false
+  limitations:
+  - 文献仅使用提供的摘要和索引，不声称原文核验
+  - 不读取/测试其他项目；此前结果无证据资格
+  - 规划检查不能证明 PIT、sealed、安全、统计或交易能力
+  - 未来数值预算为提案；未知市场事实保持 null
+  - 九个合成校准案例不足以建立模型比较统计功效
+  next_action: review_and_freeze_W01_then_start_a_separately_authorized_implementation_round

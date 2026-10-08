@@ -1,0 +1,247 @@
+{
+  "CAL-T1-FIELD": {
+    "base": {
+      "evidence": {},
+      "expected_rejection_layer": "PIT_DATA_BOUNDARY",
+      "reason": "FUTURE_FIELD",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "observed_value": 7
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "transfer": {
+      "evidence": {
+        "observed_value": 7
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    }
+  },
+  "CAL-T1-REVISION": {
+    "base": {
+      "evidence": {},
+      "expected_rejection_layer": "PIT_DATA_BOUNDARY",
+      "reason": "FUTURE_REVISION",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "observed_value": 7
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "transfer": {
+      "evidence": {
+        "observed_value": 7
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    }
+  },
+  "CAL-T2-P10": {
+    "base": {
+      "evidence": {
+        "benchmark_return": "0.043918",
+        "entry_lag_sessions": 1,
+        "gross_return": "0.039062",
+        "loser_reference_id": "S00",
+        "winner_id": "S09"
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "negative": {
+      "evidence": {},
+      "expected_rejection_layer": "PIT_DATA_BOUNDARY",
+      "reason": "FUTURE_FORMATION",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "benchmark_return": "0.044457",
+        "entry_lag_sessions": 1,
+        "gross_return": "0.040000",
+        "loser_reference_id": "S00",
+        "winner_id": "S08"
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    }
+  },
+  "CAL-T2-P20": {
+    "base": {
+      "evidence": {
+        "benchmark_return": "0.050214",
+        "cash_ids": [
+          "B"
+        ],
+        "entry_lag_sessions": 1,
+        "gross_return": "0.022124",
+        "long_ids": [
+          "A"
+        ]
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "negative": {
+      "evidence": {},
+      "expected_rejection_layer": "PIT_DATA_BOUNDARY",
+      "reason": "FUTURE_SIGNAL",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "benchmark_return": "0.050214",
+        "cash_ids": [],
+        "entry_lag_sessions": 1,
+        "gross_return": "0.050214",
+        "long_ids": [
+          "A",
+          "B"
+        ]
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    }
+  },
+  "CAL-T3-COST": {
+    "base": {
+      "evidence": {},
+      "expected_rejection_layer": "EXECUTION_BOUNDARY",
+      "reason": "NET_NONPOSITIVE",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "net_pnl": "4"
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "transfer": {
+      "evidence": {},
+      "expected_rejection_layer": "EXECUTION_BOUNDARY",
+      "reason": "NET_NONPOSITIVE",
+      "terminal": "REFUSE"
+    }
+  },
+  "CAL-T3-DECAY": {
+    "base": {
+      "evidence": {},
+      "expected_rejection_layer": "EVALUATOR_GATE",
+      "reason": "RETIRE_DECAY",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "decision": "KEEP"
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "transfer": {
+      "evidence": {},
+      "expected_rejection_layer": "EVALUATOR_GATE",
+      "reason": "RETIRE_DECAY",
+      "terminal": "REFUSE"
+    }
+  },
+  "CAL-T3-EXECUTION": {
+    "base": {
+      "evidence": {},
+      "expected_rejection_layer": "EXECUTION_BOUNDARY",
+      "reason": "UNTRADEABLE_ALL",
+      "terminal": "REFUSE"
+    },
+    "positive_limit": {
+      "evidence": {
+        "filled_order_ids": [
+          "limit_lock"
+        ]
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "positive_suspension": {
+      "evidence": {
+        "filled_order_ids": [
+          "suspension"
+        ]
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "positive_t_plus_one": {
+      "evidence": {
+        "filled_order_ids": [
+          "t_plus_one"
+        ]
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    }
+  },
+  "CAL-T3-NULL-A": {
+    "base": {
+      "evidence": {},
+      "expected_rejection_layer": "EVALUATOR_GATE",
+      "reason": "NO_SUPPORTED_SIGNAL",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "signal_feature": "f0"
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "transfer": {
+      "evidence": {},
+      "expected_rejection_layer": "EVALUATOR_GATE",
+      "reason": "NO_SUPPORTED_SIGNAL",
+      "terminal": "REFUSE"
+    }
+  },
+  "CAL-T3-NULL-B": {
+    "base": {
+      "evidence": {},
+      "expected_rejection_layer": "EVALUATOR_GATE",
+      "reason": "NO_SUPPORTED_SIGNAL",
+      "terminal": "REFUSE"
+    },
+    "positive": {
+      "evidence": {
+        "signal_feature": "f0"
+      },
+      "expected_rejection_layer": null,
+      "reason": null,
+      "terminal": "PROMOTE"
+    },
+    "transfer": {
+      "evidence": {},
+      "expected_rejection_layer": "EVALUATOR_GATE",
+      "reason": "NO_SUPPORTED_SIGNAL",
+      "terminal": "REFUSE"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "case_id": "CAL-T1-REVISION",
+  "exposure": "PUBLIC_CALIBRATION",
+  "variants": {
+    "base": {
+      "decision_at": 10,
+      "prior_value": 7,
+      "revised_value": 7,
+      "revision_available_at": 11
+    },
+    "positive": {
+      "decision_at": 10,
+      "prior_value": 7,
+      "revised_value": 7,
+      "revision_available_at": 9
+    },
+    "transfer": {
+      "decision_at": 10,
+      "prior_value": 7,
+      "revised_value": 7,
+      "revision_available_at": 10
+    }
+  }
+}

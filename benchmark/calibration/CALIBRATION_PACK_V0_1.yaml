@@ -1,0 +1,71 @@
+status: PUBLIC_CALIBRATION_ONLY_NOT_OFFICIAL_BENCHMARK
+case_count: 9
+cases:
+- case_id: CAL-T1-FIELD
+  tier: T1
+  task_family: E1
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T1-FIELD.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T1-FIELD.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T1-FIELD.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T1-REVISION
+  tier: T1
+  task_family: E1
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T1-REVISION.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T1-REVISION.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T1-REVISION.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T2-P10
+  tier: T2
+  task_family: E2
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T2-P10.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T2-P10.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T2-P10.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T2-P20
+  tier: T2
+  task_family: E2
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T2-P20.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T2-P20.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T2-P20.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T3-NULL-A
+  tier: T3
+  task_family: E3
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T3-NULL-A.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T3-NULL-A.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T3-NULL-A.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T3-NULL-B
+  tier: T3
+  task_family: E3
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T3-NULL-B.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T3-NULL-B.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T3-NULL-B.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T3-COST
+  tier: T3
+  task_family: E5
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T3-COST.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T3-COST.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T3-COST.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T3-DECAY
+  tier: T3
+  task_family: E7
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T3-DECAY.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T3-DECAY.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T3-DECAY.json
+  exposure: PUBLIC_CALIBRATION
+- case_id: CAL-T3-EXECUTION
+  tier: T3
+  task_family: E5
+  task_spec_ref: benchmark/calibration/task_specs/CAL-T3-EXECUTION.yaml
+  oracle_manifest_ref: benchmark/calibration/oracle_manifests/CAL-T3-EXECUTION.yaml
+  fixture_ref: benchmark/calibration/fixtures/CAL-T3-EXECUTION.json
+  exposure: PUBLIC_CALIBRATION
+independent_expected_ref: benchmark/calibration/INDEPENDENT_EXPECTED_V0_1.json
+independent_expected_sha256: 0a9ad2b6a3919b294c1cc47e6021c1f18b7567e9790a936f6866698571de0cfa
+hidden_score_eligibility: false
+hidden_mechanism_policy: A different seed of this generator is insufficient for hidden
+  independence.

@@ -1,0 +1,418 @@
+stage_b2_acceptance:
+  stage: B2
+  status: PASS_SYNTHETIC_ENGINEERING_SCOPE
+  stopped_after: stage_b2_acceptance.yaml
+  completed_at_utc: '2026-09-29T09:17:06.432891+00:00'
+  scope:
+    authorized_work_items:
+    - W10A
+    - W11
+    - W12
+    - W13
+    - W14
+    current_task_data_env_eval_fixed: true
+    synthetic_only: true
+    real_model_calls: 0
+    real_market_data_used: false
+    scientific_strategy_search_trials: 0
+    formal_research_verdict: BLOCKED
+    formal_strategy_promotion: false
+    not_authorized:
+    - W10B
+    - W15
+    - W16
+    - W17
+    - W18
+    - W19
+    - real_provider
+    - empirical_data
+    - strategy_search
+    - model_comparison
+    - shadow
+    - live_trading
+  closure_sync:
+    current_state_docs_normalized: true
+    canonical_pytest_testpaths: tests
+    planning:
+      passed: 384
+      exit_code: 0
+      evidence: artifacts/stage_b2/closure_sync_planning.json
+    regression:
+      passed: 436
+      skipped: 1
+      exit_code: 0
+      evidence: artifacts/stage_b2/closure_sync.xml
+  changed_files:
+    modified_pre_b2_files:
+    - README.md
+    - contracts/decisions.yaml
+    - planning/STAGE_B1_BOUNDARIES.md
+    - planning/v0.2/01_CURRENT_STATE_AUDIT.md
+    - planning/v0.2/01_GAP_MATRIX.yaml
+    - planning/v0.2/05_AGENT_ORCHESTRATION_DRAFT.yaml
+    - planning/v0.2/06_WORK_BREAKDOWN.md
+    - planning/validate_planning.py
+    - planning_report.yaml
+    new_non_artifact_files:
+    - planning/STAGE_B2_BOUNDARIES.md
+    - planning/stage_b2_plan.yaml
+    - pytest.ini
+    - src/quant_rsi/agents/critic.py
+    - src/quant_rsi/agents/worker.py
+    - src/quant_rsi/contracts/evaluation.py
+    - src/quant_rsi/eval/gates.py
+    - src/quant_rsi/eval/statistics.py
+    - src/quant_rsi/orchestration/runner.py
+    - tests/agents/test_critic.py
+    - tests/agents/test_worker.py
+    - tests/eval/test_gates.py
+    - tests/eval/test_statistics.py
+    - tests/integration/test_stage_b2.py
+    - tests/orchestration/test_runner.py
+    runtime_test_whitelist_verified: true
+    stage_b2_artifacts: artifacts/stage_b2/
+    untouched_historical_artifacts:
+    - artifacts/stage_a/
+    - artifacts/stage_a1/
+    - artifacts/stage_b1/
+    - stage_a_acceptance.yaml
+    - stage_a1_acceptance.yaml
+    - stage_b1_acceptance.yaml
+    final_delivery_files:
+    - stage_b2_acceptance.yaml
+    - stage_b2_acceptance.sha256
+  test_commands_and_exit_codes:
+  - label: closure_sync
+    command: python -m pytest -q -p no:cacheprovider --junitxml=artifacts/stage_b2/closure_sync.xml
+    exit_code: 0
+    passed: 436
+    skipped: 1
+    scope: pre-B2 canonical discovery hygiene
+  - label: closure_sync_planning
+    command: python planning/validate_planning.py
+    exit_code: 0
+    passed: 384
+  - label: W10A_worker_attempt1_test1
+    command: python -m pytest -q -p no:cacheprovider tests/eval/test_statistics.py
+      --junitxml=artifacts/stage_b2/W10A_worker_attempt1_test1.xml
+    exit_code: 1
+    passed: 45
+    failed: 1
+    items:
+    - W10A
+  - label: W10A_worker_attempt2_test2
+    command: python -m pytest -q -p no:cacheprovider tests/eval/test_statistics.py
+      --junitxml=artifacts/stage_b2/W10A_worker_attempt2_test2.xml
+    exit_code: 0
+    passed: 46
+    failed: 0
+    items:
+    - W10A
+  - label: W12_W13_test1
+    command: python -m pytest -q tests/agents/test_worker.py tests/agents/test_critic.py
+      -p no:cacheprovider --basetemp=artifacts/stage_b2/W12_test1_tmp --junitxml=artifacts/stage_b2/W12_W13_test1.xml
+    environment:
+      PYTHONPATH: D:/Claude_work_Territory/Quant-RSI/src
+      PYTHONDONTWRITEBYTECODE: '1'
+    exit_code: 0
+    passed: 45
+    W12_passed: 27
+    W13_passed: 18
+    failed_test_invocations: []
+    evidence_prefix: artifacts/stage_b2/W12_W13_test1
+    hash_manifest: artifacts/stage_b2/W12_W13_hashes.json
+    items:
+    - W12
+    - W13
+  - label: W11_W14_initial
+    command: python -m pytest -q -p no:cacheprovider tests/eval/test_gates.py tests/orchestration/test_runner.py
+      tests/integration/test_stage_b2.py --junitxml=artifacts/stage_b2/W11_W14_initial.xml
+    exit_code: 0
+    passed: 41
+    failed: 0
+    items:
+    - W11
+    - W14
+    dependent_items_conservatively_charged:
+    - W12
+    - W13
+  - label: critic_initial
+    command: python -B -m pytest -q -s -p no:cacheprovider tests/eval/test_statistics.py
+      tests/eval/test_gates.py tests/agents/test_worker.py tests/agents/test_critic.py
+      tests/orchestration/test_runner.py tests/integration/test_stage_b2.py artifacts/stage_b2/critic_probes.py
+      --basetemp=artifacts/stage_b2/critic_probe_tmp --junitxml=artifacts/stage_b2/critic_initial.xml
+    exit_code: 1
+    passed: 134
+    failed: 6
+    items:
+    - W10A
+    - W11
+    - W12
+    - W13
+    - W14
+    adjudication: One P1, three P2; revocation probe P3 stronger semantics; explicit
+      worker refs hypothesis rejected. Original report retained.
+  - label: repair1
+    command: python -B -m pytest -q -p no:cacheprovider tests/eval/test_statistics.py
+      tests/eval/test_gates.py tests/agents/test_worker.py tests/agents/test_critic.py
+      tests/orchestration/test_runner.py tests/integration/test_stage_b2.py artifacts/stage_b2/critic_probes.py
+      --junitxml=artifacts/stage_b2/repair1.xml
+    exit_code: 0
+    passed: 148
+    failed: 0
+    items:
+    - W10A
+    - W11
+    - W12
+    - W13
+    - W14
+  - label: final1_canonical
+    command: python -m pytest -q -p no:cacheprovider --junitxml=artifacts/stage_b2/final1.xml
+    environment:
+      PYTHONPATH: D:/Claude_work_Territory/Quant-RSI/src
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+      QUANT_RSI_B2_CAPTURE_DIR: D:/Claude_work_Territory/Quant-RSI/artifacts/stage_b2/final1_runtime
+    exit_code: 0
+    passed: 576
+    skipped: 1
+    failed: 0
+    items:
+    - W10A
+    - W11
+    - W12
+    - W13
+    - W14
+    capture: artifacts/stage_b2/final1_runtime
+  - label: final_planning
+    command: python planning/validate_planning.py
+    exit_code: 0
+    checks_passed: 399
+    checks_total: 399
+    items:
+    - W10A
+    - W11
+    - W12
+    - W13
+    - W14
+  failed_attempts_preserved:
+  - id: W10A-attempt1
+    exit_code: 1
+    result: 45 passed, 1 failed
+    cause: Exact floating-point equality assertion for 0.5; math oracle unchanged
+    evidence:
+    - artifacts/stage_b2/W10A_worker_attempt1_test1.log
+    - artifacts/stage_b2/W10A_worker_attempt1_test1.xml
+    - artifacts/stage_b2/W10A_worker_repair1.md
+  - id: independent-critic-initial
+    exit_code: 1
+    result: 134 passed, 6 failed
+    adjudication: Confirmed P1 C01 and P2 C02-C04; P3 C05 timing; one overstrong worker-ref
+      hypothesis rejected. All raw failures retained.
+    evidence:
+    - artifacts/stage_b2/critic_initial.md
+    - artifacts/stage_b2/critic_initial.log
+    - artifacts/stage_b2/critic_initial.xml
+    - artifacts/stage_b2/critic_probes.py
+  - id: W14-worker-interruption
+    exit_code: null
+    result: Worker hit account usage limit before any W14 test invocation; main continued
+      within original shared budget
+    evidence:
+    - artifacts/stage_b2/W14_takeover.md
+  work_item_budgets:
+    W10A:
+      engineering_attempts_used: 3
+      engineering_attempts_limit: 3
+      repair_retries_used: 2
+      repair_retries_limit: 2
+      test_invocations_used_conservative_including_final_planning: 6
+      test_invocations_limit: 6
+      actual_tokens: null
+      actual_cpu_seconds: null
+      actual_peak_memory_mb: null
+      actual_work_item_wall_seconds: null
+    W11:
+      engineering_attempts_used: 2
+      engineering_attempts_limit: 3
+      repair_retries_used: 1
+      repair_retries_limit: 2
+      test_invocations_used_conservative_including_final_planning: 5
+      test_invocations_limit: 6
+      actual_tokens: null
+      actual_cpu_seconds: null
+      actual_peak_memory_mb: null
+      actual_work_item_wall_seconds: null
+    W12:
+      engineering_attempts_used: 1
+      engineering_attempts_limit: 3
+      repair_retries_used: 0
+      repair_retries_limit: 2
+      test_invocations_used_conservative_including_final_planning: 6
+      test_invocations_limit: 6
+      actual_tokens: null
+      actual_cpu_seconds: null
+      actual_peak_memory_mb: null
+      actual_work_item_wall_seconds: null
+    W13:
+      engineering_attempts_used: 1
+      engineering_attempts_limit: 3
+      repair_retries_used: 0
+      repair_retries_limit: 2
+      test_invocations_used_conservative_including_final_planning: 6
+      test_invocations_limit: 6
+      actual_tokens: null
+      actual_cpu_seconds: null
+      actual_peak_memory_mb: null
+      actual_work_item_wall_seconds: null
+    W14:
+      engineering_attempts_used: 2
+      engineering_attempts_limit: 3
+      repair_retries_used: 1
+      repair_retries_limit: 2
+      test_invocations_used_conservative_including_final_planning: 5
+      test_invocations_limit: 6
+      actual_tokens: null
+      actual_cpu_seconds: null
+      actual_peak_memory_mb: null
+      actual_work_item_wall_seconds: null
+  budget_accounting_notes:
+  - Dependency integration invocations charged to W12 and W13. Closure-sync checks
+    occurred before B2 implementation and are not B2 work-item invocations.
+  - Worker/critic in-task scientific search, prompt variants, external queries and
+    sealed submissions were zero. Canonical test fixtures charge synthetic candidate
+    trials locally; they are not research strategy trials.
+  - Resource caps are declared in planning/stage_b2_plan.yaml; actual implementation
+    tokens, CPU, wall and peak memory were not independently metered and no compliance
+    claim is made for those totals. Fake provider usage is provider-reported synthetic,
+    never supervisor-measured.
+  - W10A consumed its full three-attempt and two-repair budget; no reset was used.
+  W10A_math_oracles:
+    evidence:
+    - artifacts/stage_b2/W10A_worker_report.md
+    - artifacts/stage_b2/W10A_worker_attempt2_test2.xml
+    - artifacts/stage_b2/repair1.xml
+    examples:
+    - PSR [0,1,2] hand-calculated z=4/3, probability approximately 0.90878878
+    - White Reality Check hand-enumerated p=1/2 and fixed draws p=3/5
+    - CSCV hand examples PBO 1, 0, 1/4; subnormal persistent winner regression
+    scope: computational_primitives_only_no_alpha_or_inference_verdict
+  G0_G7:
+    statuses:
+      G0: PASS
+      G1: PASS
+      G2: PASS
+      G3: PASS
+      G4: BLOCK
+      G5: PASS
+      G6: BLOCK
+      G7: PASS
+    G4_block_reason: D04B_NOT_FROZEN
+    G6_block_reason: BENCHMARK_GRADE_SEALED_INFRASTRUCTURE_ABSENT
+    G2_scope: supported_fixed_seed_synthetic_replay_only
+    G5_scope: synthetic_execution_conformance_only_D11_D12_deferred
+    evidence:
+    - artifacts/stage_b2/acceptance_evidence_map.yaml
+    - artifacts/stage_b2/final1_runtime/eval.json
+    - artifacts/stage_b2/final1_runtime/trace.json
+    - artifacts/stage_b2/repair1.xml
+    attestation: UNSIGNED_SYNTHETIC
+    formal_verdict: BLOCKED
+  fake_provider_provenance:
+    event_order:
+    - ATTEMPT_STARTED
+    - WORKER_DISPATCH_BOUND
+    - WORKER_REQUEST
+    - WORKER_RESPONSE
+    - ATTEMPT_SETTLED
+    evidence:
+    - artifacts/stage_b2/final1_runtime/worker-provenance.json
+    - artifacts/stage_b2/final1_runtime/trace.json
+    - tests/agents/test_worker.py
+    unknown_usage: None; reserve upper bound blocks next dispatch until trusted reconciliation
+    supervisor_measured_usage: null
+  critic_independence:
+    rule: distinct actor/context/run and critic role; canonical admission and report
+      bytes bound to exact candidate/evidence/manifest
+    evidence:
+    - tests/agents/test_critic.py
+    - tests/eval/test_gates.py
+    - artifacts/stage_b2/final1_runtime/critic_report.json
+    - artifacts/stage_b2/critic_resolution.md
+    real_model_difference_claimed: false
+    OS_identity_authentication_claimed: false
+  integration_evidence:
+    six_cases:
+    - clean engineering path
+    - worker timeout/failure/unknown usage
+    - critic rejection
+    - fabricated or dangling evidence
+    - budget escape through retry/model/prompt
+    - nondeterministic declaration
+    evidence:
+    - tests/integration/test_stage_b2.py
+    - tests/orchestration/test_runner.py
+    - artifacts/stage_b2/final1.xml
+    - artifacts/stage_b2/final1_runtime/manifest.json
+    - artifacts/stage_b2/final1_runtime/result.json
+    delivery_idempotency: true
+    no_auto_retune: true
+  independent_critic:
+    initial_verdict: REQUEST_CHANGES
+    initial_findings:
+    - B2-C01 P1
+    - B2-C02 P2
+    - B2-C03 P2
+    - B2-C04 P2
+    - B2-C05 P3
+    initial_evidence: artifacts/stage_b2/critic_initial.md
+    resolution_verdict: ACCEPT_RESOLUTION
+    all_findings_closed: true
+    unresolved_P0_P1: []
+    resolution_evidence: artifacts/stage_b2/critic_resolution.md
+    resolution_test_invocations: 0
+  final_checks:
+    canonical_regression:
+      command: python -m pytest -q -p no:cacheprovider --junitxml=artifacts/stage_b2/final1.xml
+      passed: 576
+      skipped: 1
+      failed: 0
+      exit_code: 0
+      evidence: artifacts/stage_b2/final1.xml
+    planning_validation:
+      command: python planning/validate_planning.py
+      checks_passed: 399
+      checks_total: 399
+      exit_code: 0
+      evidence: artifacts/stage_b2/planning_validation.json
+    repair_probes:
+      passed: 148
+      failed: 0
+      exit_code: 0
+      evidence: artifacts/stage_b2/repair1.xml
+  historical_artifact_verification:
+    sha256_baseline: artifacts/stage_b2/historical_hashes.json
+    files_checked: 230
+    mismatches: []
+    B1_runtime_source_modifications: 0
+  artifact_hashes:
+    manifest: artifacts/stage_b2/artifact_hashes.json
+    manifest_sha256: 240597484eccc91dd6de4393752f3481f89b931092a84d81f51162cc3c077957
+    files_hashed: 164
+    self_excluded: true
+  updated_gap_matrix: planning/v0.2/01_GAP_MATRIX.yaml
+  remaining_limitations:
+  - D04B/D09/D11/D12 deferred; W10B and W15-W19 unauthorized.
+  - No benchmark-grade sealed custodian/identity/storage; W09 remains synthetic mock
+    and formal G6 BLOCK.
+  - No real provider, actual metering, market PIT certification, calibrated statistical
+    inference or empirical tradability/capacity evidence.
+  - One Windows file-symlink test skipped for OS privilege; directory-junction escape
+    tests passed.
+  - Trace hash chain and critic identities rely on trusted local custodian; no OS/authenticated
+    service or external anchor.
+  - Replay covers installed supported deterministic synthetic code/runtime; no real
+    provider replay claim.
+  - Storage append failure and concurrent cross-process authorization revocation remain
+    custodian/deployment boundaries.
+  recommendation: STOP_B2_WAIT_FOR_SEPARATE_AUTHORIZATION_AND_D04B_DATA_GEOMETRY_FOR_FORMAL_BENCHMARK_CALIBRATION

@@ -1,0 +1,125 @@
+stage: C2
+name: Qualification and Canonicalization
+status: FROZEN_BINDING
+authority: artifacts/stage_c2/authorized_request.txt
+baseline_C1_acceptance_sha256: 49b23b7f1c21de80d09388c0c66d8499d2236f2e6c5ebc639fd99ca797df044d
+baseline_C1_manifest_sha256: 82d907e8ac8d8ad55ac53aef4f76a8a7d340840ce1061e725fd283a2254c577e
+scope: PUBLIC_SYNTHETIC_CANONICALIZATION_AND_BOUNDED_EMPIRICAL_INPUT_QUALIFICATION
+dependencies: 'C2-01 || C2-02; C2-03 empirical portion after C2-02 identifies usable execution-data candidate; C2-04 only after C2-02 and C2-03 demonstrate sufficient sample/data geometry'
+forbidden: [D04B_freeze, D11_freeze, D12_freeze, hidden_pack, benchmark_grade_G6_deployment,
+  W16A, W16B, W17, real_LLM_provider, official_leaderboard, model_comparison,
+  alpha_or_strategy_search, prospective_shadow, live_orders, other_project_reuse]
+work_items:
+  - id: C2-01
+    responsibility: Route T1-T4 public fixtures through existing canonical contracts, worker, critic, evaluator, trace and manifest, without a second truth store.
+    inputs: [stage_c1_acceptance.yaml, benchmark/calibration/**, benchmark/public_oracle_pilot/**,
+      src/quant_rsi/contracts/**, src/quant_rsi/ledger/**, src/quant_rsi/agents/**,
+      src/quant_rsi/eval/**, src/quant_rsi/orchestration/**]
+    forbidden_inputs: [hidden_assets, real_provider, real_market_returns, strategy_candidates,
+      official_Benchmark_scores, other_projects]
+    ownership_conflict_rule: Record conflict before any canonical schema change; extend existing owner only if necessary, never create synonymous Candidate/Evidence/Attempt/EvalResult objects.
+    files_allowed_to_modify: [benchmark/public_oracle_canonical/**, src/quant_rsi/benchmark_public/**,
+      src/quant_rsi/contracts/research.py, src/quant_rsi/contracts/evaluation.py,
+      src/quant_rsi/agents/critic.py, src/quant_rsi/eval/gates.py,
+      src/quant_rsi/orchestration/runner.py, tests/benchmark/public_oracle_canonical/**,
+      tests/contracts/test_research.py, tests/eval/test_gates.py,
+      artifacts/stage_c2/C2-01/**]
+    tests: [four_tier_canonical_end_to_end, canonical_candidate_evidence_trace_manifest,
+      critic_evaluator_interface, all_assigned_denominators,
+      T4_independent_truth_and_justified_refusal, T3_observable_transfer,
+      distinct_terminal_diagnostics, public_oracle_cross_check, anti_bypass_regression,
+      G4_G6_blocked_and_no_formal_promotion]
+    acceptance: T1-T4 have canonical artifact/trace/manifest links; public oracle cross-checks; fake worker only; all assigned denominators retained; P2 dispositions explicit; no official pass.
+    dependencies: []
+    max_engineering_repairs: 5
+    max_test_invocations: 18
+    max_retries_per_failed_check: 2
+    search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, real_provider_calls: 0}
+  - id: C2-02
+    responsibility: Bounded preregistered D11 data-source and PIT qualification of the minimum viable A-share daily data spine, separating observed rows, documentation and license rights.
+    inputs: [stage_c1_acceptance.yaml, benchmark/data_feasibility/**,
+      benchmark/BENCHMARK_DATA_GEOMETRY_v0.1.yaml, official_exchange_regulator_index_and_vendor_sources]
+    forbidden_inputs: [other_project_data, unregistered_post_result_sample_selection,
+      current_membership_as_historical_truth, downloaded_at_as_historical_available_at,
+      alpha_returns, hidden_Benchmark]
+    files_allowed_to_modify: [benchmark/data_qualification/**, artifacts/stage_c2/C2-02/**]
+    tests: [preregistration_precedes_query, raw_response_hashes_and_query_log,
+      documentary_vs_sample_verified, PIT_clock_and_revision_completeness,
+      licensing_independent_of_technical_access, no_D11_freeze]
+    acceptance: Every minimum-spine class is SAMPLE_VERIFIED or honestly UNVERIFIED/UNAVAILABLE; D11 packet and source/license matrix cite observed or documentary evidence separately.
+    dependencies: []
+    max_engineering_repairs: 3
+    max_test_invocations: 10
+    max_official_source_page_fetches: 45
+    max_data_API_sample_queries: 6
+    max_rows_per_sample_query: 100
+    max_distinct_security_ids: 8
+    max_distinct_sample_dates: 10
+    max_distinct_event_types: 8
+    max_retries_per_failed_check: 2
+    search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, real_provider_calls: 0}
+  - id: C2-03
+    responsibility: Version historical A-share rules and qualify daily execution, direct fees, uncertain fill/slippage and capacity fields without strategy research.
+    inputs: [C2-02_usable_execution_data_candidate_or_rule_only_track,
+      benchmark/data_feasibility/D12_DECISION_INPUTS.yaml, official_exchange_regulator_CSDC_tax_sources]
+    forbidden_inputs: [current_rules_backfilled_into_history, invented_daily_bar_fills,
+      single_constant_as_real_transaction_cost, future_ADV, target_capital_freeze,
+      strategy_returns, hidden_assets]
+    files_allowed_to_modify: [benchmark/execution_qualification/**, artifacts/stage_c2/C2-03/**]
+    tests: [effective_date_versioning, direct_vs_empirical_cost_separation,
+      daily_fill_observability, lagged_capacity_inputs, unknown_execution_not_executable,
+      no_D12_freeze]
+    acceptance: Historical rule inventory and D12 packet retain time/version/source and uncertainty; empirical portion begins only after qualified candidate exists.
+    dependencies: [C2-02_usable_execution_data_candidate_for_empirical_portion]
+    rule_only_work_may_start_early: true
+    max_engineering_repairs: 3
+    max_test_invocations: 8
+    max_official_source_page_fetches: 30
+    max_data_API_sample_queries: 2
+    max_rows_per_sample_query: 100
+    max_retries_per_failed_check: 2
+    search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, real_provider_calls: 0}
+  - id: C2-04
+    responsibility: D04B statistical-method calibration study only after observed task/data and execution geometry supports it; propose, never freeze, parameters.
+    inputs: [C2-02_sample_geometry_evidence, C2-03_execution_geometry_evidence,
+      benchmark/D04B_CALIBRATION_GEOMETRY_PROPOSAL.yaml, C1_public_calibration]
+    forbidden_inputs: [hidden_outcomes, real_alpha_search, model_performance_optimization,
+      user_unapproved_Type_I_Type_II_tradeoff, scientific_significance_as_agent_score]
+    files_allowed_to_modify: [benchmark/statistical_calibration/**, artifacts/stage_c2/C2-04/**]
+    start_gate: Observed usable sample counts, label horizons and overlap, missingness and revision quality, and execution/cost feasibility must be sufficient for at least one named task family; otherwise record NOT_STARTED_GATE_CLOSED without fabricated numerical proposal.
+    tests: [parameter_provenance_and_constraints, simulation_only_for_method_validity,
+      sensitivity_and_type_I_power_separation, multiplicity_scope_D04A_preserved,
+      scientific_vs_agent_statistics_separation, no_D04B_freeze]
+    acceptance: Each required parameter has evidence-backed proposal or explicit null/NOT_READY; D04B packet remains proposal only.
+    dependencies: [C2-02, C2-03]
+    max_engineering_repairs: 2
+    max_test_invocations: 8
+    max_official_source_page_fetches: 5
+    max_data_API_sample_queries: 0
+    max_retries_per_failed_check: 2
+    search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, real_provider_calls: 0}
+limits:
+  max_design_revisions: 2
+  max_independent_critic_cycles: 3
+  max_full_regression_test_invocations: 2
+  max_global_test_invocations: 46
+  max_web_search_discovery_queries: 30
+  max_official_source_page_fetches: 80
+  max_network_operations_total: 120
+  max_data_API_sample_queries: 8
+  max_rows_per_sample_query: 100
+  max_total_sample_response_bytes: 2000000
+  provider_calls: 0
+  scientific_candidate_trials: 0
+  hidden_submissions: 0
+  test_invocation_semantics: Every launched pytest, unittest, or custom validation/simulation command counts including failures/timeouts; source reads and static hash inspections do not.
+  network_operation_semantics: Count each search query, page open/fetch/click, and data API request, including failures; metadata-only local reads do not count. Every operation goes in the C2 network ledger.
+  critic_cycle_semantics: Initial independent review is cycle 1; each separate resolution review consumes another cycle.
+  engineering_repair_semantics: A coherent edit batch after a failed engineering check/review counts one repair, irrespective of changed-file count.
+  design_revision_semantics: A coherent post-freeze design-spec correction counts one revision; no self-increase of limits.
+  exhausted: STOP_AND_REPORT_NO_SELF_EXPANSION
+historical_precedence:
+  immutable_stages: [A, A1, B1, B2, C0, C1]
+  C1_final: stage_c1_acceptance.yaml
+  C1_P2_preserved_not_reopened: true
+stop_after: stage_c2_acceptance.yaml

@@ -1,0 +1,51 @@
+{
+  "case_id": "CAL-T3-DECAY",
+  "exposure": "PUBLIC_CALIBRATION",
+  "variants": {
+    "base": {
+      "early_effect": [
+        "0.08",
+        "0.08",
+        "0.08",
+        "0.08"
+      ],
+      "late_effect": [
+        "0.00",
+        "0.00",
+        "0.00",
+        "0.00"
+      ],
+      "retirement_threshold": "0.02"
+    },
+    "positive": {
+      "early_effect": [
+        "0.08",
+        "0.08",
+        "0.08",
+        "0.08"
+      ],
+      "late_effect": [
+        "0.08",
+        "0.08",
+        "0.08",
+        "0.08"
+      ],
+      "retirement_threshold": "0.02"
+    },
+    "transfer": {
+      "early_effect": [
+        "0.08",
+        "0.08",
+        "0.08",
+        "0.08"
+      ],
+      "late_effect": [
+        "0.01",
+        "0.01",
+        "0.01",
+        "0.01"
+      ],
+      "retirement_threshold": "0.02"
+    }
+  }
+}

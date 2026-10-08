@@ -1,0 +1,169 @@
+version: '0.1'
+date: '2026-09-28'
+mission: Evaluate and constrain Quant Research Agents under controlled data, information,
+  execution, search, and evaluation conditions.
+north_star: Reliable Research Output under Controlled Search
+separation:
+  agent_quality: quality and reliability of the research process
+  strategy_quality: economic performance of a produced strategy after risk, costs,
+    capacity and portfolio effects
+  rule: Do not use strategy Sharpe as a direct proxy for agent quality.
+principles:
+- id: H01
+  name: fixed_contract
+  rule: Freeze target, horizon, benchmark, universe, execution timing before experiment.
+  sources:
+  - P04
+  - P05
+  - P30
+- id: H02
+  name: pit_first
+  rule: Point-in-time availability and survivorship integrity are hard gates.
+  sources:
+  - P25
+  - P28
+  - P30
+- id: H03
+  name: trial_ledger
+  rule: All trials, retries, prompt revisions and failed experiments are append-only
+    research history.
+  sources:
+  - P13
+  - P22
+  - P23
+  - P24
+- id: H04
+  name: multiple_testing
+  rule: Promotion thresholds account for search multiplicity and non-normality.
+  sources:
+  - P13
+  - P22
+  - P23
+  - P24
+- id: H05
+  name: replication_before_innovation
+  rule: Reproduce a canonical baseline before claiming an improvement.
+  sources:
+  - P28
+  - P30
+- id: H06
+  name: fixed_data_model_comparison
+  rule: Model comparisons use the same data snapshot, cleaning, feature availability
+    and split.
+  sources:
+  - P27
+  - P30
+- id: H07
+  name: mechanism_before_feature
+  rule: Each candidate links mechanism -> hypothesis -> observable -> proxy -> feature
+    -> experiment.
+  sources:
+  - P09
+  - P12
+  - P21
+- id: H08
+  name: gross_to_net
+  rule: Tradable promotion requires an explicit gross-to-net bridge including execution
+    costs and impact.
+  sources:
+  - P08
+  - P14
+  - P17
+- id: H09
+  name: capacity_is_edge
+  rule: Capacity, mandate, funding and capital-scale fit are part of realizable edge.
+  sources:
+  - P08
+  - P11
+  - P14
+- id: H10
+  name: portfolio_increment
+  rule: Evaluate marginal portfolio contribution, not only standalone signal metrics.
+  sources:
+  - P02
+  - P09
+- id: H11
+  name: nonstationarity
+  rule: Use temporal OOS, decay monitoring and retirement rules.
+  sources:
+  - P15
+  - P19
+  - P20
+  - P26
+- id: H12
+  name: env_is_benchmark
+  rule: State visibility, action constraints, execution and reward semantics are versioned
+    benchmark components.
+  sources:
+  - P16
+  - P18
+  - P30
+- id: H13
+  name: independent_eval
+  rule: Candidate-generating agents cannot modify the sealed evaluator or hidden labels.
+  sources:
+  - P13
+  - P22
+  - P29
+  - P30
+- id: H14
+  name: negative_results_count
+  rule: Falsifying bad hypotheses is a positive research capability; negative results
+    are preserved.
+  sources:
+  - P12
+  - P13
+  - P28
+  - P29
+- id: H15
+  name: china_specificity
+  rule: A-share tasks use local institutional and execution semantics; foreign factors
+    are priors, not truth.
+  sources:
+  - P25
+hard_gates:
+- id: G0
+  name: contract_valid
+- id: G1
+  name: pit_and_no_future_information
+- id: G2
+  name: reproducible_artifacts
+- id: G3
+  name: search_ledger_complete
+- id: G4
+  name: statistical_protocol_valid
+- id: G5
+  name: execution_assumptions_valid
+- id: G6
+  name: sealed_eval_untouched
+- id: G7
+  name: evidence_lineage_complete
+eval_dimensions:
+- problem_definition
+- hypothesis_falsifiability
+- mechanism_quality
+- data_integrity
+- implementation_correctness
+- statistical_validity
+- economic_validity
+- generalization
+- negative_result_handling
+- self_correction
+- research_efficiency
+- auditability
+failure_modes:
+- leaderboard_overfitting
+- same_agent_self_grading
+- unbounded_search
+- hidden_trial_count
+- future_leakage
+- survivorship_bias
+- data_cleaning_confound
+- microcap_illusion
+- gross_alpha_illusion
+- metric_monoculture
+- regime_rescue
+- narrative_as_evidence
+- canonical_object_duplication
+- positive_result_bias
+- benchmark_drift

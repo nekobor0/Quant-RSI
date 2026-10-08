@@ -1,0 +1,18 @@
+{
+  "task_id": "DEV-T4-EXPLANATION",
+  "exposure": "PUBLIC_DEVELOPMENT_ORACLE_PROTOTYPE",
+  "variants": {
+    "base": {
+      "decision_clock": 10,
+      "observations": {"OBS-A": 6, "OBS-B": 2},
+      "minimum_support": 4,
+      "falsification_rule": "winner_support_below_minimum_or_competing_explanation_exceeds_winner"
+    },
+    "transfer": {
+      "decision_clock": 11,
+      "observations": {"OBS-A": 3, "OBS-B": 7},
+      "minimum_support": 4,
+      "falsification_rule": "winner_support_below_minimum_or_competing_explanation_exceeds_winner"
+    }
+  }
+}

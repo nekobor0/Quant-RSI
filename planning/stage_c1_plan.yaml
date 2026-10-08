@@ -1,0 +1,87 @@
+stage: C1
+name: Public Calibration and Data Feasibility
+authority: artifacts/stage_c1/authorized_request.txt
+status: FROZEN_BINDING
+freeze_rule: After the plan hash is recorded, limits and work-item white lists cannot be raised or amended without new user authorization; exhaustion means STOP.
+scope: PUBLIC_SYNTHETIC_CALIBRATION_AND_DATA_FEASIBILITY_ONLY
+dependencies: 'C1-01 || C1-02 -> C1-03 only after both PASS'
+forbidden: [hidden_pack_construction, benchmark_grade_sealed_deployment, real_model_comparison,
+  strategy_search, alpha_discovery, W10B_freeze, D04B_freeze, D11_freeze, D12_freeze,
+  W16A, W16B, W17, W18, W19, official_leaderboard, live_trading]
+fixed_work_items:
+  - id: C1-01
+    responsibility: Nine public Harness calibration cases with separate generator/oracle, two paper-verified T2 definitions, perturbations and three deterministic baselines.
+    inputs: [benchmark/BENCHMARK_V0_1_SPEC.md, benchmark/TASK_CATALOG_DRAFT.yaml,
+      benchmark/BENCHMARK_TASK_SCHEMA.yaml, planning/v0.2/04_EVAL_SPEC_DRAFT.yaml,
+      docs/inputs/05_SOURCE_INDEX.yaml, docs/literature/papers/10-Momentum-Jegadeesh_Titman-1993.pdf,
+      docs/literature/papers/20-Trend-Moskowitz_Ooi_Pedersen-2012.pdf]
+    forbidden_inputs: [other_projects, secondhand_paper_definitions, hidden_labels, real_market_data,
+      LLM_provider, scientific_strategy_search]
+    files_allowed_to_modify: [benchmark/calibration/**, tests/benchmark/calibration/**, artifacts/stage_c1/C1-01/**]
+    tests: [nine_case_count_and_unique_refs, source_pdf_hash_page_definition_checks,
+      independent_oracle_recomputation, per_case_perturbation, rejection_layer,
+      always_refuse_always_promote_contract_only_baselines, denominator_and_failure_retention]
+    acceptance: Nine distinct PUBLIC_CALIBRATION cases and manifests; both T2 original definitions verified from local papers before oracle; generator/oracle independence; all controls and baselines; no hidden/provider/scientific trials.
+    dependencies: []
+    max_engineering_repairs: 4
+    max_test_invocations: 18
+    search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, LLM_provider_calls: 0}
+  - id: C1-02
+    responsibility: Official-source data geometry feasibility matrix with strict evidence levels, bounded preregistered sample only if essential, and D11/D12 inputs without decision freeze.
+    inputs: [benchmark/BENCHMARK_DATA_GEOMETRY_v0.1.yaml, contracts/decisions.yaml,
+      planning/v0.2/03_ENV_SPEC_DRAFT.yaml, official_exchange_regulator_statistical_and_vendor_documentation]
+    forbidden_inputs: [other_project_data, strategy_hypotheses, alpha_returns,
+      hidden_benchmark, wrapper_as_primary_provenance, model_provider]
+    files_allowed_to_modify: [benchmark/data_feasibility/**, artifacts/stage_c1/C1-02/**]
+    tests: [requirement_class_coverage, evidence_level_provenance_checks,
+      documented_vs_sample_verified_separation, D11_D12_deferred,
+      source_query_log_and_sample_preregistration_validation]
+    acceptance: Every required data class has candidate source/status/gaps; critical PIT semantics supported or explicitly UNVERIFIED/UNAVAILABLE; licensing and source limits recorded; no strategy research.
+    dependencies: []
+    max_engineering_repairs: 2
+    max_test_invocations: 6
+    max_official_page_fetches: 40
+    max_data_api_sample_queries: 3
+    max_rows_per_sample_query: 100
+    max_distinct_sample_ids: 3
+    max_distinct_sample_dates: 3
+    sample_rule: Fix IDs/dates/event types and record selection before first data API query; no post-result selection.
+    search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, LLM_provider_calls: 0}
+  - id: C1-03
+    responsibility: One public oracle prototype per tier through existing Harness primitives and a new public-only adapter, with transfer checks and measured cost.
+    inputs: [C1-01_PASS, C1-02_PASS, benchmark/BENCHMARK_TASK_SCHEMA.yaml,
+      benchmark/BENCHMARK_SCORE_VECTOR.yaml, existing_B2_synthetic_components]
+    forbidden_inputs: [hidden_pack, real_model_provider, official_model_comparison,
+      strategy_search, D04B_numeric_freeze, ten_calibration_slots]
+    files_allowed_to_modify: [benchmark/public_oracle_pilot/**,
+      src/quant_rsi/benchmark_public/**, tests/benchmark/public_oracle_pilot/**,
+      artifacts/stage_c1/C1-03/**]
+    tests: [four_tier_end_to_end_public_prototypes, five_T4_terminal_outputs,
+      per_tier_blinded_perturbation, exact_nine_calibration_slots,
+      denominator_retains_invalid_timeout, measured_cost_and_resource_unknown_labels]
+    acceptance: T1/T2/T3 prototypes are public calibration references; T4 is PUBLIC_DEVELOPMENT_ORACLE_PROTOTYPE; scripted/fake adapter traverses canonical Harness objects to terminal oracle/score without LLM judge; actual cost evidence.
+    dependencies: [C1-01, C1-02]
+    max_engineering_repairs: 4
+    max_test_invocations: 15
+    search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, LLM_provider_calls: 0}
+limits:
+  max_design_revisions: 3
+  max_independent_critic_cycles: 3
+  max_full_regression_test_invocations: 2
+  max_global_test_invocations: 41
+  provider_calls: 0
+  scientific_candidate_trials: 0
+  hidden_submissions: 0
+  source_web_page_fetches: 40
+  data_api_sample_queries: 3
+  test_invocation_semantics: Every launched pytest or custom validation command counts, including failed and timed-out calls; source/PDF reads and static inspections do not count as tests.
+  critic_cycle_semantics: Initial independent review is cycle 1, each separate resolution review consumes another cycle.
+  engineering_repair_semantics: A coherent edit batch after a failed engineering check/review counts one repair, irrespective of changed-file count.
+  design_revision_semantics: A coherent post-freeze design-spec correction counts one revision, irrespective of changed-file count.
+  exhausted: STOP_AND_REPORT_NO_SELF_EXPANSION
+historical_precedence:
+  immutable_stages: [A, A1, B1, B2, C0]
+  C0_final: stage_c0_acceptance.yaml
+  critic_resolution_may_supersede_earlier_review: true
+  C1_acceptance_is_final_C1_status_entry: true
+stop_after: stage_c1_acceptance.yaml

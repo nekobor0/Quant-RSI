@@ -1,0 +1,24 @@
+version: C2-03-v0.1
+status: PARTIAL_DIRECT_RULES_EMPIRICAL_COST_NOT_CALIBRATED
+direct_rule_based_costs:
+  stamp_tax: {evidence: [TAX-2005, TAX-LAW-2022, TAX-HALF-2023], historical_schedule_complete: false, investor_incidence: seller_since_2022_law, rate_freeze: null}
+  exchange_handling_fee: {evidence: 'https://www.sse.com.cn/services/tradingservice/charge/ssecharge/', page_asof: '2026-01', documented_rate: '0.00341 percent both sides charged to members', historical_schedule_complete: false, investor_pass_through: unknown}
+  transfer_fee: {evidence: null, historical_schedule_complete: false, status: UNVERIFIED}
+  brokerage_commission: {evidence: null, status: BROKER_AND_ACCOUNT_SPECIFIC_UNVERIFIED}
+empirical_execution_costs:
+  spread: {estimate: null, uncertainty: UNOBSERVABLE_FROM_DAILY_BARS}
+  slippage: {estimate: null, uncertainty: FILL_MODEL_AND_INTRADAY_DATA_REQUIRED}
+  impact: {estimate: null, uncertainty: VOLUME_AND_ORDER_SIZE_DEPENDENT}
+  fill_probability: {estimate: null, uncertainty: QUEUE_AND_ORDER_BOOK_NOT_OBSERVED}
+double_count_guard: Exchange member fee, broker commission, spread, impact and tax must be separate components with documented pass-through before aggregation.
+capacity_fields:
+  ADV: {candidate_input: lagged_daily_volume_or_turnover, availability: UNVERIFIED_C2_02, future_information_forbidden: true}
+  turnover: {candidate_input: dated_daily_amount, availability: UNVERIFIED_C2_02}
+  order_notional: {candidate_input: frozen_candidate_order, availability: ENGINEERING_FIELD_ONLY}
+  participation_ratio: {candidate_input: order_notional_over_prior_observable_ADV, availability: DERIVED_IF_ADV_QUALIFIED}
+  float_market_cap: {candidate_input: historical_float_shares_and_price, availability: UNVERIFIED_C2_02}
+  unfilled_quantity: {candidate_input: explicit_order_ledger, availability: UNKNOWN_WITH_DAILY_BAR_ONLY}
+  impact_stress_inputs: {candidate_input: empirical_spread_depth_response_or_declared_stress, availability: UNVERIFIED}
+target_capital: null
+reference_portfolio: null
+no_single_real_cost_constant_claim: true

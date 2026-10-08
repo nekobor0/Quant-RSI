@@ -1,0 +1,23 @@
+case_id: CAL-T2-P20
+exposure: PUBLIC_CALIBRATION
+tier: T2
+fixture_ref: benchmark/calibration/fixtures/CAL-T2-P20.json
+fixture_sha256: 409432eecd0ec257c4baf196bfb5decb52d923c0d3ca0c90a6c12b06273e8a85
+generator_ref: benchmark/calibration/generate.py
+generator_sha256: 424e06ec26db1c6ef919c4f0b5d4acce0067c343e9f86c5091ab8846211470d3
+oracle_ref: benchmark/calibration/oracle.py
+oracle_sha256: d4215c08eef41fb81c097b90c475efb812c0572910ea3197c71465b318785bbe
+shared_truth_dependency_list: []
+independence_rationale: Generator fixes input values and variants without outcomes;
+  oracle separately computes temporal, return, null, cost, decay or execution verdict.
+  Neither imports the other.
+original_reference_ref: benchmark/calibration/REFERENCE_P20.yaml
+expected_rejection_layer: PIT_DATA_BOUNDARY
+variants:
+- base
+- negative
+- positive
+perturbation: Variant input changes are recomputed by the independent oracle; no fixture
+  byte matching.
+numeric_tolerance: exact_decimal_6_places_for_returns_else_exact
+assigned_denominator_policy: retain_all_assigned_variants_even_missing_invalid_timeout

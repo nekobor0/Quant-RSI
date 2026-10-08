@@ -1,0 +1,21 @@
+{
+  "case_id": "CAL-T1-FIELD",
+  "exposure": "PUBLIC_CALIBRATION",
+  "variants": {
+    "base": {
+      "available_at": 11,
+      "decision_at": 10,
+      "value": 7
+    },
+    "positive": {
+      "available_at": 9,
+      "decision_at": 10,
+      "value": 7
+    },
+    "transfer": {
+      "available_at": 10,
+      "decision_at": 10,
+      "value": 7
+    }
+  }
+}

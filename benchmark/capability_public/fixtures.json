@@ -1,0 +1,343 @@
+{
+  "version": "0.1",
+  "status": "PUBLIC_TRACK_A_FIXTURES",
+  "prompt_contract": {
+    "note": "All tasks use one frozen answer contract. Scoring is deterministic; there is no LLM judge.",
+    "verdict_enum": [
+      "PASS",
+      "REFUSE",
+      "FLAG_INCONSISTENT",
+      "INSUFFICIENT_EVIDENCE"
+    ],
+    "required_keys": [
+      "verdict",
+      "reason",
+      "evidence"
+    ],
+    "response_example": {
+      "verdict": "REFUSE",
+      "reason": "short justification",
+      "evidence": {
+        "field": "value"
+      }
+    }
+  },
+  "tasks": {
+    "A-META-COUNT-ITEMS": {
+      "public_input": {
+        "received_at": "2026-09-30T02:11:00Z",
+        "endpoint": "daily",
+        "request_params": {
+          "ts_code": "600005.SH",
+          "trade_date": "20100104"
+        },
+        "http_status": 200,
+        "body": {
+          "request_id": "f5ecb626-c7e5-4d03-8f02-d410f924e067",
+          "code": 0,
+          "data": {
+            "fields": [
+              "ts_code",
+              "trade_date",
+              "open",
+              "high",
+              "low",
+              "close",
+              "pre_close",
+              "vol",
+              "amount"
+            ],
+            "items": [
+              [
+                "600005.SH",
+                "20100104",
+                8.35,
+                8.38,
+                8.17,
+                8.18,
+                8.28,
+                565176.68,
+                466915.654
+              ]
+            ],
+            "has_more": false,
+            "count": 0
+          },
+          "msg": ""
+        }
+      },
+      "oracle": {
+        "expected_verdict": "FLAG_INCONSISTENT",
+        "expected_evidence": {
+          "items_len": 1,
+          "declared_count": 0,
+          "effective_rows": 1
+        },
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "require_zero_declared_count": true,
+        "rationale": "code=0 and an exact key match with one well-formed row establish one effective record. The declared count of 0 contradicts the payload, so the metadata inconsistency must be reported and the record must still be read from items rather than trusting count."
+      },
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ]
+    },
+    "A-EMPTY-VS-FAILURE": {
+      "public_input": {
+        "received_at": "2026-09-30T03:05:00Z",
+        "endpoint": "suspend_d",
+        "record_a": {
+          "label": "record_a",
+          "http_status": 200,
+          "body": {
+            "request_id": "a-0001",
+            "code": 0,
+            "data": {
+              "fields": [
+                "ts_code",
+                "trade_date",
+                "suspend_type"
+              ],
+              "items": [],
+              "count": 0
+            },
+            "msg": "",
+            "detail": ""
+          }
+        },
+        "record_b": {
+          "label": "record_b",
+          "http_status": 200,
+          "body": {
+            "request_id": "b-0002",
+            "code": 0,
+            "data": {
+              "fields": [
+                "ts_code",
+                "trade_date",
+                "suspend_type"
+              ],
+              "items": [],
+              "count": 0
+            },
+            "msg": "",
+            "detail": "..."
+          }
+        },
+        "prior_incident": "An earlier attempt issued three calls whose SDK path returned an empty table after an HTTP error. The HTTP status of that attempt was not recorded, so the empty table could not be attributed. Root cause remained UNKNOWN."
+      },
+      "oracle": {
+        "expected_verdict": "INSUFFICIENT_EVIDENCE",
+        "expected_evidence": {
+          "distinguishable": false,
+          "missing": [
+            "vendor_error_semantics",
+            "independent_event_oracle"
+          ]
+        },
+        "accept_verdicts": [
+          "INSUFFICIENT_EVIDENCE",
+          "REFUSE"
+        ],
+        "rationale": "A valid empty response and a silently-swallowed vendor error are byte-identical here. HTTP 200 with business code 0 and an empty items list supports neither a positive event nor a proven absence, because no independent oracle establishes that the event did not occur. The absence of an error field is not evidence of absence of error."
+      },
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline",
+        "research_logic"
+      ]
+    },
+    "A-PIT-BACKFILL-REFUSAL": {
+      "public_input": {
+        "decision_at": "2017-01-10T00:00:00Z",
+        "snapshot_retrieved_at": "2026-09-30T04:00:00Z",
+        "snapshot_kind": "CURRENT_STATIC_SNAPSHOT",
+        "rows": [
+          {
+            "ts_code": "600005.SH",
+            "name": "武钢股份",
+            "list_status": "D",
+            "list_date": "19990803",
+            "delist_date": "20170214"
+          },
+          {
+            "ts_code": "600519.SH",
+            "name": "贵州茅台",
+            "list_status": "L",
+            "list_date": "20010827",
+            "delist_date": null
+          }
+        ],
+        "available_fields": [
+          "ts_code",
+          "name",
+          "market",
+          "exchange",
+          "list_status",
+          "list_date",
+          "delist_date"
+        ]
+      },
+      "oracle": {
+        "expected_verdict": "REFUSE",
+        "expected_evidence": {
+          "missing_fields": [
+            "available_at"
+          ],
+          "snapshot_is_current_not_as_of": true
+        },
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "rationale": "The snapshot carries no available_at, no publication timestamp and no historical validity interval, and it was retrieved long after the decision date. list_status is a current value that cannot be backfilled to 2017-01-10, and delist_date is a future fact relative to the decision date. A point-in-time universe cannot be built from it. Using the 2026 retrieval as if it were the 2017 state is a look-ahead leak."
+      },
+      "dimensions": [
+        "pit_and_methodology",
+        "refusal_quality"
+      ]
+    },
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": {
+      "public_input": {
+        "as_of": "2017-02-10T00:00:00Z",
+        "announcement_date": "20170208",
+        "termination_effective_date": "20170214",
+        "last_trading_date": "20170213",
+        "source": "SSE termination-of-listing announcement (public)"
+      },
+      "oracle": {
+        "expected_verdict": "PASS",
+        "expected_evidence": {
+          "still_listed_on_as_of": true,
+          "effective_date": "20170214",
+          "announcement_date": "20170208"
+        },
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "rationale": "2017-02-10 lies after publication (20170208) but before the termination takes effect (20170214), so the security was still listed and trading on the as-of date. The announcement date and the effective date are distinct facts and must not be substituted for one another. Knowing a future termination is not the same as having terminated."
+      },
+      "dimensions": [
+        "pit_and_methodology",
+        "research_logic"
+      ]
+    },
+    "A-DELIST-NOT-SUSPENSION": {
+      "public_input": {
+        "ts_code": "600005.SH",
+        "trade_date": "20200102",
+        "daily_rows_returned": 0,
+        "http_status": 200,
+        "business_code": 0,
+        "known_fact": {
+          "event": "termination_of_listing",
+          "effective_date": "20170214",
+          "source_grade": "PRIMARY_EXCHANGE_EVIDENCE"
+        }
+      },
+      "oracle": {
+        "expected_verdict": "REFUSE",
+        "expected_evidence": {
+          "suspension_conclusion_supported": false,
+          "zero_rows_supports": "POST_DELISTING_INELIGIBILITY_CONSISTENT_OBSERVATION"
+        },
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "rationale": "The security was delisted in 2017, years before the queried date, so it was ineligible rather than suspended. Zero rows are consistent with the known termination and prove nothing about a suspension. Absence must not be attributed to a mechanism the evidence does not identify; a suspension claim needs an independent suspension event source."
+      },
+      "dimensions": [
+        "evidence_discipline",
+        "research_logic"
+      ]
+    },
+    "A-BUDGET-ESCAPE": {
+      "public_input": {
+        "allowed_trials": 3,
+        "trials_used": 3,
+        "outcomes": [
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "proposed_action": "create a new run, rename it as a new experiment family, and take three further trials without counting the previous three"
+      },
+      "oracle": {
+        "expected_verdict": "REFUSE",
+        "expected_evidence": {
+          "compliant": false,
+          "reason_code": "BUDGET_ROOT_ESCAPE"
+        },
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "rationale": "Renaming a run does not create a new budget root. Trials belong to the budget root, and a continuation under the same condition inherits the parent budget root. Retries are counted attempts with no reset, and search counters are never refunded. Treating a rename as a reset is exactly the search-budget escape the design forbids; the additional trials would inflate the effective independent trial count and corrupt any multiple-testing correction."
+      },
+      "dimensions": [
+        "research_logic",
+        "reproducibility"
+      ]
+    },
+    "A-INSUFFICIENT-SUPPORT": {
+      "public_input": {
+        "candidates": {
+          "H1": 0.52,
+          "H2": 0.49
+        },
+        "minimum_support": 0.6,
+        "note": "The higher-scoring candidate is not automatically the winner."
+      },
+      "oracle": {
+        "expected_verdict": "REFUSE",
+        "expected_evidence": {
+          "terminal": "REFUSE",
+          "reason_code": "INSUFFICIENT_SUPPORT"
+        },
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "rationale": "Neither candidate reaches the minimum support threshold, so neither may be promoted. Selecting H1 because it is the higher of two failing candidates is a relative-comparison fallacy: the threshold is absolute. The correct terminal is refusal with the insufficiency recorded, which scores as capability without granting the strategy any economic validity."
+      },
+      "dimensions": [
+        "refusal_quality",
+        "research_logic"
+      ]
+    }
+  },
+  "capability_dimensions": [
+    {
+      "id": "evidence_discipline",
+      "label": "证据纪律",
+      "measures": "是否拒绝把 UNKNOWN 当作 PASS；是否据实际字节而非元数据下结论"
+    },
+    {
+      "id": "data_handling_correctness",
+      "label": "数据处理正确性",
+      "measures": "元数据/载荷不一致、缺失、重复、字段语义与来源一致性的处理"
+    },
+    {
+      "id": "pit_and_methodology",
+      "label": "PIT 与方法论正确性",
+      "measures": "未来信息、as-of 可得性、样本与回测时点问题识别"
+    },
+    {
+      "id": "research_logic",
+      "label": "研究逻辑",
+      "measures": "假设可否证、实验设计是否支持结论"
+    },
+    {
+      "id": "refusal_quality",
+      "label": "正确否决质量",
+      "measures": "证据不足时能否正确拒绝而不臆造"
+    },
+    {
+      "id": "reproducibility",
+      "label": "执行效率与复现性",
+      "measures": "同预算下的成本、失败率、输出可复现性"
+    }
+  ]
+}

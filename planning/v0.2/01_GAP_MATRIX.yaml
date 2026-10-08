@@ -1,0 +1,652 @@
+version: '0.2'
+status: C0_DESIGN_REVIEW_PASS_RUNTIME_GAPS_REMAIN
+state_semantics:
+  PRESENT: specified capability exists with explicitly scoped evidence; not production
+    certification
+  PARTIAL: tested primitives exist or normative requirements exist; listed remaining
+    gaps still apply
+  ABSENT: no runtime implementation in current authorized project scope
+  CONFLICT: unresolved contradictory requirements
+capabilities:
+- id: C01
+  capability: fixed_task_contract
+  current_state: PRESENT
+  state_scope: Stage_A_synthetic_kernel_only
+  canonical_owner: contracts/condition
+  owner_status: implemented_with_scoped_limits
+  evidence_paths:
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#4.1A
+  gaps:
+  - 只证明冻结合同、内容绑定和激活门禁；empirical 任务/数据未校准
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H01
+  - H06
+  work_items:
+  - W01
+  - W04
+  runtime_evidence:
+  - contracts/decisions.yaml
+  - src/quant_rsi/contracts/condition.py
+  - tests/contracts/test_condition.py
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+  stage_a1_extension:
+    status: VERIFIED_WITH_DECLARED_LIMITATIONS
+    contract_note: Historical snapshot verification is separate from current dispatch
+      authorization.
+    evidence:
+    - tests/ledger/test_provenance.py
+    - artifacts/stage_a1/final.xml
+    - artifacts/stage_a1/final_runtime/manifest.json
+    - artifacts/stage_a1/critic_resolution.json
+- id: C02
+  capability: single_research_truth
+  current_state: PRESENT
+  state_scope: Stage_A_synthetic_kernel_only
+  canonical_owner: contracts/research
+  owner_status: implemented_with_scoped_limits
+  evidence_paths:
+  - docs/inputs/01_LITERATURE_TO_HARNESS_TAKEAWAYS.md#4
+  gaps:
+  - 语义可证伪性和 source authenticity 仍需独立审阅；无研究对象服务/UI
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H07
+  work_items:
+  - W02
+  runtime_evidence:
+  - src/quant_rsi/contracts/research.py
+  - tests/contracts/test_research.py
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+  stage_a1_extension:
+    status: VERIFIED_WITH_DECLARED_LIMITATIONS
+    contract_note: Candidate -> trace Attempt -> immutable Experiment; source artifact
+      hash is bound.
+    evidence:
+    - tests/ledger/test_provenance.py
+    - artifacts/stage_a1/final.xml
+    - artifacts/stage_a1/final_runtime/manifest.json
+    - artifacts/stage_a1/critic_resolution.json
+- id: C03
+  capability: data_PIT_lineage
+  current_state: PARTIAL
+  state_scope: synthetic_B1_primitives_only
+  canonical_owner: contracts/data + data/pit
+  owner_status: implemented_with_scoped_limits
+  evidence_paths:
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#6
+  gaps:
+  - Synthetic PIT views and frozen training transforms implemented; real source completeness,
+    historical universe coverage and empirical dataset validation remain unverified.
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H02
+  - H06
+  - H15
+  work_items:
+  - W03
+  - W07
+  runtime_evidence:
+  - src/quant_rsi/contracts/data.py
+  - tests/contracts/test_data.py
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+  stage_b1_extension:
+    work_items:
+    - W07
+    status: VERIFIED_SYNTHETIC_INFRASTRUCTURE_ONLY
+    scope: synthetic engineering only
+    remaining_limits:
+    - No empirical dataset validation or real historical market-rule database.
+    - No real provider, statistical inference, sealed deployment or formal G2/G6 verdict.
+    evidence:
+    - planning/STAGE_B1_BOUNDARIES.md
+    - artifacts/stage_b1/W07_initial.xml
+    - artifacts/stage_b1/W08_test_commands.json
+    - artifacts/stage_b1/W20_initial.xml
+    - artifacts/stage_b1/W09_initial.xml
+    - artifacts/stage_b1/w09_tm01_custodian_review.json
+    - artifacts/stage_b1/evidence_correction/critic_cr03_final.json
+    - artifacts/stage_b1/evidence_correction/invocation12.xml
+    - artifacts/stage_b1/evidence_correction/final_runtime/replay.json
+- id: C04
+  capability: append_only_history
+  current_state: PARTIAL
+  state_scope: Stage_A_synthetic_kernel_only
+  canonical_owner: ledger/store
+  owner_status: implemented_with_scoped_limits
+  evidence_paths:
+  - docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml#H03
+  gaps:
+  - 事务、hash chain、锚点接口已验证；OS 身份、独立锚点托管与对抗性部署未实现
+  proposed_action: NEW
+  priority: P0
+  principle_ids:
+  - H03
+  - H14
+  work_items:
+  - W05
+  runtime_evidence:
+  - src/quant_rsi/ledger/store.py
+  - tests/ledger/test_store.py
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+  stage_a1_extension:
+    status: VERIFIED_WITH_DECLARED_LIMITATIONS
+    contract_note: Attempt projection remains trace-only; output events and failure
+      artifacts are preserved.
+    evidence:
+    - tests/ledger/test_provenance.py
+    - artifacts/stage_a1/final.xml
+    - artifacts/stage_a1/final_runtime/manifest.json
+    - artifacts/stage_a1/critic_resolution.json
+- id: C05
+  capability: bounded_search
+  current_state: PARTIAL
+  state_scope: Stage_A_synthetic_kernel_only
+  canonical_owner: ledger/budget
+  owner_status: implemented_with_scoped_limits
+  evidence_paths:
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#4.1C
+  gaps:
+  - 本地原子预算和失败/unknown 核算已验证；进程资源强制、可信用量计量属于后续 supervisor
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H03
+  - H04
+  work_items:
+  - W06
+  runtime_evidence:
+  - src/quant_rsi/ledger/budget.py
+  - tests/ledger/test_budget.py
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+  stage_a1_extension:
+    status: VERIFIED_WITH_DECLARED_LIMITATIONS
+    contract_note: Current policy checked on every new dispatch; retries and failed
+      attempts retain accounting.
+    evidence:
+    - tests/ledger/test_provenance.py
+    - artifacts/stage_a1/final.xml
+    - artifacts/stage_a1/final_runtime/manifest.json
+    - artifacts/stage_a1/critic_resolution.json
+  stage_b2_update:
+    status: PASS_SCOPED_SYNTHETIC_ENGINEERING
+    scope: SYNTHETIC_ENGINEERING_ONLY
+    implementation: src/quant_rsi/orchestration/runner.py
+    remaining_limits: Canonical reserve/settle reused; model/prompt root escape and
+      explicit retry tests pass. Trusted supervisor usage only; no real metering.
+    verification:
+    - artifacts/stage_b2/W11_W14_initial.xml
+    - artifacts/stage_b2/final1.xml
+    - artifacts/stage_b2/critic_resolution.md
+- id: C06
+  capability: versioned_env_execution
+  current_state: PARTIAL
+  state_scope: synthetic_B1_primitives_only
+  canonical_owner: env/daily
+  owner_status: proposed_except_original_principles_catalog
+  evidence_paths:
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#6
+  gaps:
+  - Synthetic versioned daily execution implemented; real historical market rules,
+    calibrated costs and tradable capacity remain unverified.
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H08
+  - H09
+  - H12
+  - H15
+  work_items:
+  - W08
+  stage_a_review: OUT_OF_SCOPE
+  stage_b1_extension:
+    work_items:
+    - W08
+    status: VERIFIED_SYNTHETIC_INFRASTRUCTURE_ONLY
+    scope: synthetic engineering only
+    remaining_limits:
+    - No empirical dataset validation or real historical market-rule database.
+    - No real provider, statistical inference, sealed deployment or formal G2/G6 verdict.
+    evidence:
+    - planning/STAGE_B1_BOUNDARIES.md
+    - artifacts/stage_b1/W07_initial.xml
+    - artifacts/stage_b1/W08_test_commands.json
+    - artifacts/stage_b1/W20_initial.xml
+    - artifacts/stage_b1/W09_initial.xml
+    - artifacts/stage_b1/w09_tm01_custodian_review.json
+    - artifacts/stage_b1/evidence_correction/critic_cr03_final.json
+    - artifacts/stage_b1/evidence_correction/invocation12.xml
+    - artifacts/stage_b1/evidence_correction/final_runtime/replay.json
+- id: C07
+  capability: sealed_OOS_boundary
+  current_state: PARTIAL
+  state_scope: synthetic_B1_primitives_only
+  canonical_owner: eval/isolation
+  owner_status: proposed_except_original_principles_catalog
+  evidence_paths:
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#5
+  gaps:
+  - Synthetic protocol mock only; independent OS identity, sealed storage, credentials
+    and deployment leakage controls remain unverified. Formal G6 BLOCKED.
+  proposed_action: NEW
+  priority: P0
+  principle_ids:
+  - H13
+  work_items:
+  - W09
+  - W16
+  stage_a_review: OUT_OF_SCOPE
+  stage_b1_extension:
+    work_items:
+    - W09
+    status: VERIFIED_SYNTHETIC_INFRASTRUCTURE_ONLY
+    scope: synthetic engineering only
+    remaining_limits:
+    - No empirical dataset validation or real historical market-rule database.
+    - No real provider, statistical inference, sealed deployment or formal G2/G6 verdict.
+    evidence:
+    - planning/STAGE_B1_BOUNDARIES.md
+    - artifacts/stage_b1/W07_initial.xml
+    - artifacts/stage_b1/W08_test_commands.json
+    - artifacts/stage_b1/W20_initial.xml
+    - artifacts/stage_b1/W09_initial.xml
+    - artifacts/stage_b1/w09_tm01_custodian_review.json
+    - artifacts/stage_b1/evidence_correction/critic_cr03_final.json
+    - artifacts/stage_b1/evidence_correction/invocation12.xml
+    - artifacts/stage_b1/evidence_correction/final_runtime/replay.json
+  stage_c0_update:
+    status: DESIGN_REVIEW_PASS_IMPLEMENTATION_BLOCKED
+    scope: NO_RUNTIME_OR_FORMAL_BENCHMARK_CLAIM
+    design_artifact: benchmark/HIDDEN_SET_LIFECYCLE.md
+    remaining_gap: Hidden exposure and custody lifecycle designed; independent deployment
+      still absent.
+- id: C08
+  capability: multiple_testing_methods
+  current_state: PARTIAL
+  state_scope: Stage_B2_synthetic_implementation_reviewed_formal_gaps_remain
+  canonical_owner: eval/statistics
+  owner_status: implemented_with_scoped_limits_independently_reviewed
+  evidence_paths:
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#9
+  gaps:
+  - PSR/DSR/bootstrap/White RC/CSCV pure computations with explicit assumptions and
+    hand oracles. D04B calibration/inference remains absent; W10B unauthorized.
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H04
+  work_items:
+  - W10
+  stage_a_review: OUT_OF_SCOPE
+  stage_b2_update:
+    status: PASS_SCOPED_SYNTHETIC_ENGINEERING
+    scope: SYNTHETIC_ENGINEERING_ONLY
+    implementation: src/quant_rsi/eval/statistics.py
+    remaining_limits: PSR/DSR/bootstrap/White RC/CSCV pure computations with explicit
+      assumptions and hand oracles. D04B calibration/inference remains absent; W10B
+      unauthorized.
+    verification:
+    - artifacts/stage_b2/W10A_worker_report.md
+    - artifacts/stage_b2/W10A_worker_attempt2_test2.xml
+    - artifacts/stage_b2/final1.xml
+    - artifacts/stage_b2/critic_resolution.md
+  stage_c0_update:
+    status: DESIGN_REVIEW_PASS_IMPLEMENTATION_BLOCKED
+    scope: NO_RUNTIME_OR_FORMAL_BENCHMARK_CLAIM
+    design_artifact: benchmark/D04B_CALIBRATION_GEOMETRY_PROPOSAL.yaml
+    remaining_gap: D04B geometry proposed without numerical freeze; formal G4 remains
+      BLOCK.
+- id: C09
+  capability: deterministic_eval
+  current_state: PARTIAL
+  state_scope: Stage_B2_synthetic_implementation_reviewed_formal_gaps_remain
+  canonical_owner: eval/gates
+  owner_status: implemented_with_scoped_limits_independently_reviewed
+  evidence_paths:
+  - docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml#hard_gates
+  gaps:
+  - G0-G7 implemented in synthetic blocked-aware evaluator; G4/G6 mandatory BLOCK.
+    No calibrated score or promotion.
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H01
+  - H02
+  - H03
+  - H04
+  - H08
+  - H09
+  - H13
+  - H14
+  work_items:
+  - W11
+  stage_a_review: OUT_OF_SCOPE
+  stage_b2_update:
+    status: PASS_SCOPED_SYNTHETIC_ENGINEERING
+    scope: SYNTHETIC_ENGINEERING_ONLY
+    implementation: src/quant_rsi/eval/gates.py
+    remaining_limits: G0-G7 implemented in synthetic blocked-aware evaluator; G4/G6
+      mandatory BLOCK. No calibrated score or promotion.
+    verification:
+    - artifacts/stage_b2/W11_W14_initial.xml
+    - artifacts/stage_b2/final1.xml
+    - artifacts/stage_b2/critic_resolution.md
+  stage_c0_update:
+    status: DESIGN_REVIEW_PASS_IMPLEMENTATION_BLOCKED
+    scope: NO_RUNTIME_OR_FORMAL_BENCHMARK_CLAIM
+    design_artifact: benchmark/BENCHMARK_TASK_SCHEMA.yaml
+    remaining_gap: BenchmarkTaskSpec ownership and score gate references drafted;
+      B2 evaluator remains synthetic.
+- id: C10
+  capability: independent_critic_agents
+  current_state: PARTIAL
+  state_scope: Stage_B2_synthetic_implementation_reviewed_formal_gaps_remain
+  canonical_owner: agents + orchestration
+  owner_status: implemented_with_scoped_limits_independently_reviewed
+  evidence_paths:
+  - docs/inputs/04_ASTRA_EXECUTION_PLAN.yaml#roles
+  gaps:
+  - Fake worker and immutable evidence-bound critic; distinct actor/context/run required.
+    Trusted identity protocol only, no real provider or OS identity.
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H13
+  - H14
+  work_items:
+  - W12
+  - W13
+  - W14
+  stage_a_review: OUT_OF_SCOPE
+  stage_b2_update:
+    status: PASS_SCOPED_SYNTHETIC_ENGINEERING
+    scope: SYNTHETIC_ENGINEERING_ONLY
+    implementation: src/quant_rsi/agents/critic.py
+    remaining_limits: Fake worker and immutable evidence-bound critic; distinct actor/context/run
+      required. Trusted identity protocol only, no real provider or OS identity.
+    verification:
+    - artifacts/stage_b2/W11_W14_initial.xml
+    - artifacts/stage_b2/final1.xml
+    - artifacts/stage_b2/critic_resolution.md
+- id: C11
+  capability: replication_negative_controls
+  current_state: PARTIAL
+  state_scope: authorized_seven_documents_only_NOT_runtime_certification
+  canonical_owner: tests/calibration
+  owner_status: proposed_except_original_principles_catalog
+  evidence_paths:
+  - docs/inputs/04_ASTRA_EXECUTION_PLAN.yaml#P7
+  gaps:
+  - 九例最低计划存在，无 fixture、参考结果或运行证据
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H05
+  - H14
+  - H15
+  work_items:
+  - W15
+  - W16
+  stage_a_review: OUT_OF_SCOPE
+  stage_c0_update:
+    status: DESIGN_REVIEW_PASS_IMPLEMENTATION_BLOCKED
+    scope: NO_RUNTIME_OR_FORMAL_BENCHMARK_CLAIM
+    design_artifact: benchmark/TASK_CATALOG_DRAFT.yaml
+    remaining_gap: Nine public calibration cases remain Harness minimum; 30 benchmark
+      templates designed, none generated.
+- id: C12
+  capability: artifacts_reproducibility
+  current_state: PARTIAL
+  state_scope: synthetic_B1_primitives_only
+  canonical_owner: contracts/condition + eval/replay
+  owner_status: implemented_with_scoped_limits
+  evidence_paths:
+  - docs/inputs/06_DECISION_REGISTER.md#版本键
+  gaps:
+  - Supported synthetic execution has manifest-bound replay; arbitrary historical
+    environment reconstruction and formal G2 evaluation remain outside this stage.
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H01
+  - H06
+  work_items:
+  - W04
+  - W20
+  runtime_evidence:
+  - src/quant_rsi/contracts/condition.py
+  - artifacts/stage_a/StageA_final_runtime/summary.json
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+  stage_a1_extension:
+    status: VERIFIED_WITH_DECLARED_LIMITATIONS
+    contract_note: RunManifest verifies immutable input/output refs and provenance;
+      W20 replay engine remains absent.
+    evidence:
+    - tests/ledger/test_provenance.py
+    - artifacts/stage_a1/final.xml
+    - artifacts/stage_a1/final_runtime/manifest.json
+    - artifacts/stage_a1/critic_resolution.json
+  stage_b1_extension:
+    work_items:
+    - W20
+    status: VERIFIED_SYNTHETIC_INFRASTRUCTURE_ONLY
+    scope: synthetic engineering only
+    remaining_limits:
+    - No empirical dataset validation or real historical market-rule database.
+    - No real provider, statistical inference, sealed deployment or formal G2/G6 verdict.
+    evidence:
+    - planning/STAGE_B1_BOUNDARIES.md
+    - artifacts/stage_b1/W07_initial.xml
+    - artifacts/stage_b1/W08_test_commands.json
+    - artifacts/stage_b1/W20_initial.xml
+    - artifacts/stage_b1/W09_initial.xml
+    - artifacts/stage_b1/w09_tm01_custodian_review.json
+    - artifacts/stage_b1/evidence_correction/critic_cr03_final.json
+    - artifacts/stage_b1/evidence_correction/invocation12.xml
+    - artifacts/stage_b1/evidence_correction/final_runtime/replay.json
+  stage_b2_update:
+    status: PASS_SCOPED_SYNTHETIC_ENGINEERING
+    scope: SYNTHETIC_ENGINEERING_ONLY
+    implementation: src/quant_rsi/orchestration/runner.py
+    remaining_limits: Synthetic closed loop connects existing replay and manifest
+      to worker/critic/evaluator. Supported deterministic fixtures only; nondeterministic
+      declarations cannot G2 PASS.
+    verification:
+    - artifacts/stage_b2/W11_W14_initial.xml
+    - artifacts/stage_b2/final1.xml
+    - artifacts/stage_b2/critic_resolution.md
+- id: C13
+  capability: portfolio_increment
+  current_state: PARTIAL
+  state_scope: authorized_seven_documents_only_NOT_runtime_certification
+  canonical_owner: env/daily + eval/gates
+  owner_status: proposed_except_original_principles_catalog
+  evidence_paths:
+  - docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml#H10
+  gaps:
+  - 需报告边际贡献，但参考组合、风险模型、资本与测量均未冻结
+  proposed_action: EXTEND
+  priority: P1
+  principle_ids:
+  - H10
+  - H09
+  work_items:
+  - W08
+  - W11
+  stage_a_review: OUT_OF_SCOPE
+  stage_b1_extension:
+    work_items:
+    - W08
+    status: VERIFIED_SYNTHETIC_INFRASTRUCTURE_ONLY
+    scope: synthetic engineering only
+    remaining_limits:
+    - No empirical dataset validation or real historical market-rule database.
+    - No real provider, statistical inference, sealed deployment or formal G2/G6 verdict.
+    evidence:
+    - planning/STAGE_B1_BOUNDARIES.md
+    - artifacts/stage_b1/W07_initial.xml
+    - artifacts/stage_b1/W08_test_commands.json
+    - artifacts/stage_b1/W20_initial.xml
+    - artifacts/stage_b1/W09_initial.xml
+    - artifacts/stage_b1/w09_tm01_custodian_review.json
+    - artifacts/stage_b1/evidence_correction/critic_cr03_final.json
+    - artifacts/stage_b1/evidence_correction/invocation12.xml
+    - artifacts/stage_b1/evidence_correction/final_runtime/replay.json
+- id: C14
+  capability: prospective_shadow
+  current_state: PARTIAL
+  state_scope: authorized_seven_documents_only_NOT_runtime_certification
+  canonical_owner: shadow/monitor
+  owner_status: proposed_except_original_principles_catalog
+  evidence_paths:
+  - docs/inputs/04_ASTRA_EXECUTION_PLAN.yaml#P9
+  gaps:
+  - 只有 no-backfill 要求；没有前向样本与 retirement 实现
+  proposed_action: EXTEND
+  priority: P1
+  principle_ids:
+  - H11
+  work_items:
+  - W18
+  stage_a_review: OUT_OF_SCOPE
+  stage_c0_update:
+    status: DESIGN_REVIEW_PASS_IMPLEMENTATION_BLOCKED
+    scope: NO_RUNTIME_OR_FORMAL_BENCHMARK_CLAIM
+    design_artifact: benchmark/HIDDEN_SET_LIFECYCLE.md
+    remaining_gap: E9 prospective set lifecycle defined, unscored and not implemented.
+- id: C15
+  capability: model_comparison
+  current_state: PARTIAL
+  state_scope: authorized_seven_documents_only_NOT_runtime_certification
+  canonical_owner: reporting/comparison
+  owner_status: proposed_except_original_principles_catalog
+  evidence_paths:
+  - docs/inputs/04_ASTRA_EXECUTION_PLAN.yaml#P8
+  gaps:
+  - 同条件原则存在，无分组逻辑、比较样本或统计功效
+  proposed_action: EXTEND
+  priority: P1
+  principle_ids:
+  - H06
+  - H04
+  work_items:
+  - W17
+  stage_a_review: OUT_OF_SCOPE
+  stage_c0_update:
+    status: DESIGN_REVIEW_PASS_IMPLEMENTATION_BLOCKED
+    scope: NO_RUNTIME_OR_FORMAL_BENCHMARK_CLAIM
+    design_artifact: benchmark/BENCHMARK_V0_1_SPEC.md
+    remaining_gap: Paired-task model-comparison statistics and suite-size uncertainty
+      outlined, no comparison run.
+- id: C16
+  capability: scope_inheritance
+  current_state: PRESENT
+  state_scope: Stage_A_synthetic_kernel_only
+  canonical_owner: contracts/decisions
+  owner_status: implemented_with_scoped_limits
+  evidence_paths:
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#2
+  gaps:
+  - 项目独立边界已冻结；初始输入仅历史文档
+  proposed_action: ADAPTER
+  priority: P0
+  principle_ids: []
+  work_items:
+  - W01
+  runtime_evidence:
+  - contracts/decisions.yaml
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+- id: C17
+  capability: design_principles_catalog
+  current_state: PRESENT
+  state_scope: authorized_seven_documents_only_NOT_runtime_certification
+  canonical_owner: docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml
+  owner_status: proposed_except_original_principles_catalog
+  evidence_paths:
+  - docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml
+  gaps:
+  - 仅作为规范存在，不代表运行能力
+  proposed_action: REUSE
+  priority: P0
+  principle_ids:
+  - H01
+  - H02
+  - H03
+  - H04
+  - H05
+  - H06
+  - H07
+  - H08
+  - H09
+  - H10
+  - H11
+  - H12
+  - H13
+  - H14
+  - H15
+  work_items:
+  - W01
+  - W19
+  stage_a_review: NORMATIVE_CATALOG_REUSED
+- id: C18
+  capability: separate_claim_and_agent_accounting
+  current_state: PRESENT
+  state_scope: synthetic_identity_and_accounting_no_scores_or_statistical_inference
+  canonical_owner: contracts/research.py + contracts/condition.py + ledger/budget.py
+  owner_status: implemented_and_scoped_reviewed
+  evidence_paths:
+  - docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml#H03-H06
+  amendment_source: user_Planning_v0.2_A1
+  runtime_evidence:
+  - tests/ledger/test_budget.py
+  - artifacts/stage_a/StageA_final_runtime/summary.json
+  gaps:
+  - Agent capability scoring and effective trial calibration remain unimplemented
+    W10/W11
+  proposed_action: EXTEND
+  priority: P0
+  principle_ids:
+  - H03
+  - H04
+  - H06
+  work_items:
+  - W02
+  - W04
+  - W06
+  stage_a_review: INDEPENDENT_CODE_REVIEW_COMPLETED_WITH_LIMITS
+  verification_ref: artifacts/stage_a/StageA_final.xml
+  stage_b2_update:
+    status: PASS_SCOPED_SYNTHETIC_ENGINEERING
+    scope: SYNTHETIC_ENGINEERING_ONLY
+    implementation: src/quant_rsi/eval/gates.py
+    remaining_limits: Existing scientific-family denominator and own-run accounting
+      reused. No cross-model capability score or empirical effective-trial calibration.
+    verification:
+    - artifacts/stage_b2/W11_W14_initial.xml
+    - artifacts/stage_b2/final1.xml
+    - artifacts/stage_b2/critic_resolution.md
+  stage_c0_update:
+    status: DESIGN_REVIEW_PASS_IMPLEMENTATION_BLOCKED
+    scope: NO_RUNTIME_OR_FORMAL_BENCHMARK_CLAIM
+    design_artifact: benchmark/BENCHMARK_BUDGET_SPEC.yaml
+    remaining_gap: Budget design preserves independent AgentBenchmarkRun capability
+      owner and claim-family multiplicity.
+stage_a1_status: VERIFIED_SYNTHETIC_ONLY
+stage_b1_status: PASS_SYNTHETIC_SCOPE_ONLY
+stage_b1_override_evidence: artifacts/stage_b1/W08_override_verification.json
+stage_b1_open_acceptance_issue: null
+stage_b2_status: PASS_SYNTHETIC_ENGINEERING_SCOPE_STOPPED
+stage_c0_scope: DESIGN_ONLY_NO_RUNTIME
+stage_c0_design_review: PASS_NO_OPEN_P0_P1
+stage_c0_acceptance: stage_c0_acceptance.yaml
+stage_c0_runtime_gate_status: G4_G6_BLOCKED_NO_FORMAL_COMPARISON

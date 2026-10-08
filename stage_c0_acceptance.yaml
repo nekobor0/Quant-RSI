@@ -1,0 +1,99 @@
+stage: C0
+name: Benchmark v0.1 Specification Freeze
+status: PASS_DESIGN_REVIEW_ONLY_STOPPED
+formal_research_verdict: BLOCKED
+authority: artifacts/stage_c0/authorized_request.txt
+accepted_scope: Research Agent benchmark design for A-share ordinary stocks, daily closed data
+execution_scope: DESIGN_ONLY_NO_RUNTIME
+next_stage_authorized: false
+completed_design:
+  subject: Research Agent capability, no single total score
+  benchmark_task_schema: benchmark/BENCHMARK_TASK_SCHEMA.yaml
+  capability_matrix: benchmark/CAPABILITY_MATRIX.yaml
+  task_templates: 30
+  public_development_slots_proposed: 9
+  public_calibration_slots_proposed: 9
+  hidden_instances_proposed_not_built: 38
+  score_and_budget: [benchmark/BENCHMARK_BUDGET_SPEC.yaml, benchmark/BENCHMARK_SCORE_VECTOR.yaml]
+  data_and_statistics: [benchmark/BENCHMARK_DATA_GEOMETRY_v0.1.yaml, benchmark/D04B_CALIBRATION_GEOMETRY_PROPOSAL.yaml]
+  hidden_and_versioning: [benchmark/HIDDEN_SET_LIFECYCLE.md, benchmark/BENCHMARK_VERSIONING.md]
+  suite_and_work_breakdown: [benchmark/BENCHMARK_V0_1_SPEC.md, benchmark/W15_W16_REDESIGN_REVIEW.md]
+current_state_updates: [planning/stage_c0_plan.yaml, planning/STAGE_C0_BOUNDARIES.md, planning/v0.2/01_GAP_MATRIX.yaml, planning_report.yaml]
+artifact_hash_manifest:
+  path: artifacts/stage_c0/artifact_hashes.json
+  sha256: 62f74521f2792658c94921ab62db30e8a61663f2b0b404b449d68f4075b7b24c
+  included_file_count: 42
+  excludes: [stage_c0_acceptance.yaml, artifacts/stage_c0/artifact_hashes.json]
+validation:
+  final_command: python artifacts/stage_c0/validate_design.py final
+  final_exit_code: 0
+  final_result: 45_of_45_document_checks_PASS
+  final_record: artifacts/stage_c0/validation_final.json
+  final_log: artifacts/stage_c0/validation_final.log
+  final_exit_record: artifacts/stage_c0/validation_final.exit.txt
+  scope: static design/refs/current-state/historical-hash checks; no oracle truth, runtime or model run
+  historical_files_hashed_unchanged: 397
+  runtime_source_files_hashed_unchanged: 34
+  prior_failure_and_repair_history: artifacts/stage_c0/failed_attempts.md
+independent_critic:
+  initial: artifacts/stage_c0/critic_initial.md
+  first_resolution: artifacts/stage_c0/critic_resolution.md
+  second_resolution: artifacts/stage_c0/critic_resolution_final.md
+  final_resolution: artifacts/stage_c0/critic_resolution_post_amendment.md
+  final_verdict: PASS_C0_DESIGN_REVIEW_ONLY
+  unresolved_P0: 0
+  unresolved_P1: 0
+  design_repair_rounds_used: 3
+  amendment: Self-authored two-round cap transparently raised by one reference-only round to close C0-C04 under the existing user C0 design authorization; no runtime or scientific search budget changed.
+evidence_precedence:
+  historical_A_A1_B1_B2_artifacts: immutable_and_preserved
+  intermediate_review: remains_as_recorded
+  independent_resolution: may_supersede_prior_review_status
+  stage_acceptance: final_status_entry_for_stage
+  B2_precritic_snapshot: artifacts/stage_b2/acceptance_evidence_map.yaml
+  B2_final: [artifacts/stage_b2/critic_resolution.md, stage_b2_acceptance.yaml]
+remaining_blocks:
+  G4: D04B deferred; statistical protocol and scientific inference not calibrated
+  G6: independent benchmark-grade custodian, identity, storage, credentials and sealed deployment absent
+  D11_D12: empirical data/PIT and execution assumptions deferred
+  D09: shadow retirement policy deferred
+  capability_runner: B2 FakeProvider and one-root-per-condition runner cannot execute paired model benchmark
+  scoring: score vector and task-oracle outputs not implemented or calibrated
+  trusted_metering: current budget reserve accepts caller-supplied envelopes
+  hidden_pack: no generated, audited or protected hidden pack; no statistical power claim
+  model_comparison: no provider, model run, calibrated uncertainty or ranking
+recommendation:
+  may_seek_stage_C1_authorization: true
+  rationale: Design is sufficiently specified for bounded public calibration and data-geometry feasibility work; no formal benchmark or empirical strategy claim is ready.
+  proposed_items:
+    - id: C1-01_W15A
+      responsibility: Build nine distinct public synthetic Harness calibration fixtures and independent deterministic oracles, including positive controls and always-refuse baseline.
+      inputs: [benchmark/BENCHMARK_V0_1_SPEC.md, benchmark/TASK_CATALOG_DRAFT.yaml, benchmark/BENCHMARK_TASK_SCHEMA.yaml, planning/v0.2/04_EVAL_SPEC_DRAFT.yaml]
+      forbidden_inputs: [hidden_labels, real_provider, external_project, strategy_search]
+      proposed_allowed_files: [benchmark/calibration/*, tests/benchmark/calibration/*, artifacts/stage_c1/*]
+      tests: fixture_oracle_recomputation_and_nine_case_mapping_with_failed_outputs_retained
+      acceptance: nine separate cases, required positive/negative controls, independent oracle agreement; no model score claim
+      dependencies: []
+      max_retries: 2
+      search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, provider_calls: 0}
+    - id: C1-02_DATA_GEOMETRY
+      responsibility: Audit PIT fields, split and execution-data feasibility against D11/D12 requirements; construct no empirical research claim.
+      inputs: [benchmark/BENCHMARK_DATA_GEOMETRY_v0.1.yaml, contracts/decisions.yaml, planning/v0.2/03_ENV_SPEC_DRAFT.yaml]
+      forbidden_inputs: [hidden_pack, strategy_search, other_project_canonical_data]
+      proposed_allowed_files: [benchmark/data_feasibility/*, artifacts/stage_c1/*]
+      tests: source_coverage_missingness_revision_and_membership_inventory_with_artifact_hashes
+      acceptance: explicit available/missing/unverified matrix and D11/D12 decision inputs; no implicit decision freeze
+      dependencies: []
+      max_retries: 2
+      search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, provider_calls: 0}
+    - id: C1-03_W15B_PUBLIC_ORACLE_PILOT
+      responsibility: Prototype one public task and independent component oracle per tier, measure actual build/run cost and transfer checks.
+      inputs: [C1-01_W15A, C1-02_DATA_GEOMETRY, benchmark/BENCHMARK_SCORE_VECTOR.yaml]
+      forbidden_inputs: [hidden_seeds, official_model_comparison, D04B_numeric_freeze]
+      proposed_allowed_files: [benchmark/public_oracle_pilot/*, tests/benchmark/public_oracle_pilot/*, artifacts/stage_c1/*]
+      tests: independent_reference_and_perturbation_checks_plus_assigned_denominator_and_blanket_refusal_probes
+      acceptance: four public prototype/oracle evidence bundles, measured cost and explicit remaining geometry gaps
+      dependencies: [C1-01_W15A, C1-02_DATA_GEOMETRY]
+      max_retries: 2
+      search_budget: {scientific_candidate_trials: 0, hidden_submissions: 0, provider_calls: 0}
+  stop_rule: Separate authorization required before C1, W10B, W15/W16 runtime, real data/provider or any formal benchmark.

@@ -1,0 +1,9 @@
+schema_ref: benchmark/BENCHMARK_TASK_SCHEMA.yaml
+schema_status: DESIGN_ONLY_NOT_RUNTIME
+role: Public fixture reference binding into canonical TaskContract; not a second task authority.
+formal_promotion: BLOCKED
+tiers:
+  T1: {task_id: CAL-T1-FIELD, task_spec_ref: benchmark/calibration/task_specs/CAL-T1-FIELD.yaml, expected_behavior: point_in_time_refusal_or_release}
+  T2: {task_id: CAL-T2-P10, task_spec_ref: benchmark/calibration/task_specs/CAL-T2-P10.yaml, expected_behavior: frozen_public_oracle_decision}
+  T3: {task_id: CAL-T3-NULL-A, task_spec_ref: benchmark/calibration/task_specs/CAL-T3-NULL-A.yaml, expected_behavior: refuse_null_or_promote_supported_transfer}
+  T4: {task_id: DEV-T4-EXPLANATION, task_spec_ref: benchmark/public_oracle_pilot/T4_TASK_SPEC.yaml, expected_behavior: explain_or_justifiably_refuse}

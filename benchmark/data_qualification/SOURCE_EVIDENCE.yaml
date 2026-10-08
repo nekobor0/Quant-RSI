@@ -1,0 +1,29 @@
+work_item: C2-02
+asof_utc_window: '2026-09-29T16:57:31Z/2026-09-29T17:01:34Z'
+evidence_rule: A vendor schema or illustrative row is DOCUMENTED, never SAMPLE_VERIFIED. This documentary source inspection predates the separately logged API01, API02 and API03R one-row feasibility queries; none is production data ingestion.
+later_sample_evidence: [artifacts/stage_c2/C2-02/API01_EXECUTION.yaml, artifacts/stage_c2/C2-02/API02_EXECUTION.yaml, artifacts/stage_c2/C2-02/API03R_EXECUTION.yaml, artifacts/stage_c2/C2-02/API04R_EXECUTION.yaml]
+prior_evidence: benchmark/data_feasibility/SOURCE_INVENTORY.yaml
+network_ledger: artifacts/stage_c2/C2-02/NETWORK_LEDGER.yaml
+raw_official_document_bytes_saved: false
+raw_document_sha256: null
+raw_document_absence_reason: The web-access static search/open route returned extracted page/PDF text, not immutable HTTP response bytes. No original page or PDF download was made.
+sources:
+  TS_DAILY: {owner: Tushare, url: 'https://tushare.pro/document/1?doc_id=27', operations: [P04, P20], documented: 'Unadjusted OHLC, volume in lots, amount in thousand CNY, date; suspended sessions have no daily row; batch ingest 15:00-16:00.'}
+  TS_STOCK_BASIC: {owner: Tushare, url: 'https://tushare.pro/document/1?doc_id=25', operations: [P05, P21], documented: 'Listing status including D, list_date and delist_date; no historical status-vintage export shown.'}
+  TS_BAK_BASIC: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=262', operations: [P13, P26], documented: 'Historical daily stock list and industry label documented from 2016; no row coverage observed.'}
+  TS_ST: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=397', operations: [P02, P16], documented: 'stock_st permits trade_date and type; page claims history from 2000-01-01 and 09:20 update; actual completeness untested.'}
+  TS_SUSPEND: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=214', operations: [P08, P23, P31], documented: 'suspend_d dates, S/R type and intraday timing; page claims history from 2000-01-03 and irregular updates.', one_event_external_oracle: artifacts/stage_c2/C2-02/API04R_EXTERNAL_ORACLE_COMPARISON.yaml}
+  TS_LIMIT: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=183', operations: [P09, P24], documented: 'stk_limit date, up_limit and down_limit; about 09:00 update; no order-book fill state.'}
+  TS_DIVIDEND: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=103', operations: [P10, P25], documented: 'Dividend announcement, implementation, record, ex and payment dates; page claims history from 2000-01-01.'}
+  TS_INDEX_WEIGHT: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=96', operations: [P03, P15], documented: 'Monthly index constituents/weights and trade_date; not exact daily entry/exit or announcement vintage.'}
+  CSI300_METHODOLOGY: {owner: China_Securities_Index, url: 'https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/en/000300_Index_Methodology_en.pdf', operations: [P14], documented: 'Reconstitution rule and intended effective timing; methodology is not a historical constituent archive.'}
+  TS_SW_MEMBER: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=335', operations: [P06, P17], documented: 'Industry in_date/out_date; is_new defaults to current Y; original publication vintage absent.'}
+  TS_CASHFLOW: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=44', operations: [P11, P18], documented: 'Financial ann_date, f_ann_date, period and report_type; no exact release time or full revision lineage shown.'}
+  TS_DISCLOSURE: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=162', operations: [P12, P19], documented: 'Planned and actual disclosure dates, modification date; plan-change field is not full financial value vintage.'}
+  TS_TRADE_CAL: {owner: Tushare, url: 'https://tushare.pro/document/2?doc_id=26', operations: [P07, P22], documented: 'Calendar date, open flag and previous trading date; historical release/version clocks not shown.'}
+  TS_TERMS: {owner: Tushare, url: 'https://tushare.pro/document/1?doc_id=405', operations: [P01], documented: 'Personal, nontransferable, noncommercial, revocable, term-limited viewing license; no benchmark redistribution grant evidenced.'}
+critical_absences:
+  - No original raw HTTP response bytes or hash were captured; later API01/API02/API03R/API04R rows were inspected ephemerally and their normalized DataFrame representations were hashed separately.
+  - No historical source release timestamp or first-seen/ingested_at archive.
+  - No proof of delisted bars, complete ST intervals, or index/industry vintage coverage.
+  - No source contract authorizing benchmark artifact redistribution or hidden-set storage.

@@ -1,0 +1,79 @@
+version: 0.1-DRAFT
+subject: Research Agent capability
+no_total_score: true
+family_weights: null
+families:
+- id: E0
+  tier: T1
+  capability: contract
+  observable_behavior: refuse inert unfrozen target/horizon/benchmark proposal inside valid frozen evaluator envelope; respond to valid positive control
+  independent_oracle: proposal-field check separate from executable TaskContract; invalid proposal never dispatched
+  scored_in_v0_1: true
+- id: E1
+  tier: T1
+  capability: PIT_and_provenance
+  observable_behavior: detect future/revision/membership/lineage errors
+  independent_oracle: as-of timestamp and artifact-hash check
+  scored_in_v0_1: true
+- id: E2
+  tier: T2
+  capability: replication
+  observable_behavior: reproduce formula/features/formation/rebalance/benchmark/fills
+  independent_oracle: frozen independent reference arrays
+  scored_in_v0_1: true
+- id: E3
+  tier: T3
+  capability: falsification
+  observable_behavior: stop placebo and retain negative result
+  independent_oracle: known-null generator and complete trace
+  scored_in_v0_1: true
+- id: E4
+  tier: T3
+  capability: multiple_testing
+  observable_behavior: count noise and correlated variants
+  independent_oracle: generator latent ancestry and budget trace
+  scored_in_v0_1: true
+- id: E5
+  tier: T3
+  capability: economic_realism
+  observable_behavior: reject gross-only/capacity-invalid claim and untradeable suspension, limit-lock or T+1 fills after signal lag
+  independent_oracle: gross-to-net, participation and frozen eligible/unfilled-order ledger
+  scored_in_v0_1: true
+- id: E6
+  tier: T3
+  capability: model_selection
+  observable_behavior: justify complexity against fixed simple baseline
+  independent_oracle: common split and candidate-output oracle
+  scored_in_v0_1: true
+- id: E7
+  tier: T3
+  capability: nonstationarity
+  observable_behavior: recognize preregistered state dependence, decay and retirement without post-hoc regime rescue
+  independent_oracle: frozen state/change, sequential-effect and retirement-rule truth
+  scored_in_v0_1: true
+- id: E8
+  tier: T4
+  capability: end_to_end
+  observable_behavior: trace mechanism to candidate and competing explanations
+  independent_oracle: evidence-graph/numeric/refusal checks
+  scored_in_v0_1: true
+- id: E9
+  tier: future
+  capability: prospective_shadow
+  observable_behavior: forward-only paper observation
+  independent_oracle: not scored in v0.1
+  scored_in_v0_1: false
+cross_cutting:
+- contract refusal
+- PIT
+- survivorship
+- revision timing
+- historical membership
+- future leakage
+- budget compliance
+- provenance
+- falsification
+- gross-to-net
+- capacity
+rule: Deterministic trap and numeric reference outcomes never use an LLM judge; qualitative
+  narrative is diagnostic only.

@@ -1,0 +1,282 @@
+planning_report:
+  version: '0.2'
+  date: '2026-09-28'
+  status: C0_BENCHMARK_DESIGN_REVIEW_PASS_STOPPED
+  project: Quant-RSI
+  scope: independent_new_project_inputs_plus_user_v02_amendment
+  scope_override: 最新用户指示覆盖输入中的既有系统复用前提；外部读取与测试结果排除，相关临时文件已移除。
+  inspected_paths:
+  - docs/inputs/00_START_HERE.md
+  - docs/inputs/01_LITERATURE_TO_HARNESS_TAKEAWAYS.md
+  - docs/inputs/02_ASTRA_MASTER_TASKBOOK.md
+  - docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml
+  - docs/inputs/04_ASTRA_EXECUTION_PLAN.yaml
+  - docs/inputs/05_SOURCE_INDEX.yaml
+  - docs/inputs/06_DECISION_REGISTER.md
+  reused_canonical_objects:
+  - objects:
+    - Mechanism
+    - Hypothesis
+    - Observable
+    - Proxy
+    - Feature
+    - Experiment
+    - Evidence
+    - Candidate
+    source: docs/inputs/01_LITERATURE_TO_HARNESS_TAKEAWAYS.md#4
+    reuse_level: concept_only_no_existing_code_claim
+  - objects:
+    - H01-H15
+    - G0-G7
+    - E0-E9
+    - role_contracts
+    - work_item_schema
+    - benchmark_version_keys
+    source: docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml + 02 + 04 + 06
+    reuse_level: normative_identifiers_and_requirements
+  proposed_new_objects:
+  - objects:
+    - TaskContract
+    - DataSpec
+    - SnapshotManifest
+    - EnvSpec
+    - EvalSpec
+    - EvalResult
+    - ResearchTraceEvent
+    - RunManifest
+    reason: Canonical runtime owners from Stage A/A1/B1 retained; B2 authorizes unique
+      EvalResult and synthetic Agent/Evaluator components only.
+    owner_map: planning/v0.2/02_TARGET_ARCHITECTURE.md#唯一对象归属
+  conflicts_found:
+  - id: CF01
+    source: docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#2
+    resolution: 独立新项目，不导入外部 canonical；保留原始输入并在 scope 明示覆盖
+  - id: CF02
+    source: docs/inputs/06_DECISION_REGISTER.md
+    resolution: 单一权威 contracts/decisions.yaml；seed 历史保留；D04A/B 分离；本阶段只冻结 FREEZE_NOW
+  p0_blockers:
+  - id: B-EMPIRICAL
+    scope: before_empirical_benchmark_only
+    reason: D04B/D11/D12 未校准；无真实数据/PIT/执行/统计证据
+    work_items:
+    - W07
+    - W08
+    - W10
+  - id: B-SEALED
+    scope: before_benchmark_grade_sealed_only
+    reason: TM-01 独立 custodian 签核、identity/storage/credentials/锚点托管与隔离测试尚未实施
+    work_items:
+    - W09
+    - W16
+  - id: B-EVALUATION
+    scope: before_full_agent_benchmark_only
+    reason: Synthetic evaluator/fake worker/critic/orchestrator passed scoped review;
+      real provider metering and calibrated capability scoring remain absent.
+    work_items:
+    - W11
+    - W12
+    - W13
+    - W14
+  assumptions_needing_human_decision:
+  - D04B
+  - D09
+  - D11
+  - D12
+  implementation_order:
+  - W01
+  - W02
+  - W03
+  - W04
+  - W05
+  - W06
+  - W07
+  - W08
+  - W09
+  - W10
+  - W20
+  - W11
+  - W12
+  - W13
+  - W14
+  - W15
+  - W16
+  - W17
+  - W18
+  - W19
+  work_items_ref: planning/v0.2/06_WORK_BREAKDOWN.md#work_items
+  gap_matrix_ref: planning/v0.2/01_GAP_MATRIX.yaml
+  dispatch_status: C0_DESIGN_COMPLETE_NO_IMPLEMENTATION_DISPATCH_AUTHORIZED
+  work_item_count: 20
+  first_round_outputs:
+  - planning/v0.2/00_SCOPE_AND_NON_GOALS.md
+  - planning/v0.2/01_CURRENT_STATE_AUDIT.md
+  - planning/v0.2/01_GAP_MATRIX.yaml
+  - planning/v0.2/02_TARGET_ARCHITECTURE.md
+  - planning/v0.2/03_ENV_SPEC_DRAFT.yaml
+  - planning/v0.2/04_EVAL_SPEC_DRAFT.yaml
+  - planning/v0.2/05_AGENT_ORCHESTRATION_DRAFT.yaml
+  - planning/v0.2/06_WORK_BREAKDOWN.md
+  - planning_report.yaml
+  completion_claim:
+    first_round_documents: V02_REVISED_AND_STRUCTURALLY_VALIDATED
+    harness_implementation: STAGE_A_A1_B1_B2_PASS_SYNTHETIC_ONLY
+    runtime_gates: G0_G1_G2_G3_G5_G7_PASS_SYNTHETIC_G4_G6_BLOCK
+    strategy_performance: NOT_MEASURED
+    production_ready: false
+  limitations:
+  - W01-W09, W20 and W10A/W11-W14 completed their authorized synthetic scope; W10B/W15-W19
+    are not authorized.
+  - 单元与集成测试不证明 market PIT、sealed、统计显著性或策略有效
+  - 本机文件 symlink 测试跳过 1 项；目录 junction 越界测试通过
+  - SQLite hash 链需独立外部锚点与 OS 身份部署才能提升保证等级；本地 demo 不是独立 custody
+  - 预算服务接收 trusted supervisor 声明的用量；真实 CPU/token/clock 强制未实现
+  - D04A 工程上限已冻结；D04B/D09/D11/D12 具体数值仍延期
+  next_action: REQUEST_SEPARATE_AUTHORIZATION_FOR_PUBLIC_CALIBRATION_AND_DATA_GEOMETRY_BUILD
+  decision_registry_ref: contracts/decisions.yaml
+  stop_after: stage_c0_acceptance.yaml
+  decision_ids:
+  - D01
+  - D02
+  - D03
+  - D04A
+  - D04B
+  - D05
+  - D06
+  - D07
+  - D08
+  - D09
+  - D10
+  - D11
+  - D12
+  - D13
+  amendment_source: current_user_Planning_v0.2_and_Stage_A_authorization
+  accounting_objects:
+    scientific_family: ScientificSearchFamily.scientific_family_id
+    agent_run: AgentBenchmarkRun.benchmark_run_id
+    capability_penalty_from_other_runs: false
+    spec_ref: planning/v0.2/02_TARGET_ARCHITECTURE.md#Planning-v0.2-accounting
+  sealed_threat_model_ref: planning/SEALED_THREAT_MODEL.md
+  implementation_authorization:
+    historical_only: STAGE_B2_SYNTHETIC_SCOPE_SUPERSEDED_BY_CURRENT_C0_DESIGN_ONLY_AUTHORIZATION
+    allowed:
+    - W10A
+    - W11
+    - W12
+    - W13
+    - W14
+    forbidden:
+    - W10B
+    - W15
+    - W16
+    - W17
+    - W18
+    - W19
+    stage_B_authorized: false
+    stage_B2_synthetic_authorized: true
+  acceptance_report_ref: stage_c0_acceptance.yaml
+  stage_a_blockers: []
+  stage_a1:
+    status: ACCEPTED_WITH_DECLARED_LIMITATIONS_STOPPED
+    scope_ref: planning/stage_a1_plan.yaml
+    acceptance_report_ref: stage_a1_acceptance.yaml
+    stage_B1_authorized: true
+    run_manifest_owner: src/quant_rsi/contracts/manifest.py
+    historical_governance_owner: content-addressed DECISION_SNAPSHOT event
+    current_dispatch_owner: contracts/decisions.yaml
+    final_test_ref: artifacts/stage_a1/final.xml
+    passed: 317
+    skipped: 1
+    critic_resolution_ref: artifacts/stage_a1/critic_resolution.json
+    next_action: HISTORICAL_STAGE_A1_CLOSED
+  stage_b1:
+    authorized: true
+    scope_ref: planning/stage_b1_plan.yaml
+    empirical_authorized: false
+    shadow_authorized: false
+    W09_prerequisite: artifacts/stage_b1/w09_tm01_custodian_review.json
+    acceptance_report_ref: stage_b1_acceptance.yaml
+    status: PASS_SYNTHETIC_ENGINEERING_SCOPE
+    completed_work_items:
+    - W07
+    - W08
+    - W09
+    - W20
+    W09: SYNTHETIC_MOCK
+    formal_G6: BLOCKED
+    formal_G2: NOT_EVALUATED
+  historical_stage_a_validation:
+    scope: planning_and_W01_W06_kernel_only
+    command: python planning/validate_planning.py
+    result: PASS
+    artifact: artifacts/planning/v0.2_validation.json
+    runtime_evidence: artifacts/stage_a
+    independent_critic_review: ALL_SIX_PLANNING_AND_RUNTIME_FINDINGS_RESOLVED
+    market_or_strategy_experiments: 0
+    runtime_tests:
+      passed: 218
+      skipped: 1
+      failed: 0
+      exit_code: 0
+      artifact: artifacts/stage_a/StageA_final.xml
+  current_stages:
+    A: PASS
+    A1: PASS
+    B1: PASS_SYNTHETIC_ENGINEERING_SCOPE
+    B2: PASS_SYNTHETIC_ENGINEERING_SCOPE_STOPPED
+    C0: PASS_DESIGN_REVIEW_ONLY_STOPPED
+  implementation_order_scope: Historical v0.2 topological baseline; W10 now split
+    by current stage_b2_plan overlay
+  stage_b2:
+    scope_ref: planning/stage_b2_plan.yaml
+    boundary_ref: planning/STAGE_B2_BOUNDARIES.md
+    formal_verdict_expected: BLOCKED
+    engineering_acceptance: PASS
+    W10A: AUTHORIZED_PRIMITIVES_ONLY
+    W10B: NOT_AUTHORIZED
+    formal_research_verdict: BLOCKED
+    independent_critic: artifacts/stage_b2/critic_resolution.md
+    final_runtime: artifacts/stage_b2/final1_runtime
+    final_regression: artifacts/stage_b2/final1.xml
+    test_result: 576 passed, 1 skipped
+    stop_after: stage_b2_acceptance.yaml
+  current_authorization:
+    stage: C0
+    mode: DESIGN_ONLY_NO_RUNTIME
+    authority: artifacts/stage_c0/authorized_request.txt
+    stop_after: stage_c0_acceptance.yaml
+    forbidden:
+    - W10B
+    - W15
+    - W16
+    - W17
+    - W18
+    - W19
+    - real_model_provider
+    - empirical_strategy_research
+    - model_comparison
+    - strategy_search
+  stage_c0:
+    status: PASS_DESIGN_REVIEW_ONLY_NO_RUNTIME
+    plan: planning/stage_c0_plan.yaml
+    boundaries: planning/STAGE_C0_BOUNDARIES.md
+    spec: benchmark/BENCHMARK_V0_1_SPEC.md
+    task_schema: benchmark/BENCHMARK_TASK_SCHEMA.yaml
+    critic_initial: artifacts/stage_c0/critic_initial.md
+    critic_resolution_1: artifacts/stage_c0/critic_resolution.md
+    critic_resolution_2: artifacts/stage_c0/critic_resolution_final.md
+    critic_final: artifacts/stage_c0/critic_resolution_post_amendment.md
+    independent_open_P0_P1: 0
+    accepted_design_templates: 30
+    proposed_hidden_instances: 38
+    implementation_ready: false
+    next_stage_authorized: false
+    formal_G4: BLOCKED_D04B_DEFERRED
+    formal_G6: BLOCKED_BENCHMARK_GRADE_CUSTODY_ABSENT
+    D11_D12: DEFERRED
+    runtime_changes_authorized: false
+    historical_evidence_precedence:
+    - intermediate_artifacts_immutable
+    - independent_critic_resolution_supersedes_review_status
+    - stage_acceptance_final_status_entry
+    B2_precritic_map: artifacts/stage_b2/acceptance_evidence_map.yaml
+    B2_final_status: stage_b2_acceptance.yaml

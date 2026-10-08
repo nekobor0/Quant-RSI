@@ -1,0 +1,81 @@
+version: 0.1-DRAFT
+status: DESIGN_METHOD_ONLY_NO_NUMERIC_TASK_LIMITS_FROZEN
+owner:
+  capability: AgentBenchmarkRun.budget_root_run_id
+  scientific_claim_multiplicity: ScientificSearchFamily.scientific_family_id
+  canonical_counter_service: SearchBudget_and_ResearchTrace
+  decision_policy: contracts/decisions.yaml#D04A
+equal_opportunity_condition:
+  same: [TaskContract, BenchmarkCondition, DataSpec, SnapshotManifest, cleaning,
+    split, EnvSpec, EvalSpec, allowed_tools, search_action_limits,
+    compute_limit_policy, exposure_policy, submission_policy]
+  per_model: independent_AgentBenchmarkRun_and_budget_root
+  model_and_prompt: comparison_variables_recorded_before_run
+  continuation: inherits_same_budget_root_if_same_model_and_condition
+  model_switch: separately_registered_run_under_same_condition_only_after_authorization
+  unequal_condition_or_unmetered_compute: NOT_COMPARABLE
+  tokenization: model_specific_tokens_are_reported_not_treated_as_identical_work_units
+dimensions:
+  hypotheses: {canonical: hypotheses_seen, unit: distinct_preregistered_hypothesis}
+  candidate_variants: {canonical: candidate_trials, unit: each_attempted_candidate_variant_reserved_before_evaluation_including_bundled_failed_null_or_malformed}
+  factor_variants: {canonical: factor_variants, unit: feature_semantics_variant}
+  parameter_trials: {canonical: parameter_trials, unit: evaluated_parameter_set}
+  model_trials: {canonical: model_trials, unit: architecture_or_model_trial}
+  prompt_retries: {canonical: [prompt_revisions, retries, attempts], unit: changed_prompt_is_revision_and_every_dispatch_is_attempt}
+  validation_queries: {canonical: validation_queries, unit: scored_or_diagnostic_validation_feedback_call}
+  critic_repairs: {canonical: [human_interventions, retries, attempts], unit: evidence_or_candidate_repair_after_critic}
+  sealed_submissions: {canonical: sealed_submissions, unit: each_attempt_to_submit_to_custodian_including_accepted_rejected_malformed_timeout}
+  compute: {canonical: [input_tokens, output_tokens, wall_milliseconds, cpu_milliseconds], unit: trusted_meter_or_UNKNOWN}
+  peak_memory: {canonical: TaskContract.memory_limit_mb, unit: per_attempt_peak_not_cumulative}
+policy:
+  all_limits: explicit_nonnegative_per_TaskContract_before_dispatch
+  no_default_unlimited: true
+  reserve: atomic_before_worker
+  failed_attempt: retained_and_counted
+  retry: new_Attempt_same_root_no_refund
+  unknown_usage: reserve_upper_bound_and_block_until_trusted_reconciliation
+  exhausted: deny_before_worker_and_append_denial
+  externally_provided_prompt_calibration: public_calibration_only_no_formal_score
+  hidden_feedback: no_adaptive_retry_on_same_exposed_pack
+  cross_model_capability_penalty: forbidden
+  joint_final_strategy_selection: pooled_family_ancestry_with_all_failures
+trusted_observation_boundary:
+  authority: supervised_adapter_and_append_only_ledger_not_worker_self_report
+  preregistration: model_identity_prompt_hash_tool_policy_task_set_and_public_calibration_exposures_committed_before_comparison
+  pre_run_calibration: all prompt selection and public calibration attempts linked to candidate model/prompt; equal opportunity caps or disclose unequal exposure and mark NOT_COMPARABLE
+  hypotheses_seen: each distinct hypothesis text/graph hash observed at proposal or generation boundary; bundled proposals count separately
+  candidate_trials: each scored, dry-run, failed, or null candidate from a supervised evaluation call; count variants within a bundle
+  factor_variants: each distinct feature transform DAG hash submitted to builder, including rejected transforms
+  parameter_trials: each parameter vector in a grid/batch, including failed fits and null outputs
+  model_trials: each architecture, model version, or training-configuration trial submitted to a supervised tool
+  prompt_revisions: every changed prompt hash including calibration variants; every dispatch also consumes an attempt
+  validation_queries: every diagnostic or scored feedback request, including errors/timeouts; no unmetered local validation dataset
+  critic_repairs: each critic-triggered edit and subsequent dispatch, with retained pre-repair trace
+  sealed_submissions: every accepted, rejected, malformed, or timed-out attempt at custodian boundary; frozen global pack-exposure record
+  counter_charge_timing: reserve per-run sealed_submission and global-pack exposure atomically before custodian accepts bytes or returns any status; charge attempted candidate variants before evaluation or tool execution; no refund after denial, failure, timeout, or null result
+  compute: provider and OS supervisor receipts with attempted/actual token, wall, CPU and peak memory; unavailable counters are UNKNOWN and block resource comparison
+  receipt: append-only event links actor, root, tool, input/output hashes, semantic units, reservation, outcome, timestamp, and receipt signer
+  unobserved_exploration: deny dispatch where isolation or tool mediation cannot be demonstrated; discovered bypass quarantines run and marks capability comparison NOT_COMPARABLE
+  aliases: renamed root, prompt, or model cannot erase content-hash lineage or public-calibration exposure
+  conformance_probe: bundle variants, rename prompts/runs, call out-of-band validation, return failed/null outputs; require denial or retained counted receipts before pilot
+family_budget_design_method:
+  E0_E1: fix trap attempts_and_validation_calls_from_reference_path_before_release
+  E2: count reference_replication_iterations_and_implementation_repairs_before_release
+  E3_E4: choose enough_search_to_test_falsification_but_limit_false_discovery_opportunity_using_generator_pilot
+  E5_E7: preregister_cost_capacity_model_and_state_sensitivities_as_counted_variants
+  E8: permit_larger_but_finite_hypothesis_feature_and_validation_space_after_pilot
+  freeze_inputs: [task_difficulty, generator_geometry, baseline_reference_cost,
+    allowed_tools, meter_reliability, pilot_error_rates, hidden_exposure_limit]
+  output: complete_TaskContract.budget_limits_and_memory_limit_mb
+  numeric_limits: null
+  reason: No benchmark task/data/compute geometry or calibrated baseline cost exists yet.
+fairness_audit:
+  report: [reserved, actual, UNKNOWN, failed, denied, unique_hypotheses,
+    candidate_variants, parameter_trials, model_trials, prompt_revisions,
+    validation_queries, critic_repairs, sealed_submissions]
+  denominator_capability: own_budget_root_attempts_and_tasks_assigned
+  denominator_final_claim: deduplicated_family_ancestry_search_and_failures
+  detect: [root_reset, renamed_model, undeclared_prompt_change,
+    duplicate_candidate, out_of_band_validation, missing_failure]
+  blocked_when: [counter_missing, compute_untrusted, condition_differs,
+    hidden_exposure_unresolved]

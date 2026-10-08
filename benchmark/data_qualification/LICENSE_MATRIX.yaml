@@ -1,0 +1,69 @@
+work_item: C2-02
+status_rule: Technical API reachability and license rights are independent. Unknown rights require legal review, not inferred permission.
+sources:
+  - source_group: Tushare_data_APIs
+    evidence: TS_TERMS
+    API01_scoped_rights_evidence: artifacts/stage_c2/C2-02/API01_AUTHORIZATION.yaml
+    API01_personal_noncommercial_automated_probe: PERMITTED_FOR_THIS_PROBE_VIA_OFFICIAL_API
+    API01_local_retention: PERSONAL_LOCAL_RETENTION_SUPPORTED_WITH_RESTRICTIONS; raw discarded in memory for this execution
+    API01_raw_redistribution: NOT_AUTHORIZED_BY_REVIEWED_TERMS
+    API01_hidden_benchmark_use: NOT_AUTHORIZED_PENDING_EXPLICIT_RIGHTS_CLARIFICATION
+    API02_scoped_rights_evidence: artifacts/stage_c2/C2-02/API02_AUTHORIZATION.yaml
+    API02_personal_noncommercial_automated_probe: PERMITTED_FOR_THIS_PROBE_VIA_OFFICIAL_API
+    API02_local_retention: PERSONAL_LOCAL_RETENTION_SUPPORTED_WITH_RESTRICTIONS; raw discarded in memory for this execution
+    API02_raw_redistribution: NOT_AUTHORIZED_BY_REVIEWED_TERMS
+    API02_hidden_benchmark_use: RIGHTS_NOT_ESTABLISHED
+    API03R_scoped_rights_evidence: artifacts/stage_c2/C2-02/API03R_AUTHORIZATION.yaml
+    API03R_personal_noncommercial_automated_probe: PERMITTED_FOR_THIS_PROBE_VIA_OFFICIAL_API
+    API03R_local_retention: PERSONAL_LOCAL_RETENTION_SUPPORTED_WITH_RESTRICTIONS; raw discarded in memory for this execution
+    API03R_raw_redistribution: NOT_AUTHORIZED_BY_REVIEWED_TERMS
+    API03R_hidden_benchmark_use: RIGHTS_NOT_ESTABLISHED
+    API04R_scoped_rights_evidence: artifacts/stage_c2/C2-02/API04R_AUTHORIZATION.yaml
+    API04R_personal_noncommercial_probe: PERSONAL_NONCOMMERCIAL_FEASIBILITY_PROBE_ONLY
+    API04R_raw_vendor_values_retained: false
+    API04R_raw_redistribution: NOT_AUTHORIZED
+    API04R_hidden_benchmark_use: RIGHTS_NOT_ESTABLISHED
+    internal_personal_research: 'LIMITED_PERSONAL_VIEWING_ONLY; whether this benchmark workflow fits requires review'
+    automated_retrieval: 'DOCUMENTED_API_ROUTE; contractual allowance for this use LEGAL_REVIEW_REQUIRED'
+    local_persistence: LEGAL_REVIEW_REQUIRED
+    derived_data_storage: LEGAL_REVIEW_REQUIRED
+    redistribution: 'NO_GRANT_EVIDENCED; treat as prohibited pending express rights'
+    benchmark_artifact_redistribution: LEGAL_REVIEW_REQUIRED
+    hidden_set_storage: LEGAL_REVIEW_REQUIRED
+    license_status: LEGAL_REVIEW_REQUIRED
+    basis: 'https://tushare.pro/document/1?doc_id=405'
+  - source_group: SSE_SZSE_original_public_notices_and_calendars
+    evidence: C1_02_SOURCE_INVENTORY_ONLY
+    internal_personal_research: LEGAL_REVIEW_REQUIRED
+    automated_retrieval: LEGAL_REVIEW_REQUIRED
+    local_persistence: LEGAL_REVIEW_REQUIRED
+    derived_data_storage: LEGAL_REVIEW_REQUIRED
+    redistribution: LEGAL_REVIEW_REQUIRED
+    benchmark_artifact_redistribution: LEGAL_REVIEW_REQUIRED
+    hidden_set_storage: LEGAL_REVIEW_REQUIRED
+    license_status: LEGAL_REVIEW_REQUIRED
+    basis: 'Public readability does not establish bulk-data or redistribution terms; no C2 license grant inspected.'
+  - source_group: CSI_index_methodology_and_constituents
+    evidence: CSI300_METHODOLOGY
+    internal_personal_research: LEGAL_REVIEW_REQUIRED
+    automated_retrieval: LEGAL_REVIEW_REQUIRED
+    local_persistence: LEGAL_REVIEW_REQUIRED
+    derived_data_storage: LEGAL_REVIEW_REQUIRED
+    redistribution: LEGAL_REVIEW_REQUIRED
+    benchmark_artifact_redistribution: LEGAL_REVIEW_REQUIRED
+    hidden_set_storage: LEGAL_REVIEW_REQUIRED
+    license_status: LEGAL_REVIEW_REQUIRED
+    basis: 'Methodology PDF is publicly readable; historical constituent archive rights were not established.'
+  - source_group: Shenwan_industry_underlying_classification
+    evidence: TS_SW_MEMBER
+    internal_personal_research: LEGAL_REVIEW_REQUIRED
+    automated_retrieval: LEGAL_REVIEW_REQUIRED
+    local_persistence: LEGAL_REVIEW_REQUIRED
+    derived_data_storage: LEGAL_REVIEW_REQUIRED
+    redistribution: LEGAL_REVIEW_REQUIRED
+    benchmark_artifact_redistribution: LEGAL_REVIEW_REQUIRED
+    hidden_set_storage: LEGAL_REVIEW_REQUIRED
+    license_status: LEGAL_REVIEW_REQUIRED
+    basis: 'Vendor endpoint description does not grant original index provider or benchmark reuse rights.'
+commercial_or_organizational_use: No right established for any candidate source.
+decision: Do not construct or distribute empirical Benchmark assets from these sources without source-specific terms and legal approval.

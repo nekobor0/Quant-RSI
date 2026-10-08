@@ -1,0 +1,10 @@
+ledger_type: APPEND_ONLY_PUBLIC_CALIBRATION_EXPOSURE
+rule: Cases in this ledger are never eligible for official hidden scoring. Future hidden mechanisms require independent construction, not a changed seed.
+events:
+  - event_id: C1-01-PUBLIC-RELEASE-001
+    stage: C1
+    exposure: PUBLIC_CALIBRATION
+    cases: [CAL-T1-FIELD, CAL-T1-REVISION, CAL-T2-P10, CAL-T2-P20, CAL-T3-NULL-A, CAL-T3-NULL-B, CAL-T3-COST, CAL-T3-DECAY, CAL-T3-EXECUTION]
+    task_pack_ref: benchmark/calibration/CALIBRATION_PACK_V0_1.yaml
+    hidden_contamination_claim: none_public_by_design
+    official_hidden_score_eligibility: false

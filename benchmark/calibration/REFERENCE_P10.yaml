@@ -1,0 +1,42 @@
+manifest_type: ReferenceDefinitionManifest
+status: ORIGINAL_PAPER_READ_CONCEPT_ADAPTATION_FROZEN
+case_id: CAL-T2-P10
+source_paper_id: P10
+exact_paper_title: 'Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency'
+source_file: docs/literature/papers/10-Momentum-Jegadeesh_Titman-1993.pdf
+source_sha256: ed02251ff8152b78cf52d4285cd344eb42b1b19a4d64fd9bf01d24eba1a34155
+source_pages:
+  - {pdf_page: 5, printed_page: 68, section: I. Trading Strategies, relevance: J/K ranking, deciles, overlap, equal-weight rebalance, one-week skip}
+  - {pdf_page: 6, printed_page: 69, section: II. Returns, relevance: CRSP daily compounded to monthly, available J-month returns}
+  - {pdf_page: 7, printed_page: 70, section: Table I, relevance: lowest-return sell and highest-return buy decile, skip/no-skip variants}
+  - {pdf_page: 14, printed_page: 77, section: IV. risk/transaction-cost discussion, relevance: value-weighted market benchmark and 0.5 percent one-way cost sensitivity}
+ORIGINAL_PAPER_DEFINITION:
+  original_universe_market: NYSE and AMEX common-stock sample in study, 1965-1989; CRSP daily returns compounded to monthly.
+  formation_period: J in [3, 6, 9, 12] months
+  holding_period: K in [3, 6, 9, 12] months
+  skip_period: zero or one week between formation and holding; both sets reported
+  weighting: equal weights within ten cross-sectional past-return deciles
+  rebalance: monthly overlapping K active cohorts; reported returns rebalance monthly to equal weights
+  benchmark: raw winner-minus-loser zero-cost spread in Table I; risk-adjusted analysis uses a value-weighted index and one-month Treasury Bill, with equal-weight index sensitivity discussed
+  transaction_execution_assumptions: paper studies return series rather than a specified intraday fill schedule; Section IV reports a 0.5 percent one-way transaction-cost sensitivity, not a universal cost rule
+  original_exclusions: only stocks with available J-month return history at formation; original study does not impose A-share ST/limit/T+1 rules
+  exact_formula:
+    provenance: formalization_of_section_I_text_not_a_printed_paper_equation
+    formation_return: product_of_one_plus_monthly_returns_over_J_months_minus_one
+    ranks: ascending_formation_return; lowest_decile_losers_highest_decile_winners
+    raw_spread: equal_weight_winner_return_minus_equal_weight_loser_return
+    active_cohorts: average_monthly_returns_of_K_overlapping_formation_cohorts
+QUANT_RSI_CONCEPT_ADAPTATION:
+  market: synthetic A-share ordinary-stock daily fixture; no real A-share data or return claim
+  formation_period: 3 synthetic monthly intervals ending before decision
+  holding_period: 3 synthetic monthly intervals, one cohort only
+  skip_period: zero formation skip; execution begins at first later eligible daily session
+  universe: ten fixed synthetic ordinary-stock IDs with complete history; one top-decile winner and one bottom-decile reference
+  weighting: winner-only long position; no short loser leg
+  rebalance: one frozen cohort, no overlapping portfolios; equal weight is trivial for one selected winner
+  benchmark: equal-weight ten-stock synthetic buy-and-hold panel, independently recomputed
+  execution: next eligible session at frozen open, long-only, lot/cost/limit/T+1 assumptions supplied by case manifest
+  A_share_adaptation_decisions: no synthetic short sale; PIT universe and next-session fill; failed/unfilled orders retained
+  intentionally_unsupported_original_elements: [NYSE_AMEX_empirical_result, short_loser_leg, 32_strategy_search, overlapping_K_cohorts, CRSP_data, published_return_magnitude, risk_adjusted_alpha]
+  replication_label: CONCEPT_REPLICATION_ONLY_NOT_EXACT_PAPER_REPLICATION
+reference_freeze_rule: Oracle must be constructed only after this manifest; any change creates a new version and preserves old evidence.

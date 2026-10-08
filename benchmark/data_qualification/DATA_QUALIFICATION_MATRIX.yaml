@@ -1,0 +1,207 @@
+work_item: C2-02
+market: A_share_ordinary_stocks_daily
+evidence_levels: [DOCUMENTED, SAMPLE_VERIFIED, UNVERIFIED, UNAVAILABLE]
+class_level_rule: A documented field or passing scoped event/window is not a verified historical data class. Whole-class SAMPLE_VERIFIED requires the preregistered coverage and PIT evidence; scoped outcomes remain separate.
+current_update_date: '2026-10-08'
+Stage_C2: BLOCKED_INCOMPLETE
+D11: NOT_READY
+D12: NOT_READY
+D04B: NOT_READY
+Full_Census_query_ready: false
+Full_Census_execution_authorized: false
+legacy_counters_scope: sample_verified_count/technical_shape/static/calendar/sample_rows_observed
+  below are the original API01-API04R snapshot; not an aggregate of later repeated
+  Pilot attempts. Whole-class qualifications remain zero.
+scoped_pilots:
+  CAL_05:
+    class: market_calendar
+    status: PASS_REAL_CAL05_PILOT_REPORTED
+    run_id: C2_02P_CAL05_R01
+    query_window:
+      exchange: SSE
+      start_date: '20240430'
+      end_date: '20240506'
+    reported_API_calls: 1
+    returned_rows: 7
+    accepted_rows: 7
+    Oracle_match: true
+    missing_dates: 0
+    duplicate_dates: 0
+    extra_dates: 0
+    fact_scope: Seven fixed dates is_open/pretrade_date match frozen Oracle; not full
+      historical calendar/PIT qualification
+    local_receipt_report: artifacts/stage_c2/C2-02/scoped_pilot/cal05_preparation/cal05_next_execution_01/CAL05_REAL_PILOT_RESULT.md
+    frozen_Oracle: artifacts/stage_c2/C2-02/scoped_pilot/cal05_preparation/exec_preparation_01/CAL05_FROZEN_ORACLE.yaml
+    external_review: SUMMARY_REPORT_ONLY_FOUR_KEY_RECEIPTS_PENDING_SPOTCHECK
+    pending_external_receipt_spotchecks:
+    - artifacts/stage_c2/C2-02/scoped_pilot/cal05_validation/runs/C2_02P_CAL05_R01/POSTQUERY_RESULT.json
+    - artifacts/stage_c2/C2-02/scoped_pilot/cal05_validation/runs/C2_02P_CAL05_R01/HTTPS_SOURCE_VERIFICATION.json
+    - artifacts/stage_c2/C2-02/scoped_pilot/execution_cal05_r01/SAME_PROCESS_STORAGE_GATE.json
+    - artifacts/stage_c2/C2-02/scoped_pilot/execution_cal05_r01/TRUSTED_LAUNCH_CONTROL.json
+  historical_SUSP_pilot:
+    class: suspension
+    run_id: C2_02P_V2_R01
+    status: FAIL_OR_INCOMPLETE
+    SUSP_01: Zero-row empty SDK frame; historical HTTP/business state unavailable;
+      root cause UNKNOWN
+    SUSP_02: Zero-row empty SDK frame; historical HTTP/business state unavailable;
+      root cause UNKNOWN
+    SUSP_03: One stored SDK row, PASS_FIXED_POSITIVE_EVENT; entire prior batch accepted_rows=0;
+      no HTTPS raw-source evidence
+    evidence: artifacts/stage_c2/C2-02/scoped_pilot/validation_v2/runs/C2_02P_V2_R01/POSTQUERY_RESULT.json
+  SUSP_01:
+    class: suspension
+    slot: SUSP_01
+    status: PASS_REAL_SUSP01_SCOPED_PILOT_REPORTED
+    run_id: C2_02P_SUSP01_HTTPS_R01
+    reported_API_calls: 1
+    returned_rows: 1
+    accepted_rows: 1
+    Oracle_match: true
+    duplicate_rows: 0
+    external_review: SUMMARY_REPORT_ONLY_NO_INDEPENDENT_RECEIPT_SPOTCHECK_ASSERTED
+    fact_scope: One fixed intraday S event matches 601966.SH/20160706/09:30-10:00;
+      no historical completeness or PIT qualification
+    local_receipt_report: artifacts/stage_c2/C2-02/scoped_pilot/susp01_https_preparation/SUSP01_REAL_PILOT_RESULT.md
+    request: artifacts/stage_c2/C2-02/scoped_pilot/susp01_https_preparation/SUSP01_EXECUTION_REQUEST.yaml
+    PASS_inherited_from_CAL05: false
+sample_verified_count: 0
+technical_row_shape_only_count: 1
+static_metadata_only_count: 1
+calendar_row_shape_only_count: 1
+sample_rows_observed: 4
+shared_technical_status: CAL05_REAL_SEVEN_ROW_WINDOW_AND_SUSP01_SINGLE_EVENT_PASS_REPORTED; NO_FULL_HISTORICAL_CLASS_VERIFIED
+shared_clock_warning: downloaded_at in 2026 would only be this retrieval time, never historical available_at.
+absence_semantics: absent means not evidenced in the inspected endpoint documentation, not proof that no other vendor product or original archive contains the field.
+classes:
+  - id: daily_OHLCV
+    preferred_source: TS_DAILY
+    backup_source: exchange_original_or_licensed_PIT_bars_not_yet_qualified
+    qualification_level: UNVERIFIED
+    documented_fields: [trade_date, OHLC, pre_close, volume_lots, amount_thousand_CNY]
+    pit_confidence: LOW
+    coverage: {observed_rows: 1, observed_sample_date: '2024-04-30', earliest_reliable_observed: null, documented: 'One-stock ~23-year request capacity claim; actual history and delisted rows untested.'}
+    technical_sample_status: SAMPLE_VERIFIED_TECHNICAL_ROW_SHAPE_ONLY
+    technical_sample_evidence: artifacts/stage_c2/C2-02/API01_EXECUTION.yaml
+    technical_sample_limits: One ordinary daily row verifies endpoint reachability, requested columns and dtypes only; no historical coverage, PIT clock, numeric-unit independently measured, or production suitability claim.
+    pit: {event_time: trade_date_only, published_at: absent, available_at: absent, effective_interval: trading_session_only, revision_history: absent, delisted_entities: untested, historical_membership: not_applicable, current_backfill_risk: vendor_corrections_unknown, timezone_release: 'China trading date; 15:00-16:00 vendor ingest window is not per-row first availability.'}
+    cost_access: basic_points_and_rate_limit; user_owned_credential_verified_for_one_authorized_daily_query_only
+    unresolved_gaps: [contiguous_sessions, delisted_bars, independent_numeric_unit_validation, original_raw_HTTP_hash, correction_vintages]
+    recommendation: reject_for_PIT_benchmark_until_historical_coverage_and_vintage_evidence
+  - id: listing_delisting_history
+    preferred_source: TS_STOCK_BASIC_plus_TS_BAK_BASIC
+    backup_source: dated_exchange_listing_delisting_notices_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [list_status_D, list_date, delist_date, daily_stock_list_from_2016]
+    pit_confidence: LOW
+    coverage: {observed_rows: 1, current_static_delisted_status_row_observed: true, earliest_reliable_observed: null, documented: 'bak_basic claims from 2016; stock_basic beginning unspecified.'}
+    static_metadata_presence: {status: SAMPLE_VERIFIED_STATIC_METADATA_ONLY, evidence: artifacts/stage_c2/C2-02/API02_EXECUTION.yaml, columns: [ts_code, list_status, list_date, delist_date], observed_row_field_nullness: all_non_null}
+    historical_PIT_universe_reconstruction: {status: UNVERIFIED, first_available_at: absent, historical_membership: unverified, source_vintages: absent, corrections: absent, all_delisted_coverage: unverified}
+    pit: {event_time: list_and_delist_dates, published_at: absent, available_at: absent, effective_interval: dates_only, revision_history: absent, delisted_entities: one_current_static_delisted_row_observed_full_coverage_untested, historical_membership: daily_list_claim_from_2016_unverified, current_backfill_risk: high_if_stock_basic_current_state_used, timezone_release: date_only_unknown_release_time}
+    cost_access: 2000_to_5000_points; user_owned_credential_verified_for_one_authorized_stock_basic_query_only
+    unresolved_gaps: [pre_2016_daily_universe, all_delisted_security_coverage, asof_status_vintages, first_available_at, corrections]
+    recommendation: require_historical_security_master_and_sample
+  - id: historical_ST_state
+    preferred_source: TS_ST
+    backup_source: dated_exchange_risk_warning_notices_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [trade_date, ST_type, ST_type_name]
+    pit_confidence: LOW
+    coverage: {observed_rows: 0, earliest_reliable_observed: null, documented: 'Vendor page claims 2000-01-01 onward; no completeness test.'}
+    pit: {event_time: trade_date, published_at: absent, available_at: absent, effective_interval: daily_state_only, revision_history: absent, delisted_entities: untested, historical_membership: daily_ST_list_claim_unverified, current_backfill_risk: possible, timezone_release: '09:20 nominal vendor update; historical per-row release unknown.'}
+    cost_access: 3000_points; endpoint_entitlement_unverified
+    unresolved_gaps: [pre_2000_history, full_ST_transition_completeness, notice_time, correction_vintages]
+    recommendation: sample_transitions_and_reconcile_original_notices
+  - id: suspension
+    preferred_source: TS_SUSPEND
+    backup_source: dated_exchange_suspension_notices_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [trade_date, suspend_type, suspend_timing]
+    pit_confidence: LOW
+    coverage: {observed_rows: 1, observed_sample_date: '2016-07-06', earliest_reliable_observed: null, documented: 'Vendor page claims 2000-01-03 onward; updates irregular; actual completeness untested.'}
+    externally_anchored_event_representation: {status: SAMPLE_VERIFIED_EXTERNALLY_ANCHORED_INTRADAY_SUSPENSION_ROW_ONLY, evidence: artifacts/stage_c2/C2-02/API04R_EXTERNAL_ORACLE_COMPARISON.yaml}
+    historical_completeness: UNVERIFIED
+    PIT_available_at_and_revision: UNVERIFIED
+    pit: {event_time: trade_date_and_possible_intraday_period, published_at: absent, available_at: absent, effective_interval: daily_status_without_full_order_eligibility, revision_history: absent, delisted_entities: untested, historical_membership: not_applicable, current_backfill_risk: possible, timezone_release: release_clock_unknown}
+    cost_access: 2000_points; one_authorized_user_owned_suspend_d_query_succeeded
+    unresolved_gaps: [missing_suspended_bars_vs_true_halts, intraday_resume, historical_notice_time]
+    recommendation: require_status_sample_and_conservative_no_fill_policy_later_under_D12
+  - id: price_limit_tradability
+    preferred_source: TS_LIMIT
+    backup_source: versioned_exchange_rules_plus_original_bars_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [trade_date, up_limit, down_limit]
+    pit_confidence: LOW
+    coverage: {observed_rows: 0, earliest_reliable_observed: null, documented: no_start_date_or_rule_version_certified}
+    pit: {event_time: trade_date, published_at: absent, available_at: absent, effective_interval: daily_limits_only, revision_history: absent, delisted_entities: untested, historical_membership: not_applicable, current_backfill_risk: possible, timezone_release: 'About 09:00 vendor update, not a historical available_at timestamp.'}
+    cost_access: 2000_points; endpoint_entitlement_unverified
+    unresolved_gaps: [historical_board_ST_limit_regimes, exceptions, book_lock_and_queue_unobservable]
+    recommendation: qualify_prices_separately_from_fill_eligibility
+  - id: corporate_actions
+    preferred_source: TS_DIVIDEND_plus_original_issuer_notices
+    backup_source: licensed_corporate_action_vintage_feed_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [ann_date, imp_ann_date, record_date, ex_date, pay_date, cash_and_stock_dividend]
+    pit_confidence: LOW
+    coverage: {observed_rows: 0, earliest_reliable_observed: null, documented: 'Dividend endpoint claims 2000-01-01 onward; broader actions untested.'}
+    pit: {event_time: ex_and_record_dates, published_at: announcement_dates_without_time, available_at: absent, effective_interval: ex_date_for_some_actions, revision_history: absent, delisted_entities: untested, historical_membership: not_applicable, current_backfill_risk: vendor_factor_recomputation_possible, timezone_release: date_only_unknown_release_time}
+    cost_access: 2000_points; endpoint_entitlement_unverified
+    unresolved_gaps: [rights_mergers_splits_full_set, original_source_hashes, event_revisions, adjustment_rule_vintages]
+    recommendation: require_original_notices_and_recomputed_adjustments
+  - id: historical_index_membership
+    preferred_source: CSI_dated_constituent_announcements_or_licensed_archive
+    backup_source: TS_INDEX_WEIGHT_monthly_snapshots
+    qualification_level: UNVERIFIED
+    documented_fields: [monthly_constituent_code, weight, trade_date, CSI300_regular_effective_rule]
+    pit_confidence: LOW
+    coverage: {observed_rows: 0, earliest_reliable_observed: null, documented: monthly_vendor_snapshots_only}
+    pit: {event_time: monthly_weight_date, published_at: absent, available_at: absent, effective_interval: exact_entry_exit_not_recoverable_from_monthly_schema_alone, revision_history: absent, delisted_entities: untested, historical_membership: monthly_schema_only, current_backfill_risk: high_if_current_constituents_used, timezone_release: announcement_time_unknown}
+    cost_access: vendor_2000_points_and_CSI_license_unknown; endpoint_entitlement_unverified
+    unresolved_gaps: [daily_effective_membership, temporary_changes, original_announcement_vintages, rights]
+    recommendation: require_historical_CSI_notice_archive_or_licensed_PIT_constituents
+  - id: historical_industry_membership
+    preferred_source: TS_SW_MEMBER_with_is_new_N
+    backup_source: licensed_Shenwan_history_or_dated_original_notices_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [in_date, out_date, industry_codes, is_new]
+    pit_confidence: LOW
+    coverage: {observed_rows: 0, earliest_reliable_observed: null, documented: 'In/out fields shown; bak_basic daily industry label claims from 2016.'}
+    pit: {event_time: in_and_out_dates, published_at: absent, available_at: absent, effective_interval: in_out_dates_without_vintage, revision_history: absent, delisted_entities: untested, historical_membership: endpoint_supports_history_but_default_is_current_Y, current_backfill_risk: high_if_default_is_new_Y, timezone_release: date_only_unknown_release_time}
+    cost_access: 2000_to_5000_points_and_underlying_rights_unknown; endpoint_entitlement_unverified
+    unresolved_gaps: [classification_version, reclassification_notice_time, delisted_member_coverage]
+    recommendation: explicitly_query_history_and_reconcile_with_source_vintages
+  - id: financial_publication_availability
+    preferred_source: original_exchange_issuer_filing_with_release_timestamp
+    backup_source: TS_CASHFLOW_plus_TS_DISCLOSURE
+    qualification_level: UNVERIFIED
+    documented_fields: [ann_date, f_ann_date, actual_date, planned_date]
+    pit_confidence: NONE_FOR_INTRADAY_ASOF
+    coverage: {observed_rows: 0, earliest_reliable_observed: null, documented: date_fields_only_no_original_release_archive_audited}
+    pit: {event_time: report_period_end, published_at: date_only_vendor_fields, available_at: absent, effective_interval: report_period_not_information_availability, revision_history: partial_report_type_not_complete_lineage, delisted_entities: untested, historical_membership: not_applicable, current_backfill_risk: high_if_latest_statement_used, timezone_release: exact_time_and_zone_unknown}
+    cost_access: 2000_points_single_name_or_5000_VIP; endpoint_entitlement_unverified
+    unresolved_gaps: [exact_release_time, original_file_hash, first_seen_clock, safe_session_lag]
+    recommendation: defer_features_without_prefrozen_conservative_release_policy_and_originals
+  - id: revision_vintage_semantics
+    preferred_source: immutable_original_exchange_filings_and_correction_chain
+    backup_source: licensed_PIT_vintage_provider_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [financial_report_type, disclosure_modify_date]
+    pit_confidence: NONE
+    coverage: {observed_rows: 0, earliest_reliable_observed: null, documented: no_complete_revision_history_export_identified}
+    pit: {event_time: report_period_or_corrected_event, published_at: incomplete_date_only, available_at: absent, effective_interval: correction_effective_time_unknown, revision_history: unverified, delisted_entities: untested, historical_membership: not_applicable, current_backfill_risk: high, timezone_release: unknown}
+    cost_access: original_archive_and_license_unqualified
+    unresolved_gaps: [full_vintages, withdrawal_and_correction_links, historical_ingest_time, hash_chain]
+    recommendation: block_PIT_financial_backtests_until_bitemporal_lineage
+  - id: market_calendar
+    preferred_source: TS_TRADE_CAL
+    backup_source: dated_SSE_SZSE_official_market_calendar_archive_unqualified
+    qualification_level: UNVERIFIED
+    documented_fields: [cal_date, is_open, pretrade_date]
+    pit_confidence: MEDIUM_FOR_DATE_ONLY_LOW_FOR_HISTORICAL_REVISION
+    coverage: {observed_rows: 1, observed_sample_date: '2024-04-30', earliest_reliable_observed: null, documented: calendar_schema_without_earliest_history}
+    technical_calendar_row_shape: {status: SAMPLE_VERIFIED_CALENDAR_ROW_SHAPE_ONLY, evidence: artifacts/stage_c2/C2-02/API03R_EXECUTION.yaml, columns: [exchange, cal_date, is_open, pretrade_date], observed_row_field_nullness: all_non_null}
+    historical_completeness_PIT_and_vintage: {status: UNVERIFIED, all_sessions: unverified, emergency_closures: unverified, first_available_at: absent, corrections: absent, SSE_SZSE_divergence: unverified, intraday_duration: unverified}
+    pit: {event_time: cal_date, published_at: absent, available_at: absent, effective_interval: session_date, revision_history: absent, delisted_entities: not_applicable, historical_membership: not_applicable, current_backfill_risk: corrected_holiday_history_possible, timezone_release: China_market_date_only}
+    cost_access: 2000_points; user_owned_credential_verified_for_one_authorized_trade_cal_query_only
+    unresolved_gaps: [actual_historical_session_counts, historical_ad_hoc_closures, release_version, intraday_early_close, SSE_SZSE_history]
+    recommendation: sample_and_reconcile_official_calendar_before_freeze

@@ -1,0 +1,140 @@
+version: '0.1'
+principal_agent: GPT-Astra
+worker_candidates:
+- GPT-6 Sol
+- DeepSeek
+architecture_rule: model_agnostic_workers; deterministic_or_sealed_evaluator
+phases:
+- id: P0
+  name: scope_lock
+  deliverables:
+  - 00_SCOPE_AND_NON_GOALS.md
+  code_changes: false
+- id: P1
+  name: current_state_audit
+  deliverables:
+  - 01_CURRENT_STATE_AUDIT.md
+  - 01_GAP_MATRIX.yaml
+  code_changes: minimal/read-only preferred
+- id: P2
+  name: target_architecture
+  deliverables:
+  - 02_TARGET_ARCHITECTURE.md
+  exit:
+  - canonical ownership resolved
+  - trust boundaries defined
+  - no duplicate truth stores
+- id: P3
+  name: environment_spec
+  deliverables:
+  - 03_ENV_SPEC.yaml
+  exit:
+  - dev/sealed/shadow boundaries defined
+  - data/version semantics defined
+  - resource/search controls defined
+- id: P4
+  name: eval_spec
+  deliverables:
+  - 04_EVAL_SPEC.yaml
+  exit:
+  - hard gates defined
+  - task families defined
+  - score vector defined
+  - hidden tests defined
+- id: P5
+  name: agent_orchestration
+  deliverables:
+  - 05_AGENT_ORCHESTRATION.yaml
+  exit:
+  - role contracts
+  - handoff schema
+  - retry policy
+  - search budget enforcement
+- id: P6
+  name: mvp_implementation
+  scope: Task -> Astra plan -> worker -> critic -> deterministic evaluator -> EvalResult
+    -> ledger
+- id: P7
+  name: calibration
+  minimum_tasks:
+    replication: 2
+    placebo: 2
+    leakage_trap: 2
+    cost_failure: 1
+    nonstationarity: 1
+    a_share_institutional_trap: 1
+- id: P8
+  name: model_comparison
+  rule: same task/env/eval versions across models
+- id: P9
+  name: prospective_shadow
+  rule: no backfill; only information available at decision time
+roles:
+  astra:
+    responsibilities:
+    - task interpretation
+    - hypothesis tree
+    - dependency graph
+    - work delegation
+    - evidence synthesis
+    - research dossier
+    forbidden:
+    - alter sealed evaluator
+    - hide failed trials
+    - reset search budget without version bump
+  researcher:
+    responsibilities:
+    - mechanism
+    - hypothesis
+    - competing explanations
+    - falsification
+  data_env:
+    responsibilities:
+    - DataSpec
+    - PIT
+    - lineage
+    - universe reconstruction
+    - quality tests
+  implementer:
+    responsibilities:
+    - code
+    - unit tests
+    - reproducible experiment artifacts
+  critic:
+    responsibilities:
+    - leakage review
+    - statistical review
+    - implementation realism
+    - alternative explanations
+    rule: reports issues; does not silently rewrite history
+  evaluator:
+    type: deterministic/sealed
+    responsibilities:
+    - hard gates
+    - hidden tests
+    - EvalResult
+    forbidden:
+    - candidate optimization
+first_round_outputs:
+- 00_SCOPE_AND_NON_GOALS.md
+- 01_CURRENT_STATE_AUDIT.md
+- 01_GAP_MATRIX.yaml
+- 02_TARGET_ARCHITECTURE.md
+- 03_ENV_SPEC_DRAFT.yaml
+- 04_EVAL_SPEC_DRAFT.yaml
+- 05_AGENT_ORCHESTRATION_DRAFT.yaml
+- 06_WORK_BREAKDOWN.md
+- planning_report.yaml
+work_item_schema:
+  id: null
+  owner_role: null
+  objective: null
+  inputs: []
+  forbidden_inputs: []
+  files_allowed_to_modify: []
+  deliverables: []
+  tests: []
+  acceptance_criteria: []
+  dependencies: []
+  max_retries: null
+  search_budget: null

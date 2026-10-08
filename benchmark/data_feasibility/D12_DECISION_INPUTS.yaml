@@ -1,0 +1,13 @@
+decision_id: D12
+status: DEFERRED
+output_type: DECISION_INPUTS_ONLY
+audit: C1-02
+feasibility: feasible_with_gap
+documented_components: [daily_bar_volume_units, suspension_status, daily_limit_prices, current_SZSE_2026_lot_tick_and_order_rules, corporate_action_event_dates]
+unverified_or_unavailable_critical_components: [A_share_T_plus_1_authoritative_clause_and_historical_versions, full_SSE_rule_attachment_review, limit_lock_queue_and_fill_inference, partial_fill_calibration, historical_fee_tax_schedule, commission_spread_slippage_impact, target_capital, participation_cap, reference_portfolio]
+capital: null
+cost_rates: null
+impact_parameters: null
+reference_portfolio: null
+next_evidence_needed: [historical_exchange_and_CSDC_market_rule_versions, authoritative_fee_tax_schedule, licensed_daily_execution_status, independent_capacity_and_cost_calibration, no_fill_policy_for_ambiguous_limit_lock]
+freeze_allowed_now: false

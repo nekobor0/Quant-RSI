@@ -1,0 +1,1858 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-09-27T17:27:41.890471+00:00",
+  "scope": "planning_structure_only_NOT_runtime_or_independent_review",
+  "checks_passed": 365,
+  "checks_total": 365,
+  "work_items": 20,
+  "gaps": 17,
+  "input_sha256": {
+    "00_START_HERE.md": "70f7ef3746b12009b37fd283da23334f56235fa5eb3d50e2103c8b375a9a2dcf",
+    "01_LITERATURE_TO_HARNESS_TAKEAWAYS.md": "b8a6e614182c4e5801acc61e58b47ca3eb8721b5143fbf51b9a2bbe79631a3d3",
+    "02_ASTRA_MASTER_TASKBOOK.md": "8e5240d7f15932054105b2ac0a95fbc9fc064f2f598f8829a8255aa404bd3635",
+    "03_HARNESS_DESIGN_PRINCIPLES.yaml": "bd1db0a49902dfd690ff4ec3fad607f4cefbd96687b7da2c7ad62ccfbe0e55d7",
+    "04_ASTRA_EXECUTION_PLAN.yaml": "35033071a0e54d6195730dba59e9bfc90660dba06771626cee2181e023cda35f",
+    "05_SOURCE_INDEX.yaml": "7f269a7421aa912d8a9ee3b101e5f7c629bb1382fabe4d9d956a645dbe96435c",
+    "06_DECISION_REGISTER.md": "cbfbb5cc8397c42e60edd26b7298db5f97376c8a3358ea56b0caee267c729ffe"
+  },
+  "artifact_sha256": {
+    "00_SCOPE_AND_NON_GOALS.md": "da5bb0a9f502e1e10dc1d523f92e62fe7b387d3c9571b00701de72dfc0ca8619",
+    "01_CURRENT_STATE_AUDIT.md": "3d8b2963e59a89b6de1b4c61e67293d1030a5cf2acaaf5e4396127e7e5aa6266",
+    "01_GAP_MATRIX.yaml": "67cbd47ba8e6f904d030a7140fb7cb90f1356037b7482bdc8872f79093258381",
+    "02_TARGET_ARCHITECTURE.md": "275cb7c9e6f9a96c094fdea894cec5e652f2ce46c347bdbce4b5b3ff4b0d3a54",
+    "03_ENV_SPEC_DRAFT.yaml": "4cd63ad0282de962be77a389bc3e78d0c7ec802d0cac1a8c27870fd75339550d",
+    "04_EVAL_SPEC_DRAFT.yaml": "f39ae9acd38f2413ef96d3635e03a1a44372cdab54886ced38a584ff6cdfcc48",
+    "05_AGENT_ORCHESTRATION_DRAFT.yaml": "2648296e8d88360cc2ac99fd6f51a575fe139ee2f61fa538e848b9c8dc146830",
+    "06_WORK_BREAKDOWN.md": "7bf002715fa1fe535b555fccab3f7de9e6c504232e6b249c6dc9d162f5777e99",
+    "planning_report.yaml": "1529f53d335da683f8fc0d71b22e780b456d92b3a6ed13c00dd9a5e0599f66cb",
+    "planning/validate_planning.py": "0eca3e7b998e24a59d1707f72822557988e277540f707a88ad09e8ae1337b0c7",
+    "planning/input_baseline.json": "9cd209e76579b82238fb2f1f788989a5f1920e37aff3b79d39f19dc97971a582"
+  },
+  "checks": [
+    {
+      "check": "one_machine_readable_work_item_store",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "unique_work_item_ids",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "work_item_count",
+      "status": "PASS",
+      "detail": "20"
+    },
+    {
+      "check": "authorized_inputs_only",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nine_requested_outputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:00_SCOPE_AND_NON_GOALS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:01_CURRENT_STATE_AUDIT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:01_GAP_MATRIX.yaml",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:02_TARGET_ARCHITECTURE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:03_ENV_SPEC_DRAFT.yaml",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:04_EVAL_SPEC_DRAFT.yaml",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:05_AGENT_ORCHESTRATION_DRAFT.yaml",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:06_WORK_BREAKDOWN.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "output_exists:planning_report.yaml",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "source_ids_P01_P30",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "principle_source_refs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W01:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W01:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W01:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W01:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W01:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W01:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W02:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W02:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W02:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W02:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W02:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W02:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W03:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W03:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W03:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W03:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W03:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W03:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W04:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W04:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W04:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W04:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W04:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W04:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W05:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W05:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W05:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W05:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W05:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W05:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W06:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W06:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W06:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W06:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W06:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W06:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W07:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W07:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W07:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W07:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W07:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W07:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W08:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W08:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W08:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W08:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W08:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W08:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W09:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W09:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W09:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W09:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W09:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W09:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W10:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W10:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W10:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W10:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W10:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W10:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W20:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W20:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W20:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W20:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W20:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W20:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W20",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W11:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W11:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W11:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W11:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W11:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W11:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W12:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W12:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W12:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W12:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W12:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W12:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W13:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W13:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W13:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W13:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W13:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W13:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W14:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W14:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W14:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W14:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W14:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W14:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W15:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W15:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W15:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W15:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W15:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W15:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W16:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W16:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W16:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W16:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W16:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W16:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W17:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W17:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W17:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W17:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W17:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W17:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W18:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W18:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W18:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W18:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W18:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W18:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W18",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "required_fields:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W19:inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W19:forbidden_inputs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W19:files_allowed_to_modify",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W19:deliverables",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W19:tests",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nonempty:W19:acceptance_criteria",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_relative_whitelist:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependencies_exist:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retry_budget:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "finite_nonnegative_budget:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_scientific_search:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "bounded_test_compute:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_dispatched:W19",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "order_exactly_all_items",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependency_DAG_topological_order",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_overlapping_write_ownership",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "decision_dependencies_resolve",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "seed_decisions_preserved",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "pending_decisions_not_silently_approved",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C02",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C03",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C04",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C05",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C06",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C07",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C08",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C09",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C10",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C11",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C12",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C13",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C14",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C15",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C16",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_contract:C17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_work_links:C17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gap_authorized_evidence:C17",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "principles_H01_H15_covered",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gates_G0_G7_exact",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "gates_actionable",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "families_E0_E9_exact",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "calibration_minimum_preserved",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nine_concrete_public_calibration_designs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "task_contract_fields_present",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "three_environment_boundaries",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "independent_critic_and_deterministic_eval",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_round_one_dispatch",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "runtime_not_claimed",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inputs_unchanged_since_planning_baseline",
+      "status": "PASS",
+      "detail": ""
+    }
+  ]
+}

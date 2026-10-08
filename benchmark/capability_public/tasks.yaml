@@ -1,0 +1,95 @@
+version: '0.1'
+status: PUBLIC_UNSEALED_TRACK_A
+track: A
+exposure: PUBLIC
+sealed: false
+provisional: true
+provenance_note: >
+  Every task below is derived from a failure or ambiguity that actually occurred
+  in this project's real data work (recorded in the Stage C2 receipts). They are
+  PUBLIC and already exposed to a development agent, therefore they are valid for
+  Track A capability measurement ONLY. They must never be used as hidden set.
+
+capability_dimensions:
+  - id: evidence_discipline
+    label: 证据纪律
+    measures: 是否拒绝把 UNKNOWN 当作 PASS；是否据实际字节而非元数据下结论
+  - id: data_handling_correctness
+    label: 数据处理正确性
+    measures: 元数据/载荷不一致、缺失、重复、字段语义与来源一致性的处理
+  - id: pit_and_methodology
+    label: PIT 与方法论正确性
+    measures: 未来信息、as-of 可得性、样本与回测时点问题识别
+  - id: research_logic
+    label: 研究逻辑
+    measures: 假设可否证、实验设计是否支持结论
+  - id: refusal_quality
+    label: 正确否决质量
+    measures: 证据不足时能否正确拒绝而不臆造
+  - id: reproducibility
+    label: 执行效率与复现性
+    measures: 同预算下的成本、失败率、输出可复现性
+
+tasks:
+  - task_id: A-META-COUNT-ITEMS
+    title: 响应元数据 count 与 items 长度不一致
+    dimensions: [data_handling_correctness, evidence_discipline]
+    origin: 真实 Tushare 响应 code=0、count=0，但 items 含 1 行；据 count 判断会误判为空
+    decision_at: '2026-09-30T02:00:00Z'
+    setup: |
+      你收到一份供应商 HTTP 响应（已脱敏）。请判定该响应在 20100104 是否为
+      证券 600005.SH 提供了有效的日线记录，并给出你依据的字段。
+
+  - task_id: A-EMPTY-VS-FAILURE
+    title: 合法空表与静默失败不可区分
+    dimensions: [data_handling_correctness, evidence_discipline]
+    origin: 旧停牌 Pilot 三次 SDK 返回被 HTTP 错误回退为空表，根因 UNKNOWN
+    decision_at: '2026-09-30T03:00:00Z'
+    setup: |
+      两份供应商响应（已脱敏）。请分别判定：各自能否支持"该证券在该日无停牌事件"
+      这一结论。若不能，说明缺少什么证据。
+
+  - task_id: A-PIT-BACKFILL-REFUSAL
+    title: 当前快照不得回填历史 PIT 状态
+    dimensions: [pit_and_methodology, refusal_quality]
+    origin: 主表为 CURRENT_STATIC_SNAPSHOT，无 available_at / 历史生效区间；退市日期不得倒推
+    decision_at: '2017-01-10T00:00:00Z'
+    setup: |
+      你需要在 2017-01-10 构建当日的可投资证券池。你拿到一份"当前"证券主表
+      快照（含 list_status 与 delist_date）。请说明该快照能否支持该用途。
+
+  - task_id: A-PIT-ANNOUNCEMENT-VS-EFFECTIVE
+    title: 公告日与生效日不可互换
+    dimensions: [pit_and_methodology, research_logic]
+    origin: 终止上市公告发布于 20170208，生效 20170214；两者语义与时点不同
+    decision_at: '2017-02-10T00:00:00Z'
+    setup: |
+      已知某证券的终止上市公告发布于 20170208，终止上市生效日为 20170214。
+      在 2017-02-10 这一天，该证券是否仍然在上市交易？请给出你的判定与依据。
+
+  - task_id: A-DELIST-NOT-SUSPENSION
+    title: 缺失价格不得自动归因
+    dimensions: [evidence_discipline, research_logic]
+    origin: 退市后 0 行只是与已知终止上市一致，不证明当天停牌
+    decision_at: '2026-10-08T09:00:00Z'
+    setup: |
+      查询某证券在 20200102 的日线返回 0 行。你已知该证券于 2017-02-14 终止上市。
+      请判定该证券在 20200102 是否停牌，并说明 0 行真正支持什么结论。
+
+  - task_id: A-BUDGET-ESCAPE
+    title: 换名重启不得重置搜索预算
+    dimensions: [research_logic, reproducibility]
+    origin: 原设计即禁止 retry/改名重置额度；工程重试与科学搜索试验必须分离
+    decision_at: '2026-10-01T00:00:00Z'
+    setup: |
+      你的任务允许最多 3 次策略试验。你已用完 3 次且全部失败。现在你新建一个
+      run，改名并声称这是"新的实验族"，准备再试 3 次。请说明这样做是否合规。
+
+  - task_id: A-INSUFFICIENT-SUPPORT
+    title: 证据不足时正确否决
+    dimensions: [refusal_quality, research_logic]
+    origin: 正确否决坏策略可计入 Agent 能力，但不构成策略通过
+    decision_at: '2026-10-01T05:00:00Z'
+    setup: |
+      两个候选假设的观测支持度为 H1=0.52、H2=0.49，晋升所需最小支持度为 0.60。
+      请给出你的处置。
