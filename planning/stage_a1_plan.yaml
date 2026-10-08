@@ -1,0 +1,194 @@
+stage: A.1
+status: ACCEPTED_WITH_DECLARED_LIMITATIONS_STOPPED
+authority: artifacts/stage_a1/authorized_request.txt
+architecture_redesign: false
+release_self_test_added: false
+W07_W20_authorized: false
+statistical_calibration_frozen: false
+stop_after: stage_a1_acceptance.yaml
+runtime_files_allowed:
+- src/quant_rsi/contracts/condition.py
+- src/quant_rsi/contracts/manifest.py
+- src/quant_rsi/contracts/research.py
+- src/quant_rsi/ledger/budget.py
+- tests/contracts/test_condition.py
+- tests/contracts/test_research.py
+- tests/ledger/test_budget.py
+- tests/ledger/test_provenance.py
+work_items:
+- id: A1-01
+  inputs:
+  - artifacts/stage_a1/authorized_request.txt
+  - contracts/decisions.yaml
+  - W01-W06 implementation and preserved Stage A evidence
+  forbidden_inputs:
+  - other projects
+  - real market research
+  - real model providers
+  - sealed hidden data
+  files_allowed_to_modify:
+  - src/quant_rsi/contracts/research.py
+  - src/quant_rsi/ledger/budget.py
+  - tests/contracts/test_research.py
+  - tests/ledger/test_budget.py
+  dependencies: []
+  tests:
+  - existing W01-W06 regression assertions
+  - applicable A1 required negative cases
+  - cross-layer synthetic fixture
+  acceptance_criteria:
+  - one canonical owner per fact
+  - fail closed on missing or mismatched provenance
+  - immutable preregistration unchanged
+  - no Stage B dispatch
+  max_retries: 2
+  search_budget:
+    engineering_attempts: 3
+    max_test_invocations: 6
+    scientific_candidate_trials: 0
+    sealed_submissions: 0
+    real_provider_calls: 0
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+- id: A1-02
+  inputs:
+  - artifacts/stage_a1/authorized_request.txt
+  - contracts/decisions.yaml
+  - W01-W06 implementation and preserved Stage A evidence
+  forbidden_inputs:
+  - other projects
+  - real market research
+  - real model providers
+  - sealed hidden data
+  files_allowed_to_modify:
+  - src/quant_rsi/contracts/condition.py
+  - tests/contracts/test_condition.py
+  dependencies: []
+  tests:
+  - existing W01-W06 regression assertions
+  - applicable A1 required negative cases
+  - cross-layer synthetic fixture
+  acceptance_criteria:
+  - one canonical owner per fact
+  - fail closed on missing or mismatched provenance
+  - immutable preregistration unchanged
+  - no Stage B dispatch
+  max_retries: 2
+  search_budget:
+    engineering_attempts: 3
+    max_test_invocations: 6
+    scientific_candidate_trials: 0
+    sealed_submissions: 0
+    real_provider_calls: 0
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+- id: A1-03
+  inputs:
+  - artifacts/stage_a1/authorized_request.txt
+  - contracts/decisions.yaml
+  - W01-W06 implementation and preserved Stage A evidence
+  forbidden_inputs:
+  - other projects
+  - real market research
+  - real model providers
+  - sealed hidden data
+  files_allowed_to_modify:
+  - src/quant_rsi/contracts/manifest.py
+  dependencies:
+  - A1-01
+  - A1-02
+  tests:
+  - existing W01-W06 regression assertions
+  - applicable A1 required negative cases
+  - cross-layer synthetic fixture
+  acceptance_criteria:
+  - one canonical owner per fact
+  - fail closed on missing or mismatched provenance
+  - immutable preregistration unchanged
+  - no Stage B dispatch
+  max_retries: 2
+  search_budget:
+    engineering_attempts: 3
+    max_test_invocations: 6
+    scientific_candidate_trials: 0
+    sealed_submissions: 0
+    real_provider_calls: 0
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+- id: A1-04
+  inputs:
+  - artifacts/stage_a1/authorized_request.txt
+  - contracts/decisions.yaml
+  - W01-W06 implementation and preserved Stage A evidence
+  forbidden_inputs:
+  - other projects
+  - real market research
+  - real model providers
+  - sealed hidden data
+  files_allowed_to_modify:
+  - tests/ledger/test_provenance.py
+  dependencies:
+  - A1-01
+  - A1-02
+  - A1-03
+  tests:
+  - existing W01-W06 regression assertions
+  - applicable A1 required negative cases
+  - cross-layer synthetic fixture
+  acceptance_criteria:
+  - one canonical owner per fact
+  - fail closed on missing or mismatched provenance
+  - immutable preregistration unchanged
+  - no Stage B dispatch
+  max_retries: 2
+  search_budget:
+    engineering_attempts: 3
+    max_test_invocations: 6
+    scientific_candidate_trials: 0
+    sealed_submissions: 0
+    real_provider_calls: 0
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+- id: A1-05
+  inputs:
+  - artifacts/stage_a1/authorized_request.txt
+  - contracts/decisions.yaml
+  - W01-W06 implementation and preserved Stage A evidence
+  forbidden_inputs:
+  - other projects
+  - real market research
+  - real model providers
+  - sealed hidden data
+  files_allowed_to_modify:
+  - artifacts/stage_a1/critic_initial.json
+  - artifacts/stage_a1/critic_resolution.json
+  dependencies:
+  - A1-04
+  tests:
+  - existing W01-W06 regression assertions
+  - applicable A1 required negative cases
+  - cross-layer synthetic fixture
+  acceptance_criteria:
+  - one canonical owner per fact
+  - fail closed on missing or mismatched provenance
+  - immutable preregistration unchanged
+  - no Stage B dispatch
+  max_retries: 2
+  search_budget:
+    engineering_attempts: 3
+    max_test_invocations: 6
+    scientific_candidate_trials: 0
+    sealed_submissions: 0
+    real_provider_calls: 0
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096

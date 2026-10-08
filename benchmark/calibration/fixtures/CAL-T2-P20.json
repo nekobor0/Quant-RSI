@@ -1,0 +1,141 @@
+{
+  "case_id": "CAL-T2-P20",
+  "exposure": "PUBLIC_CALIBRATION",
+  "variants": {
+    "base": {
+      "decision_month": 12,
+      "entry_lag_sessions": 1,
+      "exit_close": {
+        "A": 118,
+        "B": 94
+      },
+      "monthly_closes": {
+        "A": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112
+        ],
+        "B": [
+          100,
+          99,
+          98,
+          97,
+          96,
+          95,
+          94,
+          93,
+          92,
+          91,
+          90,
+          89,
+          88
+        ]
+      },
+      "next_open": {
+        "A": 113,
+        "B": 89
+      },
+      "signal_observed_at": 12
+    },
+    "negative": {
+      "decision_month": 12,
+      "entry_lag_sessions": 1,
+      "exit_close": {
+        "A": 118,
+        "B": 94
+      },
+      "monthly_closes": {
+        "A": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112
+        ],
+        "B": [
+          100,
+          99,
+          98,
+          97,
+          96,
+          95,
+          94,
+          93,
+          92,
+          91,
+          90,
+          89,
+          88
+        ]
+      },
+      "next_open": {
+        "A": 113,
+        "B": 89
+      },
+      "signal_observed_at": 13
+    },
+    "positive": {
+      "decision_month": 12,
+      "entry_lag_sessions": 1,
+      "exit_close": {
+        "A": 118,
+        "B": 94
+      },
+      "monthly_closes": {
+        "A": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112
+        ],
+        "B": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          102
+        ]
+      },
+      "next_open": {
+        "A": 113,
+        "B": 89
+      },
+      "signal_observed_at": 12
+    }
+  }
+}

@@ -1,0 +1,17 @@
+schema: BenchmarkTaskSpec_PUBLIC_PROJECTION
+status: PUBLIC_DEVELOPMENT_ORACLE_PROTOTYPE
+task_id: DEV-T4-EXPLANATION
+task_version: 0.1
+tier: T4
+task_family: E8
+benchmark_condition_ref: PUBLIC_SYNTHETIC_ONLY_NOT_OFFICIAL_RUN
+public_prompt: 'Choose the explanation supported by the visible synthetic observations, include provenance and falsification condition, or justify refusal.'
+public_inputs: [benchmark/public_oracle_pilot/T4_FIXTURE.json]
+forbidden_inputs: [hidden_pack, real_market_data, model_provider]
+required_outputs: [terminal, hypothesis, evidence, falsification, reason]
+development_partition: PUBLIC_DEVELOPMENT
+sealed_partition: null
+hidden_score_eligibility: false
+score_denominator: one_per_assigned_output_including_fabrication_refusal_invalid_timeout
+score_dimensions_ref: benchmark/BENCHMARK_SCORE_VECTOR.yaml
+formal_claim_allowed: false

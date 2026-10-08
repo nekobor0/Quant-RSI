@@ -1,0 +1,279 @@
+stage: B1
+status: PASS_AUTHORIZED_SYNTHETIC_SCOPE_STOPPED
+authority: artifacts/stage_b1/authorized_request.txt
+order:
+- W07
+- W08
+- W20
+conditional_parallel:
+- W09
+not_authorized:
+- W10
+- W11
+- W12
+- W13
+- W14
+- W15
+- W16
+- W17
+- W18
+- W19
+empirical_authorized: false
+shadow_authorized: false
+D04B_D11_D12_frozen: false
+work_items:
+- id: W07
+  owner_role: data_env
+  suggested_worker: Astra or separately assigned data worker
+  status: PASS_AUTHORIZED_SYNTHETIC_SCOPE
+  dispatch_authorization: AUTHORIZED_STAGE_B1
+  objective: 实现固定清洗与 PIT 可见数据视图
+  inputs:
+  - planning/v0.2/03_ENV_SPEC_DRAFT.yaml#data_contract
+  forbidden_inputs:
+  - 任何其他项目的代码、schema、运行结果或历史研究
+  - 未获准的市场数据、网络来源、凭据和 live order 接口
+  - sealed 数据、标签、隐藏测试与未来 shadow outcomes
+  - 未冻结或被污染条件下的绩效反馈
+  files_allowed_to_modify:
+  - src/quant_rsi/data/pit.py
+  - tests/data/test_pit.py
+  deliverables:
+  - PIT revision/membership 查询与冻结训练变换
+  tests:
+  - python -m pytest -q tests/data/test_pit.py
+  - 反例/边界验证：未来修订、当前 ST/行业回填、退市遗漏、日期时区边界可检测
+  - 反例/边界验证：未来样本扰动不改变训练拟合；purge/embargo 阻止标签重叠
+  acceptance_criteria:
+  - 未来修订、当前 ST/行业回填、退市遗漏、日期时区边界可检测
+  - 未来样本扰动不改变训练拟合；purge/embargo 阻止标签重叠
+  - 仅白名单 diff；附 artifact hashes、测试命令/exit code、失败记录及独立审阅引用
+  dependencies:
+  - W03
+  - W04
+  decision_dependencies: []
+  max_retries: 2
+  search_budget:
+    status: FROZEN_STAGE_B1_ENGINEERING_LIMITS
+    scope: total_per_work_item_including_all_retries
+    engineering_attempts: 3
+    scientific_candidate_trials: 0
+    parameter_searches: 0
+    prompt_search_variants: 0
+    external_web_queries: 0
+    sealed_submissions: 0
+    synthetic_fixture_variants: 0
+    max_test_invocations: 6
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+    on_exhaustion: STOP_AND_APPEND_BLOCKED_NO_AUTO_EXTENSION
+  failure_policy: 保留每次失败；issue→patch→test；2 次修复后停止，禁止另建 family 洗掉失败
+  notes: 所有数字为实施预算提案，不是已消耗统计或模型性能事实。
+  evidence:
+  - artifacts/stage_b1/W07_initial.xml
+  - artifacts/stage_b1/evidence_correction/invocation12.xml
+- id: W08
+  owner_role: implementer
+  suggested_worker: GPT-6 Sol or DeepSeek
+  status: PASS_AUTHORIZED_SYNTHETIC_SCOPE
+  dispatch_authorization: AUTHORIZED_STAGE_B1
+  objective: 实现日频 paper 执行与成本容量核算
+  inputs:
+  - planning/v0.2/03_ENV_SPEC_DRAFT.yaml#execution_semantics
+  forbidden_inputs:
+  - 任何其他项目的代码、schema、运行结果或历史研究
+  - 未获准的市场数据、网络来源、凭据和 live order 接口
+  - sealed 数据、标签、隐藏测试与未来 shadow outcomes
+  - 未冻结或被污染条件下的绩效反馈
+  files_allowed_to_modify:
+  - src/quant_rsi/env/daily.py
+  - tests/env/test_daily.py
+  deliverables:
+  - 最小日频 simulator 与逐项成本/容量输出
+  tests:
+  - python -m pytest -q tests/env/test_daily.py
+  - 反例/边界验证：T 收盘信号不能同收盘成交；T+1/停牌/涨跌停/部分成交/整手边界
+  - 反例/边界验证：现金持仓 NAV 守恒；成本互斥扣除；规模/ADV/impact 压力输出；未知规则阻断
+  acceptance_criteria:
+  - T 收盘信号不能同收盘成交；T+1/停牌/涨跌停/部分成交/整手边界
+  - 现金持仓 NAV 守恒；成本互斥扣除；规模/ADV/impact 压力输出；未知规则阻断
+  - 仅白名单 diff；附 artifact hashes、测试命令/exit code、失败记录及独立审阅引用
+  dependencies:
+  - W04
+  - W07
+  decision_dependencies: []
+  max_retries: 2
+  search_budget:
+    status: FROZEN_STAGE_B1_ENGINEERING_LIMITS
+    scope: total_per_work_item_including_all_retries
+    engineering_attempts: 3
+    scientific_candidate_trials: 0
+    parameter_searches: 0
+    prompt_search_variants: 0
+    external_web_queries: 0
+    sealed_submissions: 0
+    synthetic_fixture_variants: 0
+    max_test_invocations: 6
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+    on_exhaustion: STOP_AND_APPEND_BLOCKED_NO_AUTO_EXTENSION
+  failure_policy: 保留每次失败；issue→patch→test；2 次修复后停止，禁止另建 family 洗掉失败
+  notes: 所有数字为实施预算提案，不是已消耗统计或模型性能事实。
+  evidence:
+  - artifacts/stage_b1/W08_test_commands.json
+  - artifacts/stage_b1/W08_attempt4_green.xml
+  - artifacts/stage_b1/evidence_correction/invocation12.xml
+- id: W09
+  owner_role: evaluator_custodian
+  suggested_worker: independent custodian; never candidate author
+  status: PASS_SYNTHETIC_MOCK_ONLY
+  dispatch_authorization: AUTHORIZED_STAGE_B1_AFTER_TM01
+  objective: 建立 sealed 服务与候选执行权限隔离
+  inputs:
+  - planning/v0.2/03_ENV_SPEC_DRAFT.yaml#environments
+  - planning/v0.2/04_EVAL_SPEC_DRAFT.yaml#hidden_policy
+  - planning/SEALED_THREAT_MODEL.md#TM-01
+  forbidden_inputs:
+  - 任何其他项目的代码、schema、运行结果或历史研究
+  - 未获准的市场数据、网络来源、凭据和 live order 接口
+  - 候选优化历史不得用于修改当前条件的 final evaluator
+  - 只允许未来另行授权的受信隐藏集；本轮没有真实 hidden 数据
+  - 未冻结或被污染条件下的绩效反馈
+  files_allowed_to_modify:
+  - src/quant_rsi/eval/isolation.py
+  - tests/eval/test_isolation.py
+  deliverables:
+  - OS/容器隔离适配器和访问审计
+  tests:
+  - python -m pytest -q tests/eval/test_isolation.py
+  - 反例/边界验证：候选通过文件/工具/网络/异常/日志/metadata 均读不到标签或隐藏测试
+  - 反例/边界验证：修改 evaluator、并发重提、消耗后重用 token 被阻止；无法证明隔离即 G6 BLOCK
+  acceptance_criteria:
+  - 候选通过文件/工具/网络/异常/日志/metadata 均读不到标签或隐藏测试
+  - 修改 evaluator、并发重提、消耗后重用 token 被阻止；无法证明隔离即 G6 BLOCK
+  - 仅白名单 diff；附 artifact hashes、测试命令/exit code、失败记录及独立审阅引用
+  - SYNTHETIC_MOCK 不得声明 BENCHMARK_GRADE；部署证据与独立托管验证缺失则 BLOCK
+  dependencies:
+  - W04
+  - W05
+  - W06
+  decision_dependencies:
+  - D05
+  max_retries: 2
+  search_budget:
+    status: FROZEN_STAGE_B1_ENGINEERING_LIMITS
+    scope: total_per_work_item_including_all_retries
+    engineering_attempts: 3
+    scientific_candidate_trials: 0
+    parameter_searches: 0
+    prompt_search_variants: 0
+    external_web_queries: 0
+    sealed_submissions: 0
+    synthetic_fixture_variants: 0
+    max_test_invocations: 6
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+    on_exhaustion: STOP_AND_APPEND_BLOCKED_NO_AUTO_EXTENSION
+  failure_policy: 保留每次失败；issue→patch→test；2 次修复后停止，禁止另建 family 洗掉失败
+  notes: 所有数字为实施预算提案，不是已消耗统计或模型性能事实。
+  prerequisite_artifacts:
+  - TM-01 independent custodian review before W09 starts
+  prerequisite_evidence: artifacts/stage_b1/w09_tm01_custodian_review.json
+  evidence:
+  - artifacts/stage_b1/W09_initial.xml
+  - artifacts/stage_b1/evidence_correction/invocation12.xml
+- id: W20
+  owner_role: implementer
+  suggested_worker: GPT-6 Sol or DeepSeek
+  status: PASS_AUTHORIZED_SYNTHETIC_SCOPE
+  dispatch_authorization: AUTHORIZED_STAGE_B1
+  objective: 实现锁定输入的复现 runner
+  inputs:
+  - planning/v0.2/03_ENV_SPEC_DRAFT.yaml#version_binding
+  - planning/v0.2/04_EVAL_SPEC_DRAFT.yaml#G2
+  forbidden_inputs:
+  - 任何其他项目的代码、schema、运行结果或历史研究
+  - 未获准的市场数据、网络来源、凭据和 live order 接口
+  - sealed 数据、标签、隐藏测试与未来 shadow outcomes
+  - 未冻结或被污染条件下的绩效反馈
+  files_allowed_to_modify:
+  - src/quant_rsi/eval/replay.py
+  - tests/eval/test_replay.py
+  deliverables:
+  - 从 RunManifest 重建运行和产物校验
+  tests:
+  - python -m pytest -q tests/eval/test_replay.py
+  - 反例/边界验证：同输入/seed/依赖得到容差内同结果
+  - 反例/边界验证：缺 artifact、改依赖、改代码 hash、非确定输出不能通过 G2
+  acceptance_criteria:
+  - 同输入/seed/依赖得到容差内同结果
+  - 缺 artifact、改依赖、改代码 hash、非确定输出不能通过 G2
+  - 仅白名单 diff；附 artifact hashes、测试命令/exit code、失败记录及独立审阅引用
+  dependencies:
+  - W04
+  - W05
+  - W07
+  - W08
+  decision_dependencies: []
+  max_retries: 2
+  search_budget:
+    status: FROZEN_STAGE_B1_ENGINEERING_LIMITS
+    scope: total_per_work_item_including_all_retries
+    engineering_attempts: 3
+    scientific_candidate_trials: 0
+    parameter_searches: 0
+    prompt_search_variants: 0
+    external_web_queries: 0
+    sealed_submissions: 0
+    synthetic_fixture_variants: 0
+    max_test_invocations: 6
+    max_total_tokens: 120000
+    max_wall_seconds: 14400
+    max_cpu_seconds: 7200
+    max_memory_mb: 4096
+    on_exhaustion: STOP_AND_APPEND_BLOCKED_NO_AUTO_EXTENSION
+  failure_policy: 保留每次失败；issue→patch→test；2 次修复后停止，禁止另建 family 洗掉失败
+  notes: 所有数字为实施预算提案，不是已消耗统计或模型性能事实。
+  evidence:
+  - artifacts/stage_b1/W20_initial.xml
+  - artifacts/stage_b1/evidence_correction/invocation12.xml
+integration_file_whitelist:
+- tests/integration/test_stage_b1.py
+replay_assurance:
+  fixed_seed_deterministic: exact frozen JSON bytes required for this MVP; mismatch
+    REPLAY_FAILED
+  externally_nondeterministic: PROVENANCE_VERIFIED_NONDETERMINISTIC only; no output
+    execution or G2 PASS
+  provider_randomness_unknown: PROVENANCE_VERIFIED_NONDETERMINISTIC only; no output
+    execution or G2 PASS
+stop_after: stage_b1_acceptance.yaml
+resume_checkpoint: artifacts/stage_b1/resume_checkpoint.json
+human_budget_overrides:
+- event_ref: artifacts/stage_b1/W08_human_override.json
+  effective_W08_caps:
+    engineering_attempts: 4
+    max_retries: 3
+    max_test_invocations: 9
+  original_work_item_budget_preserved: true
+  attempt4_status: FAILED_VALIDATION_NO_FURTHER_REPAIR
+acceptance_evidence_correction:
+  event_ref: artifacts/stage_b1/evidence_correction/human_override.json
+  engineering_budget_unchanged: true
+  test_patch_limit: 1
+  invocations:
+  - 10
+  - 11
+  - 12
+  targeted_ref: artifacts/stage_b1/evidence_correction/invocation10.xml
+  critic_ref: artifacts/stage_b1/evidence_correction/critic_cr03_final.json
+  status: PASS
+  implementation_unchanged: true
+  engineering_attempts_consumed: 4
+  engineering_attempt_cap: 4
+  invocation12_ref: artifacts/stage_b1/evidence_correction/invocation12_result.json

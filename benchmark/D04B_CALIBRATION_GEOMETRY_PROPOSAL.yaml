@@ -1,0 +1,86 @@
+version: 0.1-DRAFT
+status: PROPOSAL_ONLY_D04B_REMAINS_DEFERRED
+decision_registry_authority: contracts/decisions.yaml#decisions.D04B
+scientific_claim_statistics:
+  question: Does a selected research/strategy claim have calibrated evidence?
+  owner: ScientificSearchFamily_plus_future_W10B
+  inputs: [all_selected_family_ancestry_attempts_and_variants, failed_trials,
+    return_differentials, dependence_geometry, temporal_OOS,
+    frozen_reference_metric_and_cost_model]
+  methods_under_consideration: [DSR, White_Reality_Check, block_bootstrap, PBO_CSCV]
+  output_now: BLOCK_D04B_NOT_FROZEN
+agent_benchmark_comparison_statistics:
+  question: Do Research Agents differ over paired identical benchmark tasks?
+  owner: future_model_comparison_protocol_not_D04B
+  inputs: [per_task_score_vector, paired_run_ids, common_condition_hash,
+    task_family_template_clusters, exposure_state, missing_and_failed_tasks]
+  methods_to_calibrate_later: [paired_task_differences, cluster_bootstrap_across_templates,
+    family_stratified_intervals, sensitivity_to_one_or_two_tasks]
+  strategy_Sharpe_p_value_as_model_capability_p_value: forbidden
+parameters:
+  alpha:
+    proposed_scope: global_decision_class_with_explicit_familywise_error_policy
+    geometry_derived: false
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+  sample_minimum:
+    proposed_scope: task_family_and_metric_specific
+    geometry_derived: candidate_from_effective_independent_blocks_after_purge
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+  bootstrap_block_length:
+    proposed_scope: task_specific_serial_dependence_and_label_horizon
+    geometry_derived: candidate_from_overlap_and_autocorrelation_diagnostics
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+  resamples:
+    proposed_scope: decision_accuracy_and_compute_budget_specific
+    geometry_derived: Monte_Carlo_error_target_and_tail_resolution
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+  CSCV_blocks:
+    proposed_scope: task_specific_nonoverlapping_training_validation_geometry
+    geometry_derived: candidate_even_block_count_from_usable_independent_windows
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+  effect_threshold:
+    proposed_scope: task_and_economic_cost_capacity_context_specific
+    geometry_derived: gross_to_net_break_even_and_required_margin
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+  effective_trial_method:
+    proposed_scope: family_ancestry_and_candidate_dependence_specific
+    geometry_derived: raw_trial_graph_and_correlation_structure
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+  multiplicity_method:
+    proposed_scope: calibrated_statistical_method_applied_to_D04A_frozen_ancestry_scope
+    geometry_derived: explicit_claim_selection_DAG_and_all_failed_attempts
+    requires_empirical_calibration: true
+    uniform_default_allowed: false
+    proposed_value: null
+calibration_prerequisites:
+  - frozen_TaskContract_DataSpec_SnapshotManifest_and_search_budget
+  - observed_usable_sample_geometry_and_missingness
+  - serial_cross_sectional_and_candidate_dependence_diagnostics
+  - independently_constructed_negative_controls
+  - fixed_cost_capacity_and_OOS_policy
+  - declared_error_cost_and_power_target
+  - independent_statistical_critic_review
+if_prerequisite_absent: BLOCK_formal_G4_do_not_substitute_default
+no_parameter_value_frozen_here: true
+D04A_scope_owner_unchanged: true
+registry_handoff: Future D04B calibration stores method and calibrated parameters in the existing D04B decision; it does not revise D04A ancestry scope or silently add a new registry field. G4 remains BLOCKED until separate freeze.
+multiplicity_scope_review:
+  owner: D04A_joint_final_claim_selection_ancestry
+  scope_value: ref:D04A_frozen_policy_not_recalibrated_here
+  geometry_input: explicit_claim_selection_DAG_and_all_failed_attempts
+  D04B_role: calibrate_method_applied_to_this_scope_only
+  uniform_scope_override_allowed: false

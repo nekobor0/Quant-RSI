@@ -1,0 +1,236 @@
+version: '0.2'
+status: DESIGN_ONLY
+scope: independent_Quant_RSI
+source_refs:
+- docs/inputs/02_ASTRA_MASTER_TASKBOOK.md#6
+- docs/inputs/03_HARNESS_DESIGN_PRINCIPLES.yaml#H01-H15
+- docs/inputs/06_DECISION_REGISTER.md#D01-D10
+activation: blocked_until_decisions_and_conformance_tests_pass
+market:
+  value: A_SHARE_ORDINARY_STOCK
+  frequency: daily
+  decision: D01
+  approved: true
+objects:
+  task: TaskContract
+  data: DataSpec
+  snapshot: SnapshotManifest
+  run: RunManifest
+task_contract_draft:
+  required_fields:
+  - task_id
+  - task_version
+  - research_type
+  - market
+  - universe_ref
+  - asof_cutoff
+  - allowed_data_refs
+  - target
+  - horizon
+  - benchmark_ref
+  - execution_assumption_ref
+  - search_budget
+  - compute_budget
+  - sealed_eval_id
+  - success_contract_ref
+  - frozen_at
+  - frozen_by
+  references:
+  - ExperimentSpec
+  - DataSpec
+  - SnapshotManifest
+  - cleaning_spec_version
+  - split_version
+  - EnvSpec
+  - EvalSpec
+  primary_metric: one_preregistered_metric_secondary_metrics_declared_before_run
+  rule: reject_missing_or_null_required_fields_at_runtime
+  example_runtime_values: null
+  note: Task 定义公平条件；family/run 身份由独立对象引用 Task，不参与公平条件 hash。
+version_binding:
+  immutable_keys:
+  - task_version
+  - env_version
+  - data_snapshot_id
+  - cleaning_spec_version
+  - split_version
+  - evaluator_version
+  - cost_model_version
+  - market_rules_version
+  - calendar_version
+  - statistical_protocol_version
+  - budget_policy_version
+  run_keys:
+  - agent_model
+  - agent_model_version
+  - prompt_or_policy_hash
+  - code_commit
+  - code_tree_hash
+  - dependency_lock_hash
+  - tool_versions
+  - seed
+  - trace_range
+  missing_required_binding: BLOCK
+  change: new_condition_and_preserve_parent_family_history
+environments:
+  development:
+    mounts:
+    - read_only_development_snapshot
+    - writable_candidate_workspace
+    validation_access: budgeted_service_only_no_unlimited_download
+    denied:
+    - sealed_snapshot
+    - hidden_labels
+    - hidden_tests
+    - evaluator_write
+    - future_shadow_outcomes
+    - host_credentials
+    network: deny_by_default
+    open_research: separate_track_with_captured_source_asof_and_tool_trace
+  sealed:
+    principal: independent_evaluator_service
+    inputs:
+    - admitted_candidate_digest
+    - frozen_versions
+    - service_owned_snapshot
+    candidate_runtime: no_network_no_host_mount_no_labels_no_raw_hidden_logs
+    candidate_data: feature_only_PIT_interface_separate_from_label_process
+    labels: evaluator_only
+    evaluator_image: read_only_hash_pinned
+    outputs: signed_EvalResult_with_release_policy
+    admission: per_benchmark_budget_root_submission_quota_plus_independent_global_exposure_gate
+    feedback: quarantine_detailed_metrics_until_family_closed
+    replay: custodian_only_no_new_feedback_and_fully_logged
+    compromise: invalidate_exposed_condition_preserve_history_new_unexposed_holdout_required
+    assurance: NOT_IMPLEMENTED
+    threat_model_ref: planning/SEALED_THREAT_MODEL.md
+    mock_is_benchmark_grade: false
+    global_exposure: custodian_freezes_feedback_until_all_comparison_runs_close_no_order_advantage
+  shadow:
+    clock: forward_only_trusted_UTC_with_Asia_Shanghai_calendar
+    execution: paper_only
+    record:
+    - observed_at
+    - available_at
+    - decision_at
+    - signal_at
+    - first_executable_at
+    - outcome_available_at
+    backfill: historical_replay_separate_never_count_as_prospective
+    stopping_rule: preregistered_retirement_policy
+    policy_required:
+    - minimum_observations
+    - evaluation_cadence
+    - monitoring_multiplicity_rule
+    - net_edge_floor
+    - drawdown_limit
+    - cost_drift_limit
+    - data_failure_limit
+    - retirement_action
+    - recovery_review
+    policy_values: null
+    policy_missing: BLOCK_activation
+data_contract:
+  required:
+  - source_id
+  - source_revision
+  - raw_artifact_hash
+  - event_time
+  - published_at
+  - available_at
+  - ingested_at
+  - effective_from
+  - effective_to
+  - timezone
+  - units
+  - adjustment_rule
+  - universe_version
+  - cleaning_spec_version
+  PIT_rule: available_at_lte_decision_at_and_membership_effective_at_decision
+  revision_rule: choose_latest_revision_available_by_decision_not_latest_download
+  date_only_release: conservative_next_eligible_session_rule_frozen_in_Task
+  unavailable_timestamp: BLOCK_not_invented
+  universe: include_delisted_and_historical_ST_industry_membership
+  cleaning: fit_imputation_scaling_winsorization_on_training_only_freeze_transform
+  split: chronological_development_validation_sealed_shadow
+  overlap: purge_label_intervals_and_embargo_by_label_horizon_and_information_lag
+  dates: null
+  dates_status: NOT_FROZEN
+execution_semantics:
+  rule_source_status: required_future_verified_market_rules_no_current_rates_assumed
+  decision: daily_close_signal_cannot_fill_same_close
+  eligibility: first_later_tradable_bar_and_information_available
+  required_rules:
+  - T_plus_1_sellability
+  - trading_calendar
+  - listing_delisting
+  - historical_ST
+  - suspensions
+  - price_limits_and_no_fill
+  - corporate_actions
+  - price_adjustment
+  - historical_membership
+  - lot_size
+  - price_tick
+  - volume_units
+  - partial_fills
+  - cash_and_position_conservation
+  cost_bridge:
+  - gross
+  - commission_and_tax
+  - spread
+  - slippage
+  - impact
+  - net
+  no_double_counting: every_cost_component_has_exclusive_accounting_definition
+  operating_costs: information_and_research_costs_reported_separately_with_capital_and_amortization_policy
+  capacity:
+  - target_capital
+  - order_notional
+  - lagged_ADV
+  - participation_cap
+  - turnover
+  - impact_stress
+  - unfilled_quantity
+  unknown_cost_or_capacity: BLOCK_tradable_promotion
+  capital_and_rates: null
+resource_controls:
+  enforcement: supervisor_reserves_before_dispatch_kills_at_limits_persists_terminal_event
+  dimensions:
+  - candidate_trials
+  - hypotheses_seen
+  - factor_variants
+  - parameter_trials
+  - model_trials
+  - prompt_revisions
+  - retries
+  - validation_queries
+  - sealed_submissions
+  - input_tokens
+  - output_tokens
+  - wall_seconds
+  - cpu_seconds
+  - memory_mb
+  - human_interventions
+  numeric_limits: per_Task_required_before_execution
+  budget_reset: retry_continuation_no_reset_independent_comparison_run_has_own_same_condition_budget
+  budget_owner: AgentBenchmarkRun.budget_root_run_id
+  scientific_accounting: ScientificSearchFamily ancestry; separate from capability
+    score
+conformance_tests:
+- future_and_revised_field_access_denied_before_worker_receives_rows
+- current_membership_cannot_replace_historical_membership
+- training_transform_unchanged_when_future_rows_perturbed
+- same_close_fill_T_plus_1_suspension_limit_and_partial_fill_boundaries
+- worker_cannot_open_sealed_files_labels_hidden_logs_or_network
+- resource_exhaustion_kills_and_records_attempt
+- no_fill_and_cost_bridge_reconcile_cash_positions_and_NAV
+decision_registry_ref: contracts/decisions.yaml
+stage_a1_binding_amendment:
+  ownership_ref: planning/STAGE_A1_OWNERSHIP.md
+  historical_condition: TaskContract.verify_frozen_condition(snapshot)
+  current_permission: TaskContract.authorize_dispatch()
+  run_manifest_contract: src/quant_rsi/contracts/manifest.py
+  attempt_status_owner: ResearchTrace only
+  completed_manifest_requires: terminal event ID and hash
+  replay_runner_implemented: false

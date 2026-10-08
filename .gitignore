@@ -1,0 +1,62 @@
+# Quant-RSI version control exclusions.
+#
+# Principle: SOURCE, CONTRACTS, TESTS, POLICY and CURATED DOCS are versioned.
+# RESTRICTED VENDOR DATA, CREDENTIALS, RUN CACHES and BULK RUN EVIDENCE are NOT.
+# Immutable raw evidence stays protected by the restricted directory, its
+# SHA-256 receipts and OS access control -- not by Git.
+
+# ---- Credentials: never versioned, never listed -------------------------
+.env
+.env.*
+*.credentials.yaml
+.credentials*
+*_token.txt
+*secret*
+
+# ---- Restricted vendor data (Tushare raw / split-frame) -----------------
+# Holds licensed vendor bytes. Protected by DACL + SHA receipts instead.
+.restricted_data/
+**/.restricted_data/
+*.http_response.json
+*.sdk_frame.json
+
+# ---- Scoped-pilot working roots (throwaway isolation copies) ------------
+.cal05_*/
+.daily600005_*/
+.susp01_*/
+.c2_coverage_batch_*/
+*_work/
+_W12_*_tmp/
+critic_probe_tmp/
+
+# ---- Python / tooling caches -------------------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+.venv/
+venv/
+
+# ---- Bulk historical run evidence --------------------------------------
+# Per-round receipts, audit ZIPs, journals and per-run logs. Large, and
+# reconstructible from the acceptance snapshots kept at the repo root.
+artifacts/
+archive/stage_c2_research_path/snapshots/
+
+# ---- Narrative archive bundle ------------------------------------------
+# The conversation archive is a readable record, not build input. Its
+# integrity ledger (verification json + .sha256) is kept at the repo root
+# of artifacts/conversation_archive when that directory is shared.
+artifacts/conversation_archive/_extracted_*/
+artifacts/conversation_archive/*/
+
+# ---- Reference literature (bulk PDFs) ----------------------------------
+docs/literature/papers/*.pdf
+
+# ---- Local machine noise -----------------------------------------------
+*.log
+*.tmp
+Thumbs.db
+desktop.ini

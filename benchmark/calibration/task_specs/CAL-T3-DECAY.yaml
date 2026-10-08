@@ -1,0 +1,33 @@
+schema: BenchmarkTaskSpec_PUBLIC_PROJECTION
+status: PUBLIC_CALIBRATION_ONLY
+task_id: CAL-T3-DECAY
+task_version: '0.1'
+tier: T3
+task_family: E7
+mechanism: signal-decay
+benchmark_condition_ref: PUBLIC_SYNTHETIC_ONLY_NOT_OFFICIAL_RUN
+public_prompt: Adjudicate signal-decay from the supplied synthetic fixture; cite computed
+  evidence or refuse.
+public_inputs:
+- benchmark/calibration/fixtures/CAL-T3-DECAY.json
+forbidden_inputs:
+- hidden_pack
+- real_market_data
+- post_decision_information
+- model_provider
+oracle_ref: benchmark/calibration/oracle_manifests/CAL-T3-DECAY.yaml
+reference_definition_ref: null
+development_partition: PUBLIC_CALIBRATION
+sealed_partition: null
+required_outputs:
+- terminal
+- reason
+- evidence
+- expected_rejection_layer
+search_budget:
+  scientific_candidate_trials: 0
+  hidden_submissions: 0
+  provider_calls: 0
+score_denominator: one_per_assigned_variant_including_missing_invalid_timeout
+score_dimensions_ref: benchmark/BENCHMARK_SCORE_VECTOR.yaml
+formal_claim_allowed: false

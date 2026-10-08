@@ -1,0 +1,65 @@
+version: '0.1-draft'
+status: DESIGN_ONLY
+source_refs: ['02_ASTRA_MASTER_TASKBOOK.md#4-5', '04_ASTRA_EXECUTION_PLAN.yaml#roles', '06_DECISION_REGISTER.md#D07-D08']
+dispatch_authorized_this_round: false
+roles:
+  astra:
+    writes: [work_items, dependency_plan, dossier_synthesis]
+    denied: [sealed_labels, evaluator_modification, silent_budget_reset, evidence_fabrication]
+  researcher:
+    writes: [Hypothesis, preregistration_proposal, competing_explanations]
+    denied: [hidden_tests, final_verdict, unregistered_search]
+  data_env:
+    writes: [DataSpec, SnapshotManifest, cleaning_audits]
+    denied: [candidate_optimization, sealed_label_release, retrospective_availability_fabrication]
+  implementer:
+    candidates: [GPT-6 Sol, DeepSeek]
+    writes: [allowlisted_candidate_code, public_tests, candidate_artifacts]
+    denied: [eval_code, frozen_contracts, hidden_tests, sealed_storage, final_scores]
+  critic:
+    candidates: [DeepSeek, GPT-6 Sol]
+    writes: [issue_reports, evidence_linked_review_decision]
+    independent_context: true
+    preference: different_model_from_implementer
+    denied: [candidate_edits, hidden_labels, self_review, final_evaluator_role]
+  evaluator:
+    type: deterministic_sealed_service
+    writes: [EvalResult, derived_Evidence]
+    denied: [candidate_optimization, prompt_search, mutable_contract]
+  evaluator_custodian:
+    writes: [versioned_evaluator_release, hidden_cases, access_policy]
+    denied: [authoring_candidates_in_same_condition, unlogged_override]
+handoff:
+  reuse: '04_ASTRA_EXECUTION_PLAN.yaml#work_item_schema'
+  required: [id, owner_role, objective, inputs, forbidden_inputs, files_allowed_to_modify, deliverables, tests, acceptance_criteria, dependencies, max_retries, search_budget]
+  additional: [task_id, family_id, run_id, attempt_id, parent_attempt_id, condition_hash, input_artifact_hashes, output_artifact_hashes, model_version, prompt_hash, tool_trace_ref, actual_usage, issues_addressed, status]
+  acceptance: dependencies_and_input_hashes_verified_before_dispatch
+  patch_rule: issue_id_to_patch_digest_to_test_artifact_chain
+state_machine:
+  normal: [DRAFT, FROZEN, BUDGET_RESERVED, RUNNING, CANDIDATE_FROZEN, CRITIC_REVIEW, ADMITTED, EVALUATED, ARCHIVED]
+  terminals: [REJECTED, BLOCKED, FAILED, TIMEOUT, CANCELLED, BUDGET_EXHAUSTED, UNKNOWN_TERMINATION]
+  critic_fail: append_issues_then_new_attempt_if_budget_allows_else_REJECTED
+  sealed_fail: terminal_no_auto_repair_on_hidden_feedback
+  resume: replay_verified_trace_no_new_attempt_identity_for_duplicate_delivery
+search_control:
+  before_execution: atomic_budget_reservation_plus_STARTED_event_or_do_not_dispatch
+  concurrency: family_quota_shared_across_workers_single_writer
+  attempts: initial_plus_max_retries_all_counted
+  infrastructure_failure: consumes_attempt_and_actual_compute_retained_separately_from_scientific_variant
+  prompt_or_model_change: new_attempt_and_corresponding_search_dimension
+  interventions: append_actor_reason_input_and_effect_no_reset
+  unknown_usage: reserve_upper_bound_and_BLOCK_until_reconciled
+  exhausted: stop_schedule_persist_reason_no_automatic_extra_budget
+  family_fork: inherits_ancestry_and_global_count_cannot_escape_multiplicity
+  sealed_submissions: no_retry_with_candidate_modification_on_same_hidden_set
+trace:
+  required: [event_id, sequence, previous_hash, event_hash, trusted_timestamp, task_id, family_id, run_id, attempt_id, event_type, actor, model_version, prompt_hash, code_hash, snapshot_id, condition_hash, input_refs, output_refs, usage, status, failure, next_action]
+  failures: preserve_stderr_sanitized_partial_outputs_and_issue_refs
+  storage: service_append_only_hash_chain_external_anchor_no_worker_write
+  correction: append_superseding_event_never_edit_or_delete
+  budget_views: derived_from_same_trace_no_second_writable_counter_truth
+implementation_schedule:
+  independent_after_contracts: [data_contract_work, ledger_work, evaluator_contract_work]
+  shared_file_policy: one_owner_at_a_time_explicit_handoff_no_simultaneous_edits
+  worker_selection: model_agnostic_availability_not_assumed
+  independent_review: mandatory_before_runtime_acceptance

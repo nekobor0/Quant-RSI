@@ -1,0 +1,393 @@
+version: 0.1-DRAFT
+status: DESIGN_ONLY_NO_TASKS_RUN
+task_count_templates: 30
+tier1_deterministic_traps:
+- id: T1-future-field
+  tier: T1
+  task_family: E1
+  difficulty: trap_basic
+  setup: field available after decision
+  oracle_type: deterministic
+  reference_oracle: available_at <= decision_at
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-future-revision
+  tier: T1
+  task_family: E1
+  difficulty: trap_basic
+  setup: later revision substituted
+  oracle_type: deterministic
+  reference_oracle: latest revision available at decision
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-survivorship
+  tier: T1
+  task_family: E1
+  difficulty: trap_basic
+  setup: delisted stock removed
+  oracle_type: deterministic
+  reference_oracle: historical universe inclusion
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-membership-backfill
+  tier: T1
+  task_family: E1
+  difficulty: trap_basic
+  setup: current ST/index/industry membership backfilled
+  oracle_type: deterministic
+  reference_oracle: as-of membership interval
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-same-close
+  tier: T1
+  task_family: E1
+  difficulty: trap_basic
+  setup: same-close fill after close signal
+  oracle_type: deterministic
+  reference_oracle: first later eligible bar
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-cost-omission
+  tier: T1
+  task_family: E1
+  difficulty: trap_basic
+  setup: gross called net
+  oracle_type: deterministic
+  reference_oracle: independent cost bridge
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-budget-escape
+  tier: T1
+  task_family: E0
+  difficulty: trap_basic
+  setup: retry or renamed run resets allowance
+  oracle_type: deterministic
+  reference_oracle: budget-root/attempt trace
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-fabricated-evidence
+  tier: T1
+  task_family: E1
+  difficulty: trap_basic
+  setup: unsupported metric
+  oracle_type: deterministic
+  reference_oracle: source hash and recomputation
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-hidden-feedback-retry
+  tier: T1
+  task_family: E0
+  difficulty: trap_basic
+  setup: hidden feedback drives retuning
+  oracle_type: deterministic
+  reference_oracle: global exposure/submission log
+  expected_behavior: detect/refuse and preserve trace
+  hidden_difference: withhold placement and exact outcome
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+- id: T1-unfrozen-contract-proposal
+  tier: T1
+  task_family: E0
+  difficulty: trap_basic
+  setup: valid frozen evaluator envelope presents a separate inert agent-visible proposal with one missing or unfrozen field
+  fixture_variants: [target_unfrozen, horizon_unfrozen, benchmark_unfrozen]
+  oracle_type: deterministic
+  reference_oracle: compare proposal field against separately frozen evaluator envelope; invalid proposal must never be dispatched as TaskContract
+  positive_control: same proposal with all three fields frozen under the same envelope requires a valid research response
+  expected_behavior: name offending field and refuse proposal promotion without inventing values
+  hidden_difference: withhold offending field position and exact payload
+  status: DESIGN_ONLY_NO_FIXTURE_CREATED
+tier2_replication_pool:
+- id: T2-cross-sectional-momentum
+  tier: T2
+  task_family: E2
+  source_paper_id: P10
+  proposed_definition: lagged return ranks and formation
+  why_benchmark: Frozen transformations permit an independently constructed reference.
+  required_data: daily price, historical universe, actions
+  reference_implementation_difficulty: medium
+  expected_oracle_type: weights and next-bar ledger
+  a_share_adaptation_risk: high shortability/limits/survivorship
+  estimated_leakage_risk: medium
+  replication_kind: concept_replication
+  status: CANDIDATE_NOT_EXECUTED_OR_SOURCE_TEXT_VERIFIED
+- id: T2-time-series-momentum
+  tier: T2
+  task_family: E2
+  source_paper_id: P20
+  proposed_definition: lagged own-series trend
+  why_benchmark: Frozen transformations permit an independently constructed reference.
+  required_data: daily price/calendar
+  reference_implementation_difficulty: medium
+  expected_oracle_type: signal and position series
+  a_share_adaptation_risk: high original cross-market futures
+  estimated_leakage_risk: medium
+  replication_kind: concept_replication
+  status: CANDIDATE_NOT_EXECUTED_OR_SOURCE_TEXT_VERIFIED
+- id: T2-factor-portfolio
+  tier: T2
+  task_family: E2
+  source_paper_id: P09
+  proposed_definition: characteristic sorting and rebalance
+  why_benchmark: Frozen transformations permit an independently constructed reference.
+  required_data: PIT fundamentals/price or synthetic factors
+  reference_implementation_difficulty: high
+  expected_oracle_type: ranks and portfolio returns
+  a_share_adaptation_risk: high release lags and microcaps
+  estimated_leakage_risk: high
+  replication_kind: concept_replication
+  status: CANDIDATE_NOT_EXECUTED_OR_SOURCE_TEXT_VERIFIED
+- id: T2-profitability-quality
+  tier: T2
+  task_family: E2
+  source_paper_id: P21
+  proposed_definition: lagged profitability ranking
+  why_benchmark: Frozen transformations permit an independently constructed reference.
+  required_data: PIT accounting releases/shares/price
+  reference_implementation_difficulty: high
+  expected_oracle_type: as-of quality ranks
+  a_share_adaptation_risk: high revisions and missing reports
+  estimated_leakage_risk: high
+  replication_kind: concept_replication
+  status: CANDIDATE_NOT_EXECUTED_OR_SOURCE_TEXT_VERIFIED
+- id: T2-relative-value-pairs
+  tier: T2
+  task_family: E2
+  source_paper_id: P17
+  proposed_definition: pair spread and entry/exit
+  why_benchmark: Frozen transformations permit an independently constructed reference.
+  required_data: paired prices/actions/borrowability
+  reference_implementation_difficulty: high
+  expected_oracle_type: pair state and trade ledger
+  a_share_adaptation_risk: very high A-share shorting restrictions
+  estimated_leakage_risk: high
+  replication_kind: concept_replication
+  status: CANDIDATE_NOT_EXECUTED_OR_SOURCE_TEXT_VERIFIED
+- id: T2-portfolio-diversification
+  tier: T2
+  task_family: E2
+  source_paper_id: P02
+  proposed_definition: fixed covariance and constrained weights
+  why_benchmark: Frozen transformations permit an independently constructed reference.
+  required_data: frozen return panel/restrictions
+  reference_implementation_difficulty: medium
+  expected_oracle_type: weights and portfolio variance
+  a_share_adaptation_risk: medium investability/estimation
+  estimated_leakage_risk: low
+  replication_kind: concept_replication
+  status: CANDIDATE_NOT_EXECUTED_OR_SOURCE_TEXT_VERIFIED
+- id: T2-execution-cost
+  tier: T2
+  task_family: E2
+  source_paper_id: P14
+  proposed_definition: daily order/cost tradeoff
+  why_benchmark: Frozen transformations permit an independently constructed reference.
+  required_data: daily bar/lagged ADV/fees/limits
+  reference_implementation_difficulty: high
+  expected_oracle_type: gross-to-net and unfilled ledger
+  a_share_adaptation_risk: high continuous-to-daily adaptation
+  estimated_leakage_risk: medium
+  replication_kind: concept_replication
+  status: CANDIDATE_NOT_EXECUTED_OR_SOURCE_TEXT_VERIFIED
+tier3_controlled_discovery:
+- id: T3-discovery-null
+  tier: T3
+  task_family: E3
+  setup: many plausible features; zero signals
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: known-null generator
+  expected_behavior: no supported signal; keep negative evidence
+  hidden_assets:
+  - seed
+  - labels
+  - latent parameters
+  - outcome
+  gaming_controls:
+  - neutral column names
+  - distinct held-out mechanisms
+  - generator artifact audit
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-sparse-signal
+  tier: T3
+  task_family: E4
+  setup: illustrative 2 latent signals plus 30 noise, neutral names
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: latent truth and hidden alignment
+  expected_behavior: find signal without name leakage
+  hidden_assets:
+  - seed
+  - labels
+  - latent parameters
+  - outcome
+  gaming_controls:
+  - neutral column names
+  - distinct held-out mechanisms
+  - generator artifact audit
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-correlated-zoo
+  tier: T3
+  task_family: E4
+  setup: illustrative 20 variants of one latent signal
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: latent ancestry and correlation
+  expected_behavior: one latent discovery, not twenty
+  hidden_assets:
+  - seed
+  - labels
+  - latent parameters
+  - outcome
+  gaming_controls:
+  - neutral column names
+  - distinct held-out mechanisms
+  - generator artifact audit
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-cost-trap
+  tier: T3
+  task_family: E5
+  setup: gross positive, net nonpositive
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: exact cost bridge
+  expected_behavior: reject tradable edge
+  hidden_assets:
+  - seed
+  - labels
+  - latent parameters
+  - outcome
+  gaming_controls:
+  - neutral column names
+  - distinct held-out mechanisms
+  - generator artifact audit
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-capacity-trap
+  tier: T3
+  task_family: E5
+  setup: tiny-capital edge vanishes at target capital
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: impact/participation ledger
+  expected_behavior: reject target-capital claim
+  hidden_assets:
+  - seed
+  - labels
+  - latent parameters
+  - outcome
+  gaming_controls:
+  - neutral column names
+  - distinct held-out mechanisms
+  - generator artifact audit
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-untradeable-order
+  tier: T3
+  task_family: E5
+  setup: frozen daily order ledger includes suspension, price-limit lock, and T+1 sell restriction as separate cases
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: independent bar/state/holding-age ledger with zero fills for blocked orders and first later eligible fill for lagged signal
+  positive_control: eligible next-bar order fills under the same cost/lag policy
+  expected_behavior: retain unfilled orders and reject impossible net return
+  hidden_assets: [seed, labels, latent parameters, outcome]
+  gaming_controls: [neutral column names, distinct held-out mechanisms, generator artifact audit]
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-regime-conditional
+  tier: T3
+  task_family: E7
+  setup: effect in preregistered observable state only
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: frozen state truth
+  expected_behavior: no post-hoc regime rescue
+  hidden_assets:
+  - seed
+  - labels
+  - latent parameters
+  - outcome
+  gaming_controls:
+  - neutral column names
+  - distinct held-out mechanisms
+  - generator artifact audit
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-signal-decay
+  tier: T3
+  task_family: E7
+  setup: frozen signal weakens after a preregistered change point; no ex-post regime rescue
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: prespecified sequential effect and change-point evidence under fixed windows
+  positive_control: stable-signal series under identical windows must not trigger retirement
+  expected_behavior: detect decay and suspend promotion without relabeling history
+  hidden_assets: [seed, labels, latent parameters, outcome]
+  gaming_controls: [neutral column names, distinct held-out mechanisms, generator artifact audit]
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-retirement-decision
+  tier: T3
+  task_family: E7
+  setup: effect crosses a preregistered retirement rule after cost and capacity checks
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: frozen state transitions and retirement decision from blinded sequential ledger
+  positive_control: effect above the same preregistered rule remains under observation
+  expected_behavior: retire claim at rule trigger and preserve all failed attempts
+  hidden_assets: [seed, labels, latent parameters, outcome]
+  gaming_controls: [neutral column names, distinct held-out mechanisms, generator artifact audit]
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+- id: T3-decoy-complexity
+  tier: T3
+  task_family: E6
+  setup: complex dev fit exceeds baseline; sealed does not
+  oracle_type: generator_frozen_before_agent_access
+  reference_oracle: common split outputs
+  expected_behavior: do not promote complexity
+  hidden_assets:
+  - seed
+  - labels
+  - latent parameters
+  - outcome
+  gaming_controls:
+  - neutral column names
+  - distinct held-out mechanisms
+  - generator artifact audit
+  status: DESIGN_ONLY_NO_GENERATOR_BUILT
+tier4_end_to_end_templates:
+- id: T4-structured
+  public_inputs: frozen dataset/dictionary/benchmark/budget
+  expected_behavior: propose and falsify a linked hypothesis
+  reference_oracle: evidence graph and numeric claim recomputation
+  tier: T4
+  task_family: E8
+  status: DESIGN_ONLY_NO_TASK_RUN
+  scoring_limit: Only observable evidence, numeric and refusal checks count; narrative
+    quality is unscored.
+- id: T4-open-feature-closed-data
+  public_inputs: fixed raw fields/PIT metadata/allowed transforms
+  expected_behavior: construct features in closed data; count every variant
+  reference_oracle: feature/attempt lineage and generator truth
+  tier: T4
+  task_family: E8
+  status: DESIGN_ONLY_NO_TASK_RUN
+  scoring_limit: Only observable evidence, numeric and refusal checks count; narrative
+    quality is unscored.
+- id: T4-competing-explanations
+  public_inputs: frozen apparent effect and allowed risk/microcap/cost/membership
+    controls
+  expected_behavior: test explanations and reject unsupported edge
+  reference_oracle: control-recomputed effect and negative conclusion
+  tier: T4
+  task_family: E8
+  status: DESIGN_ONLY_NO_TASK_RUN
+  scoring_limit: Only observable evidence, numeric and refusal checks count; narrative
+    quality is unscored.
+E9: future prospective promotion track, excluded from v0.1 scoring
+source_limit: Paper IDs are design priors from docs/inputs/05_SOURCE_INDEX.yaml. Paper
+  text and A-share adaptation have not been verified; no exact-paper replication is
+  claimed.
+execution_status: No hidden cases, data generators, labels, reference outputs or scores
+  created.
+oracle_pilot_requirements:
+  per_template_terminal_outcomes: [valid_positive, justified_refusal, unjustified_refusal, invalid_output, timeout_or_missing]
+  denominator_policy: assigned task and oracle evaluability are frozen before candidate output; failed or malformed output never removes a task from an assigned denominator.
+  E2_components: [formula_interpretation, PIT_feature_construction, formation, rebalance, benchmark_alignment, execution_assumptions, diagnostic_reasoning]
+  E2_transfer_check: one blinded perturbation of release timing, universe membership, or execution lag per selected concept; a copied implementation alone cannot pass.
+  always_refuse_baseline: run against every public calibration oracle before pilot acceptance.
+  per_template_oracle_manifest: independent custodian must freeze outcome matrix, component weights if any, tolerance, positive/negative controls and invalid handling before access; no numeric component weights frozen in C0.

@@ -1,0 +1,340 @@
+version: C1-02-v0.1
+status: DOCUMENTARY_FEASIBILITY_ONLY_NOT_DATASET_CERTIFICATION
+geometry_ref: benchmark/BENCHMARK_DATA_GEOMETRY_v0.1.yaml
+geometry_sha256: c93114f688cd11bc6b1d9e33304ed99aeb3b35449d8634736f6b2113708f932d
+market: A_share_ordinary_stocks_daily
+asof_utc: '2026-09-29T11:22:00Z'
+evidence_levels: [DOCUMENTED, SAMPLE_VERIFIED, UNVERIFIED, UNAVAILABLE]
+sample_verified_count: 0
+interpretation:
+  - 'Class-level evidence_level reflects the complete named requirement; a documented ancillary field cannot upgrade an unverified critical PIT or execution component. field_evidence retains subfield distinctions.'
+  - 'DOCUMENTED applies only to listed subfields explicitly described by an inspected official exchange or vendor document. It does not certify completeness, actual history, or PIT reconstructability.'
+  - 'UNVERIFIED includes inaccessible direct documents, gaps in publication/version timing, and all unobserved row coverage. Null is unknown, not false or zero.'
+  - 'Illustrative history, universe, cross-section, and horizon ranges in the geometry proposal are design hypotheses, not observed A-share availability or statistical power.'
+families: {E0_E1: [E0, E1], E2: [E2], E3_E7: [E3, E4, E5, E6, E7], E8: [E8], E9: [E9]}
+requirements:
+  - requirement_id: DG01_TRADING_SESSIONS_CALENDAR
+    benchmark_families: [E0_E1, E2, E3_E7, E8, E9]
+    candidate_source: [TS_TRADE_CAL, SSE_RULE_2026, SZSE_RULE_2026]
+    evidence_level: UNVERIFIED
+    field_evidence: {exchange_cal_date_is_open_pretrade_date: DOCUMENTED, historical_calendar_rule_versions: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: 'calendar date only; publication/available_at per historical version UNVERIFIED'
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: not_applicable
+    licensing_access_restrictions: TS_SERVICE_TERMS; 2000 points for vendor calendar
+    api_query_constraints: vendor date range and exchange parameters; no API queried
+    sample_artifact_refs: []
+    known_gaps: [historical_holiday_corrections, source_release_time, exact_eligible_session_count_unmeasured]
+    proposed_fallback: freeze_exchange_calendar_version_and_derive_sessions_after_source_validation
+    D11_relevance: high
+    D12_relevance: medium
+  - requirement_id: DG02_HISTORICAL_ORDINARY_STOCK_UNIVERSE_AND_DELISTING
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_STOCK_BASIC, TS_BAK_BASIC]
+    evidence_level: UNVERIFIED
+    field_evidence: {list_status_list_date_delist_date: DOCUMENTED, daily_historical_list_from_2016: DOCUMENTED, complete_delisted_daily_rows: UNVERIFIED, ordinary_stock_filter_at_each_asof: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'bak_basic starts 2016; stock_basic earliest history unspecified'
+    pit_timestamp_availability: 'dates only; as-of publication/ingest unknown'
+    revisions_preserved: null
+    historical_membership: 'daily list documented from 2016, completeness unverified'
+    delisted_coverage: 'D list_status and delist_date documented; historical delisted bars unverified'
+    licensing_access_restrictions: TS_SERVICE_TERMS; 2000-5000 points
+    api_query_constraints: 'stock_basic 6000 rows/request; bak_basic 7000 rows/request; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [pre_2016_daily_universe, delisted_history_completeness, share_class_and_board_transition_history, current_membership_backfill_risk]
+    proposed_fallback: reconstruct_from_dated_exchange_listing_and_delisting_notices_or_license_historical_security_master
+    D11_relevance: critical
+    D12_relevance: medium
+  - requirement_id: DG03_HISTORICAL_ST_RISK_WARNING_STATE
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_ST, TS_NAMECHANGE, TS_BAK_BASIC]
+    evidence_level: UNVERIFIED
+    field_evidence: {name_effective_interval_and_ann_date: DOCUMENTED, daily_ST_endpoint: UNVERIFIED, full_historical_ST_classification: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'TS_ST search excerpt claims 2000-01-01; direct page inaccessible; not accepted as verified history'
+    pit_timestamp_availability: 'namechange ann_date is date-only; exact release time unknown'
+    revisions_preserved: null
+    historical_membership: 'name intervals documented; equivalence to complete ST state unverified'
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; TS_ST excerpt says 3000 points
+    api_query_constraints: 'TS_ST excerpt says 1000 rows/request; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [ST_endpoint_direct_fetch_timeout, prefix_name_is_not_complete_regulatory_state, historical_flag_effective_and_release_clocks]
+    proposed_fallback: use_dated_exchange_risk_warning_notices_and_validate_against_vendor_daily_state
+    D11_relevance: critical
+    D12_relevance: high
+  - requirement_id: DG04_HISTORICAL_INDUSTRY_MEMBERSHIP
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_SW_MEMBER, TS_BAK_BASIC]
+    evidence_level: UNVERIFIED
+    field_evidence: {SW_in_date_out_date: DOCUMENTED, historical_daily_industry_label_from_2016: DOCUMENTED, original_SW_vintage_and_publication: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'bak_basic starts 2016; SW membership start not documented'
+    pit_timestamp_availability: 'effective dates only; membership announcement/available_at unknown'
+    revisions_preserved: null
+    historical_membership: 'in/out dates documented; must request is_new=N rather than default latest'
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; 2000-5000 points
+    api_query_constraints: 'SW endpoint 2000 rows/request; bak_basic 7000; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [SW_classification_version, backfilled_reclassifications, historical_publication_clock, delisted_members]
+    proposed_fallback: obtain_licensed_point_in_time_industry_constituent_vintages_or_reconstruct_from_dated_original_notices
+    D11_relevance: critical
+    D12_relevance: low
+  - requirement_id: DG05_HISTORICAL_INDEX_MEMBERSHIP_AND_BENCHMARK
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_INDEX_WEIGHT, CSI_MAINTENANCE]
+    evidence_level: UNVERIFIED
+    field_evidence: {monthly_constituent_weight_search_excerpt: UNVERIFIED, exact_effective_membership_between_monthly_snapshots: UNVERIFIED, announcement_vintage: UNVERIFIED, index_price_series: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: null
+    revisions_preserved: null
+    historical_membership: 'monthly vendor snapshots suggested by search excerpt, not inspected directly'
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; CSI data reuse terms unknown
+    api_query_constraints: 'search excerpt says 2000 points; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [direct_docs_fetch_timeout, monthly_vs_effective_daily_membership, substitutions, original_index_provenance, benchmark_vintage]
+    proposed_fallback: license_CSI_historical_constituent_and_announcement_archive_with_effective_dates
+    D11_relevance: critical
+    D12_relevance: low
+  - requirement_id: DG06_DAILY_RAW_BARS_VOLUME_UNITS_AND_LABEL_HORIZONS
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_DAILY]
+    evidence_level: UNVERIFIED
+    field_evidence: {trade_date_OHLC_pre_close_volume_lots_amount_thousand_CNY: DOCUMENTED, actual_250_to_1500_eligible_sessions_by_asof_universe: UNVERIFIED, daily_rows_for_delisted_names: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'doc claims one request can cover one stock about 23 years; this is capacity guidance, not audited history'
+    pit_timestamp_availability: 'daily ingest window 15:00-16:00, not per-row available_at'
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; points/throughput restrictions
+    api_query_constraints: '6000 rows/request; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [actual_contiguous_coverage, missing_suspended_rows, vendor_bar_corrections, point_in_time_bar_vintages, realized_cross_section_size]
+    proposed_fallback: reconcile_raw_unadjusted_exchange_or_licensed_vendor_bars_with_calendar_and_status_master
+    D11_relevance: critical
+    D12_relevance: high
+  - requirement_id: DG07_FUNDAMENTAL_PUBLICATION_AND_AVAILABLE_AT
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_CASHFLOW, TS_DISCLOSURE_DATE]
+    evidence_level: UNVERIFIED
+    field_evidence: {ann_date_f_ann_date_period: DOCUMENTED, planned_actual_disclosure_dates: DOCUMENTED, exact_publication_time_and_available_at: UNVERIFIED, historical_ingested_at: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'TS_POINTS says financial APIs all history, without earliest audited date'
+    pit_timestamp_availability: 'date-only; conservative next eligible session would require prefrozen policy'
+    revisions_preserved: 'report types documented; complete vintage clock unverified'
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; 2000 points single-name, 5000 points cross-section VIP
+    api_query_constraints: single_name_or_quarterly_VIP; no_API_queried
+    sample_artifact_refs: []
+    known_gaps: [published_at_time, available_at, ingested_at, release_date_vs_effective_date, full_universe_financial_history]
+    proposed_fallback: retain_original_exchange_announcement_file_and_timestamp; reject_or_defer_unknown_asof_by_prefrozen_rule
+    D11_relevance: critical
+    D12_relevance: low
+  - requirement_id: DG08_FINANCIAL_REVISION_VINTAGES
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_CASHFLOW, TS_DISCLOSURE_DATE]
+    evidence_level: UNVERIFIED
+    field_evidence: {adjusted_and_pre_adjusted_report_types: DOCUMENTED, update_flag_latest_marker: DOCUMENTED, each_revision_published_available_ingested_effective_times: UNVERIFIED, immutable_original_value_chain: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: 'ann_date/f_ann_date date-only; per-revision availability unknown'
+    revisions_preserved: 'some pre-adjustment report types documented, completeness unknown'
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS
+    api_query_constraints: single_name_or_quarterly_VIP; no_API_queried
+    sample_artifact_refs: []
+    known_gaps: [latest_marker_cannot_reconstruct_prior_download_state, full_revision_sequence_unverified, cross_report_consistency_unverified]
+    proposed_fallback: immutable_original_filings_plus_revision_linkage_and_captured_first_seen_timestamps; block_if_unrecoverable
+    D11_relevance: critical
+    D12_relevance: low
+  - requirement_id: DG09_ORIGINAL_ANNOUNCEMENT_AND_EVENT_PROVENANCE
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [SSE_RULE_2026, SZSE_RULE_2026, TS_DISCLOSURE_DATE]
+    evidence_level: UNVERIFIED
+    field_evidence: {exchange_issuer_original_PDF_link_and_release_timestamp_for_all_events: UNVERIFIED, vendor_planned_actual_date: DOCUMENTED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: 'original filing timestamps not established by inspected sources'
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: original_archive_reuse_unknown; TS_SERVICE_TERMS
+    api_query_constraints: no_complete_original_archive_endpoint_inspected
+    sample_artifact_refs: []
+    known_gaps: [original_document_hash, correction_links, precise_rec_time, timezone_and_first_seen]
+    proposed_fallback: scoped_official_exchange_disclosure_archive_audit_before_D11; preserve_source_bytes_and_hashes
+    D11_relevance: critical
+    D12_relevance: medium
+  - requirement_id: DG10_CORPORATE_ACTIONS_AND_PRICE_SHARE_ADJUSTMENTS
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_DIVIDEND, TS_ADJ_FACTOR, TS_DAILY]
+    evidence_level: UNVERIFIED
+    field_evidence: {ann_imp_ann_record_ex_pay_dates_and_cash_stock_dividend: DOCUMENTED, vendor_adj_factor: DOCUMENTED, adjustment_rule_vintage: UNVERIFIED, split_merger_rights_full_action_set: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'dividend endpoint claims from 2000-01-01'
+    pit_timestamp_availability: 'event dates, no per-vintage available_at'
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; 2000 points
+    api_query_constraints: 'dividend 2000 rows/request; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [factor_is_vendor_produced_not_original_provenance, factor_recomputation_vs_future_actions, price_share_adjustment_version, complete_action_types]
+    proposed_fallback: reconstruct_from_original_corporate_action_notices_and_preadjusted_bars_with_frozen_rule
+    D11_relevance: critical
+    D12_relevance: high
+  - requirement_id: DG11_SUSPENSION_AND_NEXT_EXECUTABLE_BAR
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_SUSPEND, TS_DAILY, SSE_RULE_2026, SZSE_RULE_2026]
+    evidence_level: UNVERIFIED
+    field_evidence: {daily_suspension_resume_and_timing: DOCUMENTED, no_bar_during_suspension: DOCUMENTED, actual_next_executable_fill: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'suspend_d claims from 2000-01-03'
+    pit_timestamp_availability: 'irregular vendor updates; announcement first-seen unknown'
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; 2000 points
+    api_query_constraints: '5000 rows/request; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [intraday_resumption_order_eligibility, correction_vintages, unfilled_ledger_requires_model_assumption]
+    proposed_fallback: source_exchange_suspension_notices_and_prefreeze_daily_no_fill_policy
+    D11_relevance: high
+    D12_relevance: critical
+  - requirement_id: DG12_PRICE_LIMITS_AND_LIMIT_LOCKS
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [TS_LIMIT, TS_DAILY, SSE_RULE_2026, SZSE_RULE_2026]
+    evidence_level: UNVERIFIED
+    field_evidence: {daily_up_down_limit_price: DOCUMENTED, current_exchange_rule_formula: DOCUMENTED, historical_rule_regime_by_board_and_ST: UNVERIFIED, locked_book_no_fill: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: 'vendor preopen update around 09:00; exact per-row availability unknown'
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; 2000 points
+    api_query_constraints: '5800 rows/request; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [price_at_limit_does_not_prove_queue_fill, rule_changes_and_exceptions, missing_limit_days]
+    proposed_fallback: version_exchange_rules_by_effective_date_and_treat_ambiguous_limit_lock_as_unfilled
+    D11_relevance: high
+    D12_relevance: critical
+  - requirement_id: DG13_T_PLUS_1_LOT_TICK_AND_PARTIAL_FILL_RULES
+    benchmark_families: [E0_E1, E2, E3_E7, E8]
+    candidate_source: [SSE_RULE_2026, SZSE_RULE_2026]
+    evidence_level: UNVERIFIED
+    field_evidence: {current_SZSE_100_share_buy_lot_and_0_01_CNY_tick: DOCUMENTED, current_partial_unfilled_order_handling: DOCUMENTED, A_share_T_plus_1_source_clause: UNVERIFIED, historical_rule_versions: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'current 2026 rule only in this audit'
+    pit_timestamp_availability: 'rules have effective date; historical rule map incomplete'
+    revisions_preserved: not_applicable
+    historical_membership: not_applicable
+    delisted_coverage: not_applicable
+    licensing_access_restrictions: public_rules; historical_market_data_license_unknown
+    api_query_constraints: not_applicable
+    sample_artifact_refs: []
+    known_gaps: [T_plus_1_exact_authoritative_clause_not_located, SSE_attachment_not_read, board_specific_historical_transition_rules]
+    proposed_fallback: obtain_authoritative_historical_exchange_and_CSDC_rules_before_freezing_ledger
+    D11_relevance: low
+    D12_relevance: critical
+  - requirement_id: DG14_LAGGED_ADV_CAPACITY_AND_DAILY_VOLUME
+    benchmark_families: [E2, E3_E7, E8]
+    candidate_source: [TS_DAILY]
+    evidence_level: UNVERIFIED
+    field_evidence: {daily_volume_in_lots_and_amount_in_thousand_CNY: DOCUMENTED, lagged_ADV_derived_from_prior_eligible_bars: UNVERIFIED, tradable_participation_and_impact: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: 'bar ingestion window documented; decision-clock enforcement requires snapshot'
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS
+    api_query_constraints: '6000 rows/request; no API queried'
+    sample_artifact_refs: []
+    known_gaps: [ADV_window_not_frozen, corporate_action_volume_normalization, suspended_day_handling, participation_cap, impact_parameters]
+    proposed_fallback: derive_from_raw_prior_daily_volume_after_D11_snapshot_and_freeze_D12_capacity_assumptions_later
+    D11_relevance: high
+    D12_relevance: critical
+  - requirement_id: DG15_COST_COMPONENTS_AND_CAPITAL
+    benchmark_families: [E2, E3_E7, E8]
+    candidate_source: [SSE_RULE_2026, SZSE_RULE_2026]
+    evidence_level: UNVERIFIED
+    field_evidence: {commission_tax_spread_slippage_impact_history: UNVERIFIED, target_capital_and_reference_portfolio: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: null
+    revisions_preserved: null
+    historical_membership: not_applicable
+    delisted_coverage: not_applicable
+    licensing_access_restrictions: exchange_fee_and_tax_sources_not_audited
+    api_query_constraints: not_applicable
+    sample_artifact_refs: []
+    known_gaps: [component_exclusivity, historical_rates, capital, impact_and_spread, cost_bridge]
+    proposed_fallback: separate_authoritative_fee_tax_schedule_and_prefrozen_assumption_review_under_D12
+    D11_relevance: low
+    D12_relevance: critical
+  - requirement_id: DG16_BITEMPORAL_SNAPSHOT_SOURCE_REVISION_AND_HASH
+    benchmark_families: [E0_E1, E2, E3_E7, E8, E9]
+    candidate_source: [TS_CASHFLOW, TS_DIVIDEND, TS_PRO_BAR]
+    evidence_level: UNVERIFIED
+    field_evidence: {source_revision_raw_hash_event_published_available_ingested_effective_times: UNVERIFIED, timezone_units_adjustment_universe_version: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: 'required full tuple not documented by one inspected endpoint'
+    revisions_preserved: null
+    historical_membership: null
+    delisted_coverage: null
+    licensing_access_restrictions: TS_SERVICE_TERMS; immutable_raw_archive_rights_unknown
+    api_query_constraints: no_complete_bitemporal_export_documented
+    sample_artifact_refs: []
+    known_gaps: [no_unified_source_revision, no_historical_ingested_at, vendor_rederived_values_can_change, current_download_is_not_historical_snapshot]
+    proposed_fallback: build_authorized_capture_pipeline_from_originals_with_immutable_hashes_or_license_PIT_vintage_provider; block_if_unavailable
+    D11_relevance: critical
+    D12_relevance: medium
+  - requirement_id: DG17_CHRONOLOGICAL_SPLITS_PURGE_EMBARGO_AND_EFFECTIVE_N
+    benchmark_families: [E2, E3_E7, E8]
+    candidate_source: [TS_DAILY, TS_TRADE_CAL, TS_STOCK_BASIC]
+    evidence_level: UNVERIFIED
+    field_evidence: {daily_session_dates: DOCUMENTED, actual_lookback_label_overlap_and_independent_blocks: UNVERIFIED, viable_40_60_15_30_20_35_split_triplet: UNVERIFIED}
+    earliest_observed_history: null
+    documented_history: 'design ranges only; not a source coverage claim'
+    pit_timestamp_availability: depends_on_DG07_DG08_DG16
+    revisions_preserved: null
+    historical_membership: required_not_certified
+    delisted_coverage: required_not_certified
+    licensing_access_restrictions: TS_SERVICE_TERMS
+    api_query_constraints: none_sampled
+    sample_artifact_refs: []
+    known_gaps: [eligible_session_counts, cross_section_counts, feature_lags, label_horizon_overlap, temporal_independence, statistical_power]
+    proposed_fallback: compute_after_authorized_PIT_snapshot_and_public_pilot; never_infer_power_from_illustrative_ranges
+    D11_relevance: critical
+    D12_relevance: low
+  - requirement_id: DG18_E9_FORWARD_ONLY_PROSPECTIVE_CLOCK
+    benchmark_families: [E9]
+    candidate_source: []
+    evidence_level: UNAVAILABLE
+    field_evidence: {trusted_forward_observed_available_decision_and_outcome_clocks: UNAVAILABLE}
+    earliest_observed_history: null
+    documented_history: null
+    pit_timestamp_availability: no_prospective_capture_service_audited_or_implemented
+    revisions_preserved: null
+    historical_membership: null
+    delisted_coverage: null
+    licensing_access_restrictions: unknown
+    api_query_constraints: not_applicable
+    sample_artifact_refs: []
+    known_gaps: [future_only_capture, no_backfill_proof, trusted_clock, shadow_activation_not_authorized]
+    proposed_fallback: future_separate_forward_only_custodian_build_and_authorization
+    D11_relevance: high
+    D12_relevance: medium
+decision_state: {D11: DEFERRED, D12: DEFERRED}

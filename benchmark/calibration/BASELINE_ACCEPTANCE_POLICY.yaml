@@ -1,0 +1,11 @@
+scope: public_calibration_diagnostics_only_no_official_model_score
+frozen_before_repaired_baseline_run: true
+assigned_variant_denominator: retain_all_28_variants_including_missing_invalid_timeout
+diagnostics: [required_positive, positive_coverage, unjustified_refusals,
+  known_null_false_positives, promoted_count, correct_promotions, terminal_correct, full_pass]
+anti_gaming_conditions:
+  AlwaysRefuse: {positive_coverage_lt_required_positive: true, unjustified_refusals_gt_zero: true}
+  AlwaysPromote: {known_null_false_positives_gt_zero: true, correct_promotions_lt_promoted_count: true}
+  ContractOnly: {full_pass_lt_assigned_denominator: true}
+  ScriptedReferenceControl: {full_pass_eq_assigned_denominator: true}
+interpretation: These are predeclared engineering discriminators, not calibrated statistical thresholds or an official capability score.

@@ -1,0 +1,21 @@
+{
+  "case_id": "CAL-T3-COST",
+  "exposure": "PUBLIC_CALIBRATION",
+  "variants": {
+    "base": {
+      "gross_pnl": "12",
+      "roundtrip_cost": "15",
+      "target_capital": "100"
+    },
+    "positive": {
+      "gross_pnl": "12",
+      "roundtrip_cost": "8",
+      "target_capital": "100"
+    },
+    "transfer": {
+      "gross_pnl": "12",
+      "roundtrip_cost": "12",
+      "target_capital": "100"
+    }
+  }
+}

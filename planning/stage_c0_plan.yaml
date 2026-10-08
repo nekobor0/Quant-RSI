@@ -1,0 +1,83 @@
+stage: C0
+name: Benchmark v0.1 Specification Freeze
+authority: artifacts/stage_c0/authorized_request.txt
+mode: DESIGN_ONLY_NO_RUNTIME
+status: PASS_DESIGN_REVIEW_ONLY_STOPPED
+historical_precedence:
+  immutable_stages: [A, A1, B1, B2]
+  intermediate_artifact: preserves_original_snapshot
+  independent_critic_resolution: may_supersede_earlier_review
+  stage_acceptance: final_status_entry_for_its_stage
+  B2_pre_critic_map: artifacts/stage_b2/acceptance_evidence_map.yaml
+  B2_final_entry: stage_b2_acceptance.yaml
+benchmark_scope:
+  subject: Research Agent capability
+  market: A_SHARE_ORDINARY_STOCK
+  frequency: DAILY
+  data_mode: CLOSED_DATA
+  forbidden: [real_provider, real_market_research, strategy_search, model_comparison,
+    W10B, W15, W16, W17, W18, W19, live_trading]
+ownership_review: planning/STAGE_C0_BOUNDARIES.md
+work_items:
+  - id: C0-01
+    responsibility: BenchmarkTaskSpec references and four-tier task catalog
+    inputs: [contracts/decisions.yaml, planning/v0.2/03_ENV_SPEC_DRAFT.yaml,
+      planning/v0.2/04_EVAL_SPEC_DRAFT.yaml, docs/inputs/05_SOURCE_INDEX.yaml]
+    forbidden_inputs: [other_projects, hidden_labels, real_market_data, provider_calls]
+    files_allowed_to_modify: [benchmark/BENCHMARK_TASK_SCHEMA.yaml,
+      benchmark/CAPABILITY_MATRIX.yaml, benchmark/TASK_CATALOG_DRAFT.yaml]
+    test: YAML parse and required field/owner/reference cross-check
+    acceptance: Every E0-E8 capability maps to a tier and deterministic oracle or explicit pending oracle; E9 stays unscored
+    dependencies: []
+  - id: C0-02
+    responsibility: Budget, score, statistics and data-geometry design
+    inputs: [C0-01, contracts/decisions.yaml, planning/v0.2/04_EVAL_SPEC_DRAFT.yaml]
+    forbidden_inputs: [empirical_threshold_tuning, hidden_feedback, model_comparison_results]
+    files_allowed_to_modify: [benchmark/BENCHMARK_BUDGET_SPEC.yaml,
+      benchmark/BENCHMARK_SCORE_VECTOR.yaml, benchmark/BENCHMARK_DATA_GEOMETRY_v0.1.yaml,
+      benchmark/D04B_CALIBRATION_GEOMETRY_PROPOSAL.yaml]
+    test: Dimension, denominator, deferred-decision and no-total-score cross-check
+    acceptance: Budget owner and claim family are separate; unavailable estimates remain null
+    dependencies: [C0-01]
+  - id: C0-03
+    responsibility: Hidden lifecycle, versioning, W15/W16 review and suite proposal
+    inputs: [C0-01, C0-02, planning/SEALED_THREAT_MODEL.md,
+      planning/v0.2/06_WORK_BREAKDOWN.md]
+    forbidden_inputs: [real_hidden_cases, secrets, sealed_execution, runtime_edits]
+    files_allowed_to_modify: [benchmark/HIDDEN_SET_LIFECYCLE.md,
+      benchmark/W15_W16_REDESIGN_REVIEW.md, benchmark/BENCHMARK_VERSIONING.md,
+      benchmark/BENCHMARK_V0_1_SPEC.md]
+    test: Exposure/contamination and version invalidation scenario review
+    acceptance: Hidden exposure cannot be repaired by a version label; MVP is a pilot, not a power claim
+    dependencies: [C0-01, C0-02]
+  - id: C0-04
+    responsibility: Independent critic and current planning/acceptance
+    inputs: [C0-01, C0-02, C0-03, stage_b2_acceptance.yaml]
+    forbidden_inputs: [implementation, benchmark_runs, historical_artifact_edits]
+    files_allowed_to_modify: [planning_report.yaml, planning/v0.2/01_GAP_MATRIX.yaml,
+      artifacts/stage_c0/critic_initial.md, artifacts/stage_c0/critic_resolution.md,
+      stage_c0_acceptance.yaml, artifacts/stage_c0/design_evidence_files]
+    test: Independent challenge, structural validation and historical SHA-256 check
+    acceptance: No unresolved P0/P1; artifact plus validation evidence; stop
+    dependencies: [C0-01, C0-02, C0-03]
+limits:
+  max_design_revision_rounds: 3
+  max_independent_critic_cycles: 3
+  scientific_candidate_trials: 0
+  provider_calls: 0
+  hidden_submissions: 0
+  actual_tokens: null
+  actual_cpu_seconds: null
+  actual_wall_seconds: null
+  note: Design-stage effort is not independently metered; no fabricated resource claim.
+stop_after: stage_c0_acceptance.yaml
+design_evidence_files_scope: artifacts/stage_c0/* covers authorization snapshot, baseline/hash inventories, authoring helper, document-only validator, immutable failed attempts and validation records; no historical stage artifact or runtime file is writable.
+critic_repair_rounds_used: 3
+independent_critic_cycles_used: 3
+final_critic_resolution: artifacts/stage_c0/critic_resolution_post_amendment.md
+unresolved_P0_P1: 0
+plan_amendment:
+  previous_max_design_revision_rounds: 2
+  reason: Self-authored C0 design cap was exhausted by a narrow machine-readable reference-integrity finding; current user C0 authorization requires P0/P1 closure and does not set a numeric design-repair cap.
+  added_scope: one reference-only correction and independent verification, no runtime or scientific search budget
+  evidence: artifacts/stage_c0/critic_resolution_final.md

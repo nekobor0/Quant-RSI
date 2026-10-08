@@ -1,0 +1,19 @@
+version: C2-03-v0.1
+status: DAILY_BAR_LIMITS_QUALIFIED_AS_UNCERTAINTY_NOT_FILL_CERTIFICATION
+evidence_basis: [benchmark/data_feasibility/D12_DECISION_INPUTS.yaml, benchmark/execution_qualification/HISTORICAL_RULE_INVENTORY.yaml]
+facts:
+  - {fact: daily_OHLCV_turnover, classification: OBSERVABLE_IF_SAMPLE_VERIFIED, caveat: Source row coverage and units must pass C2-02 before actual use.}
+  - {fact: official_historical_limit_price, classification: OBSERVABLE_IF_SAMPLE_VERIFIED, caveat: Historical rule version and vendor limit row must agree.}
+  - {fact: no_bar_when_whole_day_suspended, classification: CONSERVATIVELY_INFERABLE_IF_STATUS_VERIFIED, caveat: Missing bar alone is not proof of suspension.}
+  - {fact: next_eligible_daily_session, classification: CONSERVATIVELY_INFERABLE_IF_STATUS_AND_CALENDAR_VERIFIED, caveat: Eligibility does not imply fill.}
+  - {fact: buy_at_daily_up_limit, classification: UNOBSERVABLE, caveat: A printed high or close at limit does not establish queue priority or executable ask.}
+  - {fact: sell_at_daily_down_limit, classification: UNOBSERVABLE, caveat: A printed low or close at limit does not establish a bid or fill.}
+  - {fact: intraday_order_book_queue_position, classification: UNOBSERVABLE, caveat: Daily bars contain no queue.}
+  - {fact: partial_fill_quantity, classification: UNOBSERVABLE, caveat: Requires order-book and order-level evidence or conservative no-fill/unknown state.}
+  - {fact: spread_and_market_impact, classification: UNOBSERVABLE_FROM_DAILY_BAR, caveat: Requires empirical calibration or explicit stress scenarios.}
+  - {fact: T_plus_1_position_sellability, classification: CONSERVATIVELY_INFERABLE_IF_RULE_VERSION_VERIFIED, caveat: Track acquisition and settlement by historical rule version.}
+conservative_proposal_not_frozen:
+  ambiguous_limit_lock: UNFILLED_OR_UNKNOWN_NEVER_ASSUME_FILLED
+  suspended_session: NO_FILL_UNTIL_VERIFIED_ELIGIBLE_SESSION
+  unknown_rule_version: BLOCK_EXECUTION_CLAIM
+  unobservable_queue_or_spread: UNCERTAINTY_FLAG_AND_STRESS_RANGE_REQUIRED

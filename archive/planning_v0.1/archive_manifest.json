@@ -1,0 +1,85 @@
+{
+  "status": "historical_not_current",
+  "files": [
+    {
+      "path": "00_SCOPE_AND_NON_GOALS.md",
+      "sha256": "da5bb0a9f502e1e10dc1d523f92e62fe7b387d3c9571b00701de72dfc0ca8619"
+    },
+    {
+      "path": "00_START_HERE.md",
+      "sha256": "70f7ef3746b12009b37fd283da23334f56235fa5eb3d50e2103c8b375a9a2dcf"
+    },
+    {
+      "path": "01_CURRENT_STATE_AUDIT.md",
+      "sha256": "3d8b2963e59a89b6de1b4c61e67293d1030a5cf2acaaf5e4396127e7e5aa6266"
+    },
+    {
+      "path": "01_GAP_MATRIX.yaml",
+      "sha256": "67cbd47ba8e6f904d030a7140fb7cb90f1356037b7482bdc8872f79093258381"
+    },
+    {
+      "path": "01_LITERATURE_TO_HARNESS_TAKEAWAYS.md",
+      "sha256": "b8a6e614182c4e5801acc61e58b47ca3eb8721b5143fbf51b9a2bbe79631a3d3"
+    },
+    {
+      "path": "02_ASTRA_MASTER_TASKBOOK.md",
+      "sha256": "8e5240d7f15932054105b2ac0a95fbc9fc064f2f598f8829a8255aa404bd3635"
+    },
+    {
+      "path": "02_TARGET_ARCHITECTURE.md",
+      "sha256": "275cb7c9e6f9a96c094fdea894cec5e652f2ce46c347bdbce4b5b3ff4b0d3a54"
+    },
+    {
+      "path": "03_ENV_SPEC_DRAFT.yaml",
+      "sha256": "4cd63ad0282de962be77a389bc3e78d0c7ec802d0cac1a8c27870fd75339550d"
+    },
+    {
+      "path": "03_HARNESS_DESIGN_PRINCIPLES.yaml",
+      "sha256": "bd1db0a49902dfd690ff4ec3fad607f4cefbd96687b7da2c7ad62ccfbe0e55d7"
+    },
+    {
+      "path": "04_ASTRA_EXECUTION_PLAN.yaml",
+      "sha256": "35033071a0e54d6195730dba59e9bfc90660dba06771626cee2181e023cda35f"
+    },
+    {
+      "path": "04_EVAL_SPEC_DRAFT.yaml",
+      "sha256": "f39ae9acd38f2413ef96d3635e03a1a44372cdab54886ced38a584ff6cdfcc48"
+    },
+    {
+      "path": "05_AGENT_ORCHESTRATION_DRAFT.yaml",
+      "sha256": "2648296e8d88360cc2ac99fd6f51a575fe139ee2f61fa538e848b9c8dc146830"
+    },
+    {
+      "path": "05_SOURCE_INDEX.yaml",
+      "sha256": "7f269a7421aa912d8a9ee3b101e5f7c629bb1382fabe4d9d956a645dbe96435c"
+    },
+    {
+      "path": "06_DECISION_REGISTER.md",
+      "sha256": "cbfbb5cc8397c42e60edd26b7298db5f97376c8a3358ea56b0caee267c729ffe"
+    },
+    {
+      "path": "06_WORK_BREAKDOWN.md",
+      "sha256": "7bf002715fa1fe535b555fccab3f7de9e6c504232e6b249c6dc9d162f5777e99"
+    },
+    {
+      "path": "MANIFEST.json",
+      "sha256": "4c778508f6b8e74a58ae730755af8601337e4775385eed832280172b60ce0cd5"
+    },
+    {
+      "path": "planning_report.yaml",
+      "sha256": "1529f53d335da683f8fc0d71b22e780b456d92b3a6ed13c00dd9a5e0599f66cb"
+    },
+    {
+      "path": "planning_validation.json",
+      "sha256": "019293432a17d88928e4bd46bee95977dfea7b1da30fc8cc0f111f2158b99a39"
+    },
+    {
+      "path": "planning/input_baseline.json",
+      "sha256": "9cd209e76579b82238fb2f1f788989a5f1920e37aff3b79d39f19dc97971a582"
+    },
+    {
+      "path": "planning/validate_planning.py",
+      "sha256": "0eca3e7b998e24a59d1707f72822557988e277540f707a88ad09e8ae1337b0c7"
+    }
+  ]
+}

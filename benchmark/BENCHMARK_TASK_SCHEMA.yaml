@@ -1,0 +1,131 @@
+schema_id: BenchmarkTaskSpec
+schema_version: 0.1-DRAFT
+status: DESIGN_ONLY_NOT_RUNTIME
+authoritative_runtime_owners:
+  TaskContract: src/quant_rsi/contracts/condition.py
+  BenchmarkCondition: src/quant_rsi/contracts/condition.py
+  DataSpec: src/quant_rsi/contracts/data.py
+  SnapshotManifest: src/quant_rsi/contracts/data.py
+  AgentBenchmarkRun: src/quant_rsi/contracts/condition.py
+  ScientificSearchFamily: src/quant_rsi/contracts/research.py
+  SearchBudget_and_ResearchTrace: src/quant_rsi/ledger/
+  EvalResult: src/quant_rsi/contracts/evaluation.py
+rules:
+  required_fields_must_be_present: true
+  unknown_fields: reject_at_future_runtime_contract_boundary
+  canonical_fact_values: references_only_never_copies
+  null_numeric_values: proposal_not_frozen
+  hidden_handles: opaque_no_seed_label_or_path
+  task_spec_is_authority_for_dispatch: false
+  formal_gate_override_allowed: false
+  benchmark_condition_ref_must_resolve_to_frozen_TaskContract: true
+required_fields: [benchmark_id, task_id, task_version, task_family, difficulty,
+  capability_targets, public_prompt, public_inputs, forbidden_inputs,
+  data_geometry_ref, universe_ref, decision_clock, target, horizon, benchmark_ref,
+  development_partition, validation_partition, sealed_partition,
+  search_budget, compute_budget, expected_behavior, known_truth_type,
+  required_outputs, required_artifacts, gate_requirements, score_dimensions,
+  hidden_assets, release_policy, reference_oracle, oracle_tolerance,
+  statistical_family, multiplicity_scope, success_definition,
+  failure_definition, version_hashes]
+field_definitions:
+  benchmark_id: {type: id, owner: Benchmark_suite_design, meaning: suite_id_not_TaskContract_id}
+  task_id: {type: ref, owner: TaskContract.task_id}
+  task_version: {type: ref, owner: TaskContract.task_version}
+  task_family: {type: enum, owner: BenchmarkTaskSpec, allowed: [E0,E1,E2,E3,E4,E5,E6,E7,E8,E9]}
+  difficulty: {type: enum, owner: BenchmarkTaskSpec, allowed: [trap_basic, controlled_intermediate, research_advanced]}
+  capability_targets: {type: list_ref, owner: CAPABILITY_MATRIX.yaml}
+  public_prompt: {type: artifact_ref, owner: proposed_BenchmarkReleaseManifest.public_prompt_ref, rule: versioned_before_run}
+  public_inputs: {type: list_ref, owner: proposed_BenchmarkReleaseManifest.public_input_handles, status: FUTURE_NOT_IN_SnapshotManifest}
+  forbidden_inputs: {type: list_ref, owner: proposed_BenchmarkReleaseManifest.forbidden_input_policy}
+  data_geometry_ref: {type: ref, owner: BENCHMARK_DATA_GEOMETRY_v0.1.yaml, rule: design_requirement_not_dataset_fact}
+  universe_ref: {type: field_ref, owner: TaskContract.universe_ref}
+  decision_clock: {type: list_field_refs, owner: [TaskContract.execution_timing, TaskContract.asof_cutoff]}
+  target: {type: field_ref, owner: TaskContract.target}
+  horizon: {type: field_ref, owner: TaskContract.horizon}
+  benchmark_ref: {type: field_ref, owner: TaskContract.benchmark_ref}
+  development_partition: {type: partition_ref, owner: proposed_BenchmarkPartitionManifest.development_handle, status: FUTURE; TaskContract.split_version_is_only_version_binding}
+  validation_partition: {type: partition_ref, owner: proposed_BenchmarkPartitionManifest.validation_handle, status: FUTURE; TaskContract.split_version_is_only_version_binding}
+  sealed_partition: {type: opaque_partition_ref, owner: proposed_CustodianHiddenPackManifest.sealed_handle, status: FUTURE_NOT_IN_SnapshotManifest}
+  search_budget: {type: ref, owner: BenchmarkBudgetSpec_projection_to_TaskContract.budget_limits}
+  compute_budget: {type: list_field_refs, owner: [TaskContract.budget_limits, TaskContract.memory_limit_mb]}
+  expected_behavior: {type: enum_or_list, owner: BenchmarkTaskSpec, rule: behavior_only_no_oracle_outcome}
+  known_truth_type: {type: enum, owner: generator_or_reference_custodian, allowed: [deterministic_trap, synthetic_generator, frozen_reference, unknown_empirical]}
+  required_outputs: {type: list_ref, owner: proposed_BenchmarkReleaseManifest.required_output_contract}
+  required_artifacts: {type: list_ref, owner: RunManifest_and_ResearchTrace}
+  gate_requirements: {type: ref, owner: planning/v0.2/04_EVAL_SPEC_DRAFT.yaml.hard_gates, rule: cannot_omit_G4_or_G6}
+  score_dimensions: {type: list_ref, owner: BENCHMARK_SCORE_VECTOR.yaml, rule: no_total_score}
+  hidden_assets: {type: opaque_category_refs, owner: independent_hidden_custodian}
+  release_policy: {type: ref, owner: HIDDEN_SET_LIFECYCLE.md}
+  reference_oracle: {type: opaque_ref, owner: independent_evaluator_custodian, rule: no_oracle_bytes_in_public_spec}
+  oracle_tolerance: {type: ref, owner: proposed_CustodianOracleManifest.tolerance, rule: numeric_tolerance_or_exact_before_run}
+  statistical_family: {type: assignment_rule_ref, owner: ScientificSearchFamily, rule: assigned_per_claim_not_shared_capability_run}
+  multiplicity_scope: {type: ref, owner: D04A_family_ancestry_rule, rule: D04B_parameters_still_null}
+  success_definition: {type: ref, owner: proposed_CustodianOracleManifest.success_definition, rule: engineering_behavior_separate_from_formal_claim}
+  failure_definition: {type: ref, owner: proposed_CustodianOracleManifest.failure_definition, rule: missing_unknown_or_contaminated_blocks}
+  version_hashes: {type: object_ref, owner: BENCHMARK_VERSIONING.md, required: [benchmark_version,task_version,data_snapshot_version,oracle_version,hidden_pack_version,scoring_version,statistical_protocol_version,condition_hash]}
+design_example:
+  status: UNINSTANTIATED_REFERENTIAL_EXAMPLE
+  benchmark_id: QRSI-BENCH-v0.1
+  task_id: 'ref:TaskContract.task_id'
+  task_version: 'ref:TaskContract.task_version'
+  task_family: E1
+  difficulty: trap_basic
+  capability_targets: ['ref:benchmark/CAPABILITY_MATRIX.yaml.families[1]']
+  public_prompt: 'future:BenchmarkReleaseManifest.public_prompt_ref'
+  public_inputs: ['future:BenchmarkReleaseManifest.public_input_handles']
+  forbidden_inputs: [hidden_labels, generator_parameters, post_decision_revisions]
+  data_geometry_ref: 'ref:benchmark/BENCHMARK_DATA_GEOMETRY_v0.1.yaml.family_geometry.E0_E1'
+  universe_ref: 'ref:TaskContract.universe_ref'
+  decision_clock: ['ref:TaskContract.execution_timing', 'ref:TaskContract.asof_cutoff']
+  target: 'ref:TaskContract.target'
+  horizon: 'ref:TaskContract.horizon'
+  benchmark_ref: 'ref:TaskContract.benchmark_ref'
+  development_partition: 'future:BenchmarkPartitionManifest.development_handle'
+  validation_partition: 'future:BenchmarkPartitionManifest.validation_handle'
+  sealed_partition: 'opaque:CustodianHiddenPackManifest.sealed_handle:FUTURE'
+  search_budget: 'ref:benchmark/BENCHMARK_BUDGET_SPEC.yaml.family_budget_design_method.E0_E1'
+  compute_budget: ['ref:TaskContract.budget_limits', 'ref:TaskContract.memory_limit_mb']
+  expected_behavior: [detect_future_revision, refuse_contaminated_claim]
+  known_truth_type: deterministic_trap
+  required_outputs: ['future:BenchmarkReleaseManifest.required_output_contract']
+  required_artifacts: ['runtime:RunManifest', 'runtime:TraceStore']
+  gate_requirements: 'ref:planning/v0.2/04_EVAL_SPEC_DRAFT.yaml.hard_gates'
+  score_dimensions: ['ref:benchmark/BENCHMARK_SCORE_VECTOR.yaml.dimensions.reliability']
+  hidden_assets: ['opaque:trap_placement', 'opaque:reference_outcome']
+  release_policy: 'doc:benchmark/HIDDEN_SET_LIFECYCLE.md'
+  reference_oracle: 'opaque:independent_evaluator.oracle_id'
+  oracle_tolerance: 'future:CustodianOracleManifest.tolerance'
+  statistical_family: 'ref:contracts/decisions.yaml.decisions.D04A.value'
+  multiplicity_scope: 'ref:contracts/decisions.yaml.decisions.D04A.value'
+  success_definition: 'future:CustodianOracleManifest.success_definition'
+  failure_definition: 'future:CustodianOracleManifest.failure_definition'
+  version_hashes: 'future:BenchmarkComparisonManifest.signed_version_tuple'
+ownership_resolution:
+  existing_today:
+    TaskContract: [task_id, task_version, target, horizon, benchmark_ref, universe_ref, asof_cutoff, execution_timing, split_version, budget_limits, memory_limit_mb]
+    BenchmarkCondition: [condition_hash_of_TaskContract_only]
+    DataSpec: [source_and_PIT_metadata, cleaning_spec_version]
+    SnapshotManifest: [snapshot_id, data_spec, files]
+    AgentBenchmarkRun: [benchmark_run_id, scientific_family_id, condition_hash, prompt_hash, budget_root_run_id]
+  proposed_not_loadable_today:
+    BenchmarkReleaseManifest: [public_prompt_ref, public_input_handles, forbidden_input_policy, required_output_contract, prompt_digest]
+    BenchmarkPartitionManifest: [development_handle, validation_handle, split_membership_digest]
+    CustodianHiddenPackManifest: [sealed_handle, hidden_pack_digest, oracle_digest, exposure_state]
+    BenchmarkComparisonManifest: [signed_version_tuple, condition_hash, release_digest, partition_digest, score_digest]
+    CustodianOracleManifest: [tolerance, success_definition, failure_definition, oracle_digest]
+  binding_rule: TaskContract and BenchmarkCondition remain canonical for executable facts; proposed release/partition/pack manifests are separately signed by the release or hidden custodian and joined only by exact comparison-tuple digests before any official run.
+  example_status: Referential syntax illustration only; no proposed owner currently resolves at runtime.
+reference_syntax:
+  prefix_ref: Existing YAML document path relative to project root with dot-separated keys and zero-based list indices in brackets, or existing runtime Class.field symbolic owner.
+  prefix_future: Proposed owner and field; intentionally unresolved until separately implemented.
+  prefix_opaque: Custodian-held handle; intentionally no public path resolution.
+  prefix_doc: Existing Markdown policy file; file existence only, not a YAML key.
+  prefix_runtime: Existing runtime class reference without a particular field.
+  existing_refs_must_resolve_now: true
+invalid_proposal_stimulus:
+  purpose: E0 refusal tasks with missing or unfrozen target, horizon, or benchmark
+  evaluator_envelope: Valid frozen TaskContract/BenchmarkCondition and budget; this is the only executable condition.
+  agent_visible_payload: An inert public fixture containing an invalid proposed contract, never dispatched or registered as TaskContract.
+  required_output: Identify offending field and decline research or claim promotion for that proposal; preserve evidence.
+  wrong_output: Treat invalid proposal as frozen, fabricate missing value, or dispatch it.

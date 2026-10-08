@@ -1,0 +1,158 @@
+stage: C2
+name: Qualification and Canonicalization
+status: BLOCKED_INCOMPLETE
+stage_pass_allowed: false
+formal_research_verdict: BLOCKED
+official_benchmark_status: NOT_STARTED
+authority: artifacts/stage_c2/authorized_request.txt
+owner_whitelist_override: artifacts/stage_c2/C2-01/OWNER_WHITELIST_OVERRIDE.yaml
+plan: planning/stage_c2_plan.yaml
+plan_sha256: e012b2d9fcc5bb5187617d5c084f407b76a04d260722e5b45aa5997ee332b0b1
+work_items:
+  C2-01:
+    status: IMPLEMENTED_PUBLIC_CANONICAL_PATH_TARGETED_TESTS_PASS_PENDING_FINAL_CRITIC
+    canonical_public_runs: 15
+    evidence: artifacts/stage_c2/C2-01/CHECKPOINT.yaml
+    C1_P2_disposition: IMPROVED_IN_PUBLIC_CANONICAL_PROTOTYPE_PENDING_FINAL_CRITIC
+  C2-02:
+    status: FOUR_SCOPED_ROWS_ZERO_FULL_CLASSES_D11_NOT_READY
+    data_spine_classes: 11
+    sample_verified: 0
+    technical_row_shape_only: 1
+    static_metadata_only: 1
+    calendar_row_shape_only: 1
+    observed_rows: 4
+    externally_anchored_intraday_suspension_rows_only: 1
+    D11_packet: artifacts/stage_c2/C2-02/D11_DECISION_PACKET.yaml
+    API01_initial_access_request: artifacts/stage_c2/C2-02/DATA_ACCESS_AUTHORIZATION_REQUEST.yaml
+    API02_initial_access_request: artifacts/stage_c2/C2-02/next/DATA_ACCESS_AUTHORIZATION_REQUEST.yaml
+    API01_authorization: artifacts/stage_c2/C2-02/API01_AUTHORIZATION.yaml
+    API01_precheck: artifacts/stage_c2/C2-02/API01_PRECHECK.yaml
+    API01_secret_handling: artifacts/stage_c2/C2-02/API01_SECRET_HANDLING.yaml
+    API01_execution: artifacts/stage_c2/C2-02/API01_EXECUTION.yaml
+    API01_checkpoint: artifacts/stage_c2/C2-02/API01_CHECKPOINT.yaml
+    API01_ephemeral_raw: artifacts/stage_c2/C2-02/API01_EPHEMERAL_RAW.yaml
+    API01_schema_units: artifacts/stage_c2/C2-02/API01_SCHEMA_UNITS.yaml
+    API01_observed_result: SAMPLE_VERIFIED_TECHNICAL_ROW_SHAPE_ONLY
+    API02_authorization: artifacts/stage_c2/C2-02/API02_AUTHORIZATION.yaml
+    API02_execution: artifacts/stage_c2/C2-02/API02_EXECUTION.yaml
+    API02_checkpoint: artifacts/stage_c2/C2-02/API02_CHECKPOINT.yaml
+    API02_ephemeral_raw: artifacts/stage_c2/C2-02/API02_EPHEMERAL_RAW.yaml
+    API02_observed_result: SAMPLE_VERIFIED_STATIC_METADATA_ONLY
+    API03R_initial_access_request: artifacts/stage_c2/C2-02/next_trade_cal/DATA_ACCESS_AUTHORIZATION_REQUEST.yaml
+    API03R_replacement_amendment: artifacts/stage_c2/C2-02/API03_REPLACEMENT_AMENDMENT.yaml
+    design_revision_ledger: artifacts/stage_c2/C2-02/DESIGN_REVISION_LEDGER.yaml
+    original_API03_status: SUPERSEDED_UNEXECUTED
+    API03R_authorization: artifacts/stage_c2/C2-02/API03R_AUTHORIZATION.yaml
+    API03R_execution: artifacts/stage_c2/C2-02/API03R_EXECUTION.yaml
+    API03R_checkpoint: artifacts/stage_c2/C2-02/API03R_CHECKPOINT.yaml
+    API03R_ephemeral_raw: artifacts/stage_c2/C2-02/API03R_EPHEMERAL_RAW.yaml
+    API03R_observed_result: SAMPLE_VERIFIED_CALENDAR_ROW_SHAPE_ONLY
+    next_access_request: artifacts/stage_c2/C2-02/next_suspension/DATA_ACCESS_AUTHORIZATION_REQUEST.yaml
+    API04R_human_override: artifacts/stage_c2/C2-02/API04_SENTINEL_OVERRIDE.yaml
+    original_API04_status: SUPERSEDED_UNEXECUTED_BY_EXPLICIT_HUMAN_OVERRIDE
+    API04R_prequery_validation: artifacts/stage_c2/C2-02/API04R_PREQUERY_VALIDATION.yaml
+    API04R_execution: artifacts/stage_c2/C2-02/API04R_EXECUTION.yaml
+    API04R_checkpoint: artifacts/stage_c2/C2-02/API04R_CHECKPOINT.yaml
+    API04R_observed_result: SAMPLE_VERIFIED_EXTERNALLY_ANCHORED_INTRADAY_SUSPENSION_ROW_ONLY
+    API04R_external_oracle: artifacts/stage_c2/C2-02/API04R_EXTERNAL_ORACLE_COMPARISON.yaml
+    API04R_postquery_validation: artifacts/stage_c2/C2-02/API04R_POSTQUERY_VALIDATION.yaml
+    API04R_D11_delta: artifacts/stage_c2/C2-02/API04R_D11_QUALIFICATION_DELTA.yaml
+    API04R_D12_implication: artifacts/stage_c2/C2-02/API04R_D12_IMPLICATION.yaml
+    next_blockers: artifacts/stage_c2/C2-02/API04R_NEXT_BLOCKERS.yaml
+    historical_validator: {path: artifacts/stage_c2/C2-02/validate_c2_02.py, status: HISTORICAL_VALIDATOR_THROUGH_API03R}
+    validator_supersession: artifacts/stage_c2/C2-02/VALIDATOR_SUPERSESSION.yaml
+    current_validator: artifacts/stage_c2/C2-02/validate_c2_02_current.py
+    current_validator_result: artifacts/stage_c2/C2-02/CURRENT_VALIDATOR_RESULT.yaml
+    current_validator_status: PASS_T13_SINGLE_INVOCATION
+    next_evidence_assessment: artifacts/stage_c2/C2-02/NEXT_EVIDENCE_ASSESSMENT.yaml
+    C2_02E_route_selection_checkpoint: artifacts/stage_c2/C2-02/C2_02E_CHECKPOINT.yaml
+    D11_evidence_route_review: artifacts/stage_c2/C2-02/D11_EVIDENCE_ROUTE_REVIEW.md
+    D11_evidence_route_matrix: artifacts/stage_c2/C2-02/D11_EVIDENCE_ROUTE_MATRIX.yaml
+    D11_full_qualification_criteria: artifacts/stage_c2/C2-02/D11_FULL_QUALIFICATION_CRITERIA.yaml
+    D11_rights_questionnaire: artifacts/stage_c2/C2-02/D11_RIGHTS_QUESTIONNAIRE.md
+    D11_MVP_qualification_plan: artifacts/stage_c2/C2-02/D11_MVP_QUALIFICATION_PLAN.yaml
+    API05_API06_disposition: artifacts/stage_c2/C2-02/API05_API06_DISPOSITION.yaml
+    C2_02F_checkpoint: artifacts/stage_c2/C2-02/C2_02F_CHECKPOINT.yaml
+    C2_02F_rights_attestation: artifacts/stage_c2/C2-02/TUSHARE_RIGHTS_CONFIRMATION.yaml
+    C2_02F_census_preregistration: artifacts/stage_c2/C2-02/COVERAGE_CENSUS_PREREGISTRATION.yaml
+    C2_02F_execution_status: DESIGN_ONLY_NOT_QUERY_READY
+    C2_02G_checkpoint: artifacts/stage_c2/C2-02/C2_02G_CHECKPOINT.yaml
+    C2_02G_manifest: artifacts/stage_c2/C2-02/CENSUS_FROZEN_MANIFEST.yaml
+    C2_02G_execution_status: BLOCKED_NOT_QUERY_READY_EXECUTION_NOT_AUTHORIZED
+    D11_route_selection_status: CONDITIONAL_HYBRID_DESIGN_ONLY_NO_PROVIDER_SELECTED
+  C2-03:
+    status: PARTIAL_OFFICIAL_RULE_ONLY_EMPIRICAL_GATE_CLOSED
+    D12_packet: artifacts/stage_c2/C2-03/D12_DECISION_PACKET.yaml
+    empirical_gate: artifacts/stage_c2/C2-03/EMPIRICAL_START_GATE.yaml
+  C2-04:
+    status: NOT_STARTED_GATE_CLOSED
+    D04B_packet: artifacts/stage_c2/C2-04/D04B_DECISION_PACKET.yaml
+    note: Gate-only packet is not a statistical calibration study.
+decisions:
+  D11: {frozen: false, recommendation: NOT_READY}
+  D12: {frozen: false, recommendation: NOT_READY}
+  D04B: {frozen: false, recommendation: NOT_READY, numerical_parameters: null}
+scope_and_safety:
+  provider_calls: 0
+  scientific_candidate_trials: 0
+  hidden_submissions: 0
+  data_API_sample_queries: 4
+  hidden_pack_created: false
+  real_model_comparison: false
+  strategy_search_or_alpha_claim: false
+  G4: BLOCKED
+  G6: BLOCKED
+budget_consumption:
+  design_revisions: {used: 2, limit: 2, exhausted: true}
+  C2_01_engineering_repairs: {used: 1, limit: 5}
+  C2_02_engineering_repairs: {used: 0, limit: 3}
+  C2_03_engineering_repairs: {used: 0, limit: 3}
+  C2_04_engineering_repairs: {used: 0, limit: 2}
+  test_invocations: {used: 29, limit: 46, ledger: artifacts/stage_c2/TEST_LEDGER.yaml}
+  full_regression_invocations: {used: 1, limit: 2}
+  independent_critic_cycles: {used: 2, limit: 3, first_cycle_failed: true}
+  network_operations: {used: 95, limit: 120, ledger: artifacts/stage_c2/NETWORK_BUDGET_SUMMARY.yaml}
+  discovery_search_queries: {used: 30, limit: 30}
+  official_source_page_operations: {used: 61, limit: 80}
+  data_API_sample_queries: {used: 4, limit: 8}
+changed_files: artifacts/stage_c2/CHANGED_FILES.json
+test_commands_and_exit_codes: artifacts/stage_c2/TEST_LEDGER.yaml
+failed_attempts: artifacts/stage_c2/FAILED_ATTEMPTS.yaml
+independent_critic:
+  failed_cycle_1: artifacts/stage_c2/critic_cycle1_failed.yaml
+  completed_cycle_2: artifacts/stage_c2/critic_cycle2.yaml
+  unresolved_P0: 0
+  unresolved_P1: 3
+  unresolved_P2: 2
+runtime_evidence:
+  C2_01: '15 canonical public runs, 15 manifest/trace/candidate/evidence/eval cross-checks, 0 scientific candidate trials; artifacts/stage_c2/C2-01/CHECKPOINT.yaml'
+  C2_02: 'Four scoped API rows remain zero full data classes; T13 current-state validator passed once. C2-02G fixed two reserved securities and four original event slots and enumerated 83 planned queries, but query_ready is false. C2-02G made zero vendor/test/critic calls and no historical class was qualified. Original API03/API04/API05/API06 unexecuted, no new raw vendor values retained.'
+  C2_03: 'python -B artifacts/stage_c2/C2-03/validate.py: exit 0; rule-only structural checks only'
+  C2_04: NO_CALIBRATION_RUN_START_GATE_CLOSED
+  historical_verification: 'python artifacts/stage_c2/verify_historical.py: exit 0; 397 + 42 + 179 prior files matched'
+artifact_hash_manifest:
+  path: artifacts/stage_c2/artifact_hashes.json
+  sha256: 3414b1e2ca9e39774941506a40b7409ea15bfbff65826440b348661bf83358bb
+  included_file_count: 600
+historical_hash_verification: artifacts/stage_c2/historical_hash_verification.json
+gap_matrix_update: artifacts/stage_c2/GAP_MATRIX_UPDATE.yaml
+stage_pass_block_reasons:
+  - C2-01 implementation has no final independent resolution review; the third critic cycle is reserved.
+  - Public deterministic replay G2 remains BLOCKED_UNSUPPORTED under the frozen owner whitelist.
+  - D11 has zero fully sample-verified data-spine classes; API04R additionally verified one externally anchored intraday suspension row, while historical completeness, PIT and license rights remain unresolved.
+  - C2-02E route analysis is a provisional per-class sourcing decision preparation, not permission, historical coverage, or a D11-selected provider.
+  - C2-02F only records the user's restricted-local candidate-use attestation; benchmark rights and original-source reference slots are unresolved, so its 83-call ceiling is a request, not an executable authorization.
+  - C2-02G resolved four reserved original-source slots and froze two selected securities but cash/noncash implementation, SSE/SZSE calendar, two halt negative controls, original board/listing dates, historical rule versions and vendor rights remain open; the manifest is BLOCKED_NOT_QUERY_READY and execution_authorized false.
+  - C2-02 search and official page budgets are now exhausted at 15/15 and 45/45; another original-source pass needs explicit human budget authority.
+  - Stage C2 design revision budget remains exhausted at 2/2; API04R was a separate explicit human sentinel override and original API04 remains unexecuted.
+  - C2-02 test-invocation budget is exhausted at 13/13 after the one-time current-validator maintenance override; no further C2-02 test run is permitted without explicit user authorization.
+  - D12 lacks empirical execution/cost/capacity data; C2-04 calibration start gate is closed.
+  - The prior independent critic recorded three P1 findings; C2-01 has a targeted-test response but no resolution critic review, and D11/D12/D04B dependencies remain open.
+recommendation:
+  D04B_ready_for_user_freeze_decision: false
+  D11_ready_for_user_freeze_decision: false
+  D12_ready_for_user_freeze_decision: false
+  canonical_public_ready_for_hidden_sealed_infrastructure: false
+  required_next_input: Explicitly authorize any further official-source network budget and narrow preregistration completion, obtain source-specific vendor rights for the intended local storage/use, then separately decide the requested 83-call, 2-validation, 32-MiB raw plus 32-MiB derived Census execution budget. Census and API05/API06 remain unauthorized.
+stop_rule: No D04B/D11/D12 freeze, hidden pack, G6 deployment, real provider, official Benchmark, model comparison, strategy search, prospective shadow or live orders.

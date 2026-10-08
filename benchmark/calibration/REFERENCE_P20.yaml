@@ -1,0 +1,41 @@
+manifest_type: ReferenceDefinitionManifest
+status: ORIGINAL_PAPER_READ_CONCEPT_ADAPTATION_FROZEN
+case_id: CAL-T2-P20
+source_paper_id: P20
+exact_paper_title: Time Series Momentum
+source_file: docs/literature/papers/20-Trend-Moskowitz_Ooi_Pedersen-2012.pdf
+source_sha256: 7682f8e97eb4b77591dc85e36731ff51ed031970cdde81678108734db9478379
+source_pages:
+  - {pdf_page: 3, printed_page: 230, section: 2.1 Futures returns, relevance: 58 liquid futures and original market/date coverage}
+  - {pdf_page: 4, printed_page: 231, section: 2.1 and 2.3, relevance: excess futures return index and asset-pricing benchmarks}
+  - {pdf_page: 6, printed_page: 233, section: 2.4 and 3.2, relevance: lagged EWMA volatility Equation 1 and sign/holding rule}
+  - {pdf_page: 9, printed_page: 236, section: 4.1, relevance: 12-month lookback one-month hold, 40 percent volatility scaling, Equation 5}
+ORIGINAL_PAPER_DEFINITION:
+  original_universe_market: 58 liquid futures/forwards across commodity, currency, developed equity-index and government-bond markets; source coverage 1965-2009, main strategy analysis starts 1985.
+  formation_period: 12 months for Section 4 TSMOM focus; Section 3 explores other k-month lookbacks
+  holding_period: 1 month for Section 4 TSMOM focus; Section 3 explores h-month holds
+  skip_period: no separate one-week skip stated for the Section 4 TSMOM rule
+  weighting: sign of own past excess return times 40 percent divided by ex-ante annualized volatility; diversified factor equally averages available contracts
+  rebalance: monthly signal/volatility update and position sizing
+  benchmark: excess futures returns; risk-adjusted analyses use MSCI World, aggregate bond, GSCI, SMB/HML/UMD and related factors
+  transaction_execution_assumptions: liquid futures excess-return series from daily most-liquid contract; cited core TSMOM equation does not prescribe A-share cash-equity fills or transaction-cost ledger
+  original_exclusions: selection of liquid contracts and availability at date; not an A-share stock universe, no stock-level T+1/price-limit rules
+  exact_formula:
+    provenance: printed_Equation_5_pdf_page_9
+    per_contract: 'r_TSMOM(s,t_to_t+1) = sign(r_excess(s,t-12_to_t)) * (0.40 / sigma_s,t) * r_excess(s,t_to_t+1)'
+    sigma: lagged_ex_ante_annualized_EWMA_daily_return_volatility_from_Equation_1_pdf_page_6
+    diversified_factor: equal_average_over_available_contracts_at_t
+QUANT_RSI_CONCEPT_ADAPTATION:
+  market: synthetic A-share ordinary-stock daily fixture; no futures/empirical claim
+  formation_period: 12 synthetic monthly close-to-close intervals strictly before decision
+  holding_period: one synthetic month with next-session entry
+  skip_period: no additional weekly skip; one-session execution lag enforced
+  universe: two fixed synthetic ordinary-stock IDs with complete history
+  weighting: long-only one unit for positive own trailing return; cash for nonpositive; no short or volatility leverage
+  rebalance: one decision and next-session entry; no multi-month overlapping cohort
+  benchmark: fixed equal-weight synthetic two-stock long-only panel
+  execution: frozen next eligible session, no futures roll or margin, cost/limit assumptions specified by case
+  A_share_adaptation_decisions: negative futures signal becomes cash instead of short, PIT monthly signal and long-only daily fill
+  intentionally_unsupported_original_elements: [58_futures_markets, futures_roll, cross_asset_factor, short_positions, 40_percent_volatility_scaling, derivatives_margin, published_return_magnitude, factor_alpha]
+  replication_label: CONCEPT_REPLICATION_ONLY_NOT_EXACT_PAPER_REPLICATION
+reference_freeze_rule: Oracle must be constructed only after this manifest; any change creates a new version and preserves old evidence.

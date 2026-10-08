@@ -1,0 +1,440 @@
+stage: A.1
+project: Quant-RSI
+status: ACCEPTED_WITH_DECLARED_LIMITATIONS_STOPPED
+generated_at_utc: '2026-09-28T12:16:49.083435+00:00'
+completion_scope: Minimal W01-W06 contract/provenance hotfix; synthetic governance validation only
+authority: artifacts/stage_a1/authorized_request.txt
+plan: planning/stage_a1_plan.yaml
+authorization_boundaries:
+  architecture_redesign: false
+  release_self_test_added: false
+  W07_W20_started: false
+  stage_B1_authorized: false
+  real_market_research: false
+  strategy_search: false
+  real_provider_benchmark: false
+  D04B_values_changed: false
+changed_files:
+  modified_from_baseline:
+  - src/quant_rsi/contracts/condition.py
+  - src/quant_rsi/contracts/research.py
+  - src/quant_rsi/ledger/budget.py
+  - tests/contracts/test_condition.py
+  - tests/contracts/test_research.py
+  - tests/ledger/test_budget.py
+  - planning/KERNEL_BOUNDARY.md
+  - planning/README.md
+  - planning/validate_planning.py
+  - planning/v0.2/01_GAP_MATRIX.yaml
+  - planning/v0.2/02_TARGET_ARCHITECTURE.md
+  - planning/v0.2/03_ENV_SPEC_DRAFT.yaml
+  - planning/v0.2/06_WORK_BREAKDOWN.md
+  - planning_report.yaml
+  - README.md
+  new_runtime_contract_and_test:
+  - src/quant_rsi/contracts/manifest.py
+  - tests/ledger/test_provenance.py
+  new_planning:
+  - planning/stage_a1_plan.yaml
+  - planning/STAGE_A1_OWNERSHIP.md
+  additional_admin_reference:
+  - artifacts/README.md
+  new_acceptance: stage_a1_acceptance.yaml
+  evidence_directory: artifacts/stage_a1/
+  baseline: artifacts/stage_a1/baseline.json
+  unchanged_original_inputs: true
+contracts_and_ownership:
+  details: planning/STAGE_A1_OWNERSHIP.md
+  ExperimentSpec: Immutable preregistration. execution_started_at retained only for legacy decoding; ledger rejects populated
+    field and evidence does not use it as execution truth.
+  Attempt: No writable Attempt object/table added. Status and usage projected only from ResearchTrace.
+  Candidate: Required attempt_id; exactly one distinct attributed output per Attempt; candidate/experiment/run/family/code/artifact
+    cross-checks.
+  Evidence: Measured strategy/scientific falsification requires successful execution and matching Candidate source artifact.
+    Infrastructure failure evidence has unknown strategy metrics and diagnostic output.
+  Decision_snapshot: sha256:<canonical JSON digest> ref plus registry version; immutable DECISION_SNAPSHOT event. Not
+    a second current registry.
+  Current_authority: Task.authorize_dispatch reads current canonical registry; invoked before new Attempt reservation.
+    Version upgrade alone does not change historical condition or existing roots.
+  RunManifest: Refs/digests to canonical Task/Condition/Run/Data/Snapshot/Candidate/Evidence and artifact bytes; runtime/tools/randomness
+    declarations; completed manifest binds terminal event hash. No status database.
+  model_identity: AgentBenchmarkRun owns agent_model, exact exposed model version or null, provider or null, immutable
+    requested settings and returned metadata. Manifest references its full digest.
+  draft_final: Preterminal draft is not completed-run evidence. Separate final manifest identity/digest is frozen after
+    settlement.
+work_item_acceptance:
+  A1-01:
+    implementation:
+    - src/quant_rsi/contracts/research.py
+    - src/quant_rsi/ledger/budget.py
+    proof:
+    - test_A1_complete_synthetic_chain_and_manifest_roundtrip
+    - test_A1_no_start_and_no_preregistration_mutation_shortcut
+    - test_A1_wrong_candidate_binding_blocked
+    - test_A1_existing_attempt_belongs_to_other_owner
+    - test_A1_wrong_evidence_binding_blocked
+    - test_A1_retry_has_distinct_candidate_attempt_and_no_denominator_reset
+    - test_A1_failures_preserve_diagnostic_evidence_not_strategy
+    - test_A1_critic_01_second_candidate_cannot_escape_denominator
+    status: ACCEPTED_WITH_DECLARED_LIMITATIONS
+  A1-02:
+    implementation:
+    - src/quant_rsi/contracts/condition.py
+    - src/quant_rsi/ledger/budget.py
+    proof:
+    - test_a1_02_01_freeze_under_registry_vn
+    - test_a1_02_03_historical_verify_never_reads_current
+    - test_a1_02_04_current_revocation_blocks_old_task
+    - test_a1_02_05_current_permission_allows_explicit_new_run
+    - test_a1_02_06_tampered_snapshot_blocked
+    - test_a1_02_07_snapshot_hash_ref_version_mismatch_blocked
+    - test_a1_02_08_current_cannot_replace_historical_snapshot
+    - test_a1_02_09_historical_cannot_authorize_current_dispatch
+    - test_A1_registry_upgrade_controls_new_dispatch_without_invalidating_history
+    status: ACCEPTED_WITH_DECLARED_LIMITATIONS
+  A1-03:
+    implementation:
+    - src/quant_rsi/contracts/manifest.py
+    - src/quant_rsi/contracts/condition.py
+    proof:
+    - test_A1_complete_synthetic_chain_and_manifest_roundtrip
+    - test_A1_manifest_canonical_run_tampering
+    - test_A1_manifest_artifact_bytes_tampering
+    - test_A1_manifest_identity_mismatch
+    - test_A1_manifest_required_provenance_and_randomness_fail_closed
+    - test_model_provenance_is_deeply_immutable_json_and_roundtrips
+    - test_A1_critic_02_completed_manifest_must_bind_terminal_hash
+    status: ACCEPTED_WITH_DECLARED_LIMITATIONS
+  A1-04:
+    implementation:
+    - tests/ledger/test_provenance.py
+    proof:
+    - test_A1_complete_synthetic_chain_and_manifest_roundtrip
+    - test_A1_retry_has_distinct_candidate_attempt_and_no_denominator_reset
+    - test_A1_crash_after_output_never_loses_failure_or_releases_budget
+    - test_stage_A_contracts_to_trace_runtime_evidence
+    status: ACCEPTED_WITH_DECLARED_LIMITATIONS
+  A1-05:
+    implementation: []
+    proof:
+    - artifacts/stage_a1/critic_initial.json
+    - artifacts/stage_a1/critic_resolution.json
+    - artifacts/stage_a1/critic_commands.json
+    status: ACCEPTED_WITH_DECLARED_LIMITATIONS
+tests:
+  final:
+    command: python -m pytest -q -p no:cacheprovider tests/contracts tests/ledger --junitxml=artifacts/stage_a1/final.xml
+    exit_code: 0
+    passed: 317
+    skipped: 1
+    failed: 0
+    junit: artifacts/stage_a1/final.xml
+    log: artifacts/stage_a1/final.log
+    environment: &id001
+      PYTHONPATH: D:\Claude_work_Territory\Quant-RSI\src
+      PYTHONDONTWRITEBYTECODE: '1'
+      QUANT_RSI_A1_CAPTURE_DIR: D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a1\final_runtime
+  planning:
+    command: python -B planning/validate_planning.py
+    exit_code: 0
+    passed: 378
+    total: 378
+    evidence: artifacts/stage_a1/planning_validation.json
+  all_implementation_test_commands_exit_codes:
+  - &id002
+    label: A1_surface_red
+    scope:
+    - A1-01
+    - A1-03
+    command: python -m pytest -q -p no:cacheprovider tests/ledger/test_budget.py -k A1_red --junitxml=artifacts/stage_a1/red.xml
+    exit_code: 1
+    failed: 2
+    log: artifacts/stage_a1/red.log
+    junit: artifacts/stage_a1/red.xml
+    interpretation: Missing required Candidate.attempt_id and missing RunManifest; architectural regression assertions
+      before patch.
+  - &id003
+    command: python -m pytest -q -p no:cacheprovider tests/contracts/test_condition.py --tb=no
+    exit_code: 1
+    failed: 76
+    label: A1_02_worker_1
+    scope:
+    - A1-02
+    evidence: artifacts/stage_a1/A1_02_worker_report.json
+    raw_stdout_captured: false
+  - &id004
+    command: python -m pytest -q -p no:cacheprovider tests/contracts/test_condition.py::test_a1_02_01_freeze_under_registry_vn
+      --tb=short
+    exit_code: 1
+    failed: 1
+    label: A1_02_worker_2
+    scope:
+    - A1-02
+    evidence: artifacts/stage_a1/A1_02_worker_report.json
+    raw_stdout_captured: false
+  - command: python -m pytest -q -p no:cacheprovider tests/contracts/test_condition.py --tb=short
+    exit_code: 0
+    passed: 76
+    label: A1_02_worker_3
+    scope:
+    - A1-02
+    evidence: artifacts/stage_a1/A1_02_worker_report.json
+    raw_stdout_captured: false
+  - command: python -m pytest -q -p no:cacheprovider tests/contracts/test_condition.py --tb=short
+    exit_code: 0
+    passed: 82
+    label: A1_02_worker_4
+    scope:
+    - A1-02
+    evidence: artifacts/stage_a1/A1_02_worker_report.json
+    raw_stdout_captured: false
+  - label: A1_integration1
+    scope:
+    - A1-01
+    - A1-02
+    - A1-03
+    - A1-04
+    command: python -m pytest -q -p no:cacheprovider tests/contracts tests/ledger --junitxml=artifacts/stage_a1/integration1.xml
+    exit_code: 0
+    passed: 309
+    skipped: 1
+    log: artifacts/stage_a1/integration1.log
+    junit: artifacts/stage_a1/integration1.xml
+    superseded_by_final: true
+  - &id005
+    label: A1_critic_red
+    scope:
+    - A1-01
+    - A1-03
+    - A1-04
+    command: python -m pytest -q -p no:cacheprovider tests/ledger/test_provenance.py -k A1_critic --junitxml=artifacts/stage_a1/critic_red.xml
+    exit_code: 1
+    failed: 2
+    deselected: 38
+    log: artifacts/stage_a1/critic_red.log
+    junit: artifacts/stage_a1/critic_red.xml
+  - label: A1_critic_green
+    scope:
+    - A1-01
+    - A1-03
+    - A1-04
+    command: python -m pytest -q -p no:cacheprovider tests/ledger/test_provenance.py --junitxml=artifacts/stage_a1/critic_green.xml
+    exit_code: 0
+    passed: 40
+    log: artifacts/stage_a1/critic_green.log
+    junit: artifacts/stage_a1/critic_green.xml
+    note: Before additional current authorization revocation case and distinct draft/completed identity fixture adjustment.
+  - label: A1_final
+    scope:
+    - A1-01
+    - A1-02
+    - A1-03
+    - A1-04
+    command: python -m pytest -q -p no:cacheprovider tests/contracts tests/ledger --junitxml=artifacts/stage_a1/final.xml
+    exit_code: 0
+    passed: 317
+    skipped: 1
+    failed: 0
+    log: artifacts/stage_a1/final.log
+    junit: artifacts/stage_a1/final.xml
+    environment: *id001
+    tested_hashes: artifacts/stage_a1/final_tested_hashes.json
+  independent_critic_exact_commands_exit_codes: artifacts/stage_a1/critic_commands.json
+  evidence_limit: Early A1-02 worker stdout was reported, not locally captured; final joint suite has local JUnit/log.
+    Independent critic used direct probes; its pytest invocation failed at collection due to missing PYTHONPATH.
+red_patch_green:
+- issue: A1-01/A1-03 missing required contract surface
+  red: artifacts/stage_a1/red.xml
+  red_exit_code: 1
+  red_failed: 2
+  patch:
+  - Candidate.attempt_id
+  - RunManifest contract
+  green: artifacts/stage_a1/integration1.xml
+- issue: A1-02 missing snapshot binding contract
+  red: artifacts/stage_a1/A1_02_worker_report.json
+  red_exit_codes:
+  - 1
+  - 1
+  red_failed_counts:
+  - 76
+  - 1
+  patch: Snapshot verification separated from current authorization
+  green_worker_passed: 82
+  final_green: artifacts/stage_a1/final.xml
+- issue:
+  - A1-CRITIC-01
+  - A1-CRITIC-02
+  red: artifacts/stage_a1/critic_red.xml
+  red_exit_code: 1
+  red_failed: 2
+  patch: Atomic one-Candidate limit plus independent lineage cardinality check; completed manifest requires terminal
+    event hash
+  green: artifacts/stage_a1/critic_green.xml
+  green_exit_code: 0
+  green_passed: 40
+  resolution: artifacts/stage_a1/critic_resolution.json
+  final_green: artifacts/stage_a1/final.xml
+failed_attempts:
+  implementation_test_runs:
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  critic_collection_error:
+    command: python -m pytest tests/ledger/test_provenance.py -q
+    exit_code: 1
+    output: 'Collection error: ModuleNotFoundError: No module named ''quant_rsi''. Invocation lacked PYTHONPATH=src;
+      no test cases ran. Per critic limit, no second pytest invocation was made.'
+  diagnostic_defect_probes: Critic initial probes exited 0 while demonstrating defects; they are not successful assurance
+    tests. See critic_initial.json and exact command record.
+  administrative_errors:
+  - action: critic transcript retrieval
+    reason: maxOutputCharsPerItem 24000 exceeded tool maximum 20000
+    preserved: artifacts/stage_a1/critic_session_record.json
+    resolution: Retry at 20000 succeeded; critic_session_record_retry1.json contains all four available turns.
+  - action: read captured JSON using platform default encoding
+    reason: UnicodeDecodeError from Windows default GBK
+    resolution: Read retried with explicit UTF-8; no artifact content altered.
+independent_critic:
+  agent_id: 01a0e700-dbda-7893-b0d6-d44f7391e807
+  model_requested: gpt-6-sol
+  independent_context: true
+  self_review: false
+  initial_report: artifacts/stage_a1/critic_initial.json
+  resolution_report: artifacts/stage_a1/critic_resolution.json
+  initial_findings:
+  - id: A1-CRITIC-01
+    severity: P1
+    title: One reserved candidate trial can produce multiple validated strategy candidates
+    locations:
+    - src/quant_rsi/ledger/budget.py:149
+    - src/quant_rsi/ledger/budget.py:216-232
+    - src/quant_rsi/contracts/research.py:277-331
+    impact: record_output checks that the scientific attempt is open but never limits its distinct candidate outputs.
+      Two outputs under one attempt each pass validate_research_links, while the reservation charges only one candidate_trial
+      and scientific_accounting counts only one variant. This permits selection over more candidates than the search
+      denominator records.
+    reproduction: Create the synthetic_flow fixture, reserve ATT-multi with candidate_trials=1 and VAR-multi, call record_output
+      twice with CAN-one/one.json and CAN-two/two.json, settle SUCCEEDED with both artifact hashes, then validate both
+      Candidate and Evidence objects. Validation succeeds. With the fixture's original attempt plus ATT-multi, capability
+      candidate_trials=2 and scientific candidate_variant_count=2 despite three validated strategy candidates in total.
+    smallest_patch: At the ledger transaction boundary, reject a second distinct candidate output for the same attempt
+      (including retries), while preserving idempotent replay of the identical output event. Add a regression that the
+      second record_output is rejected and the first output remains in the trace. If multiple outputs per attempt are
+      intended, instead charge and count every candidate separately; that is a larger contract change.
+  - id: A1-CRITIC-02
+    severity: P2
+    title: Verified RunManifest need not bind its terminal event hash
+    locations:
+    - src/quant_rsi/contracts/manifest.py:118-131
+    - src/quant_rsi/contracts/manifest.py:144-148
+    - tests/ledger/test_provenance.py:90-94
+    impact: The required trace_refs set omits settle:<attempt_id>. The fixture builds the manifest before settlement;
+      the same digest then verifies after settlement. Terminal status, measured usage, failure reason, and settlement
+      artifact set are read from the current trace but are not bound into the immutable manifest digest. This weakens
+      the stated binding of one completed run's execution provenance, although it does not make the append-only trace
+      a second status store or imply artifact authenticity.
+    reproduction: Construct synthetic_flow and print whether settle:<manifest.attempt_id> is in manifest.trace_refs;
+      it is False. Calling manifest.verify_bindings with the completed trace returns successfully.
+    smallest_patch: Require the ATTEMPT_SETTLED event ID and hash in trace_refs for a completed RunManifest, and construct/freeze
+      the manifest after settlement. Keep terminal status canonical only in ResearchTrace. Add a test that omitting or
+      mismatching the terminal ref fails.
+  resolution_status: INITIAL_FINDINGS_RESOLVED
+  remaining_P1_P2_findings: []
+  final_joint_suite_certified_by_critic: false
+  qualification: Critic closed source/repair findings via independent probes. The orchestrator ran final joint suite
+    afterward.
+runtime_evidence:
+  manifest: artifacts/stage_a1/final_runtime/manifest.json
+  manifest_digest: e0316499a498aadee4be0f217d6546c05b78922a1b6f0aaf5c357bbbdfe93ea0
+  trace: artifacts/stage_a1/final_runtime/trace.json
+  experiment: artifacts/stage_a1/final_runtime/experiment.json
+  candidate: artifacts/stage_a1/final_runtime/candidate.json
+  evidence: artifacts/stage_a1/final_runtime/evidence.json
+  condition: artifacts/stage_a1/final_runtime/condition.json
+  artifact_bytes_hex: artifacts/stage_a1/final_runtime/artifact-bytes.json
+  terminal_event_hash: dfdec944da3c4e8d557d17cea99272b9c71d3bd961e475b912bea44c8d0b37be
+  captured_source_matches_delivery: true
+  contains_full_synthetic_code_bundle: true
+  synthetic_only: true
+  sealed_assurance: NOT_IMPLEMENTED
+  replay_runner_implemented: false
+regression_preservation:
+  full_existing_contracts_and_ledger_suite_run: true
+  intentional_fixture_migrations:
+  - Research fixture now has immutable preregistration and real append-only trace events instead of a post-execution
+    Experiment copy.
+  - Budget fixtures explicitly bind historical snapshot metadata and pass snapshots at registration.
+  - Previous synthetic cross-module test keeps accounting assertions using the corrected A1 fixture; old Stage A runtime
+    script and evidence remain untouched.
+  - Former registry-drift coupling assertion is replaced by historical/current separation tests.
+  old_stage_A_files_preserved: artifacts/stage_a/
+  pre_edit_source_planning_snapshot: artifacts/stage_a1/baseline/
+budget_accounting:
+  max_retries: 2
+  repair_passes:
+    A1-01: 1
+    A1-02: 1
+    A1-03: 1
+    A1-04: 1
+  max_test_invocations_per_implementation_item: 6
+  test_invocations_by_selected_scope:
+    A1-01: 5
+    A1-02: 6
+    A1-03: 5
+    A1-04: 4
+  counting_rule: Implementation test invocations assigned by owned test scope; joint suites count for every implementation
+    item. Independent critic probes/collection failure recorded separately under A1-05. No original Stage A invocation
+    history reset.
+  actual_token_usage: null
+  actual_total_cpu_seconds: null
+  actual_total_wall_seconds: null
+  actual_peak_memory_mb: null
+  resource_cap_compliance: NOT_MEASURED; no assertion of measured compliance
+  scientific_searches: 0
+  real_provider_calls: 0
+artifact_hashes:
+  algorithm: SHA256
+  final_tested_files:
+    contracts/decisions.yaml: 53e533fab35db40b86ad1da707b4e8de804a490488eb795996b1d77159e7509a
+    src/quant_rsi/contracts/condition.py: b6dc4602c6af0ef172b74deab99f3eee262566619862d118fbc3f60708f1682b
+    src/quant_rsi/contracts/data.py: 252b3a587561fe5c562512cb2372e4ffc2d39bbf87bc4013fea01054d309b057
+    src/quant_rsi/contracts/manifest.py: 44647fda1cf609934b70f4d57a3e95cfcb9498f25e748fe260028109298e4031
+    src/quant_rsi/contracts/research.py: 4b88b5264a6be329b31057132291fbab24f057b3db46f8a561cb6b9e652c66ab
+    src/quant_rsi/ledger/budget.py: feb232d15faecb50cc76c20dd19c5f82f8d8a70e09231c565874dccd8f8e0aab
+    src/quant_rsi/ledger/store.py: 252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46
+    tests/contracts/test_condition.py: 01214f0bef992107a635c84b31188c6fbdc162510ca9404196dbc22feda136c5
+    tests/contracts/test_data.py: 916082fc28138a583fbd17428d0c707a8236cfb5f9fec655d7e44a999b4edd51
+    tests/contracts/test_decisions.py: dd33868560ee0d5510bee0a88384e3ee00f681e73541cde73d812825dd7f499b
+    tests/contracts/test_research.py: f25afc74a4c6c87e01570556fcf656a198edf338b2c233c0463a50feae9ee470
+    tests/ledger/test_budget.py: 43742d9c65f13484cac68658b6758253b81e46d54e4e72a51f1c4283f1ca326c
+    tests/ledger/test_provenance.py: 9c758964dbde938451d470eb6cd4f51d3d7f65ecf6b64c6a6655917930a56a74
+    tests/ledger/test_store.py: ce51f380767c2fc1a299bf8841779ba93b7497e7d1d657fde6f911fd271b063f
+  manifest: artifacts/stage_a1/artifact_manifest.json
+  delivery_manifest: artifacts/stage_a1/delivery_manifest.json
+  external_custody: false
+updated_gap_matrix: planning/v0.2/01_GAP_MATRIX.yaml
+remaining_limitations:
+- One Windows file-symlink test skipped for missing privilege; directory junction/reparse coverage passed.
+- Local trace/snapshot/manifest hashes are not independent custody, authentication or OS isolation.
+- RunManifest checks provenance and immutable bytes; W20 replay execution and real provider reproducibility remain unimplemented.
+- Legacy preregistrations/tasks remain historical; missing snapshot provenance is not fabricated and legacy objects may
+  decode without qualifying for verified replay.
+- Engineering tokens/CPU/memory/wall totals were not instrumented; cap compliance cannot be certified.
+- No real market/PIT/simulator/statistical/benchmark-grade sealed validation; D04B parameters remain null.
+- Future per-call provider receipts and actual runtime metering belong to later authorized adapter work; no provider
+  execution occurred.
+stage_B1_recommendation:
+  may_start_now: false
+  recommendation: A1 is accepted within synthetic scope and supports a separately authorized Stage B1 proposal. Explicit
+    user authorization is still required.
+  proposed_future_scope_only:
+  - W07 synthetic PIT engine
+  - W08 daily paper simulator after W07
+  - W20 replay runner after W07/W08 using RunManifest
+  - W09 independent mock isolation prototype bounded by SEALED_THREAT_MODEL
+  W10_authorized: false
+  W11_W19_authorized: false
+  must_not_claim: BENCHMARK_GRADE or G6 PASS without independent identity/storage/credentials/custodian evidence
+  stop: No next-stage dispatch performed.

@@ -1,0 +1,187 @@
+stage: B1
+status: PASS
+complete: true
+authority: artifacts/stage_b1/authorized_request.txt
+scope:
+- W07
+- W08
+- W09
+- W20
+checkpoint: artifacts/stage_b1/evidence_correction/final_verification.json
+changed_files: artifacts/stage_b1/evidence_correction/changed_files.json
+test_commands_and_exit_codes: artifacts/stage_b1/test_attempts.jsonl
+failed_attempts:
+  W08_worker_1: 7 failed / 3 passed; exit 1
+  W08_worker_2: 1 failed / 9 passed; exit 1
+  critic_red: 16 failed / 1 passed / 41 deselected; exit 1
+  W08_attempt4: 5 failed / 59 passed; exit 1; added split-ratio tests fail during
+    canonical JSON fixture construction
+  critic_attempt4_diagnostic: Independent diagnostic probe first exited 1 on an expected
+    duplicate-date rejection; probe corrected and rerun exit 0. No source/tests changed.
+    See critic_resolution.json.
+  critic_attempt4_diagnostic_evidence: artifacts/stage_b1/critic_probes/w08_resolution_diagnostic_failure.json;
+    first raw output could not be fully recovered; command, exception summary and
+    exit 1 retained with limitation.
+green_evidence:
+  W07_W09: 33 passed; exit 0; W07_W09_critic_green.xml
+  W20_integration: 22 passed; exit 0; W20_reservation_green.xml
+  planning: 384/384 PASS; invocation12_planning.json
+  full_regression: 436 passed / 1 skipped; invocation12.xml
+independent_critic_initial: artifacts/stage_b1/critic_initial.json
+independent_critic_partial_resolution: artifacts/stage_b1/partial_resolution.json
+independent_critic_final_resolution: artifacts/stage_b1/evidence_correction/critic_cr03_final.json
+tm01_review: artifacts/stage_b1/w09_tm01_custodian_review.json
+resolved_findings:
+- B1-CR-01
+- B1-CR-02
+- B1-CR-03
+- B1-CR-04
+- B1-CR-05
+- B1-CR-06
+- B1-CR-07
+- B1-CR-08
+open_P1: []
+blocker: null
+full_final_regression:
+  status: PASS
+  passed: 436
+  skipped: 1
+  failed: 0
+  exit_code: 0
+  xml: artifacts/stage_b1/evidence_correction/invocation12.xml
+  log: artifacts/stage_b1/evidence_correction/invocation12_tests.log
+  scope:
+  - Stage A
+  - Stage A.1
+  - W07
+  - W08
+  - W09
+  - W20
+  - B1 integration
+final_runtime_capture: artifacts/stage_b1/evidence_correction/final_runtime
+historical_artifacts:
+  verified_count: 108
+  changed: 0
+  manifest: artifacts/stage_b1/historical_artifacts_sha256.json
+artifact_hashes: artifacts/stage_b1/evidence_correction/final_hashes.json
+updated_gap_matrix: planning/v0.2/01_GAP_MATRIX.yaml
+assurance:
+  W09: SYNTHETIC_MOCK
+  formal_G6: BLOCKED
+  formal_G2: NOT_EVALUATED
+  real_market_rules_costs_capacity: NOT_VALIDATED
+resource_usage:
+  total_tokens: null
+  cpu_seconds: null
+  peak_memory_mb: null
+next_stage_started: false
+recommendation: Governance + PIT + synthetic Execution + manifest-bound Replay loop
+  is evidenced. Ready to submit an Agent/Evaluator Layer proposal for separate authorization
+  review. STOP; no W10-W19, provider, real data, strategy search or model comparison
+  authorized.
+updated_at_utc: '2026-09-28T23:02:07.438988+00:00'
+human_budget_override: artifacts/stage_b1/W08_human_override.json
+override_authorization: artifacts/stage_b1/W08_human_override_authorization.txt
+operational_trace: artifacts/stage_b1/operational_events.jsonl
+original_plan_snapshot: artifacts/stage_b1/before_W08_override/planning/stage_b1_plan.yaml
+attempts:
+  W08_original_cap: 3
+  W08_effective_cap: 4
+  W08_consumed: 4
+  additional_attempt_authorized: false
+targeted_validation:
+  invocation: 10
+  passed: 64
+  failed: 0
+  exit_code: 0
+  xml: artifacts/stage_b1/evidence_correction/invocation10.xml
+  summary: artifacts/stage_b1/evidence_correction/invocation10_summary.json
+  canonical_boundary_cases: 5
+  execution_integer_cases: 35
+  other_tests: 24
+final_planning_validation:
+  status: PASS
+  passed: 384
+  total: 384
+  exit_code: 0
+  artifact: artifacts/stage_b1/evidence_correction/invocation12_planning.json
+  validated_snapshot: artifacts/stage_b1/evidence_correction/validated_planning_snapshot
+  post_validation_edits: Closure status and evidence references only; no source/test
+    changes or extra validation invocations
+override_verification: artifacts/stage_b1/W08_override_verification.json
+open_P1_qualification: null
+independent_critic_verdict: ALL_ORIGINAL_FINDINGS_CLOSED_WITH_SCOPED_LIMITS
+new_independent_P0_P1: []
+budget_consumption:
+  engineering_attempts: 4
+  effective_engineering_cap: 4
+  known_implementation_pytest_invocations: 7
+  known_independent_pytest_invocations: 1
+  known_independent_W08_probe_invocations: 4
+  conservative_known_total_test_invocations: 12
+  effective_test_cap: 12
+  full_regression_invocations: 1
+  scientific_candidate_trials: 0
+  parameter_searches: 0
+  prompt_search_variants: 0
+  external_web_queries: 0
+  sealed_submissions: 0
+  evidence_only_invocations:
+  - 10
+  - 11
+  - 12
+  implementation_budget_exhausted: true
+  effective_test_cap_basis: Explicit user evidence-correction slots 10-12; engineering
+    cap stays 4
+  counting_note: 12 authorized logical validation slots; slot 12 bundles full pytest
+    plus planning validation, with no retry.
+scope_qualification: Authorized Stage B1 synthetic engineering/conformance only; not
+  full Harness or benchmark-grade certification
+previous_critic_resolution_preserved: artifacts/stage_b1/critic_resolution.json
+evidence_correction:
+  authority: artifacts/stage_b1/evidence_correction/authorization.txt
+  event: artifacts/stage_b1/evidence_correction/human_override.json
+  test_patches_used: 1
+  implementation_changed: false
+  new_engineering_attempts: 0
+  invocations:
+    '10': W08 complete targeted suite, exit 0
+    '11': independent failure-layer probe and CR03 CLOSED, exit 0
+    '12': full regression and planning bundle, both exit 0
+  prior_failures_preserved: true
+replay:
+  assurance: DETERMINISTIC_REPRODUCED
+  comparison: EXACT_OUTPUT_MATCH
+  artifact: artifacts/stage_b1/evidence_correction/final_runtime/replay.json
+  formal_G2: NOT_EVALUATED
+engineering_fixture_accounting:
+  scientific_candidate_trials: 0
+  engineering_fixture_candidate_trials: 1
+  note: Single fixed synthetic output charged to existing engineering ledger; no strategy/Agent
+    search
+limitations:
+- One Windows file-symlink test skipped because privilege is unavailable; see final_verification.json.
+- W09 is SYNTHETIC_MOCK; OS/network/storage/credential isolation remains UNVERIFIED
+  / REQUIRES_DEPLOYMENT and formal G6 BLOCKED.
+- Real market rules, cost rates, capacity and empirical dataset completeness unverified;
+  D04B/D11/D12 remain DEFERRED.
+- Replay executes only the supported frozen synthetic operation on a matching local
+  source/runtime; no arbitrary historical environment restoration or formal G2 verdict.
+- Aggregate token/CPU/peak-memory usage unavailable; no invented metering.
+- First prior critic diagnostic raw failure log could not be fully recovered; command/summary/exit
+  retained with explicit limitation.
+runtime_evidence_by_work_item:
+  W07:
+  - tests/data/test_pit.py
+  - artifacts/stage_b1/evidence_correction/invocation12.xml
+  W08:
+  - tests/env/test_daily.py
+  - artifacts/stage_b1/evidence_correction/final_runtime/result.json
+  W09:
+  - tests/eval/test_isolation.py
+  - artifacts/stage_b1/w09_tm01_custodian_review.json
+  - artifacts/stage_b1/evidence_correction/invocation12.xml
+  W20:
+  - tests/eval/test_replay.py
+  - artifacts/stage_b1/evidence_correction/final_runtime/manifest.json
+  - artifacts/stage_b1/evidence_correction/final_runtime/replay.json

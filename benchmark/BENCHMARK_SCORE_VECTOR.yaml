@@ -1,0 +1,71 @@
+version: 0.1-DRAFT
+status: DESIGN_ONLY_NO_SCORES_OR_WEIGHTS
+subject: Research Agent capability by identical frozen task condition
+single_total_score: forbidden
+family_weights: null
+missing_rule: null_with_reason_and_denominator_never_impute_zero_or_success
+interval_rule: report_task_count_template_cluster_and_prefrozen_interval_method;
+  no_precision_claim_until_model_comparison_protocol_is_calibrated
+gate_rule: G0_G7_statuses_and_engineering_behavior_reported_separately;
+  G4_G6_remain_BLOCKED_for_formal_claims_in_C0
+dimensions:
+  reliability:
+    - {metric: false_positive_rate_known_null, numerator: unsupported_positive_claims_on_prefrozen_evaluable_known_null, denominator: prefrozen_evaluable_assigned_known_null_tasks, direction: lower}
+    - {metric: task_coverage, numerator: valid_terminal_outputs_including_adjudicated_refusals, denominator: all_assigned_tasks, direction: higher}
+    - {metric: unjustified_refusal_rate, numerator: refusals_when_oracle_requires_positive_or_diagnostic_work, denominator: assigned_positive_or_diagnostic_tasks, direction: lower}
+    - {metric: positive_control_completion, numerator: passed_prefrozen_positive_controls, denominator: assigned_positive_controls, direction: higher}
+    - {metric: unresolved_failure_rate, numerator: missing_or_failed_terminal_outputs, denominator: all_assigned_tasks, direction: lower}
+    - {metric: critical_error_rate, numerator: critical_contract_or_PIT_or_budget_failures, denominator: assigned_tasks, direction: lower}
+    - {metric: leakage_incidence, numerator: verified_leakage_events, denominator: assigned_tasks, direction: lower}
+    - {metric: fabricated_evidence_incidence, numerator: fabricated_or_unverifiable_claims, denominator: assigned_tasks, direction: lower}
+  replication:
+    - {metric: replication_success_rate, numerator: independently_oracled_successes, denominator: assigned_E2_tasks, direction: higher}
+    - {metric: numeric_replication_error, numerator: oracle_normalized_absolute_error_values, denominator: valid_numeric_reference_components, direction: lower}
+    - {metric: implementation_correctness, numerator: passed_deterministic_reference_checks, denominator: applicable_reference_checks, direction: higher}
+  discovery:
+    - {metric: known_signal_detection, numerator: matched_generator_latent_signals, denominator: evaluable_true_latent_signals, direction: higher}
+    - {metric: discovery_precision, numerator: matched_nonredundant_true_signals, denominator: all_claimed_discoveries, direction: higher}
+    - {metric: redundant_discovery_rate, numerator: claimed_correlated_variants_of_already_claimed_latent_signal, denominator: claimed_discoveries, direction: lower}
+  falsification:
+    - {metric: falsification_compliance, numerator: correctly_stopped_triggered_hypotheses, denominator: triggered_falsification_cases, direction: higher}
+    - {metric: time_to_falsify, numerator: elapsed_time_per_correct_rejection, denominator: correctly_rejected_cases, direction: lower}
+    - {metric: correct_negative_conclusion_rate, numerator: correct_no_edge_conclusions, denominator: assigned_null_or_invalid_edge_tasks, direction: higher}
+  economic_reasoning:
+    - {metric: gross_to_net_correctness, numerator: matched_independent_cost_bridges, denominator: applicable_execution_tasks, direction: higher}
+    - {metric: cost_trap_rejection, numerator: rejected_net_nonpositive_claims, denominator: assigned_cost_traps, direction: higher}
+    - {metric: capacity_trap_rejection, numerator: rejected_target_capital_failures, denominator: assigned_capacity_traps, direction: higher}
+  research_efficiency:
+    - {metric: valid_evidence_per_100_attempts, numerator: 100_times_independently_valid_evidence, denominator: all_reserved_attempts_in_own_root, direction: higher}
+    - {metric: compute_per_valid_evidence, numerator: trusted_cpu_or_wall_resource_used, denominator: independently_valid_evidence, direction: lower}
+    - {metric: tokens_per_valid_evidence, numerator: trusted_reported_input_plus_output_tokens, denominator: independently_valid_evidence, direction: lower}
+    - {metric: redundant_experiment_ratio, numerator: semantically_duplicate_registered_experiments, denominator: all_attempts_in_own_root, direction: lower}
+  generalization:
+    - {metric: validation_performance, numerator: preregistered_validation_task_metric_values, denominator: eligible_validation_tasks, direction: task_specific}
+    - {metric: sealed_performance, numerator: custodian_released_hidden_task_metric_values, denominator: uncontaminated_hidden_tasks, direction: task_specific}
+    - {metric: rank_degradation, numerator: within_cohort_validation_to_sealed_rank_changes, denominator: comparable_uncontaminated_task_families, direction: lower}
+    - {metric: nonstationarity_handling, numerator: correct_decay_state_and_retirement_decisions, denominator: assigned_E7_tasks, direction: higher}
+reporting:
+  disaggregate_by: [tier, task_family, difficulty, template_cluster, exposure_state]
+  include: [numerator, denominator, units, missing_reason, uncertainty,
+    failed_attempts, task_ids, score_version]
+  unscored: [mechanism_prose_quality, discretionary_LLM_judgment, E9_shadow]
+  no_hidden_feedback_until_cohort_closed: true
+  abstention_guard: A low false-positive rate with lower task coverage is not a capability win; report both and withhold comparative superiority until a coverage rule is prefrozen.
+  terminal_adjudication:
+    assigned_denominator: frozen task assignment before model access; never remove missing, invalid, timeout, or refusal because of model output
+    oracle_evaluability: independently committed before model output; if oracle later fails, quarantine entire paired task for every model with incident record
+    justified_refusal: only where frozen oracle marks invalid contract, evidence insufficiency, or explicitly untradable claim
+    unjustified_refusal: refusal on a frozen positive-control task or a required diagnostic task; counted as failure and in unjustified_refusal_rate
+    missing_invalid_timeout: task failure on all applicable components, not a denominator exemption
+    every_template: freeze valid terminal-outcome matrix and positive/negative controls in oracle manifest before access
+    adversarial_baseline: always-refuse policy must fail positive controls in public oracle pilot
+  vector_only_comparison:
+    decision_rule: no headline winner; report paired differences per prespecified family/component with assigned denominators, coverage, failure and uncertainty
+    superiority: unavailable until family-specific coverage floor, minimum task count, paired uncertainty and multiplicity for agent comparisons are calibrated and frozen
+    no_implicit_total: no weighted sum, lexicographic hidden tie-break, or informal majority-of-families winner
+statistics_boundary:
+  scientific_claim: D04B_W10B_family_level_multiplicity_and_strategy_inference
+  agent_comparison: paired_task_differences_across_same_condition_runs;
+    cluster_by_template_and_family_then_calibrate_interval_before_claim
+  Sharpe_significance_is_agent_significance: false
+  numerical_p_values_now: null

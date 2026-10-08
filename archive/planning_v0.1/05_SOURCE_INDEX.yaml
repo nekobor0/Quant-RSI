@@ -1,0 +1,190 @@
+version: '0.1'
+sources:
+- id: P01
+  year: 1900
+  authors: Louis Bachelier
+  title: Theory of Speculation (Théorie de la spéculation)
+  file: 01-Foundations-Bachelier-1900.pdf
+  theme: foundations
+- id: P02
+  year: 1952
+  authors: Harry Markowitz
+  title: Portfolio Selection
+  file: 02-Portfolio-Markowitz-1952.pdf
+  theme: portfolio_risk
+- id: P03
+  year: 1956
+  authors: J. L. Kelly Jr.
+  title: A New Interpretation of Information Rate
+  file: 03-Sizing-Kelly-1956.pdf
+  theme: sizing_compounding
+- id: P04
+  year: 1964
+  authors: William F. Sharpe
+  title: 'Capital Asset Prices: A Theory of Market Equilibrium under Conditions of
+    Risk'
+  file: 04-Asset_Pricing-Sharpe-1964.pdf
+  theme: asset_pricing_benchmark
+- id: P05
+  year: 1970
+  authors: Eugene F. Fama
+  title: 'Efficient Capital Markets: A Review of Theory and Empirical Work'
+  file: 05-Market_Efficiency-Fama-1970.pdf
+  theme: market_efficiency
+- id: P06
+  year: 1980
+  authors: Sanford J. Grossman; Joseph E. Stiglitz
+  title: On the Impossibility of Informationally Efficient Markets
+  file: 06-Information-Grossman_Stiglitz-1980.pdf
+  theme: information_costs
+- id: P07
+  year: 1973
+  authors: Fischer Black; Myron Scholes
+  title: The Pricing of Options and Corporate Liabilities
+  file: 07-Derivatives-Black_Scholes-1973.pdf
+  theme: no_arbitrage_model_assumptions
+- id: P08
+  year: 1985
+  authors: Albert S. Kyle
+  title: Continuous Auctions and Insider Trading
+  file: 08-Microstructure-Kyle-1985.pdf
+  theme: microstructure_impact
+- id: P09
+  year: 1993
+  authors: Eugene F. Fama; Kenneth R. French
+  title: Common Risk Factors in the Returns on Stocks and Bonds
+  file: 09-Factors-Fama_French-1993.pdf
+  theme: factors_risk_controls
+- id: P10
+  year: 1993
+  authors: Narasimhan Jegadeesh; Sheridan Titman
+  title: 'Returns to Buying Winners and Selling Losers: Implications for Stock Market
+    Efficiency'
+  file: 10-Momentum-Jegadeesh_Titman-1993.pdf
+  theme: momentum
+- id: P11
+  year: 1997
+  authors: Andrei Shleifer; Robert W. Vishny
+  title: The Limits of Arbitrage
+  file: 11-Limits-Shleifer_Vishny-1997.pdf
+  theme: limits_to_arbitrage
+- id: P12
+  year: 2000
+  authors: Andrew W. Lo; Harry Mamaysky; Jiang Wang
+  title: 'Foundations of Technical Analysis: Computational Algorithms, Statistical
+    Inference, and Empirical Implementation'
+  file: 12-Technical_Statistical-Lo_Mamaysky_Wang-2000.pdf
+  theme: formalization_statistical_inference
+- id: P13
+  year: 2000
+  authors: Halbert White
+  title: A Reality Check for Data Snooping
+  file: 13-Snooping-White-2000.pdf
+  theme: multiple_testing
+- id: P14
+  year: 2001
+  authors: Robert Almgren; Neil Chriss
+  title: Optimal Execution of Portfolio Transactions
+  file: 14-Execution-Almgren_Chriss-2001.pdf
+  theme: execution_cost_risk
+- id: P15
+  year: 2004
+  authors: Andrew W. Lo
+  title: 'The Adaptive Markets Hypothesis: Market Efficiency from an Evolutionary
+    Perspective'
+  file: 15-Adaptive_Markets-Lo-2004.pdf
+  theme: nonstationarity_adaptation
+- id: P16
+  year: 2006
+  authors: Yuriy Nevmyvaka; Yi Feng; Michael Kearns
+  title: Reinforcement Learning for Optimized Trade Execution
+  file: 16-RL_Execution-Nevmyvaka_Feng_Kearns-2006.pdf
+  theme: rl_environment_execution
+- id: P17
+  year: 2006
+  authors: Evan Gatev; William N. Goetzmann; K. Geert Rouwenhorst
+  title: 'Pairs Trading: Performance of a Relative-Value Arbitrage Rule'
+  file: 17-Stat_Arb-Gatev_Goetzmann_Rouwenhorst-2006.pdf
+  theme: stat_arb_replication
+- id: P18
+  year: 2008
+  authors: Marco Avellaneda; Sasha Stoikov
+  title: High-Frequency Trading in a Limit Order Book
+  file: 18-Market_Making-Avellaneda_Stoikov-2008.pdf
+  theme: market_making_inventory
+- id: P19
+  year: 2011
+  authors: Terrence Hendershott; Charles M. Jones; Albert J. Menkveld
+  title: Does Algorithmic Trading Improve Liquidity?
+  file: 19-Algo_Trading-Hendershott_Jones_Menkveld-2011.pdf
+  theme: market_structure_endogeneity
+- id: P20
+  year: 2012
+  authors: Tobias J. Moskowitz; Yao Hua Ooi; Lasse Heje Pedersen
+  title: Time Series Momentum
+  file: 20-Trend-Moskowitz_Ooi_Pedersen-2012.pdf
+  theme: trend_cross_market_replication
+- id: P21
+  year: 2013
+  authors: Robert Novy-Marx
+  title: 'The Other Side of Value: Good Growth and the Gross Profitability Premium'
+  file: 21-Quality-Novy_Marx-2013.pdf
+  theme: factor_measurement_quality
+- id: P22
+  year: 2014
+  authors: David H. Bailey; Marcos López de Prado
+  title: 'The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting
+    and Non-Normality'
+  file: 22-Overfit-Bailey_LopezDePrado-2014.pdf
+  theme: selection_bias_dsr
+- id: P23
+  year: 2017
+  authors: David H. Bailey; Jonathan M. Borwein; Marcos López de Prado; Qiji Jim Zhu
+  title: The Probability of Backtest Overfitting
+  file: 23-Overfit-Bailey_Borwein_LopezDePrado_Zhu-2017.pdf
+  theme: pbo_cscv
+- id: P24
+  year: 2016
+  authors: Campbell R. Harvey; Yan Liu; Heqing Zhu
+  title: '... and the Cross-Section of Expected Returns'
+  file: 24-Factor_Zoo-Harvey_Liu_Zhu-2016.pdf
+  theme: factor_zoo_multiple_testing
+- id: P25
+  year: 2019
+  authors: Jianan Liu; Robert F. Stambaugh; Yu Yuan
+  title: Size and Value in China
+  file: 25-China-Liu_Stambaugh_Yuan-2019.pdf
+  theme: china_market_specificity
+- id: P26
+  year: 2019
+  authors: Justin Sirignano; Rama Cont
+  title: 'Universal Features of Price Formation in Financial Markets: Perspectives
+    from Deep Learning'
+  file: 26-LOB_DL-Sirignano_Cont-2019.pdf
+  theme: deep_learning_microstructure
+- id: P27
+  year: 2020
+  authors: Shihao Gu; Bryan Kelly; Dacheng Xiu
+  title: Empirical Asset Pricing via Machine Learning
+  file: 27-ML_Asset_Pricing-Gu_Kelly_Xiu-2020.pdf
+  theme: ml_asset_pricing
+- id: P28
+  year: 2020
+  authors: Kewei Hou; Chen Xue; Lu Zhang
+  title: Replicating Anomalies
+  file: 28-Replication-Hou_Xue_Zhang-2020.pdf
+  theme: replication_microcaps
+- id: P29
+  year: 2025
+  authors: Yuante Li et al.
+  title: 'R&D-Agent-Quant: A Multi-Agent Framework for Data-Centric Factors and Model
+    Joint Optimization'
+  file: 29-Agentic_Quant-Li_et_al-2025.pdf
+  theme: agentic_quant
+- id: P30
+  year: 2026
+  authors: Jeremiah Bejarano et al.
+  title: An Open Benchmark for Evaluating Time Series Forecasting Methods across Financial
+    Markets
+  file: 30-Benchmark-Bejarano_et_al-2026.pdf
+  theme: benchmark_fixed_data

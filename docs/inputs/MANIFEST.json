@@ -1,0 +1,46 @@
+{
+  "bundle": "Quant_RSI_Harness_Astra_Brief_v0.1",
+  "created": "2026-09-28",
+  "files": [
+    {
+      "name": "00_START_HERE.md",
+      "bytes": 1704,
+      "sha256": "70f7ef3746b12009b37fd283da23334f56235fa5eb3d50e2103c8b375a9a2dcf"
+    },
+    {
+      "name": "01_LITERATURE_TO_HARNESS_TAKEAWAYS.md",
+      "bytes": 24455,
+      "sha256": "b8a6e614182c4e5801acc61e58b47ca3eb8721b5143fbf51b9a2bbe79631a3d3"
+    },
+    {
+      "name": "02_ASTRA_MASTER_TASKBOOK.md",
+      "bytes": 17458,
+      "sha256": "8e5240d7f15932054105b2ac0a95fbc9fc064f2f598f8829a8255aa404bd3635"
+    },
+    {
+      "name": "03_HARNESS_DESIGN_PRINCIPLES.yaml",
+      "bytes": 3950,
+      "sha256": "bd1db0a49902dfd690ff4ec3fad607f4cefbd96687b7da2c7ad62ccfbe0e55d7"
+    },
+    {
+      "name": "04_ASTRA_EXECUTION_PLAN.yaml",
+      "bytes": 3152,
+      "sha256": "35033071a0e54d6195730dba59e9bfc90660dba06771626cee2181e023cda35f"
+    },
+    {
+      "name": "05_SOURCE_INDEX.yaml",
+      "bytes": 6319,
+      "sha256": "7f269a7421aa912d8a9ee3b101e5f7c629bb1382fabe4d9d956a645dbe96435c"
+    },
+    {
+      "name": "06_DECISION_REGISTER.md",
+      "bytes": 1658,
+      "sha256": "cbfbb5cc8397c42e60edd26b7298db5f97376c8a3358ea56b0caee267c729ffe"
+    },
+    {
+      "name": "07_PASTE_TO_ASTRA.md",
+      "bytes": 1348,
+      "sha256": "61b52dc0f58b4f3b15a690b2f5b9de1adf7fba14fd167e84fa90d4d2a681c51b"
+    }
+  ]
+}

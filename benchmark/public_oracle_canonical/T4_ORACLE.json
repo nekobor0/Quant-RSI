@@ -1,0 +1,16 @@
+{
+  "cases": [
+    {
+      "public_input": {"decision_clock": 10, "observations": {"OBS-A": 6, "OBS-B": 2}, "minimum_support": 4, "falsification_rule": "winner_support_below_minimum_or_competing_explanation_exceeds_winner"},
+      "expected": {"terminal": "PROMOTE", "hypothesis": "OBS-A", "evidence": {"observation_id": "OBS-A", "support": 6, "competing_support": 2}, "falsification": "winner_support_below_minimum_or_competing_explanation_exceeds_winner", "reason": null}
+    },
+    {
+      "public_input": {"decision_clock": 11, "observations": {"OBS-A": 3, "OBS-B": 7}, "minimum_support": 4, "falsification_rule": "winner_support_below_minimum_or_competing_explanation_exceeds_winner"},
+      "expected": {"terminal": "PROMOTE", "hypothesis": "OBS-B", "evidence": {"observation_id": "OBS-B", "support": 7, "competing_support": 3}, "falsification": "winner_support_below_minimum_or_competing_explanation_exceeds_winner", "reason": null}
+    },
+    {
+      "public_input": {"decision_clock": 12, "observations": {"OBS-A": 1, "OBS-B": 2}, "minimum_support": 4, "falsification_rule": "winner_support_below_minimum_or_competing_explanation_exceeds_winner"},
+      "expected": {"terminal": "REFUSE", "hypothesis": null, "evidence": {}, "falsification": "winner_support_below_minimum_or_competing_explanation_exceeds_winner", "reason": "INSUFFICIENT_SUPPORT"}
+    }
+  ]
+}

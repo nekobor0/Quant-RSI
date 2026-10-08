@@ -1,0 +1,12 @@
+status: PUBLIC_ORACLE_PILOT_ONLY
+calibration_slots_ref: benchmark/calibration/CALIBRATION_PACK_V0_1.yaml
+calibration_slot_count: 9
+prototypes:
+  - {tier: T1, task_id: CAL-T1-FIELD, exposure: PUBLIC_CALIBRATION, fixture_ref: benchmark/calibration/fixtures/CAL-T1-FIELD.json, variants: [base, transfer]}
+  - {tier: T2, task_id: CAL-T2-P10, exposure: PUBLIC_CALIBRATION, fixture_ref: benchmark/calibration/fixtures/CAL-T2-P10.json, variants: [base, positive]}
+  - {tier: T3, task_id: CAL-T3-NULL-A, exposure: PUBLIC_CALIBRATION, fixture_ref: benchmark/calibration/fixtures/CAL-T3-NULL-A.json, variants: [base, transfer]}
+  - {tier: T4, task_id: DEV-T4-EXPLANATION, exposure: PUBLIC_DEVELOPMENT_ORACLE_PROTOTYPE, fixture_ref: benchmark/public_oracle_pilot/T4_FIXTURE.json, variants: [base, transfer]}
+T4_calibration_slot: false
+hidden_score_eligibility: false
+LLM_provider_calls: 0
+scientific_candidate_trials: 0

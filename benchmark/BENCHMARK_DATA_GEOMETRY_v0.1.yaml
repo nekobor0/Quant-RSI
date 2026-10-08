@@ -1,0 +1,89 @@
+version: 0.1-DRAFT
+status: GEOMETRY_PROPOSAL_NOT_DATASET_CERTIFICATION
+market: A-share ordinary stocks
+frequency: daily
+source_fact_owner: DataSpec_and_SnapshotManifest
+geometry_is_not_dataset_fact: true
+units:
+  history: eligible_trading_sessions
+  universe: historical_asof_ordinary_stock_IDs
+  cross_section: observable_members_at_decision
+  horizon: sessions_after_decision
+global_requirements:
+  chronological_order: development_then_validation_then_sealed
+  proportions: design_range_only_not_frozen
+  development_percent_range: [40, 60]
+  validation_percent_range: [15, 30]
+  sealed_percent_range: [20, 35]
+  sum_percent: 100
+  choose_single_triplet_before_generator_and_model_access: true
+  purge: at_least_label_interval_overlap_plus_feature_information_lag
+  embargo: at_least_max_declared_information_lag_after_each_split_boundary
+  fit_cleaning: development_only_then_freeze
+  revised_records: preserve_as_of_event_published_available_ingested_effective_times
+  historical_membership: include_delisted_historical_ST_industry_and_index_state
+  corporate_actions: versioned_ex_date_effective_date_and_price_share_adjustment_rule
+  unobservable_timestamp: reject_or_conservatively_defer_by_prefrozen_rule
+  no_current_membership_backfill: true
+  no_real_dataset_claim: true
+family_geometry:
+  E0_E1:
+    history_requirement: event_ordering_can_be_short_synthetic_timeline
+    illustrative_history_sessions: [2, 20]
+    illustrative_universe_count: [2, 30]
+    cross_section_requirement: enough_members_to_expose_delist_and_replacement
+    label_horizon_sessions: [1, 5]
+    partitions: disjoint_public_and_hidden_mechanisms_and_seeds_not_a_temporal_ratio_claim
+    purge_embargo: apply_where_labels_overlap
+    membership: required_for_survivorship_and_backfill_traps
+    corporate_actions: required_where_trap_mentions_actions
+    execution_granularity: daily_eligibility_and_next_executable_bar
+    missingness_revision: deliberate_future_release_and_revision_traps
+  E2:
+    history_requirement: max_lookback_plus_label_horizon_plus_purge_embargo_plus_multiple_rebalances
+    illustrative_history_sessions: [250, 1000]
+    illustrative_universe_count: [50, 500]
+    illustrative_decision_cross_section: [20, 300]
+    label_horizon_sessions: [1, 20]
+    partitions: chronological_disjoint_with_reference_window_in_development
+    purge_embargo: mandatory_if_overlapping_labels
+    membership: mandatory
+    corporate_actions: mandatory_for_portfolio_and_quality_cases
+    execution_granularity: daily_bar_plus_lagged_ADV_and_order_eligibility
+    missingness_revision: PIT_fundamental_release_lags_and_delisted_rows_where_applicable
+  E3_E7:
+    history_requirement: enough_independent_temporal_blocks_for_declared_null_and_regime_cases; numbers_need_pilot
+    illustrative_history_sessions: [500, 1500]
+    illustrative_universe_count: [100, 1000]
+    illustrative_decision_cross_section: [50, 500]
+    label_horizon_sessions: [1, 20]
+    partitions: chronological_with_template_disjoint_hidden_generator_parameters
+    purge_embargo: mandatory_and_task_specific
+    membership: mandatory_for_equity_claims
+    corporate_actions: mandatory_if_prices_or_share_counts_used
+    execution_granularity: daily_order_ledger_with_unfilled_states_and_capacity
+    missingness_revision: generator_injects_declared_patterns_without_name_leakage
+  E8:
+    history_requirement: enough_time_for_exploration_and_separate_validation; exact_minimum_after_pilot
+    illustrative_history_sessions: [750, 1500]
+    illustrative_universe_count: [100, 1000]
+    illustrative_decision_cross_section: [50, 500]
+    label_horizon_sessions: [1, 20]
+    partitions: chronological_closed_data_with_custodian_hidden_pack
+    purge_embargo: derived_from_max_feature_lookback_and_label_overlap
+    membership: mandatory
+    corporate_actions: mandatory
+    execution_granularity: daily_cost_capacity_and_trade_eligibility
+    missingness_revision: realistic_PIT_fixture_structure_to_be_defined
+  E9:
+    status: FUTURE_UNSCORED_PROSPECTIVE_TRACK
+    geometry: forward_only_observation_no_backfill
+calibration_inputs_before_freeze:
+  - feature_lookback_and_label_overlap
+  - actual_observation_count_and_independent_blocks
+  - historical_membership_and_release_completeness
+  - corporate_action_coverage
+  - market_rule_version_and_daily_fill_data
+  - task_family_generator_and_oracle_error_rate
+  - D11_empirical_data_quality_review
+all_illustrative_ranges: hypotheses_for_design_not_power_analysis_or_verified_A_share_availability

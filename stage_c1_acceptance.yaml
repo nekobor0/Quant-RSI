@@ -1,0 +1,102 @@
+stage: C1
+name: Public Calibration and Data Feasibility
+status: PASS_WITH_LIMITATIONS
+formal_research_verdict: BLOCKED
+official_benchmark_status: NOT_STARTED
+authority: artifacts/stage_c1/authorized_request.txt
+plan: planning/stage_c1_plan.yaml
+plan_sha256: a081c91834eab51252f4ccae0f5b67ef77275184e4526b27bc7ccd1816e22418
+work_items:
+  C1-01:
+    status: PASS_PUBLIC_CALIBRATION_ONLY
+    evidence: artifacts/stage_c1/C1-01/C1-01_ACCEPTANCE_EVIDENCE.yaml
+    result: 9 public cases, 28 assigned variants per baseline, 2 original-paper manifests
+  C1-02:
+    status: PASS_DOCUMENTARY_FEASIBILITY_ONLY
+    evidence: artifacts/stage_c1/C1-02/C1-02_ACCEPTANCE_EVIDENCE.yaml
+    result: 18 data requirement classes, 20 source candidates, 0 sampled rows
+  C1-03:
+    status: PASS_PUBLIC_ORACLE_PILOT_ONLY
+    evidence: artifacts/stage_c1/C1-03/C1-03_ACCEPTANCE_EVIDENCE.yaml
+    result: 4 public prototypes, 12 assigned outputs, 8 expected correct passes, 5 T4 base terminal paths
+    independent_review: artifacts/stage_c1/critic_cycle4_C1_03.yaml
+stage_pass_allowed: true
+stage_pass_block_reasons: []
+scope_and_safety:
+  public_calibration_slots: 9
+  T4_exposure: PUBLIC_DEVELOPMENT_ORACLE_PROTOTYPE_NOT_TENTH_CALIBRATION_SLOT
+  hidden_pack_created: false
+  real_model_comparison: false
+  LLM_provider_calls: 0
+  scientific_candidate_trials: 0
+  hidden_submissions: 0
+  strategy_search_or_alpha_claim: false
+  D04B_D11_D12: DEFERRED
+  G4_G6: BLOCKED
+budget_consumption:
+  design_revisions: {used: 0, limit: 3}
+  C1_01_engineering_repairs: {used: 2, limit: 4}
+  C1_02_engineering_repairs: {used: 2, limit: 2}
+  C1_03_engineering_repairs: {used: 1, limit: 4}
+  C1_01_specific_test_invocations: {used: 9, limit: 18}
+  C1_02_specific_test_invocations: {used: 6, limit: 6}
+  C1_03_specific_test_invocations: {used: 7, limit: 15}
+  shared_full_regression_invocations: {used: 2, limit: 2}
+  historical_hash_validation_invocations: 3
+  final_artifact_hash_validation_invocations: 2
+  unique_global_test_invocations: {used: 26, limit: 41}
+  independent_critic_cycles: {used: 3, limit: 3, meaning: frozen_plan_baseline}
+  C1_03_critic_override: {additional_used: 1, additional_authorized: 1, effective_used: 4, effective_limit: 4, authority: artifacts/stage_c1/C1_03_CRITIC_OVERRIDE_AUTHORIZATION.yaml}
+  official_page_fetch_attempts: {used: 39, limit: 40}
+  data_API_sample_queries: {used: 0, limit: 3}
+changed_file_families:
+  - [planning/stage_c1_plan.yaml, planning/STAGE_C1_BOUNDARIES.md]
+  - benchmark/calibration/
+  - benchmark/data_feasibility/
+  - benchmark/public_oracle_pilot/
+  - src/quant_rsi/benchmark_public/
+  - tests/benchmark/calibration/
+  - tests/benchmark/public_oracle_pilot/
+  - artifacts/stage_c1/
+  - stage_c1_acceptance.yaml
+test_evidence:
+  C1_01: artifacts/stage_c1/C1-01/test_invocations.yaml
+  C1_02: artifacts/stage_c1/C1-02/C1-02_ACCEPTANCE_EVIDENCE.yaml
+  C1_03: artifacts/stage_c1/C1-03/test_invocations.yaml
+  C1_03_critic_cycle4: artifacts/stage_c1/critic_cycle4_C1_03.yaml
+  full_regression_first: {command: 'python -m pytest -q', exit_code: 1, reason: src_missing_from_PYTHONPATH_at_collection}
+  full_regression_final: {command: '$env:PYTHONPATH=(Resolve-Path -LiteralPath src).Path; python -m pytest -q', exit_code: 0, result: '583 passed, 1 skipped in 55.55s'}
+  final_artifact_hash_check: {exit_code: 0, result: '179 of 179 current C1 files match artifact_hashes.json; manifest SHA-256 matches acceptance record'}
+failed_attempts:
+  C1_01: artifacts/stage_c1/C1-01/failed_attempts.yaml
+  C1_03: artifacts/stage_c1/C1-03/failed_attempts.yaml
+independent_critic:
+  initial: artifacts/stage_c1/critic_cycle1.yaml
+  resolution_2: artifacts/stage_c1/critic_cycle2.yaml
+  resolution_3: artifacts/stage_c1/critic_cycle3.yaml
+  C1_03_cycle_4: artifacts/stage_c1/critic_cycle4_C1_03.yaml
+  C1_01_C1_02_unresolved_P0_P1: 0
+  C1_03_review_status: PASS_PUBLIC_ORACLE_PILOT_ONLY
+  C1_03_fresh_P0_P1: 0
+  C1_03_open_P2: 3
+artifact_hash_manifest:
+  path: artifacts/stage_c1/artifact_hashes.json
+  sha256: 82d907e8ac8d8ad55ac53aef4f76a8a7d340840ce1061e725fd283a2254c577e
+  included_file_count: 179
+historical_hash_verification:
+  evidence: artifacts/stage_c1/historical_hash_verification.json
+  prior_A_to_B2_files_matched: 397
+  C0_design_and_evidence_files_matched: 42
+  missing_or_mismatched: 0
+runtime_cost: artifacts/stage_c1/C1-03/runtime_cost.json
+gap_matrix_update: artifacts/stage_c1/GAP_MATRIX_UPDATE.yaml
+unresolved_issues:
+  - C1-03 critic P2 limitations remain: T4 shared simple rule and untested justified refusal, non-discriminating T3 transfer, and coarse aggregate terminal diagnostics.
+  - C1-02 matrix as-of timestamp predates later spot checks; P2 ambiguity retained due exhausted C1-02 repair/test caps.
+  - No certified PIT history, licensed dataset, calibrated A-share execution/capacity, D04B statistics, or benchmark-grade sealed custodian.
+  - First pre-repair C1-01 baseline JSON rows were overwritten; summary and critic findings survive, later failing outputs are retained.
+recommendation:
+  Stage_C1_acceptance: PASS_WITH_LIMITATIONS_PUBLIC_SYNTHETIC_AND_DOCUMENTARY_ONLY
+  Stage_Benchmark_build: DO_NOT_START
+  next_authorization_needed: Separate explicit authorization for any later stage; this critic-only override does not authorize implementation or formal Benchmark work.
+stop_rule: No W16 hidden pack, real provider, scientific search, D04B/D11/D12 freeze, official leaderboard or live trading.

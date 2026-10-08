@@ -1,0 +1,25 @@
+version: C2-03-v0.1
+status: PARTIAL_OFFICIAL_RULE_QUALIFICATION_NOT_FULL_HISTORY
+market: A_SHARE_ORDINARY_STOCK_DAILY
+source_access: artifacts/stage_c2/C2-03/NETWORK_LEDGER.yaml
+versioned_rules:
+  - {id: TAX-2005, topic: securities_transfer_stamp_tax, venue: A_share, effective_from: '2005-01-24', effective_to: null, rule: '1 per mille on each transfer party', source: 'https://www.chinatax.gov.cn/chinatax/n810341/n810765/n812188/200502/c1201154/content.html', evidence_level: OFFICIAL_DIRECT, superseded_scope: subsequent_changes_must_be_applied}
+  - {id: SSE-ST-2013, topic: ST_specific_price_limit, venue: SSE_risk_warning_board, effective_from: '2013-01-01', effective_to: null, rule: '5 percent risk-warning price limit with low-price tick exceptions', source: 'https://www.sse.com.cn/lawandrules/sselawsrules/repeal/rules/c/c_20230421_5720459.shtml', evidence_level: OFFICIAL_DIRECT_HISTORICAL_NOW_REPEALED, superseded_scope: later_versions_not_fully_mapped}
+  - {id: TAX-LAW-2022, topic: securities_transfer_stamp_tax, venue: A_share, effective_from: '2022-07-01', effective_to: null, rule: 'seller only, tax base is transaction amount; rate schedule separately sourced', source: 'https://fgk.chinatax.gov.cn/zcfgk/c100009/c5193058/content.html', evidence_level: OFFICIAL_DIRECT, superseded_scope: '2023 half-rate announcement applies from 2023-08-28'}
+  - {id: TAX-HALF-2023, topic: securities_transfer_stamp_tax, venue: A_share, effective_from: '2023-08-28', effective_to: null, rule: 'securities transaction stamp tax reduced by half from then-prevailing rate', source: 'https://shanxi.chinatax.gov.cn/web/detail/sx-11400-545-1780448', evidence_level: OFFICIAL_DIRECT, superseded_scope: later_changes_unverified}
+  - {id: SSE-TRADING-2026, topic: general_trading_rule_version, venue: SSE, effective_from: '2026-07-06', effective_to: null, rule: '2026 revision replaces 2023 revision; some provisions postponed', source: 'https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/exchange/c/c_20260424_10816482.shtml', evidence_level: OFFICIAL_DIRECT_NOTICE_ATTACHMENT_NOT_INSPECTED, superseded_scope: current_notice_only}
+  - {id: SSE-ST-2026, topic: ST_specific_price_limit, venue: SSE_main_board, effective_from: '2026-07-06', effective_to: null, rule: 'main-board risk-warning price-limit proportion changes from 5 to 10 percent', source: 'https://big5.sse.com.cn/site/cht/www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260424_10816474.shtml', evidence_level: OFFICIAL_EXCHANGE_EXPLANATION, superseded_scope: board_and_exception_detail_requires_rule_attachment}
+documentary_only_or_unresolved:
+  - {topic: T_plus_1_sellability, observed: 'SSE 2026 official rule search excerpt states securities bought before settlement cannot be resold except permitted round-trip instruments', effective_date_qualified: false, reason: full_attachment_and_historical_versions_not_inspected}
+  - {topic: general_price_limits, observed: 'SSE 2026 official rule search excerpt states base 10 percent and first-five-session exceptions', effective_date_qualified: false, reason: full_attachment_board_specific_exceptions_not_inspected}
+  - {topic: SZSE_2006_2023_2026_rules, observed: 'official search-result excerpts identify notices and versions', effective_date_qualified: false, reason: direct_pages_or_PDF_open_returned_internal_error}
+  - {topic: board_specific_limits, observed: null, effective_date_qualified: false, reason: STAR_ChiNext_and_transition_history_not_verified}
+  - {topic: first_listing_day_rules, observed: null, effective_date_qualified: false, reason: historical_board_and_registration_regimes_not_verified}
+  - {topic: suspension_resumption, observed: null, effective_date_qualified: false, reason: historical_rules_and_actual_event_data_not_verified}
+  - {topic: lot_size, observed: 'SSE 2026 official rule search excerpt describes 100-share buy lots and odd-lot sell', effective_date_qualified: false, reason: attachment_not_inspected_and_historical_versions_missing}
+  - {topic: tick_size, observed: 'SSE 2026 official rule search excerpt describes 0.01 CNY A-share tick', effective_date_qualified: false, reason: attachment_not_inspected_and_historical_versions_missing}
+  - {topic: corporate_action_handling, observed: null, effective_date_qualified: false, reason: exchange_action_event_and_adjustment_vintage_not_verified}
+  - {topic: transfer_fee, observed: null, effective_date_qualified: false, reason: original_CSDC_historical_notice_not_retrieved}
+  - {topic: exchange_handling_fee, observed: 'SSE January 2026 page lists 0.00341 percent both sides, charged to members', effective_date_qualified: false, reason: updated_month_not_an_effective_from_date_and_member_fee_not_necessarily_investor_commission, source: 'https://www.sse.com.cn/services/tradingservice/charge/ssecharge/'}
+history_not_covered: [pre_2005_tax, 2005_to_2022_tax_intermediate_versions, pre_2013_ST, 2013_to_2026_ST_changes, SSE_and_SZSE_2000_to_2026_full_rule_chain, board_specific_regime_changes]
+no_rule_backfill: true

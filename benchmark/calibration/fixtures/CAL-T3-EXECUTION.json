@@ -1,0 +1,72 @@
+{
+  "case_id": "CAL-T3-EXECUTION",
+  "exposure": "PUBLIC_CALIBRATION",
+  "variants": {
+    "base": {
+      "decision_session": 10,
+      "execution_session": 11,
+      "orders": [
+        {
+          "acquired_session": null,
+          "id": "suspension",
+          "limit_locked": false,
+          "side": "buy",
+          "suspended": true
+        },
+        {
+          "acquired_session": null,
+          "id": "limit_lock",
+          "limit_locked": true,
+          "side": "buy",
+          "suspended": false
+        },
+        {
+          "acquired_session": 11,
+          "id": "t_plus_one",
+          "limit_locked": false,
+          "side": "sell",
+          "suspended": false
+        }
+      ]
+    },
+    "positive_limit": {
+      "decision_session": 10,
+      "execution_session": 11,
+      "orders": [
+        {
+          "acquired_session": null,
+          "id": "limit_lock",
+          "limit_locked": false,
+          "side": "buy",
+          "suspended": false
+        }
+      ]
+    },
+    "positive_suspension": {
+      "decision_session": 10,
+      "execution_session": 11,
+      "orders": [
+        {
+          "acquired_session": null,
+          "id": "suspension",
+          "limit_locked": false,
+          "side": "buy",
+          "suspended": false
+        }
+      ]
+    },
+    "positive_t_plus_one": {
+      "decision_session": 10,
+      "execution_session": 12,
+      "orders": [
+        {
+          "acquired_session": 11,
+          "id": "t_plus_one",
+          "limit_locked": false,
+          "side": "sell",
+          "suspended": false
+        }
+      ]
+    }
+  }
+}

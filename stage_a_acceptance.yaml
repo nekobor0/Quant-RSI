@@ -1,0 +1,631 @@
+report_version: '0.2'
+project: Quant-RSI
+generated_at_utc: '2026-09-28T07:10:30.536018+00:00'
+status: STAGE_A_COMPLETE_WITH_DECLARED_LIMITATIONS_STOPPED
+completion_scope: W01-W06 Governance Kernel only; not full HARNESS, empirical evaluation, strategy performance or
+  production readiness
+authorization:
+  completed:
+  - W01
+  - W02
+  - W03
+  - W04
+  - W05
+  - W06
+  dependency_order: W01 -> (W02 || W03) -> W04 -> W05 -> W06
+  stop_after: W06
+  W07_W20_started: false
+  stage_B_authorized: false
+  independent_project: true
+planning_v0_2:
+  report: planning_report.yaml
+  registry: contracts/decisions.yaml
+  active_decisions: D01-D03, D04A, D04B, D05-D13; D04 superseded by D04A/D04B
+  frozen:
+  - D01
+  - D02
+  - D03
+  - D04A
+  - D05
+  - D06
+  - D07
+  - D08
+  - D10
+  - D13
+  deferred:
+  - D04B
+  - D09
+  - D11
+  - D12
+  statistical_calibration_values: null
+  separation: ScientificSearchFamily owns final-claim selection history; AgentBenchmarkRun owns independent capability-run
+    budget and denominator. Pooled claims do not impose other models search penalties on capability runs. Capability
+    scoring itself is outside Stage A.
+  threat_model: planning/SEALED_THREAT_MODEL.md
+  threat_model_precedes: W09
+  structural_validation:
+    command: python planning/validate_planning.py
+    exit_code: 0
+    passed: 375
+    total: 375
+    evidence: artifacts/planning/v0.2_validation.json
+changed_files:
+  kernel_and_tests_by_work_item:
+    W01: &id001
+    - contracts/decisions.yaml
+    - tests/contracts/test_decisions.py
+    W02: &id002
+    - src/quant_rsi/contracts/research.py
+    - tests/contracts/test_research.py
+    W03: &id003
+    - src/quant_rsi/contracts/data.py
+    - tests/contracts/test_data.py
+    W04: &id004
+    - src/quant_rsi/contracts/condition.py
+    - tests/contracts/test_condition.py
+    W05: &id005
+    - src/quant_rsi/ledger/store.py
+    - tests/ledger/test_store.py
+    W06: &id006
+    - src/quant_rsi/ledger/budget.py
+    - tests/ledger/test_budget.py
+  current_planning_and_administration:
+  - README.md
+  - archive/README.md
+  - artifacts/README.md
+  - docs/inputs/README.md
+  - planning/KERNEL_BOUNDARY.md
+  - planning/README.md
+  - planning/SEALED_THREAT_MODEL.md
+  - planning/input_baseline.json
+  - planning/run_stage_checks.py
+  - planning/v0.2/00_SCOPE_AND_NON_GOALS.md
+  - planning/v0.2/01_CURRENT_STATE_AUDIT.md
+  - planning/v0.2/01_GAP_MATRIX.yaml
+  - planning/v0.2/02_TARGET_ARCHITECTURE.md
+  - planning/v0.2/03_ENV_SPEC_DRAFT.yaml
+  - planning/v0.2/04_EVAL_SPEC_DRAFT.yaml
+  - planning/v0.2/05_AGENT_ORCHESTRATION_DRAFT.yaml
+  - planning/v0.2/06_WORK_BREAKDOWN.md
+  - planning/validate_planning.py
+  - planning_report.yaml
+  - stage_a_acceptance.yaml
+  generated_evidence_directory: artifacts/
+  full_file_inventory_and_hashes: artifacts/stage_a/artifact_manifest.json
+  moves: artifacts/stage_a/organization_map.json
+  archive: archive/planning_v0.1/archive_manifest.json
+  original_inputs_content_changed: false
+  literature_pdfs: Moved only; not read or used as research inputs
+  git_diff_available: false
+work_items:
+  W01:
+    status: COMPLETE_STAGE_A_WITH_DECLARED_LIMITATIONS
+    files: *id001
+    runtime_evidence: Canonical categorized decisions and Task restrictions are loaded; empirical/shadow activation
+      remains blocked.
+    test_evidence: artifacts/stage_a/StageA_final.xml
+    integration_evidence: artifacts/stage_a/StageA_final_runtime/summary.json
+  W02:
+    status: COMPLETE_STAGE_A_WITH_DECLARED_LIMITATIONS
+    files: *id002
+    runtime_evidence: Immutable concepts/hypotheses/families and preregistered experiments are linked; pooled scientific
+      ancestry retains both candidate histories.
+    test_evidence: artifacts/stage_a/StageA_final.xml
+    integration_evidence: artifacts/stage_a/StageA_final_runtime/summary.json
+  W03:
+    status: COMPLETE_STAGE_A_WITH_DECLARED_LIMITATIONS
+    files: *id003
+    runtime_evidence: Synthetic snapshot bytes and manifest hashes are verified and bound to DataSpec; this does
+      not validate real market-data quality.
+    test_evidence: artifacts/stage_a/StageA_final.xml
+    integration_evidence: artifacts/stage_a/StageA_final_runtime/summary.json
+  W04:
+    status: COMPLETE_STAGE_A_WITH_DECLARED_LIMITATIONS
+    files: *id004
+    runtime_evidence: Both synthetic benchmark runs share one condition but have separate run IDs and budget roots;
+      continuation rules are covered by the saved tests.
+    test_evidence: artifacts/stage_a/StageA_final.xml
+    integration_evidence: artifacts/stage_a/StageA_final_runtime/summary.json
+  W05:
+    status: COMPLETE_STAGE_A_WITH_DECLARED_LIMITATIONS
+    files: *id005
+    runtime_evidence: Final synthetic flow persists a 15-event hash chain and a local anchor; saved store tests
+      cover transactions, collisions, tampering and process interruption.
+    test_evidence: artifacts/stage_a/StageA_final.xml
+    integration_evidence: artifacts/stage_a/StageA_final_runtime/summary.json
+  W06:
+    status: COMPLETE_STAGE_A_WITH_DECLARED_LIMITATIONS
+    files: *id006
+    runtime_evidence: Each run consumes one attempt independently; pooled scientific claim retains two attempts/two
+      variants. Atomic quota denial, retry, unknown usage and reconciliation are covered by saved tests.
+    test_evidence: artifacts/stage_a/StageA_final.xml
+    integration_evidence: artifacts/stage_a/StageA_final_runtime/summary.json
+verification:
+  final:
+    command: &id007
+    - C:\Users\nekob\anaconda3\python.exe
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/contracts/test_decisions.py
+    - tests/contracts/test_research.py
+    - tests/contracts/test_data.py
+    - tests/contracts/test_condition.py
+    - tests/ledger/test_store.py
+    - tests/ledger/test_budget.py
+    - --junitxml=D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\StageA_final.xml
+    environment_overrides: &id008
+      PYTHONPATH: D:\Claude_work_Territory\Quant-RSI\src
+      PYTHONDONTWRITEBYTECODE: '1'
+      QUANT_RSI_CAPTURE_DIR: D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\StageA_final_runtime
+    exit_code: 0
+    passed: 218
+    skipped: 1
+    failed: 0
+    junit: artifacts/stage_a/StageA_final.xml
+    log: artifacts/stage_a/StageA_final.log
+  test_commands_exit_codes:
+  - label: W01_attempt1
+    work_items:
+    - W01
+    command:
+    - python
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/contracts/test_decisions.py
+    - --junitxml=artifacts/stage_a/W01_attempt1.xml
+    exit_code: 0
+    log: artifacts/stage_a/W01_attempt1.log
+    junit: artifacts/stage_a/W01_attempt1.xml
+    artifact_hashes:
+      contracts/decisions.yaml: 53e533fab35db40b86ad1da707b4e8de804a490488eb795996b1d77159e7509a
+      tests/contracts/test_decisions.py: dd33868560ee0d5510bee0a88384e3ee00f681e73541cde73d812825dd7f499b
+    capture: initial_shell_run_recorded_from_observed_exit_and_log
+  - label: W02_worker_initial
+    work_items:
+    - W02
+    command: python -m pytest -q -p no:cacheprovider tests/contracts/test_research.py
+    exit_code: 0
+    passed: 57
+    source: W02_worker_report.json
+    log: subagent completion; raw log not captured locally
+  - label: W04_attempt1
+    work_items:
+    - W04
+    command:
+    - C:\Users\nekob\anaconda3\python.exe
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/contracts/test_condition.py
+    - --junitxml=D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\W04_attempt1.xml
+    started_at: '2026-09-27T22:58:14.625296+00:00'
+    finished_at: '2026-09-27T22:58:17.396592+00:00'
+    exit_code: 0
+    log: artifacts/stage_a/W04_attempt1.log
+    junit: artifacts/stage_a/W04_attempt1.xml
+    artifact_hashes:
+      src/quant_rsi/contracts/condition.py: f57e2c304fa92cd9545283383020b2e79d1b4a584d9f00e5a4ba0e1c48542029
+      tests/contracts/test_condition.py: 08e152e7449c7c200bb8c8bc892a86d5af36c5f6bcfc54fc2ba74dc9873eb45a
+  - label: W05_attempt1
+    work_items:
+    - W05
+    command:
+    - C:\Users\nekob\anaconda3\python.exe
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/ledger/test_store.py
+    - --junitxml=D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\W05_attempt1.xml
+    started_at: '2026-09-27T23:00:32.111107+00:00'
+    finished_at: '2026-09-27T23:00:35.913373+00:00'
+    exit_code: 0
+    log: artifacts/stage_a/W05_attempt1.log
+    junit: artifacts/stage_a/W05_attempt1.xml
+    artifact_hashes:
+      src/quant_rsi/ledger/store.py: e6949d374ad98c1ebb34d471c5c74a19a40537e369ca0912a16cd8929190262f
+      tests/ledger/test_store.py: ce51f380767c2fc1a299bf8841779ba93b7497e7d1d657fde6f911fd271b063f
+  - label: W06_attempt1
+    work_items:
+    - W06
+    command:
+    - C:\Users\nekob\anaconda3\python.exe
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/ledger/test_budget.py
+    - --junitxml=D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\W06_attempt1.xml
+    started_at: '2026-09-27T23:06:33.307030+00:00'
+    finished_at: '2026-09-27T23:06:37.825144+00:00'
+    exit_code: 0
+    log: artifacts/stage_a/W06_attempt1.log
+    junit: artifacts/stage_a/W06_attempt1.xml
+    artifact_hashes:
+      src/quant_rsi/ledger/budget.py: a20aabc936bf57c6647a640008afd620dbe1cde2d6116b9ea5569fce0be483e4
+      tests/ledger/test_budget.py: f508889ba2648d1ac5daa44ae37fd9bd34071d4684372254cac88a124fb72c52
+  - invocation: 1
+    exit_code: 0
+    passed: 101
+    skipped: 2
+    label: W03_worker_1
+    work_items:
+    - W03
+    command: python -m pytest -q -p no:cacheprovider tests/contracts/test_data.py
+    source: W03_worker_report.json
+    log: subagent report; raw stdout not captured locally
+  - invocation: 2
+    exit_code: 0
+    passed: 102
+    skipped: 1
+    label: W03_worker_2
+    work_items:
+    - W03
+    command: python -m pytest -q -p no:cacheprovider tests/contracts/test_data.py
+    source: W03_worker_report.json
+    log: subagent report; raw stdout not captured locally
+  - label: StageA_integrated1
+    work_items:
+    - W01
+    - W02
+    - W03
+    - W04
+    - W05
+    - W06
+    command:
+    - C:\Users\nekob\anaconda3\python.exe
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/contracts/test_decisions.py
+    - tests/contracts/test_research.py
+    - tests/contracts/test_data.py
+    - tests/contracts/test_condition.py
+    - tests/ledger/test_store.py
+    - tests/ledger/test_budget.py
+    - --junitxml=D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\StageA_integrated1.xml
+    started_at: '2026-09-27T23:13:04.708757+00:00'
+    finished_at: '2026-09-27T23:13:12.213890+00:00'
+    exit_code: 0
+    log: artifacts/stage_a/StageA_integrated1.log
+    junit: artifacts/stage_a/StageA_integrated1.xml
+    artifact_hashes:
+      contracts/decisions.yaml: 53e533fab35db40b86ad1da707b4e8de804a490488eb795996b1d77159e7509a
+      tests/contracts/test_decisions.py: dd33868560ee0d5510bee0a88384e3ee00f681e73541cde73d812825dd7f499b
+      src/quant_rsi/contracts/research.py: 507d0f3a999854f2c3aaafeda25360dbe53d20c3a7501ef39d7f6144160a66ba
+      tests/contracts/test_research.py: 7cd52f14ed10f0e340b3c36c0c8e833e0421bc8f98665200795ca56458877ea5
+      src/quant_rsi/contracts/data.py: 252b3a587561fe5c562512cb2372e4ffc2d39bbf87bc4013fea01054d309b057
+      tests/contracts/test_data.py: 916082fc28138a583fbd17428d0c707a8236cfb5f9fec655d7e44a999b4edd51
+      src/quant_rsi/contracts/condition.py: b3de8fb5c8082b89c2a0dfb9c863a8e3f52824f692163d745b54d4f7f5f73ff0
+      tests/contracts/test_condition.py: 08e152e7449c7c200bb8c8bc892a86d5af36c5f6bcfc54fc2ba74dc9873eb45a
+      src/quant_rsi/ledger/store.py: 252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46
+      tests/ledger/test_store.py: ce51f380767c2fc1a299bf8841779ba93b7497e7d1d657fde6f911fd271b063f
+      src/quant_rsi/ledger/budget.py: a20aabc936bf57c6647a640008afd620dbe1cde2d6116b9ea5569fce0be483e4
+      tests/ledger/test_budget.py: f508889ba2648d1ac5daa44ae37fd9bd34071d4684372254cac88a124fb72c52
+  - label: W06_critic_reproduction
+    work_items:
+    - W06
+    command:
+    - C:\Users\nekob\anaconda3\python.exe
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/ledger/test_budget.py
+    - --junitxml=D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\W06_critic_reproduction.xml
+    started_at: '2026-09-27T23:16:14.804202+00:00'
+    finished_at: '2026-09-27T23:16:20.374947+00:00'
+    exit_code: 1
+    log: artifacts/stage_a/W06_critic_reproduction.log
+    junit: artifacts/stage_a/W06_critic_reproduction.xml
+    artifact_hashes:
+      src/quant_rsi/ledger/budget.py: a20aabc936bf57c6647a640008afd620dbe1cde2d6116b9ea5569fce0be483e4
+      tests/ledger/test_budget.py: 251c00edc524abe6eff121f0a06dff281a743ab0b2846bffe1af58657a46f9d1
+  - label: W06_repair1
+    work_items:
+    - W06
+    command:
+    - C:\Users\nekob\anaconda3\python.exe
+    - -m
+    - pytest
+    - -q
+    - -p
+    - no:cacheprovider
+    - tests/ledger/test_budget.py
+    - --junitxml=D:\Claude_work_Territory\Quant-RSI\artifacts\stage_a\W06_repair1.xml
+    started_at: '2026-09-27T23:17:53.832262+00:00'
+    finished_at: '2026-09-27T23:17:59.477731+00:00'
+    exit_code: 0
+    log: artifacts/stage_a/W06_repair1.log
+    junit: artifacts/stage_a/W06_repair1.xml
+    artifact_hashes:
+      src/quant_rsi/ledger/budget.py: 15806fd8a020f07ac35f109f7e26ad8e2cf2ea41b6405e58b02e2fd858f03f61
+      tests/ledger/test_budget.py: 79a1b090cf3261e384916012063509e006a4e626ee6156f846e62537c9e3afba
+  - label: runtime_attempt1
+    work_items:
+    - W01
+    - W02
+    - W03
+    - W04
+    - W05
+    - W06
+    command: python artifacts/stage_a/runtime_demo.py artifacts/stage_a/runtime_attempt1
+    exit_code: 0
+    log: artifacts/stage_a/runtime_attempt1.log
+    scope: initial synthetic integration; prior to critic fixes; superseded as final evidence but preserved
+    events: 13
+  - label: StageA_final
+    work_items:
+    - W01
+    - W02
+    - W03
+    - W04
+    - W05
+    - W06
+    command: *id007
+    started_at: '2026-09-27T23:20:31.144882+00:00'
+    finished_at: '2026-09-27T23:20:39.253272+00:00'
+    exit_code: 0
+    log: artifacts/stage_a/StageA_final.log
+    junit: artifacts/stage_a/StageA_final.xml
+    artifact_hashes: &id009
+      contracts/decisions.yaml: 53e533fab35db40b86ad1da707b4e8de804a490488eb795996b1d77159e7509a
+      tests/contracts/test_decisions.py: dd33868560ee0d5510bee0a88384e3ee00f681e73541cde73d812825dd7f499b
+      src/quant_rsi/contracts/research.py: 507d0f3a999854f2c3aaafeda25360dbe53d20c3a7501ef39d7f6144160a66ba
+      tests/contracts/test_research.py: 7cd52f14ed10f0e340b3c36c0c8e833e0421bc8f98665200795ca56458877ea5
+      src/quant_rsi/contracts/data.py: 252b3a587561fe5c562512cb2372e4ffc2d39bbf87bc4013fea01054d309b057
+      tests/contracts/test_data.py: 916082fc28138a583fbd17428d0c707a8236cfb5f9fec655d7e44a999b4edd51
+      src/quant_rsi/contracts/condition.py: b3de8fb5c8082b89c2a0dfb9c863a8e3f52824f692163d745b54d4f7f5f73ff0
+      tests/contracts/test_condition.py: 08e152e7449c7c200bb8c8bc892a86d5af36c5f6bcfc54fc2ba74dc9873eb45a
+      src/quant_rsi/ledger/store.py: 252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46
+      tests/ledger/test_store.py: ce51f380767c2fc1a299bf8841779ba93b7497e7d1d657fde6f911fd271b063f
+      src/quant_rsi/ledger/budget.py: 15806fd8a020f07ac35f109f7e26ad8e2cf2ea41b6405e58b02e2fd858f03f61
+      tests/ledger/test_budget.py: 612e218611dc07c403c34580e993e97239cd3faa747389ad15e80f94e49fa2d8
+    environment_overrides: *id008
+  worker_log_limit: Initial W02/W03 invocations use worker reports; raw stdout was not captured locally. Final joint
+    suite has local log and JUnit.
+  saved_evidence_integrity: artifacts/stage_a/delivery_verification.json
+  independent_critic_did_not_certify_final_joint_suite: true
+failed_attempts:
+- label: W06_critic_reproduction
+  type: DELIBERATE_RED_REGRESSION_BEFORE_REPAIR
+  exit_code: 1
+  failed: 3
+  passed: 13
+  log: artifacts/stage_a/W06_critic_reproduction.log
+  repair: artifacts/stage_a/W06_repair1.xml
+  repair_exit_code: 0
+  repair_passed: 17
+- type: PROVIDER_USAGE_LIMIT_INTERRUPTION
+  work_item: W03
+  history: artifacts/stage_a/operational_events.jsonl
+  resolution: Resumed on explicit user instruction; completion evidence reconstructed from worker report and confirmed
+    by final joint suite. Historical pending record retained.
+independent_critic:
+  agent_id: 01a0e3f6-eb08-7f72-909d-b5df04bb2a8c
+  model_requested: gpt-6-sol
+  context: isolated; fork_context false; no self-review
+  planning_findings:
+    count: 3
+    status: ALL_RESOLVED
+    initial: artifacts/stage_a/critic_planning_initial.json
+    resolution: artifacts/stage_a/critic_planning_resolution.json
+  runtime_findings:
+    K01:
+      severity: P1
+      finding: missing resource envelope accepted
+      regression_test: test_critic_K01_missing_resource_envelope_must_not_start
+      work_item: W06
+      repair_pass: 1
+      status: INDEPENDENT_CRITIC_CONFIRMED_RESOLVED
+      red_evidence: artifacts/stage_a/W06_critic_reproduction.xml
+      green_evidence: artifacts/stage_a/W06_repair1.xml
+      review_ref: artifacts/stage_a/critic_runtime_resolution.json
+      final_test_ref: artifacts/stage_a/StageA_final.xml
+    K02:
+      severity: P1
+      finding: orphan hypothesis admitted
+      regression_test: test_critic_K02_orphan_hypothesis_must_not_register
+      work_item: W06
+      repair_pass: 1
+      status: INDEPENDENT_CRITIC_CONFIRMED_RESOLVED
+      red_evidence: artifacts/stage_a/W06_critic_reproduction.xml
+      green_evidence: artifacts/stage_a/W06_repair1.xml
+      review_ref: artifacts/stage_a/critic_runtime_resolution.json
+      final_test_ref: artifacts/stage_a/StageA_final.xml
+    K03:
+      severity: P2
+      finding: future run registration accepted
+      regression_test: test_critic_K03_future_registered_at_must_not_register
+      work_item: W06
+      repair_pass: 1
+      status: INDEPENDENT_CRITIC_CONFIRMED_RESOLVED
+      red_evidence: artifacts/stage_a/W06_critic_reproduction.xml
+      green_evidence: artifacts/stage_a/W06_repair1.xml
+      review_ref: artifacts/stage_a/critic_runtime_resolution.json
+      final_test_ref: artifacts/stage_a/StageA_final.xml
+  initial_runtime_probes: artifacts/stage_a/critic_runtime_initial.json
+  repair_review: artifacts/stage_a/critic_runtime_resolution.json
+  review_limit: Independent code/probe and repair review; final suite and delivery hashes checked by orchestrator
+    after review. Historical pending fields in earlier records are superseded by later evidence.
+runtime_evidence:
+  directory: artifacts/stage_a/StageA_final_runtime
+  summary:
+    status: PASS
+    synthetic: true
+    condition_hash: fe9a13bb81e0f45a11b86149fb68e3e87f540125b6dc8bf8710081fc40a878bb
+    source_hashes:
+      src/quant_rsi/contracts/condition.py: b3de8fb5c8082b89c2a0dfb9c863a8e3f52824f692163d745b54d4f7f5f73ff0
+      src/quant_rsi/contracts/data.py: 252b3a587561fe5c562512cb2372e4ffc2d39bbf87bc4013fea01054d309b057
+      src/quant_rsi/contracts/research.py: 507d0f3a999854f2c3aaafeda25360dbe53d20c3a7501ef39d7f6144160a66ba
+      src/quant_rsi/ledger/budget.py: 15806fd8a020f07ac35f109f7e26ad8e2cf2ea41b6405e58b02e2fd858f03f61
+      src/quant_rsi/ledger/store.py: 252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46
+    code_tree_hash: 8a7791c7feca9dce17ece55a2ad650a689346d4fa07aeeac6b2fb935571b8aef
+    dependencies:
+      python: 3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]
+      PyYAML: 6.0.1
+    dependency_hash: 29e6965e38843f0ee780585c94f935f4b676a9b8f5a0d5c3065570b1b5cce6da
+    agent_a:
+      benchmark_run_id: RUN-AAA
+      budget_root_run_id: RUN-AAA
+      usage:
+        attempts: 1
+        candidate_trials: 1
+        hypotheses_seen: 0
+        factor_variants: 0
+        parameter_trials: 0
+        model_trials: 1
+        prompt_revisions: 0
+        retries: 0
+        validation_queries: 0
+        sealed_submissions: 0
+        human_interventions: 0
+        input_tokens: 1
+        output_tokens: 1
+        wall_milliseconds: 1
+        cpu_milliseconds: 1
+      blocked: false
+      capability_score: null
+      score_status: NOT_IMPLEMENTED_W11_OUT_OF_SCOPE
+    agent_b:
+      benchmark_run_id: RUN-BBB
+      budget_root_run_id: RUN-BBB
+      usage:
+        attempts: 1
+        candidate_trials: 1
+        hypotheses_seen: 0
+        factor_variants: 0
+        parameter_trials: 0
+        model_trials: 1
+        prompt_revisions: 0
+        retries: 0
+        validation_queries: 0
+        sealed_submissions: 0
+        human_interventions: 0
+        input_tokens: 1
+        output_tokens: 1
+        wall_milliseconds: 1
+        cpu_milliseconds: 1
+      blocked: false
+      capability_score: null
+      score_status: NOT_IMPLEMENTED_W11_OUT_OF_SCOPE
+    scientific_claim:
+      scientific_family_id: FAM-pooled
+      ancestry:
+      - FAM-AAA
+      - FAM-BBB
+      - FAM-pooled
+      attempt_count: 2
+      candidate_variant_count: 2
+      attempt_ids:
+      - ATT-AAA
+      - ATT-BBB
+      effective_independent_trials: null
+      calibration_status: D04B_DEFERRED
+      capability_penalty: null
+    anchor:
+      sequence: 15
+      event_hash: 5d239dbe9d4cb2693e4df36df5699d941aca4abace4523a6c0365939f90ceee5
+    anchor_custody: LOCAL_DEMO_ONLY_NOT_INDEPENDENT_DEPLOYMENT
+    sealed_assurance: NOT_IMPLEMENTED
+    stage_B_started: false
+  interpretation: Synthetic counters and model labels only. No provider invocation, market data, scientific search
+    or capability score. Initial runtime_attempt1 preserved but superseded.
+budget_accounting:
+  maximum_repair_passes_per_item: 2
+  repair_passes:
+    W01: 0
+    W02: 0
+    W03: 1
+    W04: 1
+    W05: 1
+    W06: 1
+  maximum_verification_invocations_per_item: 6
+  conservative_verification_invocations:
+    W01: 4
+    W02: 4
+    W03: 5
+    W04: 4
+    W05: 4
+    W06: 6
+  counting_rule: Includes standalone initial runtime demo and both joint suites; final runtime capture is inside
+    final pytest invocation. Three independent critic diagnostic probes are review activity, recorded separately,
+    not worker test invocations.
+  remaining_W06_worker_verification_invocations: 0
+  actual_engineering_token_usage: null
+  actual_engineering_cpu_usage: null
+  actual_engineering_peak_memory: null
+  actual_engineering_wall_usage: null
+  measurement_limit: Actual engineering resource totals were not instrumented; no assertion of measured resource-cap
+    compliance. Test quota enforcement uses explicit synthetic values.
+  real_scientific_searches: 0
+artifact_hashes:
+  algorithm: SHA256
+  final_kernel_and_tests: *id009
+  manifest: artifacts/stage_a/artifact_manifest.json
+  enclosing_delivery_manifest: artifacts/stage_a/delivery_manifest.json
+  external_custody: false
+unresolved_issues:
+- id: U01
+  scope: platform verification
+  detail: One file-symlink test skipped because Windows symlink privilege is unavailable; directory junction/reparse
+    coverage passed.
+- id: U02
+  scope: later runtime isolation
+  detail: Local SQLite and local anchors are not independently held custody; privileged filesystem rewriting and
+    hostile concurrent file mutation require deployment controls.
+- id: U03
+  scope: later execution environment
+  detail: Budget API trusts the supervisor. Authentication, actual resource metering and process termination are
+    not implemented in Stage A.
+- id: U04
+  scope: empirical calibration
+  detail: D04B, D09, D11 and D12 numerical choices remain deferred; no statistical significance, effective independent
+    trial count or market-data validity is claimed.
+- id: U05
+  scope: sealed evaluation
+  detail: Threat model is a planning artifact; independent custodian/identity/storage and leakage defenses are not
+    deployed. MVP synthetic/mock isolation is not benchmark-grade.
+- id: U06
+  scope: semantic review
+  detail: Contracts check structure and lineage; they do not prove economic rationale, falsifiability or source
+    authenticity.
+- id: U07
+  scope: engineering resource evidence
+  detail: Actual aggregate tokens/CPU/memory/wall usage is unavailable; resource-limit compliance cannot be independently
+    established from this run.
+unresolved_stage_A_critic_code_findings: []
+updated_gap_matrix: planning/v0.2/01_GAP_MATRIX.yaml
+stage_B_recommendation:
+  may_start_now: false
+  recommendation: Stage A supports proposing a narrowly scoped next phase for explicit user authorization. Do not
+    start W07 or grant blanket W07-W20 authorization based on passing unit tests.
+  conditions:
+  - User explicitly authorizes next work-item scope and budgets.
+  - Resolve task/data geometry and applicable deferred empirical decisions before empirical activation.
+  - Review sealed threat model and independent custodian/credential ownership before W09 or any benchmark-grade
+    sealed claim.
+  - Instrument real resource usage before claiming deployment-level budget compliance.
+  stage_B_started: false
+organization:
+  entrypoint: README.md
+  original_inputs: docs/inputs/
+  current_planning: planning/v0.2/
+  historical_snapshot: archive/planning_v0.1/
+  test_and_review_evidence: artifacts/stage_a/
+  moves_record: artifacts/stage_a/organization_map.json
+  original_inputs_sha256_verified: true
+  historical_snapshot_sha256_verified: true
