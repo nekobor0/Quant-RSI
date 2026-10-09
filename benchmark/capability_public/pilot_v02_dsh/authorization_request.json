@@ -1,0 +1,50 @@
+{
+  "approved": false,
+  "call_cap": 12,
+  "controller_budget": {
+    "cap_cny": null,
+    "model": "deepseek-official / deepseek-v4.1-flash-expires-on-0910",
+    "note": "The DSH controller is itself a paid model. Its spend is outside the 12 measured calls and must be given an explicit cap before execution rather than assumed to be bounded.",
+    "reasoningEffort": "high",
+    "separate_from_measured_calls": true,
+    "status": "CAP_NOT_YET_SET"
+  },
+  "entry_module": "quant_rsi.harness.compatibility_pilot_dsh",
+  "entry_sha256": "4decb95f916d76f98bdd88773f7c6c7d3f0128523be695bf3533606648eb2975",
+  "freeze_sha256": "4447f5a66773152316af9acb26f61e8110aa213854ce8c2568e31aed00a4d504",
+  "frozen_base_entry_sha256": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+  "instruction": "Only after new explicit human batch authorization and confirmation that previously exposed keys were revoked or rotated. Never place credentials in this file.",
+  "keys_rotated": false,
+  "money_cap_basis": "Proposed starting point carried over from the base freeze. \u00a56.00 was the worst case computed with DeepSeek PRO peak rates, which are NOT Flash current rates. It is retained as a conservative ceiling pending an actual Flash price basis, not as a measured Flash cost.",
+  "money_caps_cny": {
+    "deepseek": "1.80",
+    "xiaomi": "1.20"
+  },
+  "requested_confirmations": [
+    "Confirm the previously exposed DeepSeek and Xiaomi keys were rotated or revoked.",
+    "Approve this derived freeze SHA and the derived entry SHA above.",
+    "Approve at most 12 measured calls, 1 per (model, task) pair, zero retries.",
+    "Approve the \u00a56.00 total measured-call ceiling, or supply the actual DeepSeek Flash price basis so it can be recomputed.",
+    "Set an explicit cap for the paid DSH controller model.",
+    "Confirm this is a verified DeepSeek off-peak window."
+  ],
+  "state": "REQUEST_ONLY_NOT_AUTHORIZATION",
+  "stopping_policy": {
+    "no_force": true,
+    "no_model_substitution": true,
+    "no_run_id_reuse": true,
+    "on_auth_or_429": "stop remaining dispatch, retain evidence",
+    "on_budget_exhaustion": "stop",
+    "on_missing_or_invalid_usage": "keep full reservation, cost UNKNOWN, stop",
+    "on_model_identity_mismatch": "stop",
+    "retries": 0
+  },
+  "total_money_cap_cny": "6.00",
+  "unresolved_before_execution": [
+    "deepseek_flash_model_id: UNVERIFIED_OFFLINE. No request confirmed the alias 'deepseek-flash' or that it maps to DeepSeek-V4.1-Flash as the brief states.",
+    "deepseek_flash_price_basis: UNKNOWN. Flash prices were not verified; Pro rates are not a substitute.",
+    "dsh_version: UNKNOWN. The documented checkout path does not exist on this machine.",
+    "key_rotation_confirmation: NOT_CONFIRMED_BY_USER.",
+    "controller_cap: NOT_SET."
+  ]
+}

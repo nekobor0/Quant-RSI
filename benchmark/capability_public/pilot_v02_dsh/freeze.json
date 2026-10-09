@@ -1,0 +1,225 @@
+{
+  "actual_entry": "python -B -m quant_rsi.harness.compatibility_pilot_dsh --authorization benchmark/capability_public/pilot_v02_dsh/authorization_request.json --run-id <RUN_ID>",
+  "attempts_per_task_per_model": 1,
+  "binding_note": "Every path listed in sha256 is verified by validate_freeze() before any dispatch. This freeze.json is deliberately NOT in the map: a self-hash would make the file's own digest unstable. The freeze digest is instead bound by authorization_request.json.",
+  "calls": 12,
+  "completion_per_call": 24000,
+  "completion_tokens_max": 288000,
+  "conditions_not_equivalent": [
+    "The two models receive byte-identical message text but are not run under identical sampling: MiMo thinking forces temperature=1.0 and top_p=0.95, while DeepSeek thinking ignores temperature=0 and uses provider-native sampling defaults.",
+    "The same numeric completion ceiling covers reasoning plus visible output, but tokenizers and the reasoning/answer allocation differ between providers.",
+    "Model aliases do not pin immutable weights; the MiMo immutable version is UNKNOWN.",
+    "Costs derived from usage are estimates, not settled invoices; cache accounting may be missing.",
+    "A 300 s socket timeout is not a strict generation wall deadline.",
+    "Six public static diagnostic tasks with no tools and no agent loop cannot establish formal rankings, significance, or stable capability differences.",
+    "The DeepSeek Flash price basis is UNKNOWN, so its cost cannot be asserted at present; the base freeze's Pro rates must not be reused."
+  ],
+  "derived_from": {
+    "base_freeze": "benchmark/capability_public/pilot_v02/freeze.json",
+    "base_freeze_sha256": "d9bd47eb548243bdcbf2e1c1c683cd3c204af827f11216341bdf05b74644bf15",
+    "base_v02_freeze_sha256": "628062ee6d61e13a829108d28af5ecb6c62418784e45b8b0eb74a79c5413639c",
+    "changed_relative_to_base": [
+      "deepseek model_id: deepseek-v4-pro -> deepseek-flash",
+      "deepseek execution path: DS-Harness controlled Provider",
+      "deepseek cost basis: Pro peak rates are NOT Flash rates and are not reused"
+    ],
+    "derivation_reason": "The base pilot froze deepseek-v4-pro with a deepseek-pro price basis. This derived freeze re-binds the same six tasks, prompts and evaluator to DeepSeek's flash model under the DS-Harness controlled Provider path. A run under the base freeze must NOT be recorded as this configuration, and vice versa.",
+    "inherited_unchanged": [
+      "task_ids and fixed order",
+      "prompts.json system/user text verbatim",
+      "per-task prompt hashes",
+      "evaluator version 0.2.0 and source hash",
+      "ground truth and answer contracts",
+      "PUBLIC / UNSEALED / PROVISIONAL labels",
+      "no-retry and budget stop rules"
+    ],
+    "prompts_json_sha256": "b30d923ad8b642c94dcddfc7fd1608feba51e9a1304cd77aa1b477f9db770210",
+    "tasks_json_sha256": "ea3e37e18d56dc796abcdcf73790710ec12a593ff6a62f8b9e0cb7d70c710b38"
+  },
+  "dsh_execution_environment": {
+    "adapter_source": {
+      "evaluator": "src/quant_rsi/harness/capability_oracle.py",
+      "evaluator_sha256": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
+      "outbound_capture": "src/quant_rsi/harness/request_capture.py",
+      "outbound_capture_sha256": "9f2833ddf8b07a6c60d85abe0d88c62931ca1fbc31d97f1660e2ee604502f690",
+      "scoring_helpers": "src/quant_rsi/harness/comparison.py",
+      "scoring_helpers_sha256": "f8826eb64e4a328d1c1c5673cfde97772809b1c767affd55c43420dbbe545960",
+      "serial_entry": "src/quant_rsi/harness/compatibility_pilot.py",
+      "serial_entry_sha256": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+      "trace_store": "src/quant_rsi/ledger/store.py",
+      "trace_store_sha256": "252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46",
+      "transport_and_parse": "src/quant_rsi/harness/providers.py",
+      "transport_and_parse_sha256": "c27ee95358b4c572a42eb16aef441dad65b976a0679bcce281dc78f85e943559"
+    },
+    "controller": "DeepSeek Harness (DSH) desktop",
+    "controller_budget_policy": "The controller model is a separate paid model (deepseek-official/deepseek-flash, reasoningEffort max) whose spend is NOT part of the 12 measured calls. It must be capped explicitly by the human in the authorization; the runner does not meter it and no default cap is assumed.",
+    "controller_default_model": {
+      "model": "deepseek-v4.1-flash-expires-on-0910",
+      "provider": "deepseek-official",
+      "reasoningEffort": "high"
+    },
+    "controller_is_paid": true,
+    "dsh_app_asar_bytes": 121348951,
+    "dsh_home": "C:\\Users\\nekob\\.dsh",
+    "dsh_profile": "desktop",
+    "dsh_version": "UNKNOWN",
+    "dsh_version_note": "The documented checkout path D:\\DSH-desktop\\resources\\app.asar\\dsh does not exist on this machine and the profile has no node_modules, so an exact DSH package version could not be read. app.asar byte size is recorded instead.",
+    "network_calls_during_preparation": 0,
+    "no_tools": true,
+    "node_version": "v24.16.0",
+    "transport": "Python standard library urllib only. The vendor SDK is NOT used, so no SDK-level retry exists. No DSH retry plugin participates in the outbound call."
+  },
+  "evaluator_version": "0.2.0",
+  "input_per_call": 16384,
+  "input_tokens_max": 196608,
+  "known_blockers_before_execution": [
+    "key_rotation_confirmation: NOT_CONFIRMED_BY_USER",
+    "dsh_version: UNKNOWN",
+    "controller_budget_cap: NOT_SET_BY_USER",
+    "real_batch_authorization: NOT_GRANTED"
+  ],
+  "labels": "PUBLIC_UNSEALED_PROVISIONAL",
+  "money_caps_cny": {
+    "deepseek": "1.80",
+    "xiaomi": "1.20"
+  },
+  "offline_capture": {
+    "checks": {
+      "native_parameters_match_freeze": true,
+      "no_injected_content": true,
+      "prompt_byte_identical_to_frozen": true,
+      "single_request_per_pair_no_retry": true
+    },
+    "network_calls": 0,
+    "pairs_captured": 12,
+    "real_credentials_read": 0,
+    "retry_probe_modes": [
+      "http_429",
+      "http_500",
+      "timeout_exception",
+      "connection_reset",
+      "business_error_body",
+      "finish_length_empty"
+    ],
+    "retry_probe_result": "In every mode exactly 12 transport calls were issued, at most 1 per (model, task) pair. No automatic retry exists in the frozen path.",
+    "status": "OFFLINE_CAPTURE_VERIFIED",
+    "tool": "src/quant_rsi/harness/request_capture.py"
+  },
+  "prepared_on": "2026-10-09",
+  "prompt_hashes": {
+    "A-BACKTEST-NOT-RUN": "af0cbc25feb2724736680810d031e8baafbff1a321364cee489bcf0926dca3ed",
+    "A-META-COUNT-ITEMS": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+    "A-MULTIPLE-TESTING": "0881473d6a1a74904824b5cb9d05af8022ac091320feab99f342eb5655763a8f",
+    "A-PIT-VINTAGE-PASS": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+    "A-PROVIDER-TOKEN-LIMIT": "b25de0b317b90ebff241ad94684e48bc0e8c612df89c29729c538e7f7561c350",
+    "A-SUPPORT-THRESHOLD-PASS": "00c484af5b79ea9d011c878fa91a028f1823493ef8c10fec5261836414a923aa"
+  },
+  "providers": {
+    "deepseek": {
+      "chat_provider": {
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "base_url": "https://api.deepseek.com/v1",
+        "max_tokens": 24000,
+        "model_id": "deepseek-flash",
+        "provider_id": "deepseek",
+        "temperature": 0.0,
+        "timeout_s": 300
+      },
+      "completion_tokens_max": 144000,
+      "input_tokens_max": 98304,
+      "model_id_note": "deepseek-flash is the official model name and maps to DeepSeek-V4.1-Flash; legacy names deepseek-v4-flash and deepseek-v4-flash-vision-exp are still accepted and billed at Flash price. Confirmed from the official pricing page, no probe call made. Service identity is still checked in the real response.",
+      "model_id_status": "VERIFIED_OFFICIAL_DOCS",
+      "native_parameters": {
+        "reasoning_effort": "high",
+        "thinking": {
+          "type": "enabled"
+        }
+      },
+      "peak_rate": true,
+      "prices_cny_per_million": {
+        "input_hit": "0.04",
+        "input_miss": "2",
+        "output": "8"
+      },
+      "prices_cny_per_million_note": "Peak rates, official CNY page 2026-10-09. Off-peak is half: input_miss 1, input_hit 0.02, output 4.",
+      "pricing_status": "VERIFIED_OFFICIAL_CNY_2026_10_09",
+      "requests": 6,
+      "worst_cost_basis": "Rounded UP from the computed peak worst case 0.224768 CNY (16384 input cache-miss @ 2 CNY/M + 24000 output @ 8 CNY/M). Off-peak worst case is 0.112384 CNY.",
+      "worst_cost_cny_per_call": "0.30"
+    },
+    "xiaomi": {
+      "chat_provider": {
+        "api_key_env": "XIAOMI_API_KEY",
+        "base_url": "https://api.xiaomimimo.com/v1",
+        "max_tokens": 24000,
+        "model_id": "mimo-v2.6-pro",
+        "provider_id": "xiaomi",
+        "temperature": 0.0,
+        "timeout_s": 300
+      },
+      "completion_tokens_max": 144000,
+      "input_tokens_max": 98304,
+      "model_id_status": "UNVERIFIED_OFFLINE",
+      "native_parameters": {
+        "temperature": 1.0,
+        "thinking": {
+          "type": "enabled"
+        },
+        "top_p": 0.95
+      },
+      "peak_rate": false,
+      "prices_cny_per_million": {
+        "input_hit": "0.025",
+        "input_miss": "3",
+        "output": "6"
+      },
+      "pricing_status": "PUBLISHED_RATES_FROM_BASE_FREEZE",
+      "requests": 6,
+      "worst_cost_basis": "Rounded UP from the computed worst case 0.193152 CNY (16384 input cache-miss @ 3 CNY/M + 24000 output @ 6 CNY/M).",
+      "worst_cost_cny_per_call": "0.20"
+    }
+  },
+  "real_run_status": "NOT_AUTHORIZED_NOT_RUN",
+  "retries": 0,
+  "run_kind": "TRACK_A_V02_COMPATIBILITY_PILOT_DSH_DERIVED",
+  "scientific_candidate_variants": 0,
+  "sha256": {
+    "benchmark/capability_public/freeze_v02.json": "628062ee6d61e13a829108d28af5ecb6c62418784e45b8b0eb74a79c5413639c",
+    "benchmark/capability_public/pilot_v02/freeze.json": "d9bd47eb548243bdcbf2e1c1c683cd3c204af827f11216341bdf05b74644bf15",
+    "benchmark/capability_public/pilot_v02/prompts.json": "b30d923ad8b642c94dcddfc7fd1608feba51e9a1304cd77aa1b477f9db770210",
+    "benchmark/capability_public/pilot_v02/tasks.json": "ea3e37e18d56dc796abcdcf73790710ec12a593ff6a62f8b9e0cb7d70c710b38",
+    "src/quant_rsi/harness/capability_oracle.py": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
+    "src/quant_rsi/harness/comparison.py": "f8826eb64e4a328d1c1c5673cfde97772809b1c767affd55c43420dbbe545960",
+    "src/quant_rsi/harness/compatibility_pilot.py": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+    "src/quant_rsi/harness/compatibility_pilot_dsh.py": "4decb95f916d76f98bdd88773f7c6c7d3f0128523be695bf3533606648eb2975",
+    "src/quant_rsi/harness/providers.py": "c27ee95358b4c572a42eb16aef441dad65b976a0679bcce281dc78f85e943559",
+    "src/quant_rsi/harness/request_capture.py": "9f2833ddf8b07a6c60d85abe0d88c62931ca1fbc31d97f1660e2ee604502f690",
+    "src/quant_rsi/ledger/store.py": "252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46"
+  },
+  "source_cluster_count": 6,
+  "source_independence_caveat": "Six distinct frozen source_incident_id clusters. Contract fixtures and synthetic controls are not six independently sampled real incidents. Same-author truth/evaluator construction is retained; evidence independence is not claimed.",
+  "stop_rules": [
+    "No key access or requests before explicit human batch authorization plus key-rotation confirmation bound to this freeze SHA and the entry SHA.",
+    "Reserve the full request/token/cost ceiling in the append-only trace before each single dispatch; never refund a reservation.",
+    "Stop the batch on: authentication failure, HTTP 429, model identity mismatch or missing model metadata, suspected credential leakage in output, per-call token budget breach, measured timeout overrun, missing or invalid usage, or exhausted budget.",
+    "No retry, no run restart, no higher-token rerun, no third measured model, no automatic full comparison.",
+    "A failed or uncertain-status request still consumes its request allowance.",
+    "Answer, format and reason errors retain the frozen score; evaluator review never modifies the evaluator during execution.",
+    "An interrupted reservation is an unresolved attempted request; do not restart or replay it over the network."
+  ],
+  "system_prompt_sha256": "1e357130abec34af57fe934b9691c67c9f57f636c129d3c1e50b9534984c6001",
+  "task_ids": [
+    "A-META-COUNT-ITEMS",
+    "A-PIT-VINTAGE-PASS",
+    "A-MULTIPLE-TESTING",
+    "A-BACKTEST-NOT-RUN",
+    "A-SUPPORT-THRESHOLD-PASS",
+    "A-PROVIDER-TOKEN-LIMIT"
+  ],
+  "task_kind": "STATIC_DIAGNOSTIC",
+  "timeout_s": 300,
+  "timeout_semantics": "socket I/O timeout; no guaranteed total wall deadline; stop the next dispatch on measured overrun.",
+  "total_money_cap_cny": "3.00",
+  "usage_missing_policy": "Keep the full cost/token reservation, estimated actual cost UNKNOWN, stop further dispatch; never infer zero usage.",
+  "wall_seconds": 3600
+}
