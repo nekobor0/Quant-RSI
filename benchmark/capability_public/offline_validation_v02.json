@@ -1,0 +1,3627 @@
+{
+  "anomaly_review": {
+    "automatic_score_change": false,
+    "reasons": [
+      "ALL_TASKS_FULL_PASS:mock-a",
+      "ALL_TASKS_ZERO:mock-b",
+      "VERDICT_EVIDENCE_SPLIT_GE_25_PERCENT"
+    ],
+    "status": "EVALUATOR_ANOMALY_REVIEW_REQUIRED"
+  },
+  "budget_stop": null,
+  "budget_usage": {
+    "attempts": 48,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "reserved_input_tokens": 786432,
+    "reserved_output_tokens": 1152000,
+    "retries": 0,
+    "unknown_token_usage_attempts": 0,
+    "wall_milliseconds": 48
+  },
+  "capability_result_valid": true,
+  "caps": {
+    "attempts_per_task_per_provider": 1,
+    "calls": 48,
+    "input_per_call": 16384,
+    "input_tokens": 786432,
+    "output_per_call": 24000,
+    "output_tokens": 1152000,
+    "retries": 0,
+    "tasks": 24,
+    "timeout_s": 300,
+    "wall_milliseconds": 14400000
+  },
+  "environment": {
+    "fixtures_sha256": "14d54c3f042ed47ee3842c1640dfed82be0960dff9d8cf06be97d3ed69ac8789",
+    "oracle_module_sha256": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7"
+  },
+  "evaluator_version": "0.2.0",
+  "freeze_sha256": "78daa33b16058356e12960460030a309fbb5bd8224f7d93a93a48fea3db14a0f",
+  "generated_at": "2026-10-09T04:55:48.537052+00:00",
+  "incident_cluster_count": 10,
+  "is_formal_model_ranking": false,
+  "labels": "PUBLIC_UNSEALED_PROVISIONAL",
+  "may_claim_tradable_alpha": false,
+  "paired_cluster_differences": {
+    "mock-a-mock-b": {
+      "cluster_mean_differences": {
+        "BUDGET-ROOT": 1.0,
+        "COST-CONTRACT": 1.0,
+        "COUNT-ITEMS": 1.0,
+        "EMPTY-UNKNOWN": 1.0,
+        "MULTIPLE-TESTING-CONTRACT": 1.0,
+        "PIT-SNAPSHOT": 1.0,
+        "PROVIDER-CAP-REAL": 1.0,
+        "QUALIFICATION-CONTRACT": 1.0,
+        "SSE-TERMINATION": 1.0,
+        "SUPPORT-THRESHOLD": 1.0
+      },
+      "clusters_observed": 10,
+      "equal_cluster_mean_difference": 1.0,
+      "paired_task_count": 24,
+      "statistical_significance": null,
+      "task_pairs": [
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-META-COUNT-ITEMS"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-EMPTY-VS-FAILURE"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-PIT-BACKFILL-REFUSAL"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-DELIST-NOT-SUSPENSION"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-BUDGET-ESCAPE"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-INSUFFICIENT-SUPPORT"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-META-CONSISTENT"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-WRONG-SECURITY"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-WRONG-DATE"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-SOURCE-FABRICATION"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-UNKNOWN-NOT-PASS"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-BACKTEST-NOT-RUN"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-PIT-VINTAGE-PASS"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-PIT-LATE-REVISION"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-COST-LOSS"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-COST-PROFIT"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-MULTIPLE-TESTING"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-SUPPORT-THRESHOLD-PASS"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-SUSPENSION-CONFIRMED"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-BUDGET-EXHAUSTED"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-PROVIDER-EMPTY"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-PROVIDER-TOKEN-LIMIT"
+        },
+        {
+          "both_answers_parsed": true,
+          "full_pass_difference": 1,
+          "task_id": "A-PROVIDER-HTTP"
+        }
+      ]
+    }
+  },
+  "pit_correct": false,
+  "prompt_hashes": {
+    "A-BACKTEST-NOT-RUN": "af0cbc25feb2724736680810d031e8baafbff1a321364cee489bcf0926dca3ed",
+    "A-BUDGET-ESCAPE": "84e4166ae1d677ea364d4710bd19c8eef89e3f1a2dd1698ea879f6f960047e37",
+    "A-BUDGET-EXHAUSTED": "a84928c94cd07324ca432f6f13257c7c2af1ea7c1cb32725840cd9fbec1dc150",
+    "A-COST-LOSS": "07f5e33e3ab472dec8887f7fe41913886a6bf5dac0ea5a1565d20d9ee55370b6",
+    "A-COST-PROFIT": "482d222b9de392dd96b2487195e58b5ae57a6ef16da8e5204be0f8d1fb002279",
+    "A-DELIST-NOT-SUSPENSION": "c6ea7c68d087ca39032f3769aa41347a5e2f4b65d46a5121398579a8ea8ddb53",
+    "A-EMPTY-VS-FAILURE": "54e6681a5b6535c5107e32e31f357c993653e64211c25bd63fc2d588fadd0db0",
+    "A-INSUFFICIENT-SUPPORT": "cb5727cff790c3d72ca02735c3958d97900fc207419e8eccce8e0abe2eda7207",
+    "A-META-CONSISTENT": "b91fd821f247bea2ca93c12f73f4621b7a59b7c8abf4d1c778df66f8d74c4780",
+    "A-META-COUNT-ITEMS": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+    "A-MULTIPLE-TESTING": "0881473d6a1a74904824b5cb9d05af8022ac091320feab99f342eb5655763a8f",
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": "662a43c84e65f7cfd91d6e1186127f96086d2cb50aa8e6cf835a04896515dd22",
+    "A-PIT-BACKFILL-REFUSAL": "49091e57893531c8678d2b2acdf409f894757e6562a3124f6adbe77be49a078b",
+    "A-PIT-LATE-REVISION": "7e162856ef2d67aee56edef05a66a302618cce9acc0fc7162d42b7ebea31f067",
+    "A-PIT-VINTAGE-PASS": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+    "A-PROVIDER-EMPTY": "819cb1e64713a60b6c389e3c89bc7c1ddc2857a13cd21619545009b3c2efef95",
+    "A-PROVIDER-HTTP": "0d76b7112fcff066f47ee93c6c2863e29f528dd6f67b44d0060c1b1bdc01f0ce",
+    "A-PROVIDER-TOKEN-LIMIT": "b25de0b317b90ebff241ad94684e48bc0e8c612df89c29729c538e7f7561c350",
+    "A-SOURCE-FABRICATION": "1828c0913e56b1dd51e2fac8e24b85b2106f7992f6e1ca8b5f2fb50c54949c6d",
+    "A-SUPPORT-THRESHOLD-PASS": "00c484af5b79ea9d011c878fa91a028f1823493ef8c10fec5261836414a923aa",
+    "A-SUSPENSION-CONFIRMED": "ccffd49139d0e2553f5811da11217b563223bfae5a98ce5b41891d3d863645ce",
+    "A-UNKNOWN-NOT-PASS": "9d2488c473ae5a8cc3f903175914c8bacef09bcb470d676e1115721a656988e9",
+    "A-WRONG-DATE": "3fe50fc5054dfd8114846fd732f42d376cf16ba8aca9eb14429fb335fcb26219",
+    "A-WRONG-SECURITY": "6fe2f48cef93f45371f303f104b12f2a3456c8550d225c8844305a92e15c61d4"
+  },
+  "providers": [
+    {
+      "model_id": "mock-ideal-v1",
+      "provider_id": "mock-a"
+    },
+    {
+      "model_id": "mock-variance-v1",
+      "provider_id": "mock-b"
+    }
+  ],
+  "records": [
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-META-COUNT-ITEMS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "basis": "code=0 and an exact key match with one well-formed row establish one effective record. The declared count of 0 contradicts the payload, so the metadata inconsistency must be reported and the record must still be read from items rather than trusting count.",
+        "facts": {
+          "declared_count": 0,
+          "items_len": 1,
+          "trade_date": "20100104",
+          "ts_code": "600005.SH"
+        },
+        "sources": [
+          "FIXTURE:A-META-COUNT-ITEMS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.051655+00:00",
+      "release_sha256": "56d96e3b0160f98eedaaa4bfafba2843bc15c7f3a2753dc0fae3a939cfa6293c",
+      "response_sha256": "957c978233c7103eaa54ba4a9861f3d86802b19d8d1d5d58422494181122411d",
+      "response_text": "{\"evidence\": {\"declared_count\": 0, \"items_len\": 1, \"sources\": [\"FIXTURE:A-META-COUNT-ITEMS\"], \"trade_date\": \"20100104\", \"ts_code\": \"600005.SH\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"FLAG_INCONSISTENT\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "FLAG_INCONSISTENT",
+        "parsed": true,
+        "task_id": "A-META-COUNT-ITEMS",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-META-COUNT-ITEMS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-META-COUNT-ITEMS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "basis": "code=0 and an exact key match with one well-formed row establish one effective record. The declared count of 0 contradicts the payload, so the metadata inconsistency must be reported and the record must still be read from items rather than trusting count.",
+        "facts": {
+          "declared_count": 0,
+          "items_len": 1,
+          "trade_date": "20100104",
+          "ts_code": "600005.SH"
+        },
+        "sources": [
+          "FIXTURE:A-META-COUNT-ITEMS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.077284+00:00",
+      "release_sha256": "56d96e3b0160f98eedaaa4bfafba2843bc15c7f3a2753dc0fae3a939cfa6293c",
+      "response_sha256": "17b12e87e2c74aa7bc5cd0ec66fc256e62ee399533b97477e880f2c0236d958c",
+      "response_text": "{\"evidence\": {\"declared_count\": 0, \"items_len\": 1, \"sources\": [\"FIXTURE:A-META-COUNT-ITEMS\"], \"trade_date\": \"20100104\", \"ts_code\": \"600005.SH\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-META-COUNT-ITEMS",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-META-COUNT-ITEMS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-EMPTY-VS-FAILURE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "INSUFFICIENT_EVIDENCE",
+          "REFUSE"
+        ],
+        "basis": "A valid empty response and a silently-swallowed vendor error are byte-identical here. HTTP 200 with business code 0 and an empty items list supports neither a positive event nor a proven absence, because no independent oracle establishes that the event did not occur. The absence of an error field is not evidence of absence of error.",
+        "facts": {
+          "absence_proven": false,
+          "distinguishable": false
+        },
+        "sources": [
+          "FIXTURE:A-EMPTY-VS-FAILURE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "54e6681a5b6535c5107e32e31f357c993653e64211c25bd63fc2d588fadd0db0",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.112086+00:00",
+      "release_sha256": "a5b0e5812699587095709257ece38533027a37127e73c6d91b86164cade9e43e",
+      "response_sha256": "b9fe586fce64be9d02969345f36df10b2b0026c92bc28b07792b4acc55b5054f",
+      "response_text": "{\"evidence\": {\"absence_proven\": false, \"distinguishable\": false, \"sources\": [\"FIXTURE:A-EMPTY-VS-FAILURE\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-EMPTY-VS-FAILURE",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-EMPTY-VS-FAILURE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-EMPTY-VS-FAILURE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "INSUFFICIENT_EVIDENCE",
+          "REFUSE"
+        ],
+        "basis": "A valid empty response and a silently-swallowed vendor error are byte-identical here. HTTP 200 with business code 0 and an empty items list supports neither a positive event nor a proven absence, because no independent oracle establishes that the event did not occur. The absence of an error field is not evidence of absence of error.",
+        "facts": {
+          "absence_proven": false,
+          "distinguishable": false
+        },
+        "sources": [
+          "FIXTURE:A-EMPTY-VS-FAILURE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "54e6681a5b6535c5107e32e31f357c993653e64211c25bd63fc2d588fadd0db0",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.148622+00:00",
+      "release_sha256": "a5b0e5812699587095709257ece38533027a37127e73c6d91b86164cade9e43e",
+      "response_sha256": "e0c2606478fdc2a50fc8a69e731e5f8bcc59a627c30fd0404ccfdf4fdaf4a2cc",
+      "response_text": "{\"evidence\": {\"absence_proven\": false, \"distinguishable\": false, \"sources\": [\"FIXTURE:A-EMPTY-VS-FAILURE\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"INSUFFICIENT_EVIDENCE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "INSUFFICIENT_EVIDENCE",
+        "parsed": true,
+        "task_id": "A-EMPTY-VS-FAILURE",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-EMPTY-VS-FAILURE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-PIT-BACKFILL-REFUSAL:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "basis": "The snapshot carries no available_at, no publication timestamp and no historical validity interval, and it was retrieved long after the decision date. list_status is a current value that cannot be backfilled to 2017-01-10, and delist_date is a future fact relative to the decision date. A point-in-time universe cannot be built from it. Using the 2026 retrieval as if it were the 2017 state is a look-ahead leak.",
+        "facts": {
+          "is_as_of": false,
+          "missing_fields": [
+            "available_at"
+          ]
+        },
+        "sources": [
+          "FIXTURE:A-PIT-BACKFILL-REFUSAL"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "49091e57893531c8678d2b2acdf409f894757e6562a3124f6adbe77be49a078b",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.173607+00:00",
+      "release_sha256": "e8dcafc57ab217553981da1a9490734cba8f0cad6634207241e77eef50fd663a",
+      "response_sha256": "4677c2c97faa74f06c78a66c4fe1aa8fee8d18aa4afc479e5634905b7be40c02",
+      "response_text": "{\"evidence\": {\"is_as_of\": false, \"missing_fields\": [\"available_at\"], \"sources\": [\"FIXTURE:A-PIT-BACKFILL-REFUSAL\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-PIT-BACKFILL-REFUSAL",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "task_id": "A-PIT-BACKFILL-REFUSAL",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-PIT-BACKFILL-REFUSAL:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "basis": "The snapshot carries no available_at, no publication timestamp and no historical validity interval, and it was retrieved long after the decision date. list_status is a current value that cannot be backfilled to 2017-01-10, and delist_date is a future fact relative to the decision date. A point-in-time universe cannot be built from it. Using the 2026 retrieval as if it were the 2017 state is a look-ahead leak.",
+        "facts": {
+          "is_as_of": false,
+          "missing_fields": [
+            "available_at"
+          ]
+        },
+        "sources": [
+          "FIXTURE:A-PIT-BACKFILL-REFUSAL"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "49091e57893531c8678d2b2acdf409f894757e6562a3124f6adbe77be49a078b",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.203839+00:00",
+      "release_sha256": "e8dcafc57ab217553981da1a9490734cba8f0cad6634207241e77eef50fd663a",
+      "response_sha256": "65cf691ad75662b8d97c8d4901c13a6cfd7bd4e7fb1317424ef1d7f47ba3bc3c",
+      "response_text": "{\"evidence\": {\"is_as_of\": false, \"missing_fields\": [\"available_at\"], \"sources\": [\"FIXTURE:A-PIT-BACKFILL-REFUSAL\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-PIT-BACKFILL-REFUSAL",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "task_id": "A-PIT-BACKFILL-REFUSAL",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "2017-02-10 lies after publication (20170208) but before the termination takes effect (20170214), so the security was still listed and trading on the as-of date. The announcement date and the effective date are distinct facts and must not be substituted for one another. Knowing a future termination is not the same as having terminated.",
+        "facts": {
+          "effective_date": "20170214",
+          "still_listed": true
+        },
+        "sources": [
+          "FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "662a43c84e65f7cfd91d6e1186127f96086d2cb50aa8e6cf835a04896515dd22",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.232447+00:00",
+      "release_sha256": "dd06f7e344f8ef8ee690ba82454d24ddf6e1b2733e06e73aec0c92ab463adf42",
+      "response_sha256": "b8b7488508cf78b6bd0fbd550c32fd00ce8178fb40a58d4d76cbdb71bfe206f1",
+      "response_text": "{\"evidence\": {\"effective_date\": \"20170214\", \"sources\": [\"FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE\"], \"still_listed\": true}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "task_id": "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "2017-02-10 lies after publication (20170208) but before the termination takes effect (20170214), so the security was still listed and trading on the as-of date. The announcement date and the effective date are distinct facts and must not be substituted for one another. Knowing a future termination is not the same as having terminated.",
+        "facts": {
+          "effective_date": "20170214",
+          "still_listed": true
+        },
+        "sources": [
+          "FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "662a43c84e65f7cfd91d6e1186127f96086d2cb50aa8e6cf835a04896515dd22",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.260236+00:00",
+      "release_sha256": "dd06f7e344f8ef8ee690ba82454d24ddf6e1b2733e06e73aec0c92ab463adf42",
+      "response_sha256": "2fbb90529913ad8e8f0156d8ef6a3f4eb6633d622e222c79279eca0cf9f3c373",
+      "response_text": "{\"evidence\": {\"effective_date\": \"20170214\", \"sources\": [\"FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE\"], \"still_listed\": true}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "task_id": "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-DELIST-NOT-SUSPENSION:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "basis": "The security was delisted in 2017, years before the queried date, so it was ineligible rather than suspended. Zero rows are consistent with the known termination and prove nothing about a suspension. Absence must not be attributed to a mechanism the evidence does not identify; a suspension claim needs an independent suspension event source.",
+        "facts": {
+          "delisted_before_query": true,
+          "suspension_supported": false
+        },
+        "sources": [
+          "FIXTURE:A-DELIST-NOT-SUSPENSION"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "c6ea7c68d087ca39032f3769aa41347a5e2f4b65d46a5121398579a8ea8ddb53",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.301484+00:00",
+      "release_sha256": "65c77000c4f8ad1389654e42a3db0e19b2fda16d415ae8b3dcff391f47a9d55f",
+      "response_sha256": "d1fa3b8f92921a9dbe6aaa60075dcb717d8bbcc48c430e5da545d254dd7b5897",
+      "response_text": "{\"evidence\": {\"delisted_before_query\": true, \"sources\": [\"FIXTURE:A-DELIST-NOT-SUSPENSION\"], \"suspension_supported\": false}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-DELIST-NOT-SUSPENSION",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "task_id": "A-DELIST-NOT-SUSPENSION",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-DELIST-NOT-SUSPENSION:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "basis": "The security was delisted in 2017, years before the queried date, so it was ineligible rather than suspended. Zero rows are consistent with the known termination and prove nothing about a suspension. Absence must not be attributed to a mechanism the evidence does not identify; a suspension claim needs an independent suspension event source.",
+        "facts": {
+          "delisted_before_query": true,
+          "suspension_supported": false
+        },
+        "sources": [
+          "FIXTURE:A-DELIST-NOT-SUSPENSION"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "c6ea7c68d087ca39032f3769aa41347a5e2f4b65d46a5121398579a8ea8ddb53",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.338416+00:00",
+      "release_sha256": "65c77000c4f8ad1389654e42a3db0e19b2fda16d415ae8b3dcff391f47a9d55f",
+      "response_sha256": "38f4d59c27268e9cbc173f1306a37dae2b8562c60cee5f7b86a8e850ef502369",
+      "response_text": "{\"evidence\": {\"delisted_before_query\": true, \"sources\": [\"FIXTURE:A-DELIST-NOT-SUSPENSION\"], \"suspension_supported\": false}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-DELIST-NOT-SUSPENSION",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "task_id": "A-DELIST-NOT-SUSPENSION",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-BUDGET-ESCAPE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Renaming a run does not create a new budget root. Trials belong to the budget root, and a continuation under the same condition inherits the parent budget root. Retries are counted attempts with no reset, and search counters are never refunded. Treating a rename as a reset is exactly the search-budget escape the design forbids; the additional trials would inflate the effective independent trial count and corrupt any multiple-testing correction.",
+        "facts": {
+          "compliant": false,
+          "remaining_trials": 0
+        },
+        "sources": [
+          "FIXTURE:A-BUDGET-ESCAPE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "84e4166ae1d677ea364d4710bd19c8eef89e3f1a2dd1698ea879f6f960047e37",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.366701+00:00",
+      "release_sha256": "8a7363c076fe751db175e1298d02adc73e05db70ca0c70b910326224cf609aae",
+      "response_sha256": "3dd53a3f2e918b8931e95acd1e19948d3fd729fcba1be4fdcac01916dea25ed5",
+      "response_text": "{\"evidence\": {\"compliant\": false, \"remaining_trials\": 0, \"sources\": [\"FIXTURE:A-BUDGET-ESCAPE\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-BUDGET-ESCAPE",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "task_id": "A-BUDGET-ESCAPE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-BUDGET-ESCAPE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Renaming a run does not create a new budget root. Trials belong to the budget root, and a continuation under the same condition inherits the parent budget root. Retries are counted attempts with no reset, and search counters are never refunded. Treating a rename as a reset is exactly the search-budget escape the design forbids; the additional trials would inflate the effective independent trial count and corrupt any multiple-testing correction.",
+        "facts": {
+          "compliant": false,
+          "remaining_trials": 0
+        },
+        "sources": [
+          "FIXTURE:A-BUDGET-ESCAPE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "84e4166ae1d677ea364d4710bd19c8eef89e3f1a2dd1698ea879f6f960047e37",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.394028+00:00",
+      "release_sha256": "8a7363c076fe751db175e1298d02adc73e05db70ca0c70b910326224cf609aae",
+      "response_sha256": "383fc39c9345df074f957e08d17bcc72861bc1b4a00a312069ad9dfd15d07ba9",
+      "response_text": "{\"evidence\": {\"compliant\": false, \"remaining_trials\": 0, \"sources\": [\"FIXTURE:A-BUDGET-ESCAPE\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-BUDGET-ESCAPE",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "task_id": "A-BUDGET-ESCAPE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-INSUFFICIENT-SUPPORT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "basis": "Neither candidate reaches the minimum support threshold, so neither may be promoted. Selecting H1 because it is the higher of two failing candidates is a relative-comparison fallacy: the threshold is absolute. The correct terminal is refusal with the insufficiency recorded, which scores as capability without granting the strategy any economic validity.",
+        "facts": {
+          "max_support": 0.52,
+          "threshold": 0.6,
+          "winner": "NONE"
+        },
+        "sources": [
+          "FIXTURE:A-INSUFFICIENT-SUPPORT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "cb5727cff790c3d72ca02735c3958d97900fc207419e8eccce8e0abe2eda7207",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.422531+00:00",
+      "release_sha256": "e9f5aae0f6691a829722aeafa11338f3d1d12e54c5dbe584921f486b03d428f3",
+      "response_sha256": "2abf3dbf3c5a7421622a8c96cc76e5cd132ee0929c5bc9ca92f4deb489cc410a",
+      "response_text": "{\"evidence\": {\"max_support\": 0.52, \"sources\": [\"FIXTURE:A-INSUFFICIENT-SUPPORT\"], \"threshold\": 0.6, \"winner\": \"NONE\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-INSUFFICIENT-SUPPORT",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "task_id": "A-INSUFFICIENT-SUPPORT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-INSUFFICIENT-SUPPORT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "basis": "Neither candidate reaches the minimum support threshold, so neither may be promoted. Selecting H1 because it is the higher of two failing candidates is a relative-comparison fallacy: the threshold is absolute. The correct terminal is refusal with the insufficiency recorded, which scores as capability without granting the strategy any economic validity.",
+        "facts": {
+          "max_support": 0.52,
+          "threshold": 0.6,
+          "winner": "NONE"
+        },
+        "sources": [
+          "FIXTURE:A-INSUFFICIENT-SUPPORT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "cb5727cff790c3d72ca02735c3958d97900fc207419e8eccce8e0abe2eda7207",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.450074+00:00",
+      "release_sha256": "e9f5aae0f6691a829722aeafa11338f3d1d12e54c5dbe584921f486b03d428f3",
+      "response_sha256": "75937d1516e1508016cd16aff68b930c0853867ca42aeacc63fed2fd11c5c20f",
+      "response_text": "{\"evidence\": {\"max_support\": 0.52, \"sources\": [\"FIXTURE:A-INSUFFICIENT-SUPPORT\"], \"threshold\": 0.6, \"winner\": \"NONE\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-INSUFFICIENT-SUPPORT",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "task_id": "A-INSUFFICIENT-SUPPORT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-META-CONSISTENT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "data_handling_correctness"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Normal paired control.",
+        "facts": {
+          "declared_count": 1,
+          "items_len": 1,
+          "key_matches": true
+        },
+        "sources": [
+          "FIXTURE:A-META-CONSISTENT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "b91fd821f247bea2ca93c12f73f4621b7a59b7c8abf4d1c778df66f8d74c4780",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.474786+00:00",
+      "release_sha256": "719ab9924ed56382b61bca96197cccbbbe733b7c879a0570d9f0de1f4cd4f69a",
+      "response_sha256": "5b686f2f9b00f2bfb57c49da388bac9f9f949befff731277401a6fcee71997b5",
+      "response_text": "{\"evidence\": {\"declared_count\": 1, \"items_len\": 1, \"key_matches\": true, \"sources\": [\"FIXTURE:A-META-CONSISTENT\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-META-CONSISTENT",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-META-CONSISTENT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-META-CONSISTENT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "data_handling_correctness"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Normal paired control.",
+        "facts": {
+          "declared_count": 1,
+          "items_len": 1,
+          "key_matches": true
+        },
+        "sources": [
+          "FIXTURE:A-META-CONSISTENT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "b91fd821f247bea2ca93c12f73f4621b7a59b7c8abf4d1c778df66f8d74c4780",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.500428+00:00",
+      "release_sha256": "719ab9924ed56382b61bca96197cccbbbe733b7c879a0570d9f0de1f4cd4f69a",
+      "response_sha256": "e85efa9aa041b0cbe28f7de395be1790bbbca1ffae6ac7e803b54f10f5ecdc12",
+      "response_text": "{\"evidence\": {\"declared_count\": 1, \"items_len\": 1, \"key_matches\": true, \"sources\": [\"FIXTURE:A-META-CONSISTENT\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-META-CONSISTENT",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-META-CONSISTENT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-WRONG-SECURITY:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "basis": "Controlled key mismatch, no new historical observation.",
+        "facts": {
+          "key_matches": false,
+          "trade_date": "20100104",
+          "ts_code": "600519.SH"
+        },
+        "sources": [
+          "FIXTURE:A-WRONG-SECURITY"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "6fe2f48cef93f45371f303f104b12f2a3456c8550d225c8844305a92e15c61d4",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.528695+00:00",
+      "release_sha256": "090aa49fb9960e421c8b9daf754c38ab27a1e15d6fc8c5f3c005943130e5e5da",
+      "response_sha256": "a0fcb0057159d4b143a55ae792e09dae38c00344d855de4df0fe8b917ce5d6ac",
+      "response_text": "{\"evidence\": {\"key_matches\": false, \"sources\": [\"FIXTURE:A-WRONG-SECURITY\"], \"trade_date\": \"20100104\", \"ts_code\": \"600519.SH\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"FLAG_INCONSISTENT\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "FLAG_INCONSISTENT",
+        "parsed": true,
+        "task_id": "A-WRONG-SECURITY",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-WRONG-SECURITY",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-WRONG-SECURITY:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "basis": "Controlled key mismatch, no new historical observation.",
+        "facts": {
+          "key_matches": false,
+          "trade_date": "20100104",
+          "ts_code": "600519.SH"
+        },
+        "sources": [
+          "FIXTURE:A-WRONG-SECURITY"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "6fe2f48cef93f45371f303f104b12f2a3456c8550d225c8844305a92e15c61d4",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.553693+00:00",
+      "release_sha256": "090aa49fb9960e421c8b9daf754c38ab27a1e15d6fc8c5f3c005943130e5e5da",
+      "response_sha256": "b85a529cdb8a44b81e50271a0632d38feb0c66f4d585561474a3777768d49e44",
+      "response_text": "{\"evidence\": {\"key_matches\": false, \"sources\": [\"FIXTURE:A-WRONG-SECURITY\"], \"trade_date\": \"20100104\", \"ts_code\": \"600519.SH\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-WRONG-SECURITY",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-WRONG-SECURITY",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-WRONG-DATE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "basis": "Controlled key mismatch, no new historical observation.",
+        "facts": {
+          "key_matches": false,
+          "trade_date": "20100105",
+          "ts_code": "600005.SH"
+        },
+        "sources": [
+          "FIXTURE:A-WRONG-DATE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "3fe50fc5054dfd8114846fd732f42d376cf16ba8aca9eb14429fb335fcb26219",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.584583+00:00",
+      "release_sha256": "23e82a717e3a7a88c1d703cccec0f4ddb5ec01c987b64cde9ac15e2cf53eba9a",
+      "response_sha256": "cc31e0ba43b3f8f57692a73e9ed6a9e072fdfb38bf47d755e42028ff9bc1967f",
+      "response_text": "{\"evidence\": {\"key_matches\": false, \"sources\": [\"FIXTURE:A-WRONG-DATE\"], \"trade_date\": \"20100105\", \"ts_code\": \"600005.SH\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-WRONG-DATE",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-WRONG-DATE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-WRONG-DATE:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "basis": "Controlled key mismatch, no new historical observation.",
+        "facts": {
+          "key_matches": false,
+          "trade_date": "20100105",
+          "ts_code": "600005.SH"
+        },
+        "sources": [
+          "FIXTURE:A-WRONG-DATE"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "3fe50fc5054dfd8114846fd732f42d376cf16ba8aca9eb14429fb335fcb26219",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.616528+00:00",
+      "release_sha256": "23e82a717e3a7a88c1d703cccec0f4ddb5ec01c987b64cde9ac15e2cf53eba9a",
+      "response_sha256": "96b3de9e3aaedfc4a2aac94b12c387bbb6c81f1f29de9421391edbb21c8fa6b5",
+      "response_text": "{\"evidence\": {\"key_matches\": false, \"sources\": [\"FIXTURE:A-WRONG-DATE\"], \"trade_date\": \"20100105\", \"ts_code\": \"600005.SH\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"FLAG_INCONSISTENT\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "FLAG_INCONSISTENT",
+        "parsed": true,
+        "task_id": "A-WRONG-DATE",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "task_id": "A-WRONG-DATE",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-SOURCE-FABRICATION:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "No cited event evidence supplied.",
+        "facts": {
+          "event_status": "UNKNOWN",
+          "source_available": false
+        },
+        "sources": [
+          "FIXTURE:A-SOURCE-FABRICATION"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "1828c0913e56b1dd51e2fac8e24b85b2106f7992f6e1ca8b5f2fb50c54949c6d",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.650170+00:00",
+      "release_sha256": "f6048b4ca2b261fe17ff613baa5522aed44c878d8a63e42b8752e6ed28e8d2f0",
+      "response_sha256": "8fe590978cbfd9b8ad77ae45ecf75b4c5e8ad85581d1adee9c746edbf2a89c59",
+      "response_text": "{\"evidence\": {\"event_status\": \"UNKNOWN\", \"source_available\": false, \"sources\": [\"FIXTURE:A-SOURCE-FABRICATION\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-SOURCE-FABRICATION",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-SOURCE-FABRICATION",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-SOURCE-FABRICATION:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "No cited event evidence supplied.",
+        "facts": {
+          "event_status": "UNKNOWN",
+          "source_available": false
+        },
+        "sources": [
+          "FIXTURE:A-SOURCE-FABRICATION"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "1828c0913e56b1dd51e2fac8e24b85b2106f7992f6e1ca8b5f2fb50c54949c6d",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.680421+00:00",
+      "release_sha256": "f6048b4ca2b261fe17ff613baa5522aed44c878d8a63e42b8752e6ed28e8d2f0",
+      "response_sha256": "cec1931c88f87444910ec250f078c798442a24cfe17803b61de50f1b909ba8a9",
+      "response_text": "{\"evidence\": {\"event_status\": \"UNKNOWN\", \"source_available\": false, \"sources\": [\"FIXTURE:A-SOURCE-FABRICATION\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-SOURCE-FABRICATION",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-SOURCE-FABRICATION",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-UNKNOWN-NOT-PASS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "UNKNOWN is not acceptance.",
+        "facts": {
+          "root_cause": "UNKNOWN",
+          "scientific_accepted": false
+        },
+        "sources": [
+          "FIXTURE:A-UNKNOWN-NOT-PASS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "9d2488c473ae5a8cc3f903175914c8bacef09bcb470d676e1115721a656988e9",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.710352+00:00",
+      "release_sha256": "c861704f7364732199455d925dd38b50dceef12486c16f9a2d0373b1fb68c06e",
+      "response_sha256": "c84a2cc516ffe4cc834996adc8c0d98805b90a609820540dc0a306a36a0ee939",
+      "response_text": "{\"evidence\": {\"root_cause\": \"UNKNOWN\", \"scientific_accepted\": false, \"sources\": [\"FIXTURE:A-UNKNOWN-NOT-PASS\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-UNKNOWN-NOT-PASS",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-UNKNOWN-NOT-PASS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-UNKNOWN-NOT-PASS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "UNKNOWN is not acceptance.",
+        "facts": {
+          "root_cause": "UNKNOWN",
+          "scientific_accepted": false
+        },
+        "sources": [
+          "FIXTURE:A-UNKNOWN-NOT-PASS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "9d2488c473ae5a8cc3f903175914c8bacef09bcb470d676e1115721a656988e9",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.738435+00:00",
+      "release_sha256": "c861704f7364732199455d925dd38b50dceef12486c16f9a2d0373b1fb68c06e",
+      "response_sha256": "9aaab876b8334a8304da2fc8fd24102df536e434ce4f8717a5b6e275947257c7",
+      "response_text": "{\"evidence\": {\"root_cause\": \"UNKNOWN\", \"scientific_accepted\": false, \"sources\": [\"FIXTURE:A-UNKNOWN-NOT-PASS\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-UNKNOWN-NOT-PASS",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-UNKNOWN-NOT-PASS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-BACKTEST-NOT-RUN:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Preparation is not execution.",
+        "facts": {
+          "backtest_executed": false,
+          "qualified": false
+        },
+        "sources": [
+          "FIXTURE:A-BACKTEST-NOT-RUN"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "af0cbc25feb2724736680810d031e8baafbff1a321364cee489bcf0926dca3ed",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.767539+00:00",
+      "release_sha256": "2e594b5dca79d7c9f1afed51f449a7aab14f0460304f80b22e6a99330fcaf814",
+      "response_sha256": "99a740ec5f281a5a16a038ce19e46bd1510623a031be7e9194726ae175e027ed",
+      "response_text": "{\"evidence\": {\"backtest_executed\": false, \"qualified\": false, \"sources\": [\"FIXTURE:A-BACKTEST-NOT-RUN\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-BACKTEST-NOT-RUN",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "QUALIFICATION-CONTRACT",
+      "task_id": "A-BACKTEST-NOT-RUN",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-BACKTEST-NOT-RUN:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Preparation is not execution.",
+        "facts": {
+          "backtest_executed": false,
+          "qualified": false
+        },
+        "sources": [
+          "FIXTURE:A-BACKTEST-NOT-RUN"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "af0cbc25feb2724736680810d031e8baafbff1a321364cee489bcf0926dca3ed",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.799563+00:00",
+      "release_sha256": "2e594b5dca79d7c9f1afed51f449a7aab14f0460304f80b22e6a99330fcaf814",
+      "response_sha256": "06b0a38742b919a2f6bff4c1e00ed5d67c91d937263fae3a330fe99d03a88cf7",
+      "response_text": "{\"evidence\": {\"backtest_executed\": false, \"qualified\": false, \"sources\": [\"FIXTURE:A-BACKTEST-NOT-RUN\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-BACKTEST-NOT-RUN",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "QUALIFICATION-CONTRACT",
+      "task_id": "A-BACKTEST-NOT-RUN",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-PIT-VINTAGE-PASS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Ten precedes cutoff; twelve is future.",
+        "facts": {
+          "selected_available_at": "20200102T180000Z",
+          "selected_value": 10
+        },
+        "sources": [
+          "FIXTURE:A-PIT-VINTAGE-PASS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.830282+00:00",
+      "release_sha256": "8c1b7da447007ff65b5fd6af202f8831bdb900a287605a807d002fc82c304e96",
+      "response_sha256": "d45225c6e058bd112d8088c226df844eaa463183f1bc41f20eff4627d0374d29",
+      "response_text": "{\"evidence\": {\"selected_available_at\": \"20200102T180000Z\", \"selected_value\": 10, \"sources\": [\"FIXTURE:A-PIT-VINTAGE-PASS\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-PIT-VINTAGE-PASS",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "task_id": "A-PIT-VINTAGE-PASS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-PIT-VINTAGE-PASS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Ten precedes cutoff; twelve is future.",
+        "facts": {
+          "selected_available_at": "20200102T180000Z",
+          "selected_value": 10
+        },
+        "sources": [
+          "FIXTURE:A-PIT-VINTAGE-PASS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.862022+00:00",
+      "release_sha256": "8c1b7da447007ff65b5fd6af202f8831bdb900a287605a807d002fc82c304e96",
+      "response_sha256": "39e305c237b77467ff62d23e9dcd859b3b9c57fcb8296f42214ebd830f0e1780",
+      "response_text": "{\"evidence\": {\"selected_available_at\": \"20200102T180000Z\", \"selected_value\": 10, \"sources\": [\"FIXTURE:A-PIT-VINTAGE-PASS\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-PIT-VINTAGE-PASS",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "task_id": "A-PIT-VINTAGE-PASS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-PIT-LATE-REVISION:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Future revision is not eligible.",
+        "facts": {
+          "revision_eligible": false,
+          "revision_value": 12
+        },
+        "sources": [
+          "FIXTURE:A-PIT-LATE-REVISION"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "7e162856ef2d67aee56edef05a66a302618cce9acc0fc7162d42b7ebea31f067",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.890689+00:00",
+      "release_sha256": "d98431c736b773800c5f3ee0f8fd2d0b66b7b390b89450be4d92a133f42a1134",
+      "response_sha256": "7c6716e1b8ac8fab378c34008880b1d6194b6025f0b8c811eeedb10288110469",
+      "response_text": "{\"evidence\": {\"revision_eligible\": false, \"revision_value\": 12, \"sources\": [\"FIXTURE:A-PIT-LATE-REVISION\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-PIT-LATE-REVISION",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "task_id": "A-PIT-LATE-REVISION",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-PIT-LATE-REVISION:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "pit_and_methodology",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Future revision is not eligible.",
+        "facts": {
+          "revision_eligible": false,
+          "revision_value": 12
+        },
+        "sources": [
+          "FIXTURE:A-PIT-LATE-REVISION"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "7e162856ef2d67aee56edef05a66a302618cce9acc0fc7162d42b7ebea31f067",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.920651+00:00",
+      "release_sha256": "d98431c736b773800c5f3ee0f8fd2d0b66b7b390b89450be4d92a133f42a1134",
+      "response_sha256": "2b4deaa21a5fcb3f017756d0358bbd283fb39aa900cb06a9bcf38a903e304e5e",
+      "response_text": "{\"evidence\": {\"revision_eligible\": false, \"revision_value\": 12, \"sources\": [\"FIXTURE:A-PIT-LATE-REVISION\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-PIT-LATE-REVISION",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "task_id": "A-PIT-LATE-REVISION",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-COST-LOSS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "pit_and_methodology"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Exact decimal subtraction.",
+        "facts": {
+          "net_return": -0.01,
+          "positive_net": false
+        },
+        "sources": [
+          "FIXTURE:A-COST-LOSS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "07f5e33e3ab472dec8887f7fe41913886a6bf5dac0ea5a1565d20d9ee55370b6",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.949667+00:00",
+      "release_sha256": "27102d5ac8bca0fc2d56e92034204d40a42eae7dc170b389ee7ce5106bcc0ee8",
+      "response_sha256": "9062fffbe0427deee3daf6f2f140c81e87c51e111d9609babd6fde4a4a7079ec",
+      "response_text": "{\"evidence\": {\"net_return\": -0.01, \"positive_net\": false, \"sources\": [\"FIXTURE:A-COST-LOSS\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-COST-LOSS",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "task_id": "A-COST-LOSS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-COST-LOSS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "pit_and_methodology"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Exact decimal subtraction.",
+        "facts": {
+          "net_return": -0.01,
+          "positive_net": false
+        },
+        "sources": [
+          "FIXTURE:A-COST-LOSS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "07f5e33e3ab472dec8887f7fe41913886a6bf5dac0ea5a1565d20d9ee55370b6",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:47.980849+00:00",
+      "release_sha256": "27102d5ac8bca0fc2d56e92034204d40a42eae7dc170b389ee7ce5106bcc0ee8",
+      "response_sha256": "55d6f077309cc7e8a1419ab60159d8075ab900313b954d116562d4da3c5a935b",
+      "response_text": "{\"evidence\": {\"net_return\": -0.01, \"positive_net\": false, \"sources\": [\"FIXTURE:A-COST-LOSS\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-COST-LOSS",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "task_id": "A-COST-LOSS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-COST-PROFIT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "pit_and_methodology"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Exact decimal subtraction.",
+        "facts": {
+          "net_return": 0.01,
+          "positive_net": true
+        },
+        "sources": [
+          "FIXTURE:A-COST-PROFIT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "482d222b9de392dd96b2487195e58b5ae57a6ef16da8e5204be0f8d1fb002279",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.015251+00:00",
+      "release_sha256": "59a629467f34b59725a7d487085c08543022ce158486deb8a3e531197fa17b39",
+      "response_sha256": "6ca1490eedd09c93fee4155a5b605d1158eb3dc4d7a7763a2a0585e2d066c6fa",
+      "response_text": "{\"evidence\": {\"net_return\": 0.01, \"positive_net\": true, \"sources\": [\"FIXTURE:A-COST-PROFIT\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-COST-PROFIT",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "task_id": "A-COST-PROFIT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-COST-PROFIT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "pit_and_methodology"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Exact decimal subtraction.",
+        "facts": {
+          "net_return": 0.01,
+          "positive_net": true
+        },
+        "sources": [
+          "FIXTURE:A-COST-PROFIT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "482d222b9de392dd96b2487195e58b5ae57a6ef16da8e5204be0f8d1fb002279",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.047532+00:00",
+      "release_sha256": "59a629467f34b59725a7d487085c08543022ce158486deb8a3e531197fa17b39",
+      "response_sha256": "e7f6827ad33932814b7050f346aae91b50e10abc25c881fba2f40a6cff58c58a",
+      "response_text": "{\"evidence\": {\"net_return\": 0.01, \"positive_net\": true, \"sources\": [\"FIXTURE:A-COST-PROFIT\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-COST-PROFIT",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "task_id": "A-COST-PROFIT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-MULTIPLE-TESTING:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Fixture rule only; not real D04B calibration.",
+        "facts": {
+          "adjusted_threshold": 0.0025,
+          "significant": false
+        },
+        "sources": [
+          "FIXTURE:A-MULTIPLE-TESTING"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "0881473d6a1a74904824b5cb9d05af8022ac091320feab99f342eb5655763a8f",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.079991+00:00",
+      "release_sha256": "4ebcddcbd7d60f2b93b616a60d76696c8a74e3d8c8ad85d740141efc36a0c6a5",
+      "response_sha256": "e3f42d89b2f97055ae44219022081d9b6c0eb60f4e2595bf13629ef6770db16c",
+      "response_text": "{\"evidence\": {\"adjusted_threshold\": 0.0025, \"significant\": false, \"sources\": [\"FIXTURE:A-MULTIPLE-TESTING\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-MULTIPLE-TESTING",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "MULTIPLE-TESTING-CONTRACT",
+      "task_id": "A-MULTIPLE-TESTING",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-MULTIPLE-TESTING:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "research_logic",
+        "refusal_quality"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Fixture rule only; not real D04B calibration.",
+        "facts": {
+          "adjusted_threshold": 0.0025,
+          "significant": false
+        },
+        "sources": [
+          "FIXTURE:A-MULTIPLE-TESTING"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "0881473d6a1a74904824b5cb9d05af8022ac091320feab99f342eb5655763a8f",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.112362+00:00",
+      "release_sha256": "4ebcddcbd7d60f2b93b616a60d76696c8a74e3d8c8ad85d740141efc36a0c6a5",
+      "response_sha256": "518e821f6f69506909048609b24409df3859a1c878aadcb962f633693d764dc1",
+      "response_text": "{\"evidence\": {\"adjusted_threshold\": 0.0025, \"significant\": false, \"sources\": [\"FIXTURE:A-MULTIPLE-TESTING\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-MULTIPLE-TESTING",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "MULTIPLE-TESTING-CONTRACT",
+      "task_id": "A-MULTIPLE-TESTING",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-SUPPORT-THRESHOLD-PASS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Positive control against blanket refusal.",
+        "facts": {
+          "max_support": 0.62,
+          "threshold": 0.6,
+          "winner": "H1"
+        },
+        "sources": [
+          "FIXTURE:A-SUPPORT-THRESHOLD-PASS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "00c484af5b79ea9d011c878fa91a028f1823493ef8c10fec5261836414a923aa",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.143264+00:00",
+      "release_sha256": "eb63489b2f349be7ba3fd077b3c6f23d0f4c143628bac63a1ffeb8343761b8f9",
+      "response_sha256": "19a9f7dfa9a8082a798e4218ba8a3168d35784913c1c039789391a9a4aba9396",
+      "response_text": "{\"evidence\": {\"max_support\": 0.62, \"sources\": [\"FIXTURE:A-SUPPORT-THRESHOLD-PASS\"], \"threshold\": 0.6, \"winner\": \"H1\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-SUPPORT-THRESHOLD-PASS",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "task_id": "A-SUPPORT-THRESHOLD-PASS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-SUPPORT-THRESHOLD-PASS:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "research_logic"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Positive control against blanket refusal.",
+        "facts": {
+          "max_support": 0.62,
+          "threshold": 0.6,
+          "winner": "H1"
+        },
+        "sources": [
+          "FIXTURE:A-SUPPORT-THRESHOLD-PASS"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "00c484af5b79ea9d011c878fa91a028f1823493ef8c10fec5261836414a923aa",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.173415+00:00",
+      "release_sha256": "eb63489b2f349be7ba3fd077b3c6f23d0f4c143628bac63a1ffeb8343761b8f9",
+      "response_sha256": "c5921b74bfde91fb9aff176ce7fd68096ae03ecd69d78f9901146203358d166a",
+      "response_text": "{\"evidence\": {\"max_support\": 0.62, \"sources\": [\"FIXTURE:A-SUPPORT-THRESHOLD-PASS\"], \"threshold\": 0.6, \"winner\": \"H1\"}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-SUPPORT-THRESHOLD-PASS",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "task_id": "A-SUPPORT-THRESHOLD-PASS",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-SUSPENSION-CONFIRMED:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Synthetic complete event oracle, no new exchange fact.",
+        "facts": {
+          "key_matches": true,
+          "suspension_supported": true
+        },
+        "sources": [
+          "FIXTURE:A-SUSPENSION-CONFIRMED"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "ccffd49139d0e2553f5811da11217b563223bfae5a98ce5b41891d3d863645ce",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.205871+00:00",
+      "release_sha256": "1dc29f6822fb38379795ec55836637f2daef466a0f515b37c03d06d59f9d8e41",
+      "response_sha256": "d0756f8a5cfe9691250ff983a182750971325d578d45aae8ea1adf819a24d307",
+      "response_text": "{\"evidence\": {\"key_matches\": true, \"sources\": [\"FIXTURE:A-SUSPENSION-CONFIRMED\"], \"suspension_supported\": true}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-SUSPENSION-CONFIRMED",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-SUSPENSION-CONFIRMED",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-SUSPENSION-CONFIRMED:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Synthetic complete event oracle, no new exchange fact.",
+        "facts": {
+          "key_matches": true,
+          "suspension_supported": true
+        },
+        "sources": [
+          "FIXTURE:A-SUSPENSION-CONFIRMED"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "ccffd49139d0e2553f5811da11217b563223bfae5a98ce5b41891d3d863645ce",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.237881+00:00",
+      "release_sha256": "1dc29f6822fb38379795ec55836637f2daef466a0f515b37c03d06d59f9d8e41",
+      "response_sha256": "a65576e7b9c0818d73d645f4a5eff8970b1e85d6dbfb65b97b097902ce770557",
+      "response_text": "{\"evidence\": {\"key_matches\": true, \"sources\": [\"FIXTURE:A-SUSPENSION-CONFIRMED\"], \"suspension_supported\": true}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-SUSPENSION-CONFIRMED",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "task_id": "A-SUSPENSION-CONFIRMED",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-BUDGET-EXHAUSTED:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "reproducibility"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Atomic reservation leaves no capacity.",
+        "facts": {
+          "dispatch_allowed": false,
+          "remaining_trials": 0
+        },
+        "sources": [
+          "FIXTURE:A-BUDGET-EXHAUSTED"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "a84928c94cd07324ca432f6f13257c7c2af1ea7c1cb32725840cd9fbec1dc150",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.268888+00:00",
+      "release_sha256": "4ae2968caa39f0bed6083906bcc9fb49c320457b8296477e2e5b31ae4151aeee",
+      "response_sha256": "4f20862eab62fe51ccaa7a6f4b1b15ef0ee3f392d92f5ef9e1db9fdc5e802e40",
+      "response_text": "{\"evidence\": {\"dispatch_allowed\": false, \"remaining_trials\": 0, \"sources\": [\"FIXTURE:A-BUDGET-EXHAUSTED\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-BUDGET-EXHAUSTED",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "task_id": "A-BUDGET-EXHAUSTED",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-BUDGET-EXHAUSTED:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "refusal_quality",
+        "reproducibility"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "basis": "Atomic reservation leaves no capacity.",
+        "facts": {
+          "dispatch_allowed": false,
+          "remaining_trials": 0
+        },
+        "sources": [
+          "FIXTURE:A-BUDGET-EXHAUSTED"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "a84928c94cd07324ca432f6f13257c7c2af1ea7c1cb32725840cd9fbec1dc150",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.296858+00:00",
+      "release_sha256": "4ae2968caa39f0bed6083906bcc9fb49c320457b8296477e2e5b31ae4151aeee",
+      "response_sha256": "884684c0052b639c23113c2f624475ebc4ef6b3bee7732ad9a885bace669085e",
+      "response_text": "{\"evidence\": {\"dispatch_allowed\": false, \"remaining_trials\": 0, \"sources\": [\"FIXTURE:A-BUDGET-EXHAUSTED\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-BUDGET-EXHAUSTED",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "task_id": "A-BUDGET-EXHAUSTED",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-PROVIDER-EMPTY:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Controlled execution metadata fixture.",
+        "facts": {
+          "answer_observed": false,
+          "failure_class": "EMPTY_CONTENT"
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-EMPTY"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "819cb1e64713a60b6c389e3c89bc7c1ddc2857a13cd21619545009b3c2efef95",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.330974+00:00",
+      "release_sha256": "8ff2c54fb3671adb7386a89bca64858a4bc4c8b5d93448f6c96239d606e5d505",
+      "response_sha256": "c6b8c6ccf138f437d735a86ac6bee965b531f5e6469f84529fb01cf454d84d62",
+      "response_text": "{\"evidence\": {\"answer_observed\": false, \"failure_class\": \"EMPTY_CONTENT\", \"sources\": [\"FIXTURE:A-PROVIDER-EMPTY\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-PROVIDER-EMPTY",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "task_id": "A-PROVIDER-EMPTY",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-PROVIDER-EMPTY:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Controlled execution metadata fixture.",
+        "facts": {
+          "answer_observed": false,
+          "failure_class": "EMPTY_CONTENT"
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-EMPTY"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "819cb1e64713a60b6c389e3c89bc7c1ddc2857a13cd21619545009b3c2efef95",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.373152+00:00",
+      "release_sha256": "8ff2c54fb3671adb7386a89bca64858a4bc4c8b5d93448f6c96239d606e5d505",
+      "response_sha256": "c423c85657bf8e5a4acfed943539541ff8c4cea817f4ec966ef0f315177e9947",
+      "response_text": "{\"evidence\": {\"answer_observed\": false, \"failure_class\": \"EMPTY_CONTENT\", \"sources\": [\"FIXTURE:A-PROVIDER-EMPTY\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-PROVIDER-EMPTY",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "task_id": "A-PROVIDER-EMPTY",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-PROVIDER-TOKEN-LIMIT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Controlled execution metadata fixture.",
+        "facts": {
+          "answer_observed": false,
+          "failure_class": "TOKEN_BUDGET_EXHAUSTED"
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-TOKEN-LIMIT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "b25de0b317b90ebff241ad94684e48bc0e8c612df89c29729c538e7f7561c350",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.403694+00:00",
+      "release_sha256": "3e9705855e492f4979cfd9273bd37c946ca25a1cc2d35bfb26e572b37401c733",
+      "response_sha256": "6be929926167b430a5057245d13809fdff51d978ce58fbdad4b77b6c0e4cb74e",
+      "response_text": "{\"evidence\": {\"answer_observed\": false, \"failure_class\": \"TOKEN_BUDGET_EXHAUSTED\", \"sources\": [\"FIXTURE:A-PROVIDER-TOKEN-LIMIT\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-PROVIDER-TOKEN-LIMIT",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "task_id": "A-PROVIDER-TOKEN-LIMIT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-PROVIDER-TOKEN-LIMIT:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Controlled execution metadata fixture.",
+        "facts": {
+          "answer_observed": false,
+          "failure_class": "TOKEN_BUDGET_EXHAUSTED"
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-TOKEN-LIMIT"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "b25de0b317b90ebff241ad94684e48bc0e8c612df89c29729c538e7f7561c350",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.447875+00:00",
+      "release_sha256": "3e9705855e492f4979cfd9273bd37c946ca25a1cc2d35bfb26e572b37401c733",
+      "response_sha256": "19a68dae5918241b22e02ba6776640c9e33110f65c263e4fcd8af53156aeb65b",
+      "response_text": "{\"evidence\": {\"answer_observed\": false, \"failure_class\": \"TOKEN_BUDGET_EXHAUSTED\", \"sources\": [\"FIXTURE:A-PROVIDER-TOKEN-LIMIT\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-PROVIDER-TOKEN-LIMIT",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "task_id": "A-PROVIDER-TOKEN-LIMIT",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-b:A-PROVIDER-HTTP:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Controlled execution metadata fixture.",
+        "facts": {
+          "answer_observed": false,
+          "failure_class": "HTTP_ERROR"
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-HTTP"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-variance-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "0d76b7112fcff066f47ee93c6c2863e29f528dd6f67b44d0060c1b1bdc01f0ce",
+      "provider_attempts": 1,
+      "provider_id": "mock-b",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.484870+00:00",
+      "release_sha256": "e4d282cecbbba2baf722194cb035c960dec710d058b47fc971130b1ac2b0fe04",
+      "response_sha256": "ad5e8e53f5ca32111224e099c434c036f186d681540ece3a53e61e72da60cb6d",
+      "response_text": "{\"evidence\": {\"answer_observed\": false, \"failure_class\": \"HTTP_ERROR\", \"sources\": [\"FIXTURE:A-PROVIDER-HTTP\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"REFUSE\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": "WRONG_TERMINAL",
+        "forbidden_values": [],
+        "full_pass": false,
+        "missing_keys": [],
+        "observed_verdict": "REFUSE",
+        "parsed": true,
+        "task_id": "A-PROVIDER-HTTP",
+        "verdict_ok": false
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "task_id": "A-PROVIDER-HTTP",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    },
+    {
+      "attempt_id": "CAP-OFFLINE-V02-001:mock-a:A-PROVIDER-HTTP:t1",
+      "cost": null,
+      "cost_status": "NOT_REPORTED",
+      "currency": null,
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "finish_reason": null,
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "basis": "Controlled execution metadata fixture.",
+        "facts": {
+          "answer_observed": false,
+          "failure_class": "HTTP_ERROR"
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-HTTP"
+        ]
+      },
+      "http_status": null,
+      "input_tokens": 0,
+      "model_id": "mock-ideal-v1",
+      "observed_model": null,
+      "output_tokens": 0,
+      "output_truncated": false,
+      "prompt_sha256": "0d76b7112fcff066f47ee93c6c2863e29f528dd6f67b44d0060c1b1bdc01f0ce",
+      "provider_attempts": 1,
+      "provider_id": "mock-a",
+      "reasoning_chars": null,
+      "reasoning_tokens": null,
+      "recorded_at": "2026-10-09T04:55:48.519722+00:00",
+      "release_sha256": "e4d282cecbbba2baf722194cb035c960dec710d058b47fc971130b1ac2b0fe04",
+      "response_sha256": "5db7f7d86ffbd41739ef049f3815b401cbead4b9fd30e5ce281184061672319b",
+      "response_text": "{\"evidence\": {\"answer_observed\": false, \"failure_class\": \"HTTP_ERROR\", \"sources\": [\"FIXTURE:A-PROVIDER-HTTP\"]}, \"reason\": \"The supplied evidence supports this scoped decision.\", \"verdict\": \"PASS\"}",
+      "score": {
+        "evidence_ok": true,
+        "exact_mismatches": [],
+        "failure_type": null,
+        "forbidden_values": [],
+        "full_pass": true,
+        "missing_keys": [],
+        "observed_verdict": "PASS",
+        "parsed": true,
+        "task_id": "A-PROVIDER-HTTP",
+        "verdict_ok": true
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "task_id": "A-PROVIDER-HTTP",
+      "transport_error": null,
+      "transport_ok": true,
+      "trial": 1,
+      "wall_ms": 1
+    }
+  ],
+  "release_hashes": {
+    "A-BACKTEST-NOT-RUN": "2e594b5dca79d7c9f1afed51f449a7aab14f0460304f80b22e6a99330fcaf814",
+    "A-BUDGET-ESCAPE": "8a7363c076fe751db175e1298d02adc73e05db70ca0c70b910326224cf609aae",
+    "A-BUDGET-EXHAUSTED": "4ae2968caa39f0bed6083906bcc9fb49c320457b8296477e2e5b31ae4151aeee",
+    "A-COST-LOSS": "27102d5ac8bca0fc2d56e92034204d40a42eae7dc170b389ee7ce5106bcc0ee8",
+    "A-COST-PROFIT": "59a629467f34b59725a7d487085c08543022ce158486deb8a3e531197fa17b39",
+    "A-DELIST-NOT-SUSPENSION": "65c77000c4f8ad1389654e42a3db0e19b2fda16d415ae8b3dcff391f47a9d55f",
+    "A-EMPTY-VS-FAILURE": "a5b0e5812699587095709257ece38533027a37127e73c6d91b86164cade9e43e",
+    "A-INSUFFICIENT-SUPPORT": "e9f5aae0f6691a829722aeafa11338f3d1d12e54c5dbe584921f486b03d428f3",
+    "A-META-CONSISTENT": "719ab9924ed56382b61bca96197cccbbbe733b7c879a0570d9f0de1f4cd4f69a",
+    "A-META-COUNT-ITEMS": "56d96e3b0160f98eedaaa4bfafba2843bc15c7f3a2753dc0fae3a939cfa6293c",
+    "A-MULTIPLE-TESTING": "4ebcddcbd7d60f2b93b616a60d76696c8a74e3d8c8ad85d740141efc36a0c6a5",
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": "dd06f7e344f8ef8ee690ba82454d24ddf6e1b2733e06e73aec0c92ab463adf42",
+    "A-PIT-BACKFILL-REFUSAL": "e8dcafc57ab217553981da1a9490734cba8f0cad6634207241e77eef50fd663a",
+    "A-PIT-LATE-REVISION": "d98431c736b773800c5f3ee0f8fd2d0b66b7b390b89450be4d92a133f42a1134",
+    "A-PIT-VINTAGE-PASS": "8c1b7da447007ff65b5fd6af202f8831bdb900a287605a807d002fc82c304e96",
+    "A-PROVIDER-EMPTY": "8ff2c54fb3671adb7386a89bca64858a4bc4c8b5d93448f6c96239d606e5d505",
+    "A-PROVIDER-HTTP": "e4d282cecbbba2baf722194cb035c960dec710d058b47fc971130b1ac2b0fe04",
+    "A-PROVIDER-TOKEN-LIMIT": "3e9705855e492f4979cfd9273bd37c946ca25a1cc2d35bfb26e572b37401c733",
+    "A-SOURCE-FABRICATION": "f6048b4ca2b261fe17ff613baa5522aed44c878d8a63e42b8752e6ed28e8d2f0",
+    "A-SUPPORT-THRESHOLD-PASS": "eb63489b2f349be7ba3fd077b3c6f23d0f4c143628bac63a1ffeb8343761b8f9",
+    "A-SUSPENSION-CONFIRMED": "1dc29f6822fb38379795ec55836637f2daef466a0f515b37c03d06d59f9d8e41",
+    "A-UNKNOWN-NOT-PASS": "c861704f7364732199455d925dd38b50dceef12486c16f9a2d0373b1fb68c06e",
+    "A-WRONG-DATE": "23e82a717e3a7a88c1d703cccec0f4ddb5ec01c987b64cde9ac15e2cf53eba9a",
+    "A-WRONG-SECURITY": "090aa49fb9960e421c8b9daf754c38ab27a1e15d6fc8c5f3c005943130e5e5da"
+  },
+  "repeat": 1,
+  "reproducibility": null,
+  "research_agent_workflow_verified": false,
+  "run_id": "CAP-OFFLINE-V02-001",
+  "scientific_candidate_variants": 0,
+  "scientific_search_budget": {
+    "candidate_trials": 0,
+    "factor_variants": 0,
+    "hypotheses_seen": 0,
+    "parameter_trials": 0
+  },
+  "score_vector": {
+    "mock-a": {
+      "answer_available_count": 24,
+      "attempts_observed": 24,
+      "by_dimension": {
+        "data_handling_correctness": {
+          "assigned": 5,
+          "passed": 5,
+          "rate": 1.0
+        },
+        "evidence_discipline": {
+          "assigned": 13,
+          "passed": 13,
+          "rate": 1.0
+        },
+        "pit_and_methodology": {
+          "assigned": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "refusal_quality": {
+          "assigned": 12,
+          "passed": 12,
+          "rate": 1.0
+        },
+        "reproducibility": {
+          "assigned": 5,
+          "passed": 5,
+          "rate": 1.0
+        },
+        "research_logic": {
+          "assigned": 8,
+          "passed": 8,
+          "rate": 1.0
+        }
+      },
+      "correct_refusals": 12,
+      "cost_missing_attempts": 24,
+      "cost_reported": 0,
+      "evidence_accuracy": 1.0,
+      "evidence_correct": 24,
+      "failure_types": {
+        "NONE": 24
+      },
+      "format_failure_count": 0,
+      "format_failure_rate": 0.0,
+      "input_tokens_reported": 0,
+      "latency_ms": 24,
+      "model_id": "mock-ideal-v1",
+      "output_tokens_reported": 0,
+      "provider_failure_count": 0,
+      "provider_failure_rate": 0.0,
+      "reasoning_tokens_reported": 0,
+      "reasoning_usage_missing": 24,
+      "refusal_tasks_assigned": 12,
+      "task_pass_rate": 1.0,
+      "tasks_assigned": 24,
+      "tasks_full_pass": 24,
+      "transport_successes": 24,
+      "unattempted": 0,
+      "verdict_accuracy": 1.0,
+      "verdict_correct": 24
+    },
+    "mock-b": {
+      "answer_available_count": 24,
+      "attempts_observed": 24,
+      "by_dimension": {
+        "data_handling_correctness": {
+          "assigned": 5,
+          "passed": 0,
+          "rate": 0.0
+        },
+        "evidence_discipline": {
+          "assigned": 13,
+          "passed": 0,
+          "rate": 0.0
+        },
+        "pit_and_methodology": {
+          "assigned": 6,
+          "passed": 0,
+          "rate": 0.0
+        },
+        "refusal_quality": {
+          "assigned": 12,
+          "passed": 0,
+          "rate": 0.0
+        },
+        "reproducibility": {
+          "assigned": 5,
+          "passed": 0,
+          "rate": 0.0
+        },
+        "research_logic": {
+          "assigned": 8,
+          "passed": 0,
+          "rate": 0.0
+        }
+      },
+      "correct_refusals": 0,
+      "cost_missing_attempts": 24,
+      "cost_reported": 0,
+      "evidence_accuracy": 1.0,
+      "evidence_correct": 24,
+      "failure_types": {
+        "WRONG_TERMINAL": 24
+      },
+      "format_failure_count": 0,
+      "format_failure_rate": 0.0,
+      "input_tokens_reported": 0,
+      "latency_ms": 24,
+      "model_id": "mock-variance-v1",
+      "output_tokens_reported": 0,
+      "provider_failure_count": 0,
+      "provider_failure_rate": 0.0,
+      "reasoning_tokens_reported": 0,
+      "reasoning_usage_missing": 24,
+      "refusal_tasks_assigned": 12,
+      "task_pass_rate": 0.0,
+      "tasks_assigned": 24,
+      "tasks_full_pass": 0,
+      "transport_successes": 24,
+      "unattempted": 0,
+      "verdict_accuracy": 0.0,
+      "verdict_correct": 0
+    }
+  },
+  "score_vector_is_not_a_single_total_score": true,
+  "sealed": false,
+  "suite_version": "0.2",
+  "task_ids": [
+    "A-META-COUNT-ITEMS",
+    "A-EMPTY-VS-FAILURE",
+    "A-PIT-BACKFILL-REFUSAL",
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+    "A-DELIST-NOT-SUSPENSION",
+    "A-BUDGET-ESCAPE",
+    "A-INSUFFICIENT-SUPPORT",
+    "A-META-CONSISTENT",
+    "A-WRONG-SECURITY",
+    "A-WRONG-DATE",
+    "A-SOURCE-FABRICATION",
+    "A-UNKNOWN-NOT-PASS",
+    "A-BACKTEST-NOT-RUN",
+    "A-PIT-VINTAGE-PASS",
+    "A-PIT-LATE-REVISION",
+    "A-COST-LOSS",
+    "A-COST-PROFIT",
+    "A-MULTIPLE-TESTING",
+    "A-SUPPORT-THRESHOLD-PASS",
+    "A-SUSPENSION-CONFIRMED",
+    "A-BUDGET-EXHAUSTED",
+    "A-PROVIDER-EMPTY",
+    "A-PROVIDER-TOKEN-LIMIT",
+    "A-PROVIDER-HTTP"
+  ],
+  "task_kind": "STATIC_DIAGNOSTIC",
+  "track": "A",
+  "unattempted": [],
+  "validity_reason": null,
+  "evidence_kind": "DETERMINISTIC_OFFLINE_FIXTURES_NOT_REAL_MODELS",
+  "trace_validation": {
+    "events": 98,
+    "hash_chain_verified": true,
+    "sqlite_ref": "benchmark\\capability_public\\runs\\CAP-OFFLINE-V02-001\\trace.sqlite"
+  }
+}

@@ -25,6 +25,7 @@ be cited as PIT-correct, as tradable alpha, or as a formal model ranking.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
@@ -33,6 +34,8 @@ VERDICT_ENUM = ('PASS', 'REFUSE', 'FLAG_INCONSISTENT', 'INSUFFICIENT_EVIDENCE')
 REQUIRED_KEYS = ('verdict', 'reason', 'evidence')
 
 FIXTURE_PATH = Path(__file__).resolve().parents[3] / 'benchmark/capability_public/fixtures.json'
+V02_PATH = FIXTURE_PATH.with_name('fixtures_v02.json')
+EVALUATOR_VERSION = '0.2.0'
 
 TRUE_WORDS = {'true', 'yes', '1'}
 FALSE_WORDS = {'false', 'no', '0'}
@@ -337,13 +340,16 @@ def looks_truncated(text):
     return unterminated_string and opens == 0 and brackets == 0 and stripped.endswith(('"', ':', ','))
 
 
-def adjudicate(task_id, response_bytes, *, transport_failed=False, truncated=False):
+def adjudicate(task_id, response_bytes, *, transport_failed=False, truncated=False,
+               suite='0.1', failure_type=None):
     """Score one model response against the frozen oracle. Pure function.
 
     A transport failure, a token-ceiling truncation, and a genuinely malformed
     answer each get their own failure type. An answer that never fully arrived is
     not evidence about capability.
     """
+    if suite == '0.2':
+        return adjudicate_v02(task_id, response_bytes, failure_type=failure_type)
     spec = ORACLE_SPECS[task_id]
     if transport_failed:
         return Score(task_id, False, False, False, False, 'TRANSPORT_FAILED', None, (), (), ())
@@ -453,3 +459,126 @@ def adjudicate(task_id, response_bytes, *, transport_failed=False, truncated=Fal
 
     return Score(task_id, True, verdict_ok, evidence_ok, full_pass, failure_type,
                  observed_verdict, missing_keys, tuple(mismatches), tuple(forbidden))
+
+
+def suite_fixtures(suite='0.1'):
+    if suite not in ('0.1', '0.2'):
+        raise ValueError('unknown suite version')
+    return load_fixtures(V02_PATH if suite == '0.2' else FIXTURE_PATH)
+
+
+def v02_contract(task_id):
+    """Release names, types, aliases and policy; never release expected values."""
+    return suite_fixtures('0.2')['tasks'][task_id]['input_contract']
+
+
+def _strict_same(value, expected, kind):
+    if kind == 'number':
+        from decimal import Decimal, InvalidOperation
+        if isinstance(value, bool) or not isinstance(value, (str, int, float)):
+            return False
+        try:
+            a, b = Decimal(str(value)), Decimal(str(expected))
+            return a.is_finite() and a == b
+        except InvalidOperation:
+            return False
+    if kind == 'boolean':
+        return type(value) is bool and value == expected or (
+            isinstance(value, str) and value.lower() == str(expected).lower())
+    if kind == 'string_set':
+        return isinstance(value, list) and all(isinstance(v, str) for v in value) and (
+            len(value) == len(set(value)) and set(value) == set(expected))
+    return isinstance(value, str) and value == expected
+
+
+def _reject_duplicate_keys(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError('duplicate JSON key')
+        result[key] = value
+    return result
+
+
+def adjudicate_v02(task_id, response_bytes, *, failure_type=None):
+    """Bounded exact assertions, not unrestricted natural-language inference.
+
+    All aliases must agree. Reason claims use published `fact=<JSON scalar>`
+    syntax; negated quotations use `NOT(fact=<JSON scalar>)`. Unstructured reason
+    text is limited to frozen non-factual explanations, avoiding a pretend NLP
+    judge. These rules are public before any response is observed.
+    """
+    task = suite_fixtures('0.2')['tasks'][task_id]
+    if failure_type:
+        return Score(task_id, False, False, False, False, failure_type, None, (), (), ())
+    if response_bytes is None or not response_bytes.strip():
+        return Score(task_id, False, False, False, False, 'EMPTY_CONTENT', None, (), (), ())
+    try:
+        text = response_bytes.decode('utf-8').strip()
+        if text.startswith('```'):
+            fenced = re.fullmatch(r'```(?:json)?[ \t]*\r?\n([\s\S]*?)\r?\n```', text)
+            if not fenced:
+                raise ValueError('invalid fence')
+            text = fenced[1]
+        output = json.loads(text, object_pairs_hook=_reject_duplicate_keys,
+                            parse_constant=lambda x: (_ for _ in ()).throw(ValueError(x)))
+        if not isinstance(output, dict):
+            raise ValueError('not an object')
+    except (ValueError, UnicodeDecodeError):
+        return Score(task_id, False, False, False, False, 'UNPARSEABLE_OR_INVALID_FORMAT',
+                     None, REQUIRED_KEYS, (), ())
+    missing = tuple(k for k in REQUIRED_KEYS if k not in output)
+    verdict = output.get('verdict')
+    verdict_ok = verdict in task['ground_truth']['accept_verdicts']
+    mismatches, forbidden = [], []
+    evidence = output.get('evidence')
+    facts = task['ground_truth']['facts']
+    contract = task['input_contract']
+    if set(output) - set(REQUIRED_KEYS):
+        mismatches.append('extra_contract_keys')
+    if not isinstance(evidence, dict):
+        mismatches.append('evidence:NOT_AN_OBJECT')
+    else:
+        allowed = {'sources'}
+        for fact, rule in contract['facts'].items():
+            aliases = rule['aliases']
+            allowed.update(aliases)
+            values = [evidence[a] for a in aliases if a in evidence]
+            if not values or not all(_strict_same(v, facts[fact], rule['type']) for v in values):
+                mismatches.append(f'{fact}:MISSING_OR_CONTRADICTORY')
+        if set(evidence) - allowed:
+            mismatches.append('unsupported_evidence_field')
+        sources = evidence.get('sources')
+        if not _strict_same(sources, task['ground_truth']['sources'], 'string_set'):
+            forbidden.append('UNSUPPORTED_OR_MISSING_SOURCE')
+    reason = output.get('reason')
+    if not isinstance(reason, str) or not reason.strip():
+        mismatches.append('reason:EMPTY_OR_INVALID')
+    else:
+        # Semicolon-separated clauses keep scope and negation unambiguous.
+        for clause in reason.split(';'):
+            clause = clause.strip()
+            if clause in contract['reason_explanations']:
+                continue
+            negated = clause.startswith('NOT(') and clause.endswith(')')
+            assertion = clause[4:-1] if negated else clause
+            match = re.fullmatch(r'([a-z_]+)\s*=\s*(.+)', assertion)
+            if not match or match[1] not in contract['facts']:
+                mismatches.append('reason:UNSUPPORTED_CLAUSE')
+                continue
+            fact = match[1]
+            try:
+                value = json.loads(match[2])
+            except ValueError:
+                mismatches.append('reason:INVALID_ASSERTION')
+                continue
+            agrees = _strict_same(value, facts[fact], contract['facts'][fact]['type'])
+            if agrees == negated:
+                forbidden.append(f'reason:{fact}:CONTRADICTORY_ASSERTION')
+    evidence_ok = not mismatches and not forbidden
+    full = verdict_ok and evidence_ok and not missing
+    failure = None if full else ('MISSING_CONTRACT_KEYS' if missing else
+                                'WRONG_TERMINAL' if not verdict_ok else
+                                'DISQUALIFYING_CLAIM' if forbidden else 'EVIDENCE_INCOMPLETE')
+    return Score(task_id, True, verdict_ok, evidence_ok, bool(full), failure, verdict,
+                 missing, tuple(mismatches), tuple(forbidden))

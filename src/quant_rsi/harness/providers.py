@@ -30,6 +30,11 @@ class ProviderReply:
     attempts: int
     finish_reason: str | None = None
     reasoning_chars: int | None = None
+    reasoning_tokens: int | None = None
+    failure_class: str | None = None
+    cost: float | None = None
+    currency: str | None = None
+    observed_model: str | None = None
 
     @property
     def truncated(self):
@@ -39,8 +44,19 @@ class ProviderReply:
         content at all, which would otherwise be scored as a malformed answer
         and understate capability.
         """
-        return self.finish_reason == 'length' or (
-            self.text is None and self.output_tokens is not None)
+        return self.finish_reason == 'length'
+
+    @property
+    def failure_type(self):
+        if self.failure_class:
+            return self.failure_class
+        if not self.ok:
+            return 'HTTP_ERROR' if self.http_status is not None else 'TRANSPORT_FAILED'
+        if self.truncated:
+            return 'TOKEN_BUDGET_EXHAUSTED'
+        if not isinstance(self.text, str) or not self.text.strip():
+            return 'EMPTY_CONTENT'
+        return None
 
 
 class ProviderError(RuntimeError):
@@ -65,11 +81,13 @@ SYSTEM_PROMPT = (
     "the question. Do not invent facts that are not present in the input.\n"
     "In \"evidence\", report the concrete values you checked, using descriptive "
     "key names, for example counts, booleans, or the exact dates you compared. "
-    "Do not report a value as UNKNOWN or null for something the input states."
+    "Use UNKNOWN only when the input explicitly states it or its contract permits it. "
+    "Follow the supplied answer contract, including its reason grammar, fact aliases "
+    "and source citation rules. A legal JSON code fence is accepted."
 )
 
 
-def build_prompt(task_id, public_input_obj, required_keys=None):
+def build_prompt(task_id, public_input_obj, required_keys=None, contract=None):
     """Deterministic user message; byte-stable so its hash is reproducible.
 
     The required report keys are published here. Scoring tests whether the right
@@ -78,6 +96,9 @@ def build_prompt(task_id, public_input_obj, required_keys=None):
     """
     payload = json.dumps(public_input_obj, sort_keys=True, separators=(',', ':'),
                          ensure_ascii=True)
+    if contract is not None:
+        return f'task_id: {task_id}\ninput: {payload}\nanswer_contract: ' + json.dumps(
+            contract, sort_keys=True, separators=(',', ':'), ensure_ascii=True)
     lines = [
         f'task_id: {task_id}',
         f'input: {payload}',
@@ -142,10 +163,17 @@ class MockProvider:
     """Deterministic, credential-free stand-in with a fixed capability profile."""
     provider_id: str = 'mock'
     model_id: str = 'mock-capability-v1'
+    suite: str = '0.1'
 
     def reply(self, task_id, prompt):
         started = time.perf_counter()
-        if task_id == _MOCK_MALFORMED:
+        if self.suite == '0.2':
+            from quant_rsi.harness.capability_oracle import V02_PATH
+            from pathlib import Path
+            samples = json.loads(Path(V02_PATH.with_name('validation_samples_v02.json')).read_text(encoding='utf-8'))
+            profile = 'wrong_decision' if self.provider_id == 'mock-b' else 'correct'
+            text = json.dumps(samples[task_id][profile], sort_keys=True)
+        elif task_id == _MOCK_MALFORMED:
             text = '{"verdict": "REFUSE", "reason": "rename does not reset the root"'  # truncated JSON
         elif task_id == _MOCK_EMPTY_EVIDENCE:
             text = json.dumps({'verdict': 'REFUSE',
@@ -178,11 +206,7 @@ class ChatProvider:
     # as a malformed answer unless diagnosed. Measured: deepseek-v4-pro produced
     # 36,120 characters of reasoning on one task and still hit an 8,000 ceiling.
     max_tokens: int = 24000
-    # On truncation, retry once with this larger ceiling before giving up. A model
-    # that simply thought for a long time should not be scored as incapable.
-    retry_max_tokens: int = 64000
     temperature: float = 0.0
-    max_retries: int = 1
     extra_headers: dict = field(default_factory=dict)
     _key: str | None = field(default=None, repr=False, compare=False)
 
@@ -205,67 +229,53 @@ class ChatProvider:
                    'Accept': 'application/json'}
         headers.update(self.extra_headers)
 
-        last_error = None
-        # Up to (max_retries + 1) transport attempts; the final attempt may raise
-        # the token ceiling once if the model was cut off rather than finished.
-        for attempt in range(1, self.max_retries + 2):
-            limit = self.max_tokens
-            escalated = False
-            while True:
-                body = {'model': self.model_id, 'messages': messages,
-                        'temperature': self.temperature, 'max_tokens': limit,
-                        'stream': False}
-                raw = json.dumps(body).encode()
-                started = time.perf_counter()
-                request = urllib.request.Request(url, data=raw, headers=headers, method='POST')
-                try:
-                    with urllib.request.urlopen(request, timeout=self.timeout_s) as response:
-                        status = response.status
-                        payload = json.loads(response.read().decode('utf-8'))
-                    wall = max(1, int((time.perf_counter() - started) * 1000))
-                    choices = payload.get('choices') or []
-                    message = (choices[0].get('message') or {}) if choices else {}
-                    text = message.get('content')
-                    if text is not None and not str(text).strip():
-                        text = None  # whitespace-only must not count as an answer
-                    reasoning = message.get('reasoning_content') or ''
-                    finish = choices[0].get('finish_reason') if choices else None
-                    usage = payload.get('usage') or {}
-                    reply = ProviderReply(True, text, status, None,
-                                          usage.get('prompt_tokens'),
-                                          usage.get('completion_tokens'),
-                                          wall, attempt, finish_reason=finish,
-                                          reasoning_chars=len(reasoning))
-                    # Cut off by the ceiling: retry once with a larger one instead
-                    # of reporting a truncated answer as a capability failure.
-                    if (reply.truncated and not escalated
-                            and limit < self.retry_max_tokens):
-                        escalated = True
-                        limit = self.retry_max_tokens
-                        continue
-                    return reply
-                except urllib.error.HTTPError as exc:
-                    wall = max(1, int((time.perf_counter() - started) * 1000))
-                    detail = ''
-                    try:
-                        detail = exc.read().decode('utf-8', 'replace')[:400]
-                    except Exception:
-                        pass
-                    last_error = ProviderReply(False, None, exc.code,
-                                               f'HTTPError {exc.code}: {detail}', None, None,
-                                               wall, attempt)
-                    if exc.code != 429 and exc.code < 500:
-                        return last_error
-                    break
-                except Exception as exc:  # transport, DNS, TLS, timeout
-                    wall = max(1, int((time.perf_counter() - started) * 1000))
-                    last_error = ProviderReply(False, None, None,
-                                               f'{type(exc).__name__}: {exc}', None, None,
-                                               wall, attempt)
-                    break
-            if attempt <= self.max_retries:
-                time.sleep(min(2.0 * attempt, 5.0))
-        return last_error
+        # Exactly one request, no transport retry or post-answer token escalation.
+        body = {'model': self.model_id, 'messages': messages,
+                'temperature': self.temperature, 'max_tokens': self.max_tokens,
+                'stream': False}
+        started = time.perf_counter()
+        status = None
+        request = urllib.request.Request(url, data=json.dumps(body).encode(),
+                                         headers=headers, method='POST')
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout_s) as response:
+                status = response.status
+                payload = json.loads(response.read().decode('utf-8'))
+            if not isinstance(payload, dict):
+                raise ValueError('invalid provider envelope')
+            if payload.get('error') or payload.get('code') not in (None, 0, '0'):
+                return ProviderReply(False, None, status, 'BUSINESS_ERROR', None, None,
+                                     max(1, int((time.perf_counter()-started)*1000)), 1,
+                                     failure_class='BUSINESS_ERROR')
+            choices = payload.get('choices') or []
+            message = (choices[0].get('message') or {}) if choices else {}
+            text = message.get('content')
+            if text is not None and (not isinstance(text, str) or not text.strip()):
+                text = None
+            usage = payload.get('usage') or {}
+            details = usage.get('completion_tokens_details') or {}
+            return ProviderReply(True, text, status, None,
+                                 usage.get('prompt_tokens'), usage.get('completion_tokens'),
+                                 max(1, int((time.perf_counter()-started)*1000)), 1,
+                                 finish_reason=choices[0].get('finish_reason') if choices else None,
+                                 reasoning_chars=len(message.get('reasoning_content') or ''),
+                                 reasoning_tokens=details.get('reasoning_tokens', usage.get('reasoning_tokens')),
+                                 observed_model=payload.get('model'))
+        except urllib.error.HTTPError as exc:
+            # Do not persist arbitrary server bodies or exception strings: they
+            # can echo credentials or request headers.
+            failure, status = 'HTTP_ERROR', exc.code
+        except (TimeoutError,):
+            failure = 'TASK_TIMEOUT'
+        except urllib.error.URLError as exc:
+            failure = 'TASK_TIMEOUT' if isinstance(exc.reason, TimeoutError) else 'TRANSPORT_FAILED'
+        except (ValueError, TypeError, KeyError, AttributeError):
+            failure = 'PROVIDER_RESPONSE_INVALID'
+        except Exception:
+            failure = 'TRANSPORT_FAILED'
+        return ProviderReply(False, None, status, failure, None, None,
+                             max(1, int((time.perf_counter()-started)*1000)), 1,
+                             failure_class=failure)
 
 
 # Registry of the intended comparison pair. No credential is stored here.

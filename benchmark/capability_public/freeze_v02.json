@@ -1,0 +1,145 @@
+{
+  "version": "PUBLIC_CAPABILITY_BENCHMARK_V0.2",
+  "evaluator_version": "0.2.0",
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "frozen_before_real_answers": true,
+  "real_run_status": "DEFERRED_BY_USER_2026_10_09",
+  "keys_rotated": "NOT_CONFIRMED",
+  "task_order": [
+    "A-META-COUNT-ITEMS",
+    "A-EMPTY-VS-FAILURE",
+    "A-PIT-BACKFILL-REFUSAL",
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+    "A-DELIST-NOT-SUSPENSION",
+    "A-BUDGET-ESCAPE",
+    "A-INSUFFICIENT-SUPPORT",
+    "A-META-CONSISTENT",
+    "A-WRONG-SECURITY",
+    "A-WRONG-DATE",
+    "A-SOURCE-FABRICATION",
+    "A-UNKNOWN-NOT-PASS",
+    "A-BACKTEST-NOT-RUN",
+    "A-PIT-VINTAGE-PASS",
+    "A-PIT-LATE-REVISION",
+    "A-COST-LOSS",
+    "A-COST-PROFIT",
+    "A-MULTIPLE-TESTING",
+    "A-SUPPORT-THRESHOLD-PASS",
+    "A-SUSPENSION-CONFIRMED",
+    "A-BUDGET-EXHAUSTED",
+    "A-PROVIDER-EMPTY",
+    "A-PROVIDER-TOKEN-LIMIT",
+    "A-PROVIDER-HTTP"
+  ],
+  "order_rule": "task-major; provider order alternates each task",
+  "task_count": 24,
+  "incident_cluster_count": 10,
+  "repeat": 1,
+  "sha256": {
+    "src/quant_rsi/harness/capability_oracle.py": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
+    "src/quant_rsi/harness/providers.py": "c27ee95358b4c572a42eb16aef441dad65b976a0679bcce281dc78f85e943559",
+    "src/quant_rsi/harness/comparison.py": "f8826eb64e4a328d1c1c5673cfde97772809b1c767affd55c43420dbbe545960",
+    "benchmark/capability_public/fixtures_v02.json": "14d54c3f042ed47ee3842c1640dfed82be0960dff9d8cf06be97d3ed69ac8789",
+    "benchmark/capability_public/validation_samples_v02.json": "3bfb130c20a9ac6d8bdbd1062b951f34c276287362b160ee09c368d8f8954271",
+    "tools/build_capability_v02.py": "308902e8e20348d077d6910ef6f54d876a0d32531851c673b55e61120273abd9",
+    "tests/test_capability_v02.py": "59a0bd62cec412c7ab3221768b49690694f29b8849aa8e2bd8ba29fdf961fdcc",
+    "tests/test_capability_comparison.py": "f98727e501255739a7f6340d93befc01f5ec983873790b67ffeddafd6ab30930",
+    "benchmark/capability_public/fixtures.json": "d0c8d88e13c179a4a9db52d6fdf7bd7433428a01f36cd8dde0686766ac36d155",
+    "contracts/decisions.yaml": "7c5ab790d8cd4d59b4bed4a887371326ee8c55e373135646427c1eb3571ed828"
+  },
+  "prompt_hashes": {
+    "A-META-COUNT-ITEMS": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+    "A-EMPTY-VS-FAILURE": "54e6681a5b6535c5107e32e31f357c993653e64211c25bd63fc2d588fadd0db0",
+    "A-PIT-BACKFILL-REFUSAL": "49091e57893531c8678d2b2acdf409f894757e6562a3124f6adbe77be49a078b",
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": "662a43c84e65f7cfd91d6e1186127f96086d2cb50aa8e6cf835a04896515dd22",
+    "A-DELIST-NOT-SUSPENSION": "c6ea7c68d087ca39032f3769aa41347a5e2f4b65d46a5121398579a8ea8ddb53",
+    "A-BUDGET-ESCAPE": "84e4166ae1d677ea364d4710bd19c8eef89e3f1a2dd1698ea879f6f960047e37",
+    "A-INSUFFICIENT-SUPPORT": "cb5727cff790c3d72ca02735c3958d97900fc207419e8eccce8e0abe2eda7207",
+    "A-META-CONSISTENT": "b91fd821f247bea2ca93c12f73f4621b7a59b7c8abf4d1c778df66f8d74c4780",
+    "A-WRONG-SECURITY": "6fe2f48cef93f45371f303f104b12f2a3456c8550d225c8844305a92e15c61d4",
+    "A-WRONG-DATE": "3fe50fc5054dfd8114846fd732f42d376cf16ba8aca9eb14429fb335fcb26219",
+    "A-SOURCE-FABRICATION": "1828c0913e56b1dd51e2fac8e24b85b2106f7992f6e1ca8b5f2fb50c54949c6d",
+    "A-UNKNOWN-NOT-PASS": "9d2488c473ae5a8cc3f903175914c8bacef09bcb470d676e1115721a656988e9",
+    "A-BACKTEST-NOT-RUN": "af0cbc25feb2724736680810d031e8baafbff1a321364cee489bcf0926dca3ed",
+    "A-PIT-VINTAGE-PASS": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+    "A-PIT-LATE-REVISION": "7e162856ef2d67aee56edef05a66a302618cce9acc0fc7162d42b7ebea31f067",
+    "A-COST-LOSS": "07f5e33e3ab472dec8887f7fe41913886a6bf5dac0ea5a1565d20d9ee55370b6",
+    "A-COST-PROFIT": "482d222b9de392dd96b2487195e58b5ae57a6ef16da8e5204be0f8d1fb002279",
+    "A-MULTIPLE-TESTING": "0881473d6a1a74904824b5cb9d05af8022ac091320feab99f342eb5655763a8f",
+    "A-SUPPORT-THRESHOLD-PASS": "00c484af5b79ea9d011c878fa91a028f1823493ef8c10fec5261836414a923aa",
+    "A-SUSPENSION-CONFIRMED": "ccffd49139d0e2553f5811da11217b563223bfae5a98ce5b41891d3d863645ce",
+    "A-BUDGET-EXHAUSTED": "a84928c94cd07324ca432f6f13257c7c2af1ea7c1cb32725840cd9fbec1dc150",
+    "A-PROVIDER-EMPTY": "819cb1e64713a60b6c389e3c89bc7c1ddc2857a13cd21619545009b3c2efef95",
+    "A-PROVIDER-TOKEN-LIMIT": "b25de0b317b90ebff241ad94684e48bc0e8c612df89c29729c538e7f7561c350",
+    "A-PROVIDER-HTTP": "0d76b7112fcff066f47ee93c6c2863e29f528dd6f67b44d0060c1b1bdc01f0ce"
+  },
+  "system_prompt_sha256": "1e357130abec34af57fe934b9691c67c9f57f636c129d3c1e50b9534984c6001",
+  "providers": {
+    "deepseek": {
+      "model_id": "deepseek-v4-pro",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "timeout_s": 300,
+      "max_tokens": 24000,
+      "temperature": 0.0
+    },
+    "xiaomi": {
+      "model_id": "mimo-v2.6-pro",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "api_key_env": "XIAOMI_API_KEY",
+      "timeout_s": 300,
+      "max_tokens": 24000,
+      "temperature": 0.0
+    }
+  },
+  "caps": {
+    "tasks": 24,
+    "calls": 48,
+    "attempts_per_task_per_provider": 1,
+    "retries": 0,
+    "input_per_call": 16384,
+    "output_per_call": 24000,
+    "timeout_s": 300,
+    "input_tokens": 786432,
+    "output_tokens": 1152000,
+    "wall_milliseconds": 14400000
+  },
+  "calibration": {
+    "calls": 0,
+    "subset": [],
+    "status": "NOT_AUTHORIZED; fixed 24000 ceiling is historical provisional setting, not new calibration"
+  },
+  "money_budget": {
+    "currency": null,
+    "approved_ceiling": null,
+    "prices_per_million": null,
+    "status": "NOT_APPROVED_NOT_PRICED",
+    "worst_cost_formula": "sum over 2 providers: 24 * (16384 * uncached_input_price_per_million + 24000 * all_output_including_reasoning_price_per_million) / 1000000"
+  },
+  "failure_policy": "Exactly one dispatch; no retry, paging, model substitution or token escalation. Missing usage blocks subsequent real dispatch. Reserve upper bounds before calls. Preserve raw response after every attempt.",
+  "score_vector": "Six dimension full-pass rates plus independent verdict/evidence/provider/format counters. All 24 assigned tasks remain denominator. No scalar composite; cluster means are descriptive differences only.",
+  "anomaly_thresholds": {
+    "format_failure_rate": 0.25,
+    "verdict_evidence_split_rate": 0.25,
+    "zero_or_full": true,
+    "identical_dimension_rates": true
+  },
+  "engineering_budget": {
+    "max_test_invocations": 6,
+    "max_offline_comparison_invocations": 2,
+    "max_new_artifact_bytes": 20000000,
+    "candidate_trials": 0
+  },
+  "independence": "Fixture author and evaluator author are the same; local manual review is not independent review.",
+  "real_prerequisites": [
+    "Explicit new human approval of this exact frozen pair and 48-call batch",
+    "Both exposed keys rotated or revoked",
+    "Safe environment-only new credentials",
+    "Verify live exact model IDs, native reasoning parameters and pricing before any approval; no silent replacement",
+    "Approve worst-case currency budget and any separately frozen public precheck"
+  ]
+}

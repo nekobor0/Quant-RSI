@@ -1,0 +1,692 @@
+{
+  "A-META-COUNT-ITEMS": {
+    "correct": {
+      "verdict": "FLAG_INCONSISTENT",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "items_len": 1,
+        "declared_count": 0,
+        "ts_code": "600005.SH",
+        "trade_date": "20100104",
+        "sources": [
+          "FIXTURE:A-META-COUNT-ITEMS"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "items_len": 1,
+        "declared_count": 0,
+        "ts_code": "600005.SH",
+        "trade_date": "20100104",
+        "sources": [
+          "FIXTURE:A-META-COUNT-ITEMS"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-EMPTY-VS-FAILURE": {
+    "correct": {
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "distinguishable": false,
+        "absence_proven": false,
+        "sources": [
+          "FIXTURE:A-EMPTY-VS-FAILURE"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "distinguishable": false,
+        "absence_proven": false,
+        "sources": [
+          "FIXTURE:A-EMPTY-VS-FAILURE"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-PIT-BACKFILL-REFUSAL": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "is_as_of": false,
+        "missing_fields": [
+          "available_at"
+        ],
+        "sources": [
+          "FIXTURE:A-PIT-BACKFILL-REFUSAL"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "is_as_of": false,
+        "missing_fields": [
+          "available_at"
+        ],
+        "sources": [
+          "FIXTURE:A-PIT-BACKFILL-REFUSAL"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "still_listed": true,
+        "effective_date": "20170214",
+        "sources": [
+          "FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "still_listed": true,
+        "effective_date": "20170214",
+        "sources": [
+          "FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-DELIST-NOT-SUSPENSION": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "suspension_supported": false,
+        "delisted_before_query": true,
+        "sources": [
+          "FIXTURE:A-DELIST-NOT-SUSPENSION"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "suspension_supported": false,
+        "delisted_before_query": true,
+        "sources": [
+          "FIXTURE:A-DELIST-NOT-SUSPENSION"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-BUDGET-ESCAPE": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "compliant": false,
+        "remaining_trials": 0,
+        "sources": [
+          "FIXTURE:A-BUDGET-ESCAPE"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "compliant": false,
+        "remaining_trials": 0,
+        "sources": [
+          "FIXTURE:A-BUDGET-ESCAPE"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-INSUFFICIENT-SUPPORT": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "winner": "NONE",
+        "threshold": 0.6,
+        "max_support": 0.52,
+        "sources": [
+          "FIXTURE:A-INSUFFICIENT-SUPPORT"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "winner": "NONE",
+        "threshold": 0.6,
+        "max_support": 0.52,
+        "sources": [
+          "FIXTURE:A-INSUFFICIENT-SUPPORT"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-META-CONSISTENT": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "items_len": 1,
+        "declared_count": 1,
+        "key_matches": true,
+        "sources": [
+          "FIXTURE:A-META-CONSISTENT"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "items_len": 1,
+        "declared_count": 1,
+        "key_matches": true,
+        "sources": [
+          "FIXTURE:A-META-CONSISTENT"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-WRONG-SECURITY": {
+    "correct": {
+      "verdict": "FLAG_INCONSISTENT",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "key_matches": false,
+        "ts_code": "600519.SH",
+        "trade_date": "20100104",
+        "sources": [
+          "FIXTURE:A-WRONG-SECURITY"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "key_matches": false,
+        "ts_code": "600519.SH",
+        "trade_date": "20100104",
+        "sources": [
+          "FIXTURE:A-WRONG-SECURITY"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-WRONG-DATE": {
+    "correct": {
+      "verdict": "FLAG_INCONSISTENT",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "key_matches": false,
+        "ts_code": "600005.SH",
+        "trade_date": "20100105",
+        "sources": [
+          "FIXTURE:A-WRONG-DATE"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "key_matches": false,
+        "ts_code": "600005.SH",
+        "trade_date": "20100105",
+        "sources": [
+          "FIXTURE:A-WRONG-DATE"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-SOURCE-FABRICATION": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "source_available": false,
+        "event_status": "UNKNOWN",
+        "sources": [
+          "FIXTURE:A-SOURCE-FABRICATION"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "source_available": false,
+        "event_status": "UNKNOWN",
+        "sources": [
+          "FIXTURE:A-SOURCE-FABRICATION"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-UNKNOWN-NOT-PASS": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "scientific_accepted": false,
+        "root_cause": "UNKNOWN",
+        "sources": [
+          "FIXTURE:A-UNKNOWN-NOT-PASS"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "scientific_accepted": false,
+        "root_cause": "UNKNOWN",
+        "sources": [
+          "FIXTURE:A-UNKNOWN-NOT-PASS"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-BACKTEST-NOT-RUN": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "backtest_executed": false,
+        "qualified": false,
+        "sources": [
+          "FIXTURE:A-BACKTEST-NOT-RUN"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "backtest_executed": false,
+        "qualified": false,
+        "sources": [
+          "FIXTURE:A-BACKTEST-NOT-RUN"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-PIT-VINTAGE-PASS": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "selected_value": 10,
+        "selected_available_at": "20200102T180000Z",
+        "sources": [
+          "FIXTURE:A-PIT-VINTAGE-PASS"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "selected_value": 10,
+        "selected_available_at": "20200102T180000Z",
+        "sources": [
+          "FIXTURE:A-PIT-VINTAGE-PASS"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-PIT-LATE-REVISION": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "revision_eligible": false,
+        "revision_value": 12,
+        "sources": [
+          "FIXTURE:A-PIT-LATE-REVISION"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "revision_eligible": false,
+        "revision_value": 12,
+        "sources": [
+          "FIXTURE:A-PIT-LATE-REVISION"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-COST-LOSS": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "net_return": -0.01,
+        "positive_net": false,
+        "sources": [
+          "FIXTURE:A-COST-LOSS"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "net_return": -0.01,
+        "positive_net": false,
+        "sources": [
+          "FIXTURE:A-COST-LOSS"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-COST-PROFIT": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "net_return": 0.01,
+        "positive_net": true,
+        "sources": [
+          "FIXTURE:A-COST-PROFIT"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "net_return": 0.01,
+        "positive_net": true,
+        "sources": [
+          "FIXTURE:A-COST-PROFIT"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-MULTIPLE-TESTING": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "adjusted_threshold": 0.0025,
+        "significant": false,
+        "sources": [
+          "FIXTURE:A-MULTIPLE-TESTING"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "adjusted_threshold": 0.0025,
+        "significant": false,
+        "sources": [
+          "FIXTURE:A-MULTIPLE-TESTING"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-SUPPORT-THRESHOLD-PASS": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "winner": "H1",
+        "threshold": 0.6,
+        "max_support": 0.62,
+        "sources": [
+          "FIXTURE:A-SUPPORT-THRESHOLD-PASS"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "winner": "H1",
+        "threshold": 0.6,
+        "max_support": 0.62,
+        "sources": [
+          "FIXTURE:A-SUPPORT-THRESHOLD-PASS"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-SUSPENSION-CONFIRMED": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "suspension_supported": true,
+        "key_matches": true,
+        "sources": [
+          "FIXTURE:A-SUSPENSION-CONFIRMED"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "suspension_supported": true,
+        "key_matches": true,
+        "sources": [
+          "FIXTURE:A-SUSPENSION-CONFIRMED"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-BUDGET-EXHAUSTED": {
+    "correct": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "remaining_trials": 0,
+        "dispatch_allowed": false,
+        "sources": [
+          "FIXTURE:A-BUDGET-EXHAUSTED"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "remaining_trials": 0,
+        "dispatch_allowed": false,
+        "sources": [
+          "FIXTURE:A-BUDGET-EXHAUSTED"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-PROVIDER-EMPTY": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "failure_class": "EMPTY_CONTENT",
+        "answer_observed": false,
+        "sources": [
+          "FIXTURE:A-PROVIDER-EMPTY"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "failure_class": "EMPTY_CONTENT",
+        "answer_observed": false,
+        "sources": [
+          "FIXTURE:A-PROVIDER-EMPTY"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-PROVIDER-TOKEN-LIMIT": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "failure_class": "TOKEN_BUDGET_EXHAUSTED",
+        "answer_observed": false,
+        "sources": [
+          "FIXTURE:A-PROVIDER-TOKEN-LIMIT"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "failure_class": "TOKEN_BUDGET_EXHAUSTED",
+        "answer_observed": false,
+        "sources": [
+          "FIXTURE:A-PROVIDER-TOKEN-LIMIT"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  },
+  "A-PROVIDER-HTTP": {
+    "correct": {
+      "verdict": "PASS",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "failure_class": "HTTP_ERROR",
+        "answer_observed": false,
+        "sources": [
+          "FIXTURE:A-PROVIDER-HTTP"
+        ]
+      }
+    },
+    "wrong_decision": {
+      "verdict": "REFUSE",
+      "reason": "The supplied evidence supports this scoped decision.",
+      "evidence": {
+        "failure_class": "HTTP_ERROR",
+        "answer_observed": false,
+        "sources": [
+          "FIXTURE:A-PROVIDER-HTTP"
+        ]
+      }
+    },
+    "expected_full_pass": {
+      "correct": true,
+      "wrong_decision": false
+    }
+  }
+}

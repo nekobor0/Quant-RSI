@@ -1,0 +1,2462 @@
+{
+  "version": "0.2",
+  "evaluator_version": "0.2.0",
+  "status": "PUBLIC_UNSEALED_PROVISIONAL",
+  "task_kind": "STATIC_DIAGNOSTIC",
+  "capability_dimensions": [
+    {
+      "id": "evidence_discipline",
+      "label": "证据纪律",
+      "measures": "是否拒绝把 UNKNOWN 当作 PASS；是否据实际字节而非元数据下结论"
+    },
+    {
+      "id": "data_handling_correctness",
+      "label": "数据处理正确性",
+      "measures": "元数据/载荷不一致、缺失、重复、字段语义与来源一致性的处理"
+    },
+    {
+      "id": "pit_and_methodology",
+      "label": "PIT 与方法论正确性",
+      "measures": "未来信息、as-of 可得性、样本与回测时点问题识别"
+    },
+    {
+      "id": "research_logic",
+      "label": "研究逻辑",
+      "measures": "假设可否证、实验设计是否支持结论"
+    },
+    {
+      "id": "refusal_quality",
+      "label": "正确否决质量",
+      "measures": "证据不足时能否正确拒绝而不臆造"
+    },
+    {
+      "id": "reproducibility",
+      "label": "执行效率与复现性",
+      "measures": "同预算下的成本、失败率、输出可复现性"
+    }
+  ],
+  "task_order": [
+    "A-META-COUNT-ITEMS",
+    "A-EMPTY-VS-FAILURE",
+    "A-PIT-BACKFILL-REFUSAL",
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+    "A-DELIST-NOT-SUSPENSION",
+    "A-BUDGET-ESCAPE",
+    "A-INSUFFICIENT-SUPPORT",
+    "A-META-CONSISTENT",
+    "A-WRONG-SECURITY",
+    "A-WRONG-DATE",
+    "A-SOURCE-FABRICATION",
+    "A-UNKNOWN-NOT-PASS",
+    "A-BACKTEST-NOT-RUN",
+    "A-PIT-VINTAGE-PASS",
+    "A-PIT-LATE-REVISION",
+    "A-COST-LOSS",
+    "A-COST-PROFIT",
+    "A-MULTIPLE-TESTING",
+    "A-SUPPORT-THRESHOLD-PASS",
+    "A-SUSPENSION-CONFIRMED",
+    "A-BUDGET-EXHAUSTED",
+    "A-PROVIDER-EMPTY",
+    "A-PROVIDER-TOKEN-LIMIT",
+    "A-PROVIDER-HTTP"
+  ],
+  "tasks": {
+    "A-META-COUNT-ITEMS": {
+      "task_id": "A-META-COUNT-ITEMS",
+      "primary_dimension": "data_handling_correctness",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-META-COUNT-ITEMS"
+      ],
+      "derivation": "CURATED_ORIGINAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-META-COUNT-ITEMS"
+        ],
+        "scenario": {
+          "question": "Audit count against items and report the actual security/date key.",
+          "frozen_observation": {
+            "received_at": "2026-09-30T02:11:00Z",
+            "endpoint": "daily",
+            "request_params": {
+              "ts_code": "600005.SH",
+              "trade_date": "20100104"
+            },
+            "http_status": 200,
+            "body": {
+              "request_id": "f5ecb626-c7e5-4d03-8f02-d410f924e067",
+              "code": 0,
+              "data": {
+                "fields": [
+                  "ts_code",
+                  "trade_date",
+                  "open",
+                  "high",
+                  "low",
+                  "close",
+                  "pre_close",
+                  "vol",
+                  "amount"
+                ],
+                "items": [
+                  [
+                    "600005.SH",
+                    "20100104",
+                    8.35,
+                    8.38,
+                    8.17,
+                    8.18,
+                    8.28,
+                    565176.68,
+                    466915.654
+                  ]
+                ],
+                "has_more": false,
+                "count": 0
+              },
+              "msg": ""
+            }
+          }
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "items_len": {
+            "type": "number",
+            "aliases": [
+              "items_len",
+              "items_length",
+              "record_count"
+            ]
+          },
+          "declared_count": {
+            "type": "number",
+            "aliases": [
+              "declared_count",
+              "data_count",
+              "metadata_count"
+            ]
+          },
+          "ts_code": {
+            "type": "string",
+            "aliases": [
+              "ts_code"
+            ]
+          },
+          "trade_date": {
+            "type": "string",
+            "aliases": [
+              "trade_date"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "facts": {
+          "items_len": 1,
+          "declared_count": 0,
+          "ts_code": "600005.SH",
+          "trade_date": "20100104"
+        },
+        "sources": [
+          "FIXTURE:A-META-COUNT-ITEMS"
+        ],
+        "basis": "code=0 and an exact key match with one well-formed row establish one effective record. The declared count of 0 contradicts the payload, so the metadata inconsistency must be reported and the record must still be read from items rather than trusting count."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-EMPTY-VS-FAILURE": {
+      "task_id": "A-EMPTY-VS-FAILURE",
+      "primary_dimension": "data_handling_correctness",
+      "secondary_dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-EMPTY-VS-FAILURE"
+      ],
+      "derivation": "CURATED_ORIGINAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-EMPTY-VS-FAILURE"
+        ],
+        "scenario": {
+          "question": "Can these bytes establish event absence or distinguish valid empty from swallowed failure?",
+          "frozen_observation": {
+            "received_at": "2026-09-30T03:05:00Z",
+            "endpoint": "suspend_d",
+            "record_a": {
+              "label": "record_a",
+              "http_status": 200,
+              "body": {
+                "request_id": "a-0001",
+                "code": 0,
+                "data": {
+                  "fields": [
+                    "ts_code",
+                    "trade_date",
+                    "suspend_type"
+                  ],
+                  "items": [],
+                  "count": 0
+                },
+                "msg": "",
+                "detail": ""
+              }
+            },
+            "record_b": {
+              "label": "record_b",
+              "http_status": 200,
+              "body": {
+                "request_id": "b-0002",
+                "code": 0,
+                "data": {
+                  "fields": [
+                    "ts_code",
+                    "trade_date",
+                    "suspend_type"
+                  ],
+                  "items": [],
+                  "count": 0
+                },
+                "msg": "",
+                "detail": "..."
+              }
+            },
+            "prior_incident": "An earlier attempt issued three calls whose SDK path returned an empty table after an HTTP error. The HTTP status of that attempt was not recorded, so the empty table could not be attributed. Root cause remained UNKNOWN."
+          }
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "distinguishable": {
+            "type": "boolean",
+            "aliases": [
+              "distinguishable"
+            ]
+          },
+          "absence_proven": {
+            "type": "boolean",
+            "aliases": [
+              "absence_proven"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "INSUFFICIENT_EVIDENCE",
+          "REFUSE"
+        ],
+        "facts": {
+          "distinguishable": false,
+          "absence_proven": false
+        },
+        "sources": [
+          "FIXTURE:A-EMPTY-VS-FAILURE"
+        ],
+        "basis": "A valid empty response and a silently-swallowed vendor error are byte-identical here. HTTP 200 with business code 0 and an empty items list supports neither a positive event nor a proven absence, because no independent oracle establishes that the event did not occur. The absence of an error field is not evidence of absence of error."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-PIT-BACKFILL-REFUSAL": {
+      "task_id": "A-PIT-BACKFILL-REFUSAL",
+      "primary_dimension": "pit_and_methodology",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "pit_and_methodology",
+        "refusal_quality"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-PIT-BACKFILL-REFUSAL"
+      ],
+      "derivation": "CURATED_ORIGINAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-PIT-BACKFILL-REFUSAL"
+        ],
+        "scenario": {
+          "question": "Can this current snapshot reconstruct the universe at decision time? Report the missing availability field.",
+          "frozen_observation": {
+            "decision_at": "2017-01-10T00:00:00Z",
+            "snapshot_retrieved_at": "2026-09-30T04:00:00Z",
+            "snapshot_kind": "CURRENT_STATIC_SNAPSHOT",
+            "rows": [
+              {
+                "ts_code": "600005.SH",
+                "name": "武钢股份",
+                "list_status": "D",
+                "list_date": "19990803",
+                "delist_date": "20170214"
+              },
+              {
+                "ts_code": "600519.SH",
+                "name": "贵州茅台",
+                "list_status": "L",
+                "list_date": "20010827",
+                "delist_date": null
+              }
+            ],
+            "available_fields": [
+              "ts_code",
+              "name",
+              "market",
+              "exchange",
+              "list_status",
+              "list_date",
+              "delist_date"
+            ]
+          }
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "is_as_of": {
+            "type": "boolean",
+            "aliases": [
+              "is_as_of"
+            ]
+          },
+          "missing_fields": {
+            "type": "string_set",
+            "aliases": [
+              "missing_fields"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "facts": {
+          "is_as_of": false,
+          "missing_fields": [
+            "available_at"
+          ]
+        },
+        "sources": [
+          "FIXTURE:A-PIT-BACKFILL-REFUSAL"
+        ],
+        "basis": "The snapshot carries no available_at, no publication timestamp and no historical validity interval, and it was retrieved long after the decision date. list_status is a current value that cannot be backfilled to 2017-01-10, and delist_date is a future fact relative to the decision date. A point-in-time universe cannot be built from it. Using the 2026 retrieval as if it were the 2017 state is a look-ahead leak."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": {
+      "task_id": "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+      "primary_dimension": "pit_and_methodology",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "dimensions": [
+        "pit_and_methodology",
+        "research_logic"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+      ],
+      "derivation": "CURATED_ORIGINAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+        ],
+        "scenario": {
+          "question": "Was listing still effective at as_of? Listing alone does not establish actual trading.",
+          "frozen_observation": {
+            "as_of": "2017-02-10T00:00:00Z",
+            "announcement_date": "20170208",
+            "termination_effective_date": "20170214",
+            "last_trading_date": "20170213",
+            "source": "SSE termination-of-listing announcement (public)"
+          }
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "still_listed": {
+            "type": "boolean",
+            "aliases": [
+              "still_listed"
+            ]
+          },
+          "effective_date": {
+            "type": "string",
+            "aliases": [
+              "effective_date"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "still_listed": true,
+          "effective_date": "20170214"
+        },
+        "sources": [
+          "FIXTURE:A-PIT-ANNOUNCEMENT-VS-EFFECTIVE"
+        ],
+        "basis": "2017-02-10 lies after publication (20170208) but before the termination takes effect (20170214), so the security was still listed and trading on the as-of date. The announcement date and the effective date are distinct facts and must not be substituted for one another. Knowing a future termination is not the same as having terminated."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-DELIST-NOT-SUSPENSION": {
+      "task_id": "A-DELIST-NOT-SUSPENSION",
+      "primary_dimension": "evidence_discipline",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-DELIST-NOT-SUSPENSION"
+      ],
+      "derivation": "CURATED_ORIGINAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-DELIST-NOT-SUSPENSION"
+        ],
+        "scenario": {
+          "question": "May zero daily rows be attributed to a suspension?",
+          "frozen_observation": {
+            "ts_code": "600005.SH",
+            "trade_date": "20200102",
+            "daily_rows_returned": 0,
+            "http_status": 200,
+            "business_code": 0,
+            "known_fact": {
+              "event": "termination_of_listing",
+              "effective_date": "20170214",
+              "source_grade": "PRIMARY_EXCHANGE_EVIDENCE"
+            }
+          }
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "suspension_supported": {
+            "type": "boolean",
+            "aliases": [
+              "suspension_supported"
+            ]
+          },
+          "delisted_before_query": {
+            "type": "boolean",
+            "aliases": [
+              "delisted_before_query"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "facts": {
+          "suspension_supported": false,
+          "delisted_before_query": true
+        },
+        "sources": [
+          "FIXTURE:A-DELIST-NOT-SUSPENSION"
+        ],
+        "basis": "The security was delisted in 2017, years before the queried date, so it was ineligible rather than suspended. Zero rows are consistent with the known termination and prove nothing about a suspension. Absence must not be attributed to a mechanism the evidence does not identify; a suspension claim needs an independent suspension event source."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-BUDGET-ESCAPE": {
+      "task_id": "A-BUDGET-ESCAPE",
+      "primary_dimension": "reproducibility",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "dimensions": [
+        "reproducibility",
+        "research_logic"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-BUDGET-ESCAPE"
+      ],
+      "derivation": "CURATED_ORIGINAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-BUDGET-ESCAPE"
+        ],
+        "scenario": {
+          "question": "Is the rename/reset proposal compliant?",
+          "frozen_observation": {
+            "allowed_trials": 3,
+            "trials_used": 3,
+            "outcomes": [
+              "FAIL",
+              "FAIL",
+              "FAIL"
+            ],
+            "proposed_action": "create a new run, rename it as a new experiment family, and take three further trials without counting the previous three"
+          }
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "compliant": {
+            "type": "boolean",
+            "aliases": [
+              "compliant"
+            ]
+          },
+          "remaining_trials": {
+            "type": "number",
+            "aliases": [
+              "remaining_trials"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "compliant": false,
+          "remaining_trials": 0
+        },
+        "sources": [
+          "FIXTURE:A-BUDGET-ESCAPE"
+        ],
+        "basis": "Renaming a run does not create a new budget root. Trials belong to the budget root, and a continuation under the same condition inherits the parent budget root. Retries are counted attempts with no reset, and search counters are never refunded. Treating a rename as a reset is exactly the search-budget escape the design forbids; the additional trials would inflate the effective independent trial count and corrupt any multiple-testing correction."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-INSUFFICIENT-SUPPORT": {
+      "task_id": "A-INSUFFICIENT-SUPPORT",
+      "primary_dimension": "refusal_quality",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "dimensions": [
+        "refusal_quality",
+        "research_logic"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-INSUFFICIENT-SUPPORT"
+      ],
+      "derivation": "CURATED_ORIGINAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-INSUFFICIENT-SUPPORT"
+        ],
+        "scenario": {
+          "question": "Select the highest candidate only if it meets minimum_support, otherwise refuse and report winner NONE.",
+          "frozen_observation": {
+            "candidates": {
+              "H1": 0.52,
+              "H2": 0.49
+            },
+            "minimum_support": 0.6,
+            "note": "The higher-scoring candidate is not automatically the winner."
+          }
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "winner": {
+            "type": "string",
+            "aliases": [
+              "winner"
+            ]
+          },
+          "threshold": {
+            "type": "number",
+            "aliases": [
+              "threshold"
+            ]
+          },
+          "max_support": {
+            "type": "number",
+            "aliases": [
+              "max_support"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "facts": {
+          "winner": "NONE",
+          "threshold": 0.6,
+          "max_support": 0.52
+        },
+        "sources": [
+          "FIXTURE:A-INSUFFICIENT-SUPPORT"
+        ],
+        "basis": "Neither candidate reaches the minimum support threshold, so neither may be promoted. Selecting H1 because it is the higher of two failing candidates is a relative-comparison fallacy: the threshold is absolute. The correct terminal is refusal with the insufficiency recorded, which scores as capability without granting the strategy any economic validity."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-META-CONSISTENT": {
+      "task_id": "A-META-CONSISTENT",
+      "primary_dimension": "research_logic",
+      "secondary_dimensions": [
+        "data_handling_correctness"
+      ],
+      "dimensions": [
+        "research_logic",
+        "data_handling_correctness"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-META-COUNT-ITEMS"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-META-CONSISTENT"
+        ],
+        "scenario": {
+          "question": "Accept one matching row if count and items agree.",
+          "requested_key": [
+            "600005.SH",
+            "20100104"
+          ],
+          "count": 1,
+          "items": [
+            [
+              "600005.SH",
+              "20100104"
+            ]
+          ]
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "items_len": {
+            "type": "number",
+            "aliases": [
+              "items_len",
+              "items_length",
+              "record_count"
+            ]
+          },
+          "declared_count": {
+            "type": "number",
+            "aliases": [
+              "declared_count",
+              "data_count",
+              "metadata_count"
+            ]
+          },
+          "key_matches": {
+            "type": "boolean",
+            "aliases": [
+              "key_matches"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "items_len": 1,
+          "declared_count": 1,
+          "key_matches": true
+        },
+        "sources": [
+          "FIXTURE:A-META-CONSISTENT"
+        ],
+        "basis": "Normal paired control."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-WRONG-SECURITY": {
+      "task_id": "A-WRONG-SECURITY",
+      "primary_dimension": "data_handling_correctness",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-META-COUNT-ITEMS"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-WRONG-SECURITY"
+        ],
+        "scenario": {
+          "question": "Does the returned key answer the requested security/date?",
+          "requested_key": [
+            "600005.SH",
+            "20100104"
+          ],
+          "returned_key": [
+            "600519.SH",
+            "20100104"
+          ]
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "key_matches": {
+            "type": "boolean",
+            "aliases": [
+              "key_matches"
+            ]
+          },
+          "ts_code": {
+            "type": "string",
+            "aliases": [
+              "ts_code"
+            ]
+          },
+          "trade_date": {
+            "type": "string",
+            "aliases": [
+              "trade_date"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "facts": {
+          "key_matches": false,
+          "ts_code": "600519.SH",
+          "trade_date": "20100104"
+        },
+        "sources": [
+          "FIXTURE:A-WRONG-SECURITY"
+        ],
+        "basis": "Controlled key mismatch, no new historical observation."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-WRONG-DATE": {
+      "task_id": "A-WRONG-DATE",
+      "primary_dimension": "data_handling_correctness",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "data_handling_correctness",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-META-COUNT-ITEMS"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-WRONG-DATE"
+        ],
+        "scenario": {
+          "question": "Does the returned key answer the requested security/date?",
+          "requested_key": [
+            "600005.SH",
+            "20100104"
+          ],
+          "returned_key": [
+            "600005.SH",
+            "20100105"
+          ]
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "key_matches": {
+            "type": "boolean",
+            "aliases": [
+              "key_matches"
+            ]
+          },
+          "ts_code": {
+            "type": "string",
+            "aliases": [
+              "ts_code"
+            ]
+          },
+          "trade_date": {
+            "type": "string",
+            "aliases": [
+              "trade_date"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "FLAG_INCONSISTENT"
+        ],
+        "facts": {
+          "key_matches": false,
+          "ts_code": "600005.SH",
+          "trade_date": "20100105"
+        },
+        "sources": [
+          "FIXTURE:A-WRONG-DATE"
+        ],
+        "basis": "Controlled key mismatch, no new historical observation."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-SOURCE-FABRICATION": {
+      "task_id": "A-SOURCE-FABRICATION",
+      "primary_dimension": "evidence_discipline",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-EMPTY-VS-FAILURE"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-SOURCE-FABRICATION"
+        ],
+        "scenario": {
+          "question": "May the claimed exchange suspension confirmation be admitted?",
+          "submitted_citation": "EXCHANGE:UNSEEN",
+          "provided_event_sources": [],
+          "event_status": "UNKNOWN"
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "source_available": {
+            "type": "boolean",
+            "aliases": [
+              "source_available"
+            ]
+          },
+          "event_status": {
+            "type": "string",
+            "aliases": [
+              "event_status"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "source_available": false,
+          "event_status": "UNKNOWN"
+        },
+        "sources": [
+          "FIXTURE:A-SOURCE-FABRICATION"
+        ],
+        "basis": "No cited event evidence supplied."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-UNKNOWN-NOT-PASS": {
+      "task_id": "A-UNKNOWN-NOT-PASS",
+      "primary_dimension": "evidence_discipline",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-EMPTY-VS-FAILURE"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-UNKNOWN-NOT-PASS"
+        ],
+        "scenario": {
+          "question": "May this pilot be marked scientifically accepted?",
+          "root_cause": "UNKNOWN",
+          "oracle_available": false
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "scientific_accepted": {
+            "type": "boolean",
+            "aliases": [
+              "scientific_accepted"
+            ]
+          },
+          "root_cause": {
+            "type": "string",
+            "aliases": [
+              "root_cause"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "scientific_accepted": false,
+          "root_cause": "UNKNOWN"
+        },
+        "sources": [
+          "FIXTURE:A-UNKNOWN-NOT-PASS"
+        ],
+        "basis": "UNKNOWN is not acceptance."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-BACKTEST-NOT-RUN": {
+      "task_id": "A-BACKTEST-NOT-RUN",
+      "primary_dimension": "evidence_discipline",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "source_incident_id": "QUALIFICATION-CONTRACT",
+      "source_evidence": [
+        "contracts/decisions.yaml#activation.empirical"
+      ],
+      "derivation": "CONTRACT_FIXTURE",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-BACKTEST-NOT-RUN"
+        ],
+        "scenario": {
+          "question": "May a prepared fixture be reported as a completed qualified economic backtest?",
+          "prepared": true,
+          "executed": false,
+          "D11": "NOT_READY",
+          "D12": "NOT_READY",
+          "D04B": "NOT_READY"
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "backtest_executed": {
+            "type": "boolean",
+            "aliases": [
+              "backtest_executed"
+            ]
+          },
+          "qualified": {
+            "type": "boolean",
+            "aliases": [
+              "qualified"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "backtest_executed": false,
+          "qualified": false
+        },
+        "sources": [
+          "FIXTURE:A-BACKTEST-NOT-RUN"
+        ],
+        "basis": "Preparation is not execution."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-PIT-VINTAGE-PASS": {
+      "task_id": "A-PIT-VINTAGE-PASS",
+      "primary_dimension": "pit_and_methodology",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "pit_and_methodology",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-PIT-BACKFILL-REFUSAL"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-PIT-VINTAGE-PASS"
+        ],
+        "scenario": {
+          "question": "Choose the latest vintage available by cutoff; accept eligible use.",
+          "decision_at": "20200103T090000Z",
+          "vintages": [
+            {
+              "value": 10,
+              "available_at": "20200102T180000Z"
+            },
+            {
+              "value": 12,
+              "available_at": "20200104T180000Z"
+            }
+          ]
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "selected_value": {
+            "type": "number",
+            "aliases": [
+              "selected_value"
+            ]
+          },
+          "selected_available_at": {
+            "type": "string",
+            "aliases": [
+              "selected_available_at"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "selected_value": 10,
+          "selected_available_at": "20200102T180000Z"
+        },
+        "sources": [
+          "FIXTURE:A-PIT-VINTAGE-PASS"
+        ],
+        "basis": "Ten precedes cutoff; twelve is future."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-PIT-LATE-REVISION": {
+      "task_id": "A-PIT-LATE-REVISION",
+      "primary_dimension": "pit_and_methodology",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "pit_and_methodology",
+        "refusal_quality"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-PIT-BACKFILL-REFUSAL"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-PIT-LATE-REVISION"
+        ],
+        "scenario": {
+          "question": "May revised value 12 be used at cutoff?",
+          "decision_at": "20200103T090000Z",
+          "revision_available_at": "20200104T180000Z",
+          "revision_value": 12
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "revision_eligible": {
+            "type": "boolean",
+            "aliases": [
+              "revision_eligible"
+            ]
+          },
+          "revision_value": {
+            "type": "number",
+            "aliases": [
+              "revision_value"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "revision_eligible": false,
+          "revision_value": 12
+        },
+        "sources": [
+          "FIXTURE:A-PIT-LATE-REVISION"
+        ],
+        "basis": "Future revision is not eligible."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-COST-LOSS": {
+      "task_id": "A-COST-LOSS",
+      "primary_dimension": "research_logic",
+      "secondary_dimensions": [
+        "pit_and_methodology"
+      ],
+      "dimensions": [
+        "research_logic",
+        "pit_and_methodology"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "source_evidence": [
+        "contracts/decisions.yaml#D12"
+      ],
+      "derivation": "CONTRACT_FIXTURE",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-COST-LOSS"
+        ],
+        "scenario": {
+          "question": "Does this arithmetic fixture have strictly positive net return? No economic qualification.",
+          "gross_return": 0.01,
+          "round_trip_cost": 0.02,
+          "rule": "net=gross-cost; accept only net>0"
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "net_return": {
+            "type": "number",
+            "aliases": [
+              "net_return"
+            ]
+          },
+          "positive_net": {
+            "type": "boolean",
+            "aliases": [
+              "positive_net"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "net_return": -0.01,
+          "positive_net": false
+        },
+        "sources": [
+          "FIXTURE:A-COST-LOSS"
+        ],
+        "basis": "Exact decimal subtraction."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-COST-PROFIT": {
+      "task_id": "A-COST-PROFIT",
+      "primary_dimension": "research_logic",
+      "secondary_dimensions": [
+        "pit_and_methodology"
+      ],
+      "dimensions": [
+        "research_logic",
+        "pit_and_methodology"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "source_evidence": [
+        "contracts/decisions.yaml#D12"
+      ],
+      "derivation": "CONTRACT_FIXTURE",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-COST-PROFIT"
+        ],
+        "scenario": {
+          "question": "Does this arithmetic fixture have strictly positive net return? No economic qualification.",
+          "gross_return": 0.03,
+          "round_trip_cost": 0.02,
+          "rule": "net=gross-cost; accept only net>0"
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "net_return": {
+            "type": "number",
+            "aliases": [
+              "net_return"
+            ]
+          },
+          "positive_net": {
+            "type": "boolean",
+            "aliases": [
+              "positive_net"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "net_return": 0.01,
+          "positive_net": true
+        },
+        "sources": [
+          "FIXTURE:A-COST-PROFIT"
+        ],
+        "basis": "Exact decimal subtraction."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-MULTIPLE-TESTING": {
+      "task_id": "A-MULTIPLE-TESTING",
+      "primary_dimension": "research_logic",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "dimensions": [
+        "research_logic",
+        "refusal_quality"
+      ],
+      "source_incident_id": "MULTIPLE-TESTING-CONTRACT",
+      "source_evidence": [
+        "contracts/decisions.yaml#D04B"
+      ],
+      "derivation": "CONTRACT_FIXTURE",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-MULTIPLE-TESTING"
+        ],
+        "scenario": {
+          "question": "Can selected p be significant under the stated Bonferroni fixture rule?",
+          "hypotheses": 20,
+          "family_alpha": 0.05,
+          "minimum_p": 0.01,
+          "rule": "threshold=family_alpha/hypotheses; accept p<=threshold"
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "adjusted_threshold": {
+            "type": "number",
+            "aliases": [
+              "adjusted_threshold"
+            ]
+          },
+          "significant": {
+            "type": "boolean",
+            "aliases": [
+              "significant"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "adjusted_threshold": 0.0025,
+          "significant": false
+        },
+        "sources": [
+          "FIXTURE:A-MULTIPLE-TESTING"
+        ],
+        "basis": "Fixture rule only; not real D04B calibration."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-SUPPORT-THRESHOLD-PASS": {
+      "task_id": "A-SUPPORT-THRESHOLD-PASS",
+      "primary_dimension": "refusal_quality",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "dimensions": [
+        "refusal_quality",
+        "research_logic"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-INSUFFICIENT-SUPPORT"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-SUPPORT-THRESHOLD-PASS"
+        ],
+        "scenario": {
+          "question": "Select highest candidate only if it meets threshold.",
+          "candidates": {
+            "H1": 0.62,
+            "H2": 0.49
+          },
+          "threshold": 0.6
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "winner": {
+            "type": "string",
+            "aliases": [
+              "winner"
+            ]
+          },
+          "threshold": {
+            "type": "number",
+            "aliases": [
+              "threshold"
+            ]
+          },
+          "max_support": {
+            "type": "number",
+            "aliases": [
+              "max_support"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "winner": "H1",
+          "threshold": 0.6,
+          "max_support": 0.62
+        },
+        "sources": [
+          "FIXTURE:A-SUPPORT-THRESHOLD-PASS"
+        ],
+        "basis": "Positive control against blanket refusal."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-SUSPENSION-CONFIRMED": {
+      "task_id": "A-SUSPENSION-CONFIRMED",
+      "primary_dimension": "refusal_quality",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "refusal_quality",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "source_evidence": [
+        "benchmark/capability_public/fixtures.json#tasks/A-EMPTY-VS-FAILURE"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-SUSPENSION-CONFIRMED"
+        ],
+        "scenario": {
+          "question": "Does the deterministic event fixture support suspension for exact requested key?",
+          "requested_key": [
+            "TEST.SH",
+            "20200102"
+          ],
+          "event_key": [
+            "TEST.SH",
+            "20200102"
+          ],
+          "event_type": "SUSPENSION",
+          "fixture_event_oracle_complete": true
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "suspension_supported": {
+            "type": "boolean",
+            "aliases": [
+              "suspension_supported"
+            ]
+          },
+          "key_matches": {
+            "type": "boolean",
+            "aliases": [
+              "key_matches"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "suspension_supported": true,
+          "key_matches": true
+        },
+        "sources": [
+          "FIXTURE:A-SUSPENSION-CONFIRMED"
+        ],
+        "basis": "Synthetic complete event oracle, no new exchange fact."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-BUDGET-EXHAUSTED": {
+      "task_id": "A-BUDGET-EXHAUSTED",
+      "primary_dimension": "refusal_quality",
+      "secondary_dimensions": [
+        "reproducibility"
+      ],
+      "dimensions": [
+        "refusal_quality",
+        "reproducibility"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "source_evidence": [
+        "contracts/decisions.yaml#D04A"
+      ],
+      "derivation": "CONTRACT_FIXTURE",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-BUDGET-EXHAUSTED"
+        ],
+        "scenario": {
+          "question": "May one additional dispatch start?",
+          "limit": 3,
+          "reserved_attempts": 3,
+          "refund_failed_attempts": false
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "remaining_trials": {
+            "type": "number",
+            "aliases": [
+              "remaining_trials"
+            ]
+          },
+          "dispatch_allowed": {
+            "type": "boolean",
+            "aliases": [
+              "dispatch_allowed"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "REFUSE"
+        ],
+        "facts": {
+          "remaining_trials": 0,
+          "dispatch_allowed": false
+        },
+        "sources": [
+          "FIXTURE:A-BUDGET-EXHAUSTED"
+        ],
+        "basis": "Atomic reservation leaves no capacity."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-PROVIDER-EMPTY": {
+      "task_id": "A-PROVIDER-EMPTY",
+      "primary_dimension": "reproducibility",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "source_evidence": [
+        "docs/HANDOFF.md#1.4"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-PROVIDER-EMPTY"
+        ],
+        "scenario": {
+          "question": "Classify execution; missing output cannot establish wrong research conclusions.",
+          "http_status": 200,
+          "content": "",
+          "finish_reason": "stop",
+          "completion_tokens": 5
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "failure_class": {
+            "type": "string",
+            "aliases": [
+              "failure_class"
+            ]
+          },
+          "answer_observed": {
+            "type": "boolean",
+            "aliases": [
+              "answer_observed"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "failure_class": "EMPTY_CONTENT",
+          "answer_observed": false
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-EMPTY"
+        ],
+        "basis": "Controlled execution metadata fixture."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-PROVIDER-TOKEN-LIMIT": {
+      "task_id": "A-PROVIDER-TOKEN-LIMIT",
+      "primary_dimension": "reproducibility",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "source_evidence": [
+        "docs/HANDOFF.md#1.4"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-PROVIDER-TOKEN-LIMIT"
+        ],
+        "scenario": {
+          "question": "Classify execution; missing output cannot establish wrong research conclusions.",
+          "http_status": 200,
+          "content": "",
+          "finish_reason": "length",
+          "completion_tokens": 24000
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "failure_class": {
+            "type": "string",
+            "aliases": [
+              "failure_class"
+            ]
+          },
+          "answer_observed": {
+            "type": "boolean",
+            "aliases": [
+              "answer_observed"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "failure_class": "TOKEN_BUDGET_EXHAUSTED",
+          "answer_observed": false
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-TOKEN-LIMIT"
+        ],
+        "basis": "Controlled execution metadata fixture."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    },
+    "A-PROVIDER-HTTP": {
+      "task_id": "A-PROVIDER-HTTP",
+      "primary_dimension": "reproducibility",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "dimensions": [
+        "reproducibility",
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "source_evidence": [
+        "docs/HANDOFF.md#1.4"
+      ],
+      "derivation": "CONTROLLED_COUNTERFACTUAL",
+      "task_kind": "STATIC_DIAGNOSTIC",
+      "difficulty_label": "medium",
+      "exposure_status": "PUBLIC_DEV",
+      "public_input": {
+        "sources": [
+          "FIXTURE:A-PROVIDER-HTTP"
+        ],
+        "scenario": {
+          "question": "Classify execution; missing output cannot establish wrong research conclusions.",
+          "http_status": 503,
+          "content": null,
+          "finish_reason": null
+        }
+      },
+      "input_contract": {
+        "output_keys": [
+          "verdict",
+          "reason",
+          "evidence"
+        ],
+        "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+        "facts": {
+          "failure_class": {
+            "type": "string",
+            "aliases": [
+              "failure_class"
+            ]
+          },
+          "answer_observed": {
+            "type": "boolean",
+            "aliases": [
+              "answer_observed"
+            ]
+          }
+        },
+        "sources": "Cite every source ID in input, exactly once; unknown sources are rejected.",
+        "reason_role": "Semicolon-separated clauses: a published non-factual explanation, fact=<JSON value>, or NOT(fact=<JSON value>) for an explicitly denied claim. Arbitrary prose assertions are unsupported and fail contract checks. Evidence remains mandatory.",
+        "reason_explanations": [
+          "The supplied evidence supports this scoped decision.",
+          "The supplied evidence does not support the proposed claim.",
+          "The supplied fields contradict each other.",
+          "This is a diagnostic result only."
+        ],
+        "verdict_meanings": {
+          "PASS": "Requested scoped action supported; not strategy qualification.",
+          "REFUSE": "Proposed action violates a stated constraint or lacks required support.",
+          "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+          "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim."
+        },
+        "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+        "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence."
+      },
+      "ground_truth": {
+        "accept_verdicts": [
+          "PASS"
+        ],
+        "facts": {
+          "failure_class": "HTTP_ERROR",
+          "answer_observed": false
+        },
+        "sources": [
+          "FIXTURE:A-PROVIDER-HTTP"
+        ],
+        "basis": "Controlled execution metadata fixture."
+      },
+      "scoring_predicates": [
+        "contract_valid",
+        "accepted_verdict",
+        "all_required_facts_exact",
+        "all_aliases_agree",
+        "all_sources_exact",
+        "reason_assertions_consistent",
+        "no_unsupported_claims"
+      ]
+    }
+  },
+  "independence": "Same author builds fixtures, scorer and local manual review; no independent adjudication claimed."
+}
