@@ -1,0 +1,47 @@
+{
+  "canonical_interface_regressions": 59,
+  "cpu_milliseconds_execution_fragments_final_batch": 569,
+  "delivered_artifact_sha256": {
+    "engineering_failures.json": "67d037290f629a81f0ce5e979979d829fd8201384ed715a1b13accc0f5d9abb2",
+    "results.json": "7e3bd47acaa84cb017f19962280536c4d974576c2bc27e3281b9a1f5def11a90",
+    "trace.json": "1299a2b18217bddb1f199c40cda53028f53a524aebc05826599b53238ec11fed"
+  },
+  "end_to_end_batches": 3,
+  "final_batch_path": "offline_run_verified",
+  "final_bound_freeze_sha256": "1e55e53b886dc4117e4232ca4379c48dd2b0ede6ecaafa7931f6cd496821c486",
+  "fixture_candidate_variants_including_prior_final_batch": 8,
+  "frozen_cases": 6,
+  "latest_passed": 100,
+  "latest_test_command": "python -B -m pytest tests/test_agent_workflow.py tests/ledger/test_budget.py tests/agents/test_worker.py tests/data/test_pit.py -q -p no:cacheprovider --basetemp .pytest_tmp/workflow_validation_003",
+  "latest_test_seconds": 25.71,
+  "limits": {
+    "end_to_end_batches": 3,
+    "pytest_invocations": 6
+  },
+  "negative_failure_records_retained": 15,
+  "post_test_change": "Only two unused imports removed; final bound batch and twelve replay checks passed after cleanup.",
+  "previous_passed": [
+    37,
+    99
+  ],
+  "prior_local_batch_paths": [
+    "offline_run",
+    "offline_run_final"
+  ],
+  "pytest_invocations": 3,
+  "real_model_calls": 0,
+  "real_network_calls": 0,
+  "real_strategy_searches": 0,
+  "real_tokens": 0,
+  "replay_matches_final_batch": 12,
+  "static_v02_mock_acceptance_rerun": false,
+  "status": "PASS_OFFLINE_ENGINEERING",
+  "tests_freeze_sha256": "6f873e9e5f81719d9794ba80077928d7002eb2f3e0dc79766a5e79d1933a4a9a",
+  "total_agent_steps_final_batch": 46,
+  "total_ledger_attempts_final_batch": 88,
+  "total_tool_calls_final_batch": 34,
+  "unresolved_critical_execution_defects": [],
+  "wall_milliseconds_execution_fragments_final_batch": 1006,
+  "workflow_executions_final_batch": 12,
+  "workflow_tests": 41
+}

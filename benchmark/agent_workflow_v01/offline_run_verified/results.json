@@ -1,0 +1,1243 @@
+{
+  "fixture_cases": 6,
+  "freeze_sha256": "1e55e53b886dc4117e4232ca4379c48dd2b0ede6ecaafa7931f6cd496821c486",
+  "independence": {
+    "D08_achieved": false,
+    "same_author_agent_truth_evaluator": true
+  },
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "previous_pilot": {
+    "execution": "DEFERRED_BY_USER",
+    "real_compatibility": "UNVERIFIED",
+    "status": "PASS_OFFLINE_COMPATIBILITY_READINESS"
+  },
+  "real_agent_workflow": "UNVERIFIED",
+  "real_api_calls": 0,
+  "replay": [
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-01-anomaly-correct",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-01-anomaly-wrong",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-01-normal-correct",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-01-normal-wrong",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-02-available-correct",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-02-available-wrong",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-02-unavailable-correct",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-02-unavailable-wrong",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-03-remaining-correct",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-03-remaining-wrong",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-03-exhausted-correct",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    },
+    {
+      "agent_calls": 0,
+      "run_id": "RUN-WFA-03-exhausted-wrong",
+      "status": "FROZEN_OBSERVATIONS_REPLAY_MATCH",
+      "tool_reexecutions": 0
+    }
+  ],
+  "results": [
+    {
+      "case_id": "WFA-01-anomaly",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [
+            "r1"
+          ],
+          "effective_rows": 1,
+          "metadata_consistent": false,
+          "verdict": "ACCEPT_WITH_WARNING"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-01-anomaly-correct-1",
+          "OBS-RUN-WFA-01-anomaly-correct-2",
+          "OBS-RUN-WFA-01-anomaly-correct-3"
+        ]
+      },
+      "model_id": "scripted-correct-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-01-anomaly-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-01-anomaly-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-01-anomaly-correct-1",
+          "STEP-RUN-WFA-01-anomaly-correct-2",
+          "STEP-RUN-WFA-01-anomaly-correct-3",
+          "STEP-RUN-WFA-01-anomaly-correct-4",
+          "TOOL-RUN-WFA-01-anomaly-correct-1",
+          "TOOL-RUN-WFA-01-anomaly-correct-2",
+          "TOOL-RUN-WFA-01-anomaly-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-01-anomaly-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-01-anomaly-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-01-anomaly-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 15,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 16
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-anomaly",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [
+          "accepted_row_ids:MISSING_OR_CONTRADICTORY",
+          "effective_rows:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [],
+          "effective_rows": 0,
+          "metadata_consistent": false,
+          "verdict": "REFUSE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-01-anomaly-wrong-1",
+          "OBS-RUN-WFA-01-anomaly-wrong-2",
+          "OBS-RUN-WFA-01-anomaly-wrong-3"
+        ]
+      },
+      "model_id": "scripted-wrong-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-01-anomaly-wrong",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-01-anomaly-wrong"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-01-anomaly-wrong-1",
+          "STEP-RUN-WFA-01-anomaly-wrong-2",
+          "STEP-RUN-WFA-01-anomaly-wrong-3",
+          "STEP-RUN-WFA-01-anomaly-wrong-4",
+          "TOOL-RUN-WFA-01-anomaly-wrong-1",
+          "TOOL-RUN-WFA-01-anomaly-wrong-2",
+          "TOOL-RUN-WFA-01-anomaly-wrong-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-01-anomaly-wrong"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-01-anomaly-wrong",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-01-anomaly-wrong",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 15,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 15
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-normal",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [
+            "r1",
+            "r2"
+          ],
+          "effective_rows": 2,
+          "metadata_consistent": true,
+          "verdict": "ACCEPT"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-01-normal-correct-1",
+          "OBS-RUN-WFA-01-normal-correct-2",
+          "OBS-RUN-WFA-01-normal-correct-3"
+        ]
+      },
+      "model_id": "scripted-correct-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-01-normal-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-01-normal-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-01-normal-correct-1",
+          "STEP-RUN-WFA-01-normal-correct-2",
+          "STEP-RUN-WFA-01-normal-correct-3",
+          "STEP-RUN-WFA-01-normal-correct-4",
+          "TOOL-RUN-WFA-01-normal-correct-1",
+          "TOOL-RUN-WFA-01-normal-correct-2",
+          "TOOL-RUN-WFA-01-normal-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-01-normal-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-01-normal-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-01-normal-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 31
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-normal",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [
+          "accepted_row_ids:MISSING_OR_CONTRADICTORY",
+          "effective_rows:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [],
+          "effective_rows": 0,
+          "metadata_consistent": true,
+          "verdict": "REFUSE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-01-normal-wrong-1",
+          "OBS-RUN-WFA-01-normal-wrong-2",
+          "OBS-RUN-WFA-01-normal-wrong-3"
+        ]
+      },
+      "model_id": "scripted-wrong-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-01-normal-wrong",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-01-normal-wrong"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-01-normal-wrong-1",
+          "STEP-RUN-WFA-01-normal-wrong-2",
+          "STEP-RUN-WFA-01-normal-wrong-3",
+          "STEP-RUN-WFA-01-normal-wrong-4",
+          "TOOL-RUN-WFA-01-normal-wrong-1",
+          "TOOL-RUN-WFA-01-normal-wrong-2",
+          "TOOL-RUN-WFA-01-normal-wrong-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-01-normal-wrong"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-01-normal-wrong",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-01-normal-wrong",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 15,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 29
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-available",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": "2000-01-01T00:00:00Z",
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": "2000-01-01T00:00:00Z",
+          "future_rejected": true,
+          "published_at": "2000-01-01T00:00:00Z",
+          "selected_vintage": "v1",
+          "verdict": "SELECT_VINTAGE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-02-available-correct-1",
+          "OBS-RUN-WFA-02-available-correct-2",
+          "OBS-RUN-WFA-02-available-correct-3"
+        ]
+      },
+      "model_id": "scripted-correct-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-02-available-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-02-available-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-02-available-correct-1",
+          "STEP-RUN-WFA-02-available-correct-2",
+          "STEP-RUN-WFA-02-available-correct-3",
+          "STEP-RUN-WFA-02-available-correct-4",
+          "TOOL-RUN-WFA-02-available-correct-1",
+          "TOOL-RUN-WFA-02-available-correct-2",
+          "TOOL-RUN-WFA-02-available-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-02-available-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-02-available-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-02-available-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 44
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-available",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [
+          "future_rejected:MISSING_OR_CONTRADICTORY",
+          "selected_vintage:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": "2000-01-01T00:00:00Z",
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": "2000-01-01T00:00:00Z",
+          "future_rejected": false,
+          "published_at": "2000-01-01T00:00:00Z",
+          "selected_vintage": "v4",
+          "verdict": "SELECT_VINTAGE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-02-available-wrong-1",
+          "OBS-RUN-WFA-02-available-wrong-2",
+          "OBS-RUN-WFA-02-available-wrong-3"
+        ]
+      },
+      "model_id": "scripted-wrong-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-02-available-wrong",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-02-available-wrong"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-02-available-wrong-1",
+          "STEP-RUN-WFA-02-available-wrong-2",
+          "STEP-RUN-WFA-02-available-wrong-3",
+          "STEP-RUN-WFA-02-available-wrong-4",
+          "TOOL-RUN-WFA-02-available-wrong-1",
+          "TOOL-RUN-WFA-02-available-wrong-2",
+          "TOOL-RUN-WFA-02-available-wrong-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-02-available-wrong"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-02-available-wrong",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-02-available-wrong",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 63
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-unavailable",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": null,
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": null,
+          "future_rejected": true,
+          "published_at": null,
+          "selected_vintage": null,
+          "verdict": "REFUSE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-02-unavailable-correct-1",
+          "OBS-RUN-WFA-02-unavailable-correct-2",
+          "OBS-RUN-WFA-02-unavailable-correct-3"
+        ]
+      },
+      "model_id": "scripted-correct-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-02-unavailable-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-02-unavailable-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-02-unavailable-correct-1",
+          "STEP-RUN-WFA-02-unavailable-correct-2",
+          "STEP-RUN-WFA-02-unavailable-correct-3",
+          "STEP-RUN-WFA-02-unavailable-correct-4",
+          "TOOL-RUN-WFA-02-unavailable-correct-1",
+          "TOOL-RUN-WFA-02-unavailable-correct-2",
+          "TOOL-RUN-WFA-02-unavailable-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-02-unavailable-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-02-unavailable-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-02-unavailable-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 15,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 124
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-unavailable",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [
+          "future_rejected:MISSING_OR_CONTRADICTORY",
+          "selected_vintage:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": null,
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": null,
+          "future_rejected": false,
+          "published_at": null,
+          "selected_vintage": "v3",
+          "verdict": "SELECT_VINTAGE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-02-unavailable-wrong-1",
+          "OBS-RUN-WFA-02-unavailable-wrong-2",
+          "OBS-RUN-WFA-02-unavailable-wrong-3"
+        ]
+      },
+      "model_id": "scripted-wrong-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-02-unavailable-wrong",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-02-unavailable-wrong"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "STEP-RUN-WFA-02-unavailable-wrong-1",
+          "STEP-RUN-WFA-02-unavailable-wrong-2",
+          "STEP-RUN-WFA-02-unavailable-wrong-3",
+          "STEP-RUN-WFA-02-unavailable-wrong-4",
+          "TOOL-RUN-WFA-02-unavailable-wrong-1",
+          "TOOL-RUN-WFA-02-unavailable-wrong-2",
+          "TOOL-RUN-WFA-02-unavailable-wrong-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-02-unavailable-wrong"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-02-unavailable-wrong",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-02-unavailable-wrong",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 30,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 48
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-remaining",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 1,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": false,
+          "used_trials": 2,
+          "verdict": "REFUSE_INSUFFICIENT_EVIDENCE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-03-remaining-correct-1",
+          "OBS-RUN-WFA-03-remaining-correct-2",
+          "OBS-RUN-WFA-03-remaining-correct-3",
+          "OBS-RUN-WFA-03-remaining-correct-4"
+        ]
+      },
+      "model_id": "scripted-correct-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-03-remaining-correct",
+      "status": "COMPLETED",
+      "steps": 5,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-03-remaining-correct"
+        ],
+        "attempt_count": 11,
+        "attempt_ids": [
+          "PRIOR-RUN-WFA-03-remaining-correct-0",
+          "STEP-RUN-WFA-03-remaining-correct-1",
+          "STEP-RUN-WFA-03-remaining-correct-2",
+          "STEP-RUN-WFA-03-remaining-correct-3",
+          "STEP-RUN-WFA-03-remaining-correct-4",
+          "STEP-RUN-WFA-03-remaining-correct-5",
+          "TOOL-RUN-WFA-03-remaining-correct-1",
+          "TOOL-RUN-WFA-03-remaining-correct-2",
+          "TOOL-RUN-WFA-03-remaining-correct-3",
+          "TOOL-RUN-WFA-03-remaining-correct-4",
+          "TRIAL-RUN-WFA-03-remaining-correct-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-03-remaining-correct"
+      },
+      "tool_calls": 4,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-03-remaining-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-03-remaining-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 11,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 169,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 4,
+          "wall_milliseconds": 202
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-remaining",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [
+          "strategy_scientific_pass:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 1,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": true,
+          "used_trials": 2,
+          "verdict": "ACCEPT_STRATEGY"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-03-remaining-wrong-1",
+          "OBS-RUN-WFA-03-remaining-wrong-2",
+          "OBS-RUN-WFA-03-remaining-wrong-3",
+          "OBS-RUN-WFA-03-remaining-wrong-4"
+        ]
+      },
+      "model_id": "scripted-wrong-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-03-remaining-wrong",
+      "status": "COMPLETED",
+      "steps": 5,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-03-remaining-wrong"
+        ],
+        "attempt_count": 11,
+        "attempt_ids": [
+          "PRIOR-RUN-WFA-03-remaining-wrong-0",
+          "STEP-RUN-WFA-03-remaining-wrong-1",
+          "STEP-RUN-WFA-03-remaining-wrong-2",
+          "STEP-RUN-WFA-03-remaining-wrong-3",
+          "STEP-RUN-WFA-03-remaining-wrong-4",
+          "STEP-RUN-WFA-03-remaining-wrong-5",
+          "TOOL-RUN-WFA-03-remaining-wrong-1",
+          "TOOL-RUN-WFA-03-remaining-wrong-2",
+          "TOOL-RUN-WFA-03-remaining-wrong-3",
+          "TOOL-RUN-WFA-03-remaining-wrong-4",
+          "TRIAL-RUN-WFA-03-remaining-wrong-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-03-remaining-wrong"
+      },
+      "tool_calls": 4,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-03-remaining-wrong",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-03-remaining-wrong",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 11,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 217,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 4,
+          "wall_milliseconds": 280
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-exhausted",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 0,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": false,
+          "used_trials": 2,
+          "verdict": "REFUSE_INSUFFICIENT_EVIDENCE"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-03-exhausted-correct-1"
+        ]
+      },
+      "model_id": "scripted-correct-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-03-exhausted-correct",
+      "status": "COMPLETED",
+      "steps": 2,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-03-exhausted-correct"
+        ],
+        "attempt_count": 5,
+        "attempt_ids": [
+          "PRIOR-RUN-WFA-03-exhausted-correct-0",
+          "PRIOR-RUN-WFA-03-exhausted-correct-1",
+          "STEP-RUN-WFA-03-exhausted-correct-1",
+          "STEP-RUN-WFA-03-exhausted-correct-2",
+          "TOOL-RUN-WFA-03-exhausted-correct-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-03-exhausted-correct"
+      },
+      "tool_calls": 1,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-03-exhausted-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-03-exhausted-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 5,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 62,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 1,
+          "wall_milliseconds": 108
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-exhausted",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "failed_predicates": [
+          "strategy_scientific_pass:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "identity_independence": false,
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 0,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": true,
+          "used_trials": 2,
+          "verdict": "ACCEPT_STRATEGY"
+        },
+        "evidence": [
+          "OBS-RUN-WFA-03-exhausted-wrong-1"
+        ]
+      },
+      "model_id": "scripted-wrong-v01",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-WFA-03-exhausted-wrong",
+      "status": "COMPLETED",
+      "steps": 2,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-WFA-03-exhausted-wrong"
+        ],
+        "attempt_count": 5,
+        "attempt_ids": [
+          "PRIOR-RUN-WFA-03-exhausted-wrong-0",
+          "PRIOR-RUN-WFA-03-exhausted-wrong-1",
+          "STEP-RUN-WFA-03-exhausted-wrong-1",
+          "STEP-RUN-WFA-03-exhausted-wrong-2",
+          "TOOL-RUN-WFA-03-exhausted-wrong-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-WFA-03-exhausted-wrong"
+      },
+      "tool_calls": 1,
+      "usage": {
+        "benchmark_run_id": "RUN-WFA-03-exhausted-wrong",
+        "blocked": false,
+        "budget_root_run_id": "RUN-WFA-03-exhausted-wrong",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 5,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 31,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 1,
+          "wall_milliseconds": 46
+        }
+      }
+    }
+  ],
+  "status": "OFFLINE_ENGINEERING_EXECUTED",
+  "strategy_scientific_pass": false,
+  "trace_anchor": {
+    "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+    "sequence": 419
+  },
+  "workflow_count": 3
+}

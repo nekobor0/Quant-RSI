@@ -1,0 +1,59 @@
+{
+  "D08_achieved": false,
+  "automatic_retries": 0,
+  "case_order": [
+    "WFA-01-anomaly",
+    "WFA-01-normal",
+    "WFA-02-available",
+    "WFA-02-unavailable",
+    "WFA-03-remaining",
+    "WFA-03-exhausted"
+  ],
+  "engineering_budget": {
+    "max_offline_end_to_end_batches": 3,
+    "max_test_invocations": 6
+  },
+  "frozen_on": "2026-10-09",
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "max_steps": 8,
+  "max_tool_calls": 6,
+  "real_model_tokens": 0,
+  "real_network": false,
+  "runtime": {
+    "PyYAML": "6.0.1",
+    "implementation": "CPython",
+    "python": "3.12.7"
+  },
+  "same_author_truth_evaluator": true,
+  "scientific_qualification": false,
+  "sha256": {
+    "benchmark/agent_workflow_v01/action_contract.json": "d2447f41ee4ffa7d4e2a44bf54e2841f13e2c8e554451527bd94ad16a23dac74",
+    "benchmark/agent_workflow_v01/cases.json": "68b9989ef53fc8f463f4fc07f4faa2a84f2fe096e97d2c60c08680abb2cb2880",
+    "benchmark/agent_workflow_v01/decision_snapshot.json": "bb7ce883318ac0718860c9a2b3846f47275e925cb75bd98759270a0e9a5e4787",
+    "src/quant_rsi/agents/worker.py": "2fc7fcbd8e533e6dddae35374acbed886a154e7380c204248b29292779d83fb7",
+    "src/quant_rsi/contracts/condition.py": "b6dc4602c6af0ef172b74deab99f3eee262566619862d118fbc3f60708f1682b",
+    "src/quant_rsi/contracts/data.py": "252b3a587561fe5c562512cb2372e4ffc2d39bbf87bc4013fea01054d309b057",
+    "src/quant_rsi/contracts/research.py": "ae3d394fd6a5d621b79207875f416ac85d9712984edd140dc92f2cb14ff81934",
+    "src/quant_rsi/data/pit.py": "9d57c58e46c3cc4d95e9ebe316e20b89f2709e62dcd1e909886bc1088d311a74",
+    "src/quant_rsi/eval/replay.py": "3f52846162bdbd1484176af07004ed56366d20af382466548e5385554d240bd7",
+    "src/quant_rsi/harness/agent_workflow.py": "e95dcdcb8157924d85bd8943c8f8779d7870d99204d61297270bbf1123bfc5ac",
+    "src/quant_rsi/harness/capability_oracle.py": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
+    "src/quant_rsi/harness/providers.py": "c27ee95358b4c572a42eb16aef441dad65b976a0679bcce281dc78f85e943559",
+    "src/quant_rsi/harness/workflow_agents.py": "8fb577cafc057226d4428998257d6f4759f8d2b28ee56c1e2324f910be372789",
+    "src/quant_rsi/harness/workflow_oracle.py": "3d840e0ec7a5253d63a3dc53660ac2cae4c6be7aacf3fe5383bda203e7cc357d",
+    "src/quant_rsi/harness/workflow_tools.py": "e1f0304a65e560984c9cb5bd70e4f6199e1723c4cd340c1870a98a53f523a2cd",
+    "src/quant_rsi/ledger/budget.py": "6d23b5d68544a8692b100be41ad1dcc9b8a9adf5888cc566560b4515860e2162",
+    "src/quant_rsi/ledger/store.py": "252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46",
+    "tests/test_agent_workflow.py": "8f0af129f8f0e34a1115ee8d3cf105dfd181db5054b43fc45d2a0689045ddb53"
+  },
+  "version": "TRACK_A_AGENT_WORKFLOW_V0.1",
+  "workflow_ids": [
+    "WFA-01",
+    "WFA-02",
+    "WFA-03"
+  ]
+}
