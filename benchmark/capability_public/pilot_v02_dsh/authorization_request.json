@@ -1,5 +1,7 @@
 {
-  "approved": false,
+  "approval_basis": "Human batch approval in-session: 12 calls, cap 3.00 CNY total, both previously exposed keys confirmed rotated, controller cap explicitly waived by the human for this run.",
+  "approved": true,
+  "approved_on": "2026-10-09",
   "call_cap": 12,
   "controller_budget": {
     "cap_cny": null,
@@ -14,7 +16,7 @@
   "freeze_sha256": "4447f5a66773152316af9acb26f61e8110aa213854ce8c2568e31aed00a4d504",
   "frozen_base_entry_sha256": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
   "instruction": "Only after new explicit human batch authorization and confirmation that previously exposed keys were revoked or rotated. Never place credentials in this file.",
-  "keys_rotated": false,
+  "keys_rotated": true,
   "money_cap_basis": "Proposed starting point carried over from the base freeze. \u00a56.00 was the worst case computed with DeepSeek PRO peak rates, which are NOT Flash current rates. It is retained as a conservative ceiling pending an actual Flash price basis, not as a measured Flash cost.",
   "money_caps_cny": {
     "deepseek": "1.80",
