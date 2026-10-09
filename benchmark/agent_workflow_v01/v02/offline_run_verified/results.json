@@ -1,0 +1,1861 @@
+{
+  "D08": "NOT_IMPLEMENTED",
+  "counterfactual": {
+    "changed_final": true,
+    "fixture_variants": [
+      "WFA-02-available",
+      "WFA-02-unavailable"
+    ],
+    "initial_prompt_hashes": [
+      "efba31329fb81532fa5a71f928d56b241d3093bff7dfcb17df7123fcd200b2d2",
+      "efba31329fb81532fa5a71f928d56b241d3093bff7dfcb17df7123fcd200b2d2"
+    ],
+    "interpretation": "mock_response_dependence_only",
+    "same_first_action": true,
+    "same_initial_context": true
+  },
+  "freeze_sha256": "2382f56ab5009be5a74906cf0c11b548174ca08325fdcbcad5db933fbf590aea",
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "real_agent_ability": "UNVERIFIED",
+  "real_api_calls": 0,
+  "replays": [
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-anomaly-correct",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-anomaly-wrong_final",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-normal-correct",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-normal-wrong_final",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-02-available-correct",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-02-available-wrong_final",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-02-unavailable-correct",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-02-unavailable-wrong_final",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-03-remaining-correct",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-03-remaining-wrong_final",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-03-exhausted-correct",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-03-exhausted-wrong_final",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-anomaly-illegal_tool",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-anomaly-early_final",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-anomaly-wrong_reference",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-02-available-future_claim",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-03-exhausted-exhausted_trial",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    },
+    {
+      "model_calls": 0,
+      "run_id": "RUN-v02-WFA-01-normal-tool_failure_claim",
+      "status": "FROZEN_REPLAY_MATCH",
+      "tool_calls": 0
+    }
+  ],
+  "results": [
+    {
+      "case_id": "WFA-01-anomaly",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [
+            "r1"
+          ],
+          "effective_rows": 1,
+          "metadata_consistent": false,
+          "verdict": "ACCEPT_WITH_WARNING"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-01-anomaly-correct-1",
+          "OBS-RUN-v02-WFA-01-anomaly-correct-2",
+          "OBS-RUN-v02-WFA-01-anomaly-correct-3"
+        ]
+      },
+      "model_id": "simulated-chat-correct",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-anomaly-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-anomaly-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-anomaly-correct-1",
+          "CHAT-RUN-v02-WFA-01-anomaly-correct-2",
+          "CHAT-RUN-v02-WFA-01-anomaly-correct-3",
+          "CHAT-RUN-v02-WFA-01-anomaly-correct-4",
+          "TOOL-RUN-v02-WFA-01-anomaly-correct-1",
+          "TOOL-RUN-v02-WFA-01-anomaly-correct-2",
+          "TOOL-RUN-v02-WFA-01-anomaly-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-anomaly-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-anomaly-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-anomaly-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 6631,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 4
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-anomaly",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION"
+        ],
+        "failed_predicates": [
+          "accepted_row_ids:MISSING_OR_CONTRADICTORY",
+          "effective_rows:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [],
+          "effective_rows": 0,
+          "metadata_consistent": false,
+          "verdict": "REFUSE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-01-anomaly-wrong_final-1",
+          "OBS-RUN-v02-WFA-01-anomaly-wrong_final-2",
+          "OBS-RUN-v02-WFA-01-anomaly-wrong_final-3"
+        ]
+      },
+      "model_id": "simulated-chat-wrong_final",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-anomaly-wrong_final",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-anomaly-wrong_final"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_final-1",
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_final-2",
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_final-3",
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_final-4",
+          "TOOL-RUN-v02-WFA-01-anomaly-wrong_final-1",
+          "TOOL-RUN-v02-WFA-01-anomaly-wrong_final-2",
+          "TOOL-RUN-v02-WFA-01-anomaly-wrong_final-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-anomaly-wrong_final"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-anomaly-wrong_final",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-anomaly-wrong_final",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 6659,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 4
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-normal",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [
+            "r1",
+            "r2"
+          ],
+          "effective_rows": 2,
+          "metadata_consistent": true,
+          "verdict": "ACCEPT"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-01-normal-correct-1",
+          "OBS-RUN-v02-WFA-01-normal-correct-2",
+          "OBS-RUN-v02-WFA-01-normal-correct-3"
+        ]
+      },
+      "model_id": "simulated-chat-correct",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-normal-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-normal-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-normal-correct-1",
+          "CHAT-RUN-v02-WFA-01-normal-correct-2",
+          "CHAT-RUN-v02-WFA-01-normal-correct-3",
+          "CHAT-RUN-v02-WFA-01-normal-correct-4",
+          "TOOL-RUN-v02-WFA-01-normal-correct-1",
+          "TOOL-RUN-v02-WFA-01-normal-correct-2",
+          "TOOL-RUN-v02-WFA-01-normal-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-normal-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-normal-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-normal-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 6472,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 4
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-normal",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION"
+        ],
+        "failed_predicates": [
+          "accepted_row_ids:MISSING_OR_CONTRADICTORY",
+          "effective_rows:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [],
+          "effective_rows": 0,
+          "metadata_consistent": true,
+          "verdict": "REFUSE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-01-normal-wrong_final-1",
+          "OBS-RUN-v02-WFA-01-normal-wrong_final-2",
+          "OBS-RUN-v02-WFA-01-normal-wrong_final-3"
+        ]
+      },
+      "model_id": "simulated-chat-wrong_final",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-normal-wrong_final",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-normal-wrong_final"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-normal-wrong_final-1",
+          "CHAT-RUN-v02-WFA-01-normal-wrong_final-2",
+          "CHAT-RUN-v02-WFA-01-normal-wrong_final-3",
+          "CHAT-RUN-v02-WFA-01-normal-wrong_final-4",
+          "TOOL-RUN-v02-WFA-01-normal-wrong_final-1",
+          "TOOL-RUN-v02-WFA-01-normal-wrong_final-2",
+          "TOOL-RUN-v02-WFA-01-normal-wrong_final-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-normal-wrong_final"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-normal-wrong_final",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-normal-wrong_final",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 6500,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 4
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-available",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": "2000-01-01T00:00:00Z",
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": "2000-01-01T00:00:00Z",
+          "future_rejected": true,
+          "published_at": "2000-01-01T00:00:00Z",
+          "selected_vintage": "v1",
+          "verdict": "SELECT_VINTAGE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-02-available-correct-1",
+          "OBS-RUN-v02-WFA-02-available-correct-2",
+          "OBS-RUN-v02-WFA-02-available-correct-3"
+        ]
+      },
+      "model_id": "simulated-chat-correct",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-02-available-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-02-available-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-02-available-correct-1",
+          "CHAT-RUN-v02-WFA-02-available-correct-2",
+          "CHAT-RUN-v02-WFA-02-available-correct-3",
+          "CHAT-RUN-v02-WFA-02-available-correct-4",
+          "TOOL-RUN-v02-WFA-02-available-correct-1",
+          "TOOL-RUN-v02-WFA-02-available-correct-2",
+          "TOOL-RUN-v02-WFA-02-available-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-02-available-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-02-available-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-02-available-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 8165,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 4
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-available",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION",
+          "FUTURE_OR_INELIGIBLE_VINTAGE_CLAIM"
+        ],
+        "failed_predicates": [
+          "future_rejected:MISSING_OR_CONTRADICTORY",
+          "selected_vintage:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": "2000-01-01T00:00:00Z",
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": "2000-01-01T00:00:00Z",
+          "future_rejected": false,
+          "published_at": "2000-01-01T00:00:00Z",
+          "selected_vintage": "v4",
+          "verdict": "SELECT_VINTAGE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-02-available-wrong_final-1",
+          "OBS-RUN-v02-WFA-02-available-wrong_final-2",
+          "OBS-RUN-v02-WFA-02-available-wrong_final-3"
+        ]
+      },
+      "model_id": "simulated-chat-wrong_final",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-02-available-wrong_final",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-02-available-wrong_final"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-02-available-wrong_final-1",
+          "CHAT-RUN-v02-WFA-02-available-wrong_final-2",
+          "CHAT-RUN-v02-WFA-02-available-wrong_final-3",
+          "CHAT-RUN-v02-WFA-02-available-wrong_final-4",
+          "TOOL-RUN-v02-WFA-02-available-wrong_final-1",
+          "TOOL-RUN-v02-WFA-02-available-wrong_final-2",
+          "TOOL-RUN-v02-WFA-02-available-wrong_final-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-02-available-wrong_final"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-02-available-wrong_final",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-02-available-wrong_final",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 8187,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 4
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-unavailable",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "LEGAL_REJECTED_VINTAGE_AUDIT"
+        ],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": null,
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": null,
+          "future_rejected": true,
+          "published_at": null,
+          "selected_vintage": null,
+          "verdict": "REFUSE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-02-unavailable-correct-1",
+          "OBS-RUN-v02-WFA-02-unavailable-correct-2",
+          "OBS-RUN-v02-WFA-02-unavailable-correct-3"
+        ]
+      },
+      "model_id": "simulated-chat-correct",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-02-unavailable-correct",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-02-unavailable-correct"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-02-unavailable-correct-1",
+          "CHAT-RUN-v02-WFA-02-unavailable-correct-2",
+          "CHAT-RUN-v02-WFA-02-unavailable-correct-3",
+          "CHAT-RUN-v02-WFA-02-unavailable-correct-4",
+          "TOOL-RUN-v02-WFA-02-unavailable-correct-1",
+          "TOOL-RUN-v02-WFA-02-unavailable-correct-2",
+          "TOOL-RUN-v02-WFA-02-unavailable-correct-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-02-unavailable-correct"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-02-unavailable-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-02-unavailable-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 7643,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 4
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-unavailable",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION",
+          "FUTURE_OR_INELIGIBLE_VINTAGE_CLAIM"
+        ],
+        "failed_predicates": [
+          "future_rejected:MISSING_OR_CONTRADICTORY",
+          "selected_vintage:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": null,
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": null,
+          "future_rejected": false,
+          "published_at": null,
+          "selected_vintage": "v3",
+          "verdict": "SELECT_VINTAGE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-02-unavailable-wrong_final-1",
+          "OBS-RUN-v02-WFA-02-unavailable-wrong_final-2",
+          "OBS-RUN-v02-WFA-02-unavailable-wrong_final-3"
+        ]
+      },
+      "model_id": "simulated-chat-wrong_final",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-02-unavailable-wrong_final",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-02-unavailable-wrong_final"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-02-unavailable-wrong_final-1",
+          "CHAT-RUN-v02-WFA-02-unavailable-wrong_final-2",
+          "CHAT-RUN-v02-WFA-02-unavailable-wrong_final-3",
+          "CHAT-RUN-v02-WFA-02-unavailable-wrong_final-4",
+          "TOOL-RUN-v02-WFA-02-unavailable-wrong_final-1",
+          "TOOL-RUN-v02-WFA-02-unavailable-wrong_final-2",
+          "TOOL-RUN-v02-WFA-02-unavailable-wrong_final-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-02-unavailable-wrong_final"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-02-unavailable-wrong_final",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-02-unavailable-wrong_final",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 7665,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 10
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-remaining",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 1,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": false,
+          "used_trials": 2,
+          "verdict": "REFUSE_INSUFFICIENT_EVIDENCE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-03-remaining-correct-1",
+          "OBS-RUN-v02-WFA-03-remaining-correct-2",
+          "OBS-RUN-v02-WFA-03-remaining-correct-3",
+          "OBS-RUN-v02-WFA-03-remaining-correct-4"
+        ]
+      },
+      "model_id": "simulated-chat-correct",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-03-remaining-correct",
+      "status": "COMPLETED",
+      "steps": 5,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-03-remaining-correct"
+        ],
+        "attempt_count": 11,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-03-remaining-correct-1",
+          "CHAT-RUN-v02-WFA-03-remaining-correct-2",
+          "CHAT-RUN-v02-WFA-03-remaining-correct-3",
+          "CHAT-RUN-v02-WFA-03-remaining-correct-4",
+          "CHAT-RUN-v02-WFA-03-remaining-correct-5",
+          "PRIOR-RUN-v02-WFA-03-remaining-correct-0",
+          "TOOL-RUN-v02-WFA-03-remaining-correct-1",
+          "TOOL-RUN-v02-WFA-03-remaining-correct-2",
+          "TOOL-RUN-v02-WFA-03-remaining-correct-3",
+          "TOOL-RUN-v02-WFA-03-remaining-correct-4",
+          "TRIAL-RUN-v02-WFA-03-remaining-correct-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-03-remaining-correct"
+      },
+      "tool_calls": 4,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-03-remaining-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-03-remaining-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 11,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 8581,
+          "model_trials": 1,
+          "output_tokens": 800,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 4,
+          "wall_milliseconds": 7
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-remaining",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION"
+        ],
+        "failed_predicates": [
+          "strategy_scientific_pass:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 1,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": true,
+          "used_trials": 2,
+          "verdict": "ACCEPT_STRATEGY"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-03-remaining-wrong_final-1",
+          "OBS-RUN-v02-WFA-03-remaining-wrong_final-2",
+          "OBS-RUN-v02-WFA-03-remaining-wrong_final-3",
+          "OBS-RUN-v02-WFA-03-remaining-wrong_final-4"
+        ]
+      },
+      "model_id": "simulated-chat-wrong_final",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-03-remaining-wrong_final",
+      "status": "COMPLETED",
+      "steps": 5,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-03-remaining-wrong_final"
+        ],
+        "attempt_count": 11,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-03-remaining-wrong_final-1",
+          "CHAT-RUN-v02-WFA-03-remaining-wrong_final-2",
+          "CHAT-RUN-v02-WFA-03-remaining-wrong_final-3",
+          "CHAT-RUN-v02-WFA-03-remaining-wrong_final-4",
+          "CHAT-RUN-v02-WFA-03-remaining-wrong_final-5",
+          "PRIOR-RUN-v02-WFA-03-remaining-wrong_final-0",
+          "TOOL-RUN-v02-WFA-03-remaining-wrong_final-1",
+          "TOOL-RUN-v02-WFA-03-remaining-wrong_final-2",
+          "TOOL-RUN-v02-WFA-03-remaining-wrong_final-3",
+          "TOOL-RUN-v02-WFA-03-remaining-wrong_final-4",
+          "TRIAL-RUN-v02-WFA-03-remaining-wrong_final-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-03-remaining-wrong_final"
+      },
+      "tool_calls": 4,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-03-remaining-wrong_final",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-03-remaining-wrong_final",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 11,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 8628,
+          "model_trials": 1,
+          "output_tokens": 800,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 4,
+          "wall_milliseconds": 5
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-exhausted",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": true
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 0,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": false,
+          "used_trials": 2,
+          "verdict": "REFUSE_INSUFFICIENT_EVIDENCE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-03-exhausted-correct-1"
+        ]
+      },
+      "model_id": "simulated-chat-correct",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-03-exhausted-correct",
+      "status": "COMPLETED",
+      "steps": 2,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-03-exhausted-correct"
+        ],
+        "attempt_count": 5,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-03-exhausted-correct-1",
+          "CHAT-RUN-v02-WFA-03-exhausted-correct-2",
+          "PRIOR-RUN-v02-WFA-03-exhausted-correct-0",
+          "PRIOR-RUN-v02-WFA-03-exhausted-correct-1",
+          "TOOL-RUN-v02-WFA-03-exhausted-correct-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-03-exhausted-correct"
+      },
+      "tool_calls": 1,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-03-exhausted-correct",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-03-exhausted-correct",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 5,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 2920,
+          "model_trials": 1,
+          "output_tokens": 320,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 1,
+          "wall_milliseconds": 2
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-exhausted",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION"
+        ],
+        "failed_predicates": [
+          "strategy_scientific_pass:MISSING_OR_CONTRADICTORY",
+          "verdict:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "evidence_sufficient": false,
+          "new_trials": 0,
+          "remaining_trials": 0,
+          "strategy_scientific_pass": true,
+          "used_trials": 2,
+          "verdict": "ACCEPT_STRATEGY"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-03-exhausted-wrong_final-1"
+        ]
+      },
+      "model_id": "simulated-chat-wrong_final",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-03-exhausted-wrong_final",
+      "status": "COMPLETED",
+      "steps": 2,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-03-exhausted-wrong_final"
+        ],
+        "attempt_count": 5,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-03-exhausted-wrong_final-1",
+          "CHAT-RUN-v02-WFA-03-exhausted-wrong_final-2",
+          "PRIOR-RUN-v02-WFA-03-exhausted-wrong_final-0",
+          "PRIOR-RUN-v02-WFA-03-exhausted-wrong_final-1",
+          "TOOL-RUN-v02-WFA-03-exhausted-wrong_final-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-03-exhausted-wrong_final"
+      },
+      "tool_calls": 1,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-03-exhausted-wrong_final",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-03-exhausted-wrong_final",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 5,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 2925,
+          "model_trials": 1,
+          "output_tokens": 320,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 1,
+          "wall_milliseconds": 6
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-anomaly",
+      "error": "TOOL_CONTRACT_REJECTED",
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "ILLEGAL_TOOL_OR_ARGUMENT"
+        ],
+        "failed_predicates": [
+          "NO_FINAL"
+        ],
+        "failure_class": "EXECUTION_FAILURE_NOT_RESEARCH",
+        "hard_gates": {
+          "actual_required_tools": false,
+          "execution_completed": false,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": null,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": null,
+          "TOOL_SELECTION_VALID": false
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": null,
+      "model_id": "simulated-chat-illegal_tool",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-anomaly-illegal_tool",
+      "status": "INVALID_ACTION",
+      "steps": 1,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-anomaly-illegal_tool"
+        ],
+        "attempt_count": 1,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-anomaly-illegal_tool-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-anomaly-illegal_tool"
+      },
+      "tool_calls": 0,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-anomaly-illegal_tool",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-anomaly-illegal_tool",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 1,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 1363,
+          "model_trials": 1,
+          "output_tokens": 160,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 0,
+          "wall_milliseconds": 1
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-anomaly",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "FINAL_WITHOUT_REQUIRED_OBSERVATIONS"
+        ],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": false,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [
+            "r1"
+          ],
+          "effective_rows": 1,
+          "metadata_consistent": false,
+          "verdict": "ACCEPT_WITH_WARNING"
+        },
+        "evidence": []
+      },
+      "model_id": "simulated-chat-early_final",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-anomaly-early_final",
+      "status": "COMPLETED",
+      "steps": 1,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-anomaly-early_final"
+        ],
+        "attempt_count": 1,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-anomaly-early_final-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-anomaly-early_final"
+      },
+      "tool_calls": 0,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-anomaly-early_final",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-anomaly-early_final",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 1,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 1362,
+          "model_trials": 1,
+          "output_tokens": 160,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 0,
+          "wall_milliseconds": 1
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-anomaly",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "INVALID_OBSERVATION_REFERENCE"
+        ],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": false,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [
+            "r1"
+          ],
+          "effective_rows": 1,
+          "metadata_consistent": false,
+          "verdict": "ACCEPT_WITH_WARNING"
+        },
+        "evidence": [
+          "OBS-invented"
+        ]
+      },
+      "model_id": "simulated-chat-wrong_reference",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-anomaly-wrong_reference",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-anomaly-wrong_reference"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-1",
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-2",
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-3",
+          "CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-4",
+          "TOOL-RUN-v02-WFA-01-anomaly-wrong_reference-1",
+          "TOOL-RUN-v02-WFA-01-anomaly-wrong_reference-2",
+          "TOOL-RUN-v02-WFA-01-anomaly-wrong_reference-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-anomaly-wrong_reference"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-anomaly-wrong_reference",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-anomaly-wrong_reference",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 6687,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 37
+        }
+      }
+    },
+    {
+      "case_id": "WFA-02-available",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION",
+          "FUTURE_OR_INELIGIBLE_VINTAGE_CLAIM"
+        ],
+        "failed_predicates": [
+          "future_rejected:MISSING_OR_CONTRADICTORY",
+          "selected_vintage:MISSING_OR_CONTRADICTORY"
+        ],
+        "failure_class": "WRONG_RESEARCH_CONCLUSION",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "available_at": "2000-01-01T00:00:00Z",
+          "decision_asof": "2000-01-15T00:00:00Z",
+          "event_effective_date": "2000-01-01T00:00:00Z",
+          "future_rejected": false,
+          "published_at": "2000-01-01T00:00:00Z",
+          "selected_vintage": "v2",
+          "verdict": "SELECT_VINTAGE"
+        },
+        "evidence": [
+          "OBS-RUN-v02-WFA-02-available-future_claim-1",
+          "OBS-RUN-v02-WFA-02-available-future_claim-2",
+          "OBS-RUN-v02-WFA-02-available-future_claim-3"
+        ]
+      },
+      "model_id": "simulated-chat-future_claim",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-02-available-future_claim",
+      "status": "COMPLETED",
+      "steps": 4,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-02-available-future_claim"
+        ],
+        "attempt_count": 7,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-02-available-future_claim-1",
+          "CHAT-RUN-v02-WFA-02-available-future_claim-2",
+          "CHAT-RUN-v02-WFA-02-available-future_claim-3",
+          "CHAT-RUN-v02-WFA-02-available-future_claim-4",
+          "TOOL-RUN-v02-WFA-02-available-future_claim-1",
+          "TOOL-RUN-v02-WFA-02-available-future_claim-2",
+          "TOOL-RUN-v02-WFA-02-available-future_claim-3"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-02-available-future_claim"
+      },
+      "tool_calls": 3,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-02-available-future_claim",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-02-available-future_claim",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 7,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 8192,
+          "model_trials": 1,
+          "output_tokens": 640,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 3,
+          "wall_milliseconds": 9
+        }
+      }
+    },
+    {
+      "case_id": "WFA-03-exhausted",
+      "error": "TRIAL_BUDGET_DENIED",
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "TOOL_EXECUTION_FAILED",
+          "BUDGET_VIOLATION_OR_UNRESOLVED_USAGE"
+        ],
+        "failed_predicates": [
+          "NO_FINAL"
+        ],
+        "failure_class": "EXECUTION_FAILURE_NOT_RESEARCH",
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": false,
+          "trace_and_budget": false
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": false,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": null,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": null,
+          "TOOL_SELECTION_VALID": true
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": null,
+      "model_id": "simulated-chat-exhausted_trial",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-03-exhausted-exhausted_trial",
+      "status": "BUDGET_EXHAUSTED",
+      "steps": 2,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-03-exhausted-exhausted_trial"
+        ],
+        "attempt_count": 6,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-03-exhausted-exhausted_trial-1",
+          "CHAT-RUN-v02-WFA-03-exhausted-exhausted_trial-2",
+          "PRIOR-RUN-v02-WFA-03-exhausted-exhausted_trial-0",
+          "PRIOR-RUN-v02-WFA-03-exhausted-exhausted_trial-1",
+          "TOOL-RUN-v02-WFA-03-exhausted-exhausted_trial-1",
+          "TOOL-RUN-v02-WFA-03-exhausted-exhausted_trial-2"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 2,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-03-exhausted-exhausted_trial"
+      },
+      "tool_calls": 2,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-03-exhausted-exhausted_trial",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-03-exhausted-exhausted_trial",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 6,
+          "candidate_trials": 2,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 2930,
+          "model_trials": 1,
+          "output_tokens": 320,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 2,
+          "wall_milliseconds": 20
+        }
+      }
+    },
+    {
+      "case_id": "WFA-01-normal",
+      "error": null,
+      "evaluation": {
+        "D08_achieved": false,
+        "diagnostics": [
+          "ILLEGAL_TOOL_OR_ARGUMENT",
+          "FINAL_WITHOUT_REQUIRED_OBSERVATIONS",
+          "TOOL_EXECUTION_FAILED",
+          "FINAL_AFTER_UNRESOLVED_TOOL_FAILURE"
+        ],
+        "failed_predicates": [],
+        "failure_class": null,
+        "hard_gates": {
+          "actual_required_tools": false,
+          "execution_completed": false,
+          "trace_and_budget": true
+        },
+        "single_total_score": null,
+        "strategy_scientific_pass": false,
+        "trace_integrity": true,
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": false
+        },
+        "version": "workflow-evaluator-v02",
+        "workflow_pass": false
+      },
+      "final": {
+        "action": "FINAL",
+        "conclusion": {
+          "accepted_row_ids": [
+            "r1",
+            "r2"
+          ],
+          "effective_rows": 2,
+          "metadata_consistent": true,
+          "verdict": "ACCEPT"
+        },
+        "evidence": []
+      },
+      "model_id": "simulated-chat-tool_failure_claim",
+      "real_agent_ability": "UNVERIFIED",
+      "run_id": "RUN-v02-WFA-01-normal-tool_failure_claim",
+      "status": "COMPLETED",
+      "steps": 2,
+      "strategy_scientific_pass": false,
+      "synthetic_trial_accounting": {
+        "ancestry": [
+          "FAM-RUN-v02-WFA-01-normal-tool_failure_claim"
+        ],
+        "attempt_count": 3,
+        "attempt_ids": [
+          "CHAT-RUN-v02-WFA-01-normal-tool_failure_claim-1",
+          "CHAT-RUN-v02-WFA-01-normal-tool_failure_claim-2",
+          "TOOL-RUN-v02-WFA-01-normal-tool_failure_claim-1"
+        ],
+        "calibration_status": "D04B_DEFERRED",
+        "candidate_variant_count": 0,
+        "capability_penalty": null,
+        "effective_independent_trials": null,
+        "scientific_family_id": "FAM-RUN-v02-WFA-01-normal-tool_failure_claim"
+      },
+      "tool_calls": 1,
+      "usage": {
+        "benchmark_run_id": "RUN-v02-WFA-01-normal-tool_failure_claim",
+        "blocked": false,
+        "budget_root_run_id": "RUN-v02-WFA-01-normal-tool_failure_claim",
+        "capability_score": null,
+        "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+        "usage": {
+          "attempts": 3,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 0,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 2875,
+          "model_trials": 1,
+          "output_tokens": 320,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 1,
+          "wall_milliseconds": 2
+        }
+      }
+    }
+  ],
+  "status": "OFFLINE_CHAT_ENGINEERING_EXECUTED",
+  "trace_anchor": {
+    "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+    "sequence": 561
+  }
+}

@@ -1,0 +1,3 @@
+# Preliminary engineering execution retained locally with its execution freeze.
+offline_run/
+*.sqlite

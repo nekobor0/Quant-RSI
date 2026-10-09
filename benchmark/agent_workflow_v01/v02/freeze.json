@@ -1,0 +1,42 @@
+{
+  "automatic_retries": 0,
+  "base_commit": "e3d1e06",
+  "base_freeze_sha256": "1e55e53b886dc4117e4232ca4379c48dd2b0ede6ecaafa7931f6cd496821c486",
+  "case_order": [
+    "WFA-01-anomaly",
+    "WFA-01-normal",
+    "WFA-02-available",
+    "WFA-02-unavailable",
+    "WFA-03-remaining",
+    "WFA-03-exhausted"
+  ],
+  "currency_cap": null,
+  "engineering_budget": {
+    "max_end_to_end_batches_per_task": 3,
+    "max_test_invocations_for_both_tasks": 12
+  },
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "max_steps": 8,
+  "max_tool_calls": 6,
+  "pricing": "DEFERRED_UNTIL_REAL_AUTHORIZATION",
+  "real_model_calls": 0,
+  "real_network": false,
+  "sha256": {
+    "src/quant_rsi/harness/workflow_chat.py": "55f6f11745a67eb29b0ad10f76534f128af4af9e557afd7838fc694ae13be552",
+    "src/quant_rsi/harness/workflow_v02.py": "f838734ed650ab8852cf76df322b88d264c9c3cbd68dc393a6c8ea54884438dd",
+    "tests/test_workflow_v02.py": "3f8285932d8ecd23164b4deccfe07c0f0f0c1ccecc8b9868b10b3f17e2bb6c39"
+  },
+  "timeout_s": 30,
+  "tokens": {
+    "reasoning_included_in_output": true,
+    "request_input": 32768,
+    "request_output": 2048,
+    "task_input": 262144,
+    "task_output": 16384
+  },
+  "version": "TRACK_A_AGENT_WORKFLOW_V0.2"
+}

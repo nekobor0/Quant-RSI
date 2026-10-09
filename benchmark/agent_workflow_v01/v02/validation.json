@@ -1,0 +1,27 @@
+{
+  "bindings": {
+    "benchmark/agent_workflow_v01/v02/freeze.json": "2382f56ab5009be5a74906cf0c11b548174ca08325fdcbcad5db933fbf590aea",
+    "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json": "2a328acff73a16fb3577fd98d4fb75d7ad762b66ca334e0fea73cb1e953b8db5",
+    "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json": "6033af71bb6f5cfeb1a364603e02a1645623c6fce735f6890a1b5fea372aab39"
+  },
+  "end_to_end_batches": 2,
+  "engineering_failures": [
+    {
+      "cause": "First pytest command omitted src import path; corrected entry command. No workflow dispatch.",
+      "class": "TEST_COLLECTION_IMPORT_ERROR",
+      "count": 5,
+      "resolved": true
+    }
+  ],
+  "preserved_preliminary_run": "offline_run with execution_freeze.json; not used as final evidence",
+  "pytest_invocations": 3,
+  "real_api_calls": 0,
+  "replay_matches": 18,
+  "tests_passed": 139,
+  "totals": {
+    "attempts": 113,
+    "candidate_trials": 10,
+    "input_tokens": 104385,
+    "output_tokens": 9600
+  }
+}
