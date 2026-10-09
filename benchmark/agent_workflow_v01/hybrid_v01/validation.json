@@ -1,0 +1,25 @@
+{
+  "bindings": {
+    "benchmark/agent_workflow_v01/hybrid_v01/freeze.json": "2baedc09f54b3f380fb2d99db5ec4665e5524334a3a90ed772c729d6173046c9",
+    "benchmark/agent_workflow_v01/hybrid_v01/offline_calibration/packets.json": "32571ee8d123fb7e1e808f5ef690d1f1333faef412edd774e2052b8c967bb605",
+    "benchmark/agent_workflow_v01/hybrid_v01/offline_calibration/references.json": "c9e677cbd63e41d961a1a8bfd4c88792af8988b0f4d664de978a6da247d7b80f",
+    "benchmark/agent_workflow_v01/hybrid_v01/offline_calibration/results.json": "a6d9ea1e55267ac78a60789df692ff7773ca663fc9ee054f40623184841276bb",
+    "benchmark/agent_workflow_v01/hybrid_v01/offline_calibration/trace.json": "43ca64bdd060c2109bb92cf3e87b8faca0721f2d7910d18ebb2985746f813e8d",
+    "benchmark/agent_workflow_v01/hybrid_v01/rubric.json": "65b8432d7c2d0d0851d51330df6f7b6b62d88ef0e3dcbd2b2bfde2660913af07"
+  },
+  "end_to_end_batches": {
+    "hybrid_v01": 1,
+    "workflow_v02": 2
+  },
+  "hybrid_tests_passed": 40,
+  "independent_human_reference_review_performed": false,
+  "joint_tests_passed": 179,
+  "mock_chat_calls": 24,
+  "mock_judge_challenges": 6,
+  "real_judge_calibrated": false,
+  "real_judge_calls": 0,
+  "replay_matches": 24,
+  "sample_count": 18,
+  "total_pytest_invocations_both_tasks": 5,
+  "workflow_and_B1_B2_tests_passed": 139
+}

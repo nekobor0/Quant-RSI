@@ -1,0 +1,692 @@
+[
+  {
+    "human_check": "Confirm all required tool observations, actual citations and frozen final values. Legal audit read in unavailable case does not access future values.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        2,
+        3
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        2,
+        3
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "correct",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Correct tool chain and preserved trace; compare final contradiction with authentic observations. F/U zero, tooling/state/budget/trace remain creditable.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        0
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "wrong_final",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Confirm all required tool observations, actual citations and frozen final values. Legal audit read in unavailable case does not access future values.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "bf639c0cd1be7930c50daf1c6fdccaa18a081a9e5122623f865db763cb61b66d",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        2,
+        3
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        2,
+        3
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "correct",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Correct tool chain and preserved trace; compare final contradiction with authentic observations. F/U zero, tooling/state/budget/trace remain creditable.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "311f8cdfe8124fa289c7a52d5c051f85a93e236d89718a4853b8aaaaad533568",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        0
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "wrong_final",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Confirm all required tool observations, actual citations and frozen final values. Legal audit read in unavailable case does not access future values.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "bc1dd6f9b56ec91d6153589313933e9e200d28205aeea3fe4bd1b0351408b2ab",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        2,
+        3
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        2,
+        3
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "correct",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Correct tool chain and preserved trace; compare final contradiction with authentic observations. F/U zero, tooling/state/budget/trace remain creditable.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "a3974e86c9c32a52d16664c0a9abbadce52c944bca5f9a75c326d7c813259c1d",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        0
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "wrong_final",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Confirm all required tool observations, actual citations and frozen final values. Legal audit read in unavailable case does not access future values.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "d357db09d5ce5ef0dbfe9b28aeca0371024988fd64c0d4955c0e89367bc660c2",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        2,
+        3
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        2,
+        3
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "correct",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Correct tool chain and preserved trace; compare final contradiction with authentic observations. F/U zero, tooling/state/budget/trace remain creditable.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "94c7d42b0939bc9a64a1bf792d6106923d110f3bc4001f0c8799bef8d91a7c8a",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        0
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "wrong_final",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Confirm all required tool observations, actual citations and frozen final values. Legal audit read in unavailable case does not access future values.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "2313580d88569d1ef68218b581371ca62dac11987fa5514a8ce54085fc615cc3",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        2,
+        3
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        2,
+        3
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "correct",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Correct tool chain and preserved trace; compare final contradiction with authentic observations. F/U zero, tooling/state/budget/trace remain creditable.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "635a2769bfe6fb0161de7055fa9d316115e91c8b6ce90c3316cea77c4bfa56a3",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        0
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "wrong_final",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Confirm all required tool observations, actual citations and frozen final values. Legal audit read in unavailable case does not access future values.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "2a2017dfd97069858514fbe6df996e62ff14376d499a28fa62df22a3f9b10146",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        2,
+        3
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        2,
+        3
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "correct",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Correct tool chain and preserved trace; compare final contradiction with authentic observations. F/U zero, tooling/state/budget/trace remain creditable.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "769447c4428cdcae47f41bcf6d6b80c5f362f344d0c16198cbce8059b04c1f92",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        0
+      ],
+      "STATE_TRANSITION_VALID": [
+        2,
+        3
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "wrong_final",
+    "source_version": "v01"
+  },
+  {
+    "human_check": "Shell is absent from whitelist; no tool executed or FINAL. Budget and refusal receipt remain valid.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "da75f094e6770c18655e38e0a67377579c82c3194bbddba249210129d4efe38e",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": "INSUFFICIENT_EVIDENCE",
+      "STATE_TRANSITION_VALID": [
+        0,
+        0
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": "INSUFFICIENT_EVIDENCE",
+      "TOOL_SELECTION_VALID": [
+        0,
+        0
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "illegal_tool",
+    "source_version": "v02"
+  },
+  {
+    "human_check": "A lucky correct WFA-01 final without any required observations is unsupported. Original fact match remains true; Judge reviews support quality, not the truth Oracle.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "f15c787557f08c17b9e0d7c453019870c871a8c3815fc966cd95b964c5f76c9b",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        0,
+        1
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        1
+      ],
+      "STATE_TRANSITION_VALID": [
+        0,
+        0
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        0,
+        1
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "early_final",
+    "source_version": "v02"
+  },
+  {
+    "human_check": "Actual required tools executed and final facts are right, but OBS-invented is not a real observation. Preserve tool/budget credit, no evidence/process credit.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "d4393aa373a071163c2ea6fcf76be70c36f93515fc9e1b7b6ee32191208a3e7e",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        0,
+        0
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        1
+      ],
+      "STATE_TRANSITION_VALID": [
+        0,
+        0
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "wrong_reference",
+    "source_version": "v02"
+  },
+  {
+    "human_check": "Tools correctly reject v2 and withhold its value; final claims selecting it. Do not punish the lawful tool chain as an illegal action.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "bac8607cfa67716fe01e8c38a9e77e7e550272e4882b377729b2da45a8f09450",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        0
+      ],
+      "STATE_TRANSITION_VALID": [
+        0,
+        0
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        2,
+        3
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "future_claim",
+    "source_version": "v02"
+  },
+  {
+    "human_check": "Inspect shows 2/2 used, then reserve_trial is denied. No new scientific trial exists; denial trace complete. Schema-valid choice was unreasonable.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "4ed91663301542668d3b84ef2b9c8723737c19683d4737de120169311fbe6e0c",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        0,
+        0
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        2,
+        3
+      ],
+      "FINAL_DECISION_CORRECT": "INSUFFICIENT_EVIDENCE",
+      "STATE_TRANSITION_VALID": [
+        0,
+        0
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": "INSUFFICIENT_EVIDENCE",
+      "TOOL_SELECTION_VALID": [
+        0,
+        1
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "exhausted_trial",
+    "source_version": "v02"
+  },
+  {
+    "human_check": "inspect_response cites nonexistent input observation and fails. A guessed correct normal final cannot claim successful evidence use; inspect actual failure and missing required tools.",
+    "human_review_triggers": [
+      "reference disagreement",
+      "semantic rationale contradiction even with valid refs",
+      "identity/style/order bias",
+      "abstention with sufficient evidence"
+    ],
+    "packet_id": "dba3196ffd407e2bb60b967d2086c49b3bd672803494e5e4ac77ef0addf233f6",
+    "rating_ranges": {
+      "BUDGET_COMPLIANT": [
+        2,
+        3
+      ],
+      "EVIDENCE_TRACE_COMPLETE": [
+        0,
+        1
+      ],
+      "FINAL_DECISION_CORRECT": [
+        0,
+        1
+      ],
+      "STATE_TRANSITION_VALID": [
+        0,
+        0
+      ],
+      "TOOL_RESULT_USED_CORRECTLY": [
+        0,
+        0
+      ],
+      "TOOL_SELECTION_VALID": [
+        0,
+        0
+      ]
+    },
+    "reference_author": "engineering author, not Judge",
+    "source_profile": "tool_failure_claim",
+    "source_version": "v02"
+  }
+]

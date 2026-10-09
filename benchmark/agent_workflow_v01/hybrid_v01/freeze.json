@@ -1,0 +1,24 @@
+{
+  "D08": "NOT_IMPLEMENTED",
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "real_judge_calls": 0,
+  "sample_count": 18,
+  "sha256": {
+    "benchmark/agent_workflow_v01/freeze.json": "1e55e53b886dc4117e4232ca4379c48dd2b0ede6ecaafa7931f6cd496821c486",
+    "benchmark/agent_workflow_v01/hybrid_v01/calibration_reference.json": "4be0e920b971a49d3fa59854ba6aa4942c1e3ef9d92ce98369049ccd07c10518",
+    "benchmark/agent_workflow_v01/hybrid_v01/future_execution.json": "83d529e4cf95390803486d3bbb4f1774f6a3dcddc2a74f579afc25a970fae7f9",
+    "benchmark/agent_workflow_v01/hybrid_v01/rubric.json": "65b8432d7c2d0d0851d51330df6f7b6b62d88ef0e3dcbd2b2bfde2660913af07",
+    "benchmark/agent_workflow_v01/offline_run_verified/results.json": "7e3bd47acaa84cb017f19962280536c4d974576c2bc27e3281b9a1f5def11a90",
+    "benchmark/agent_workflow_v01/offline_run_verified/trace.json": "1299a2b18217bddb1f199c40cda53028f53a524aebc05826599b53238ec11fed",
+    "benchmark/agent_workflow_v01/v02/freeze.json": "2382f56ab5009be5a74906cf0c11b548174ca08325fdcbcad5db933fbf590aea",
+    "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json": "2a328acff73a16fb3577fd98d4fb75d7ad762b66ca334e0fea73cb1e953b8db5",
+    "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json": "6033af71bb6f5cfeb1a364603e02a1645623c6fce735f6890a1b5fea372aab39",
+    "src/quant_rsi/harness/hybrid_judge.py": "447d4d4b938d1d082690abaa840c1d002a75425678828190225e2b615a5e8a09",
+    "tests/test_hybrid_judge.py": "b631b8a1aea85d52f687e443672ae7915eb608400114b45516ba3b427c63402d"
+  },
+  "version": "HYBRID_EVALUATOR_V0.1"
+}

@@ -1,0 +1,810 @@
+[
+  {
+    "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+    "references": {
+      "A1": {
+        "event_hash": "5360805202b58908a4facb56b2fbdce370823107013e8cb3fb24538dcf61731e",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-correct-1"
+      },
+      "A2": {
+        "event_hash": "0a6702ebf7b2a8d71032d694b9bd95dac437fbeb9a7952717bcf89bf81df0377",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-correct-2"
+      },
+      "A3": {
+        "event_hash": "bbaf7bc6a36d10db88fb2a3cc5d83be6e8dbde46c2f90ecab62410df94f5adac",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-correct-3"
+      },
+      "A4": {
+        "event_hash": "a57b8239f2789b7bbfae887519b59f92ab5febfa1ca35e73eef104ab9811fdb9",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-correct-4"
+      },
+      "D1": {
+        "event_hash": "5c59dc1af28464c257c94311b2d035e5267875edac95b842722e3ef3f8d10708",
+        "event_id": "workflow-eval:RUN-WFA-01-anomaly-correct"
+      },
+      "L1": {
+        "event_hash": "7395305b52b982d9a6c72b1375958eea411bd12845e9a85574e4e0a993ba95bd",
+        "event_id": "workflow-end:RUN-WFA-01-anomaly-correct"
+      },
+      "O1": {
+        "event_hash": "d8124b377064e66bcb8ecf8d4b14e814c30e0e08c901e3b297b4373e8b680a15",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-anomaly-correct-1"
+      },
+      "O2": {
+        "event_hash": "7ef6b40cb70df51406ba5a775c60c245fa0834f22f0a15791ebedd3900c7e127",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-anomaly-correct-2"
+      },
+      "O3": {
+        "event_hash": "d913835fedf326c604f745b465ce6183479f7342d96801e91d59c9eecef3b275",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-anomaly-correct-3"
+      }
+    },
+    "run_id": "RUN-WFA-01-anomaly-correct",
+    "source_result_hash": "c5af2d0d1cab7b31c56ba34b5937b289ff6943a59fbdf522c51f9d855fa7e8ee",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20",
+    "references": {
+      "A1": {
+        "event_hash": "87d923970409443f589bd7aae9d36f64de70cac8a8032c06544f5a713aac424d",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-wrong-1"
+      },
+      "A2": {
+        "event_hash": "0f731d9c8ae61812865969863739bc0bde863d22c679adad196ead44602b1056",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-wrong-2"
+      },
+      "A3": {
+        "event_hash": "2e48bfbf80265f290e58852e77e4cbcf58e983f1b340aa41ba833a955deb4183",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-wrong-3"
+      },
+      "A4": {
+        "event_hash": "5b49458f90ad2d7b325ae36753926744ed179765ad95fe4526a9ef38610ee48a",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-anomaly-wrong-4"
+      },
+      "D1": {
+        "event_hash": "d0a3c6bcd5fc586806f060917f60683473479cb237fb0082bdd24cd828f5dd36",
+        "event_id": "workflow-eval:RUN-WFA-01-anomaly-wrong"
+      },
+      "L1": {
+        "event_hash": "1d02faa6401d2ec75a10c5e558d4fe656b8c6a2a40000938a211d180e6ca26f7",
+        "event_id": "workflow-end:RUN-WFA-01-anomaly-wrong"
+      },
+      "O1": {
+        "event_hash": "4433d9d33598e6cf3f8f0362a602f1fe495bd84ffc0c4edd038befd9da211cc8",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-anomaly-wrong-1"
+      },
+      "O2": {
+        "event_hash": "3be1054c1825eb8dab4bee1475dc678034b9d4f5cd9e6be212320397307437c3",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-anomaly-wrong-2"
+      },
+      "O3": {
+        "event_hash": "364badb8dffa893c195b61ae0b91024fcbc5ed29945e204c60a67ae34010f8d4",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-anomaly-wrong-3"
+      }
+    },
+    "run_id": "RUN-WFA-01-anomaly-wrong",
+    "source_result_hash": "57ed41252a4e7cfdf8f9234ea075ba5e2aa87854cec2fd75f7995c2de643336d",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "bf639c0cd1be7930c50daf1c6fdccaa18a081a9e5122623f865db763cb61b66d",
+    "references": {
+      "A1": {
+        "event_hash": "57b3cededcf3eef0ff1571b7086446744287459b1753a9c17a1c78a581c8d06b",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-correct-1"
+      },
+      "A2": {
+        "event_hash": "929627a72fd8e307c5d886ae3d179c292114321e36109a7d81f62378ce40ffef",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-correct-2"
+      },
+      "A3": {
+        "event_hash": "4faf7e4301ead6b0dc7aaccb1327100dfaf83008743daf454aa90acc5ccaba9d",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-correct-3"
+      },
+      "A4": {
+        "event_hash": "79d3d9e99ee93f5ce168d11a0ebc22bbd92295f3526d1cda34074e3b3980bbf1",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-correct-4"
+      },
+      "D1": {
+        "event_hash": "c7eb4ed47f084824549ad137001395622b7c21905837ec17e1142e4e0bc0e0d4",
+        "event_id": "workflow-eval:RUN-WFA-01-normal-correct"
+      },
+      "L1": {
+        "event_hash": "0bcab9d9965f4f0f9bb4ea037176dc02affedf53d586df0225cafaee294f5ffb",
+        "event_id": "workflow-end:RUN-WFA-01-normal-correct"
+      },
+      "O1": {
+        "event_hash": "ecefd33726138f11ed5af3bc73caf8abadefeab29db5c0de42f5b1f8d150fae5",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-normal-correct-1"
+      },
+      "O2": {
+        "event_hash": "b0a326a71bd82dd862abb16e2a00c994a3657f1eb9df2fa6461199fa9bcdbc6b",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-normal-correct-2"
+      },
+      "O3": {
+        "event_hash": "3892c847af44ed5ce051b06e1ea21122fa2458a2ac1e5380ded7f26d0354e5b9",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-normal-correct-3"
+      }
+    },
+    "run_id": "RUN-WFA-01-normal-correct",
+    "source_result_hash": "0abe1a8d5812de279e29770147ff4a51e71a1359ec877566cebf2f9973de6449",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "311f8cdfe8124fa289c7a52d5c051f85a93e236d89718a4853b8aaaaad533568",
+    "references": {
+      "A1": {
+        "event_hash": "482c31f9c8c26567736022d7d6bba64d5d0f68d2e20bc64970424217c20bec78",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-wrong-1"
+      },
+      "A2": {
+        "event_hash": "a8e9c686ece0683a5f8f4c94a0cdda6238f7c64f2d6ab6aa1dcd540c3e14164d",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-wrong-2"
+      },
+      "A3": {
+        "event_hash": "28ba069a307fdea5be63e45d571afa30844629ea1a464845abe79a966ef458f0",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-wrong-3"
+      },
+      "A4": {
+        "event_hash": "3f765687587e01bcab209229da6c3d1e01d913413700b009ef078c1371b960b9",
+        "event_id": "workflow-action:STEP-RUN-WFA-01-normal-wrong-4"
+      },
+      "D1": {
+        "event_hash": "2972702ef8ca7df9b2b9ffd39376b4ca1b92f199dc5f049b593ed1b634aae74d",
+        "event_id": "workflow-eval:RUN-WFA-01-normal-wrong"
+      },
+      "L1": {
+        "event_hash": "a8113e2caf102527fd7104c419e009e341f01e74443a7d12faaaad7e21d04381",
+        "event_id": "workflow-end:RUN-WFA-01-normal-wrong"
+      },
+      "O1": {
+        "event_hash": "d0651b4fa2daa1055cf3f1f9f6e9120ca77b8e9001abe0b268e3f4e78b97b3e3",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-normal-wrong-1"
+      },
+      "O2": {
+        "event_hash": "9627b4cbc01896a3d9f437e4d5bf060beb4918c96b3890c22dd7d34ecdbfd33b",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-normal-wrong-2"
+      },
+      "O3": {
+        "event_hash": "92e65b8b9ac1b77f5e0da73cf51b5127d076641f214d553126fd31524f71d83b",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-01-normal-wrong-3"
+      }
+    },
+    "run_id": "RUN-WFA-01-normal-wrong",
+    "source_result_hash": "c8d4d9c8c65d6c0c02ce1af07e917f7015643eff9844533f89b731c90802587a",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "bc1dd6f9b56ec91d6153589313933e9e200d28205aeea3fe4bd1b0351408b2ab",
+    "references": {
+      "A1": {
+        "event_hash": "daa79535ff94ee4b7a0253549e0e3555905867addc20c16fd343c5dbfb25581f",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-correct-1"
+      },
+      "A2": {
+        "event_hash": "893edf8b0642df110dcb1cfb4e3d5f7ecc043816f7f1a0a20424127ab8ad38b3",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-correct-2"
+      },
+      "A3": {
+        "event_hash": "e04954907050f2708d7cab7dbc203b57da0721c39321213b4358ce8d1d0e5be5",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-correct-3"
+      },
+      "A4": {
+        "event_hash": "3141fbb8848d88a34a9ec35d4bbdc44efca714d074ab8913e68673a67d5b5544",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-correct-4"
+      },
+      "D1": {
+        "event_hash": "e03330e89fab5b197e5a7a0bfce881705e895c4f417270d651417ddc097e3498",
+        "event_id": "workflow-eval:RUN-WFA-02-available-correct"
+      },
+      "L1": {
+        "event_hash": "d9187f5a56594883bbc6020f9c11ea73ed0fc0d02422015b11f291abb6291ab5",
+        "event_id": "workflow-end:RUN-WFA-02-available-correct"
+      },
+      "O1": {
+        "event_hash": "1917e3969de6d3331bc71b21bebde66f53028fd00d46f00695ef209b63a846d2",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-available-correct-1"
+      },
+      "O2": {
+        "event_hash": "6ad2194c8f4e664bea39e1ed4439cd3d0b8e16e53669390d83dd54898d9600c0",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-available-correct-2"
+      },
+      "O3": {
+        "event_hash": "c7da3ec59e62d24d4853516014ca6a00b3641db2e057f5c132e36392c5dc1494",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-available-correct-3"
+      }
+    },
+    "run_id": "RUN-WFA-02-available-correct",
+    "source_result_hash": "edd67488d872d679466eafb87ceeb6693123b35594b4cc076b6e98311d97a36c",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "a3974e86c9c32a52d16664c0a9abbadce52c944bca5f9a75c326d7c813259c1d",
+    "references": {
+      "A1": {
+        "event_hash": "d0c052bca0a65b060d53b17ca214d2e327618407b2e4bb8b3a8f676b2d63dad5",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-wrong-1"
+      },
+      "A2": {
+        "event_hash": "17526867a24793079f7e3de63f8ece52ead94c21e7cf9e24c58e9e32a1fc3344",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-wrong-2"
+      },
+      "A3": {
+        "event_hash": "8766c3cbea52fe049cb95adf51a2e865a8414affc8500c90cdb072114a161af1",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-wrong-3"
+      },
+      "A4": {
+        "event_hash": "ad5847fc347b80133da4a7a25fd72c1dd1a88d4a153633aad8841b05105aaaf2",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-available-wrong-4"
+      },
+      "D1": {
+        "event_hash": "2b04b901038e99723c7aee5c55d838ba5a085176552a700a7c87d24cd8dcba07",
+        "event_id": "workflow-eval:RUN-WFA-02-available-wrong"
+      },
+      "L1": {
+        "event_hash": "7690ede3a7a9374a6d5d602afe2faea774ed9b8f02765d97a317c52cccc1def7",
+        "event_id": "workflow-end:RUN-WFA-02-available-wrong"
+      },
+      "O1": {
+        "event_hash": "be331bffdee8d905760a9a437c8b496abc4f0d47c76332d145f2ddb444117d8d",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-available-wrong-1"
+      },
+      "O2": {
+        "event_hash": "a45f898f576e0e39559bb7eccf9a98814baad916d79d6cb7f0765ae10b5fe8ea",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-available-wrong-2"
+      },
+      "O3": {
+        "event_hash": "96165cf93d765d97c0568985fe8c406a86fa8fa4e3744f787eccab8e86bd7a83",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-available-wrong-3"
+      }
+    },
+    "run_id": "RUN-WFA-02-available-wrong",
+    "source_result_hash": "68095d76aef44e4b689d8fb88ca6bf079b0be5260cf0f03a4ec044893544b5d8",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "d357db09d5ce5ef0dbfe9b28aeca0371024988fd64c0d4955c0e89367bc660c2",
+    "references": {
+      "A1": {
+        "event_hash": "d3395ef1228ff5be15966da2da4d3604e2e9ba50a01faae858382f49942d7fbc",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-correct-1"
+      },
+      "A2": {
+        "event_hash": "01165077d7dc5f2b25acc4d54b790c896a1976e55f24c5c24aa4e41be7bebcc8",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-correct-2"
+      },
+      "A3": {
+        "event_hash": "4ba6df71d75f0b7b795e50692fbe1ccbd51693ed5687253a61823a0aa2307a14",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-correct-3"
+      },
+      "A4": {
+        "event_hash": "ca25e21f6c7f7c445c333c22ba6d263b262e774bd01956266ab9423d14b89eee",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-correct-4"
+      },
+      "D1": {
+        "event_hash": "36bdb4a05e77ce580cd53b7911014b8a551b2e68957e36d362a112bd01eaf986",
+        "event_id": "workflow-eval:RUN-WFA-02-unavailable-correct"
+      },
+      "L1": {
+        "event_hash": "e493033c9c8f61a48dbcaa46f9c4fb8b51bce42805b97a503df1f212526ec848",
+        "event_id": "workflow-end:RUN-WFA-02-unavailable-correct"
+      },
+      "O1": {
+        "event_hash": "b352283ddb3f4ba4ab12fbbc2684e47e90f65b212124e49660a655b038d2774c",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-unavailable-correct-1"
+      },
+      "O2": {
+        "event_hash": "458816f4dc876c67fbe8813573680947d2b0f461de7f14ad67388f55b05343c5",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-unavailable-correct-2"
+      },
+      "O3": {
+        "event_hash": "e0a26656a3cbd4296632a704dbf4b2add6707c341a3b57c18e85cd4057702e9f",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-unavailable-correct-3"
+      }
+    },
+    "run_id": "RUN-WFA-02-unavailable-correct",
+    "source_result_hash": "56f3ff310819a6bf087f084aa6633965df014f6c60b97ee788dd77dc3fd78408",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "94c7d42b0939bc9a64a1bf792d6106923d110f3bc4001f0c8799bef8d91a7c8a",
+    "references": {
+      "A1": {
+        "event_hash": "46fd7c1b897e3ea7ce7417a75e48b6c88d682f68a76216c7c94091a4c9c2b6fd",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-wrong-1"
+      },
+      "A2": {
+        "event_hash": "a342a1276dfd6b84b28e35bb6f046d7a283dd0a36ee3a955f356d7f0ec0b7280",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-wrong-2"
+      },
+      "A3": {
+        "event_hash": "3d0431ae5639f632887f3e6f4c2bcd73e20976414f1023d740594658107ddaab",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-wrong-3"
+      },
+      "A4": {
+        "event_hash": "2f11863c4c3cbe0ca3a57d3566185a91f7627c60d6b0966d7caab77e1b5f4902",
+        "event_id": "workflow-action:STEP-RUN-WFA-02-unavailable-wrong-4"
+      },
+      "D1": {
+        "event_hash": "d18547ee3c8ab88a5d7b813b44766c0b9c55be5fa19b2591d3a939ec31c9b0a9",
+        "event_id": "workflow-eval:RUN-WFA-02-unavailable-wrong"
+      },
+      "L1": {
+        "event_hash": "8ba34f9fce3d9316eed94306cae93e6d0c04f185fb9cf7f70960bc06cad57201",
+        "event_id": "workflow-end:RUN-WFA-02-unavailable-wrong"
+      },
+      "O1": {
+        "event_hash": "2f79efe5a90c0c9747a454ddba9f15eeff8a9f45b69b68b96cdbeb76b3114c75",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-unavailable-wrong-1"
+      },
+      "O2": {
+        "event_hash": "ea71632628da74fe686f3eb17a4b89742408a53207645e824aa3bbf99cf2f57c",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-unavailable-wrong-2"
+      },
+      "O3": {
+        "event_hash": "4cc9acfe1be7d41268db8c7b24dba36ce26009e114b8e0c24ecb4cb9f1bf4ed3",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-02-unavailable-wrong-3"
+      }
+    },
+    "run_id": "RUN-WFA-02-unavailable-wrong",
+    "source_result_hash": "6147c9addbacc8666c9b37952fcc58416e16390472455fea8f6c6bc96c5af661",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "2313580d88569d1ef68218b581371ca62dac11987fa5514a8ce54085fc615cc3",
+    "references": {
+      "A1": {
+        "event_hash": "0a4b9c0056c7f98ca340aa060de5bc75adec2faf467450c51ddc41c0cc6ddcf3",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-correct-1"
+      },
+      "A2": {
+        "event_hash": "2fe4236463763663ca671d8db396b12f6f85eb5a19913379d686b10cfec3600d",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-correct-2"
+      },
+      "A3": {
+        "event_hash": "8b9fe80d1adbf2f6520a1fa476516e53a70f7ee48ef2b5ac38edecda69767bef",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-correct-3"
+      },
+      "A4": {
+        "event_hash": "655abe543362a1f3a4f665371e8dd1e1fe7fdbce749911414fc212420b3aac75",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-correct-4"
+      },
+      "A5": {
+        "event_hash": "78fc674c5d43faa5cf32712576fb7372f8ba78fb60c220df002e505e546f0e31",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-correct-5"
+      },
+      "D1": {
+        "event_hash": "6d164f8782b5662acd907cdbf4bfd57b8105aec869f258fb571bca1bb8bffbca",
+        "event_id": "workflow-eval:RUN-WFA-03-remaining-correct"
+      },
+      "L1": {
+        "event_hash": "e66f949367e4d855c04383c9851bb9e1fbdae72c07a4eb7eb8d1cfea984e9f63",
+        "event_id": "workflow-end:RUN-WFA-03-remaining-correct"
+      },
+      "O1": {
+        "event_hash": "8fcc93f80a478533ee34fb67f9cf8a71b6eb3f14e8c9b5429d358785ede877d8",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-correct-1"
+      },
+      "O2": {
+        "event_hash": "bea135ad6dedf0834e101ce35d85e86d3a17ae710a52788dbdb6c05b211ff6cb",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-correct-2"
+      },
+      "O3": {
+        "event_hash": "9d6b8be8e88e711e9a8314ea8e120644db5d17dfa68cdf485303bf36cb53b421",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-correct-3"
+      },
+      "O4": {
+        "event_hash": "b35776889ee5202e9c43542738769bc7be4491954c155daa7f6eb4fa271baa6c",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-correct-4"
+      }
+    },
+    "run_id": "RUN-WFA-03-remaining-correct",
+    "source_result_hash": "5dba2884a5b4e2c349cdf1f32abdc6483e3f4eb1e38d261a9be90d9bdba1efb8",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "635a2769bfe6fb0161de7055fa9d316115e91c8b6ce90c3316cea77c4bfa56a3",
+    "references": {
+      "A1": {
+        "event_hash": "5117984d0746d36ba5cfdc057dd8c51a2dc16b14243376812e0f8982c586de39",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-wrong-1"
+      },
+      "A2": {
+        "event_hash": "7a4ffc95aec94f807ad49a6be9f19dfdcbcd3198930b39050557f3c567db5594",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-wrong-2"
+      },
+      "A3": {
+        "event_hash": "abf3739ffda66a08675c5fc1e1d192c626f9569fa4c0ce47419bf615b121300c",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-wrong-3"
+      },
+      "A4": {
+        "event_hash": "ee501b7636ede4b553488cf0eaa854b622053941cafe2b5179ee0595afcd608e",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-wrong-4"
+      },
+      "A5": {
+        "event_hash": "853731238fb158a10404f31ec22dbe69377a7e416e2b085a0b58ed56157e7937",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-remaining-wrong-5"
+      },
+      "D1": {
+        "event_hash": "2647d08976c7ebd913dc9c571b3ef87b0ef8a0f7ef1faa2e57a64747374b1066",
+        "event_id": "workflow-eval:RUN-WFA-03-remaining-wrong"
+      },
+      "L1": {
+        "event_hash": "0f9d1ebbd0762776fec748c843e7c67f2600ee04207d4502e5a417388fc965e1",
+        "event_id": "workflow-end:RUN-WFA-03-remaining-wrong"
+      },
+      "O1": {
+        "event_hash": "efd9b653b17c4334f77e66cf176dca9bbe857735ccb931dc13de8f189c43cf11",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-wrong-1"
+      },
+      "O2": {
+        "event_hash": "8d274f5967cfeab3c096712427cdc3046e58cfbca76a45d6ed00c3747027a3e5",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-wrong-2"
+      },
+      "O3": {
+        "event_hash": "8b3490acb1d4949e1df52bdd833bcef7d3d286e3cd69c66de42363d837c2f335",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-wrong-3"
+      },
+      "O4": {
+        "event_hash": "1df642b36b085a8373cf8c000ffd5711fd750048373eb9262487ff21b13ac22b",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-remaining-wrong-4"
+      }
+    },
+    "run_id": "RUN-WFA-03-remaining-wrong",
+    "source_result_hash": "e88574f966dc50847bee7257982a051b01613550625291cc93f46d3d2fe4439a",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "2a2017dfd97069858514fbe6df996e62ff14376d499a28fa62df22a3f9b10146",
+    "references": {
+      "A1": {
+        "event_hash": "8ab719a72001dfdb83e995e68b3d3ec02561339058f6c2d8383a88d18646b39c",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-exhausted-correct-1"
+      },
+      "A2": {
+        "event_hash": "3ff81bb852bf45ab17975aecc2a3519c830e53c794045be1151af228e42185e9",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-exhausted-correct-2"
+      },
+      "D1": {
+        "event_hash": "d1b2cebc049d0135b11181acc264730b778e65a2aea910794883ddb00f420d3d",
+        "event_id": "workflow-eval:RUN-WFA-03-exhausted-correct"
+      },
+      "L1": {
+        "event_hash": "c2006e801f1f7dba74651b907e8d9b4300634db74325e87b97b5d0269d35c5fb",
+        "event_id": "workflow-end:RUN-WFA-03-exhausted-correct"
+      },
+      "O1": {
+        "event_hash": "f1eff62e781ebb44cc00aa3f521c797e8f2199c0ea1df3525992687e9aab20bb",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-exhausted-correct-1"
+      }
+    },
+    "run_id": "RUN-WFA-03-exhausted-correct",
+    "source_result_hash": "b7898663456375d40d8e95e7213825877bd9ca7a3174444679b6d24dc72b9fc0",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "769447c4428cdcae47f41bcf6d6b80c5f362f344d0c16198cbce8059b04c1f92",
+    "references": {
+      "A1": {
+        "event_hash": "5f08e2ab3a359b7840dd625875e2ac8a4e48d8b45cd7c1e1a0baa4ceeb01b079",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-exhausted-wrong-1"
+      },
+      "A2": {
+        "event_hash": "0d449192ea4cf6278f08bfceff051578a7ab42ad78762a3c28527e3c42ab1b14",
+        "event_id": "workflow-action:STEP-RUN-WFA-03-exhausted-wrong-2"
+      },
+      "D1": {
+        "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+        "event_id": "workflow-eval:RUN-WFA-03-exhausted-wrong"
+      },
+      "L1": {
+        "event_hash": "c5bb7814bd26739ee11ea3389532f13ff8a967e955e6243b5df1c93cfdd70a66",
+        "event_id": "workflow-end:RUN-WFA-03-exhausted-wrong"
+      },
+      "O1": {
+        "event_hash": "f8911c19dde14bcc15ecae7deaca715cdabf895b02d63f18b1a77be196dde81d",
+        "event_id": "workflow-observation:TOOL-RUN-WFA-03-exhausted-wrong-1"
+      }
+    },
+    "run_id": "RUN-WFA-03-exhausted-wrong",
+    "source_result_hash": "b82ffac48c5a8a7299763a55c8bb3c4599b5f09bb69601e8a06f36e6d6466d3b",
+    "source_results": "benchmark/agent_workflow_v01/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/offline_run_verified/trace.json",
+    "source_version": "v01",
+    "trace_anchor": {
+      "event_hash": "e10fad22e4e9b4f9e1a66fc2386f88284fa197b66a84f868623f82a8f396a073",
+      "sequence": 419
+    }
+  },
+  {
+    "packet_id": "da75f094e6770c18655e38e0a67377579c82c3194bbddba249210129d4efe38e",
+    "references": {
+      "A1": {
+        "event_hash": "fe9b72f157557f52137b98c1fb05828412292d4c9d6262e71838a5157b576217",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-anomaly-illegal_tool-1"
+      },
+      "D1": {
+        "event_hash": "22801c2ba44084de7c60c37b1e299a66a7d9aab34aadd512a3b2a074cb940ff6",
+        "event_id": "v02-eval:RUN-v02-WFA-01-anomaly-illegal_tool"
+      },
+      "L1": {
+        "event_hash": "bdafebed77c7f66943ba5a6772fcf0e0b22cf8f6c529a9c870b62bf5d674b5b0",
+        "event_id": "v02-end:RUN-v02-WFA-01-anomaly-illegal_tool"
+      }
+    },
+    "run_id": "RUN-v02-WFA-01-anomaly-illegal_tool",
+    "source_result_hash": "92667b47ddca3334f2ef81ceb9f49529259dd897cabeecbd8f450ca78b876335",
+    "source_results": "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json",
+    "source_version": "v02",
+    "trace_anchor": {
+      "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+      "sequence": 561
+    }
+  },
+  {
+    "packet_id": "f15c787557f08c17b9e0d7c453019870c871a8c3815fc966cd95b964c5f76c9b",
+    "references": {
+      "A1": {
+        "event_hash": "33b26ba2131be69eb1d70234f390facde59f251efd00b640b82dd2660dbcaf14",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-anomaly-early_final-1"
+      },
+      "D1": {
+        "event_hash": "4f23a887d0c42a746a04ec78e8b980341b9f696052b5bf07ef0196de0640b6f5",
+        "event_id": "v02-eval:RUN-v02-WFA-01-anomaly-early_final"
+      },
+      "L1": {
+        "event_hash": "d4742e91c70993de2c949cc86d7b03e8f447d892dfe3d4dcf625e3cb858f1059",
+        "event_id": "v02-end:RUN-v02-WFA-01-anomaly-early_final"
+      }
+    },
+    "run_id": "RUN-v02-WFA-01-anomaly-early_final",
+    "source_result_hash": "7ff140b3eb74d08adcb8838a724a8f72e6a925c589ed372264314b5ae8bbb69a",
+    "source_results": "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json",
+    "source_version": "v02",
+    "trace_anchor": {
+      "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+      "sequence": 561
+    }
+  },
+  {
+    "packet_id": "d4393aa373a071163c2ea6fcf76be70c36f93515fc9e1b7b6ee32191208a3e7e",
+    "references": {
+      "A1": {
+        "event_hash": "cad38dc56e9a41ea8a0c72ae07c032cbffc51088651ce82b32e13a231f2c68f4",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-1"
+      },
+      "A2": {
+        "event_hash": "236a18cedbc756e165e53ea2f5fa747c0b30b0b3f4f69790717069a6ab907fbd",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-2"
+      },
+      "A3": {
+        "event_hash": "9006f22276f0f67464792f242cc1a43ccac8cab4245ec4d2e9c0cafc3a9acaad",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-3"
+      },
+      "A4": {
+        "event_hash": "495269590a0f275eea237c61270b37cf0e46b80665284bc851978dffa662ef38",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-anomaly-wrong_reference-4"
+      },
+      "D1": {
+        "event_hash": "e123beca41e91f02c6fd8a3960514cd5e15464519376b3d2305f16b7c7e23223",
+        "event_id": "v02-eval:RUN-v02-WFA-01-anomaly-wrong_reference"
+      },
+      "L1": {
+        "event_hash": "fb1cbe04df5c3ecc0a8819f6b2672e07f9813e18b055162beac94a6da8aba56d",
+        "event_id": "v02-end:RUN-v02-WFA-01-anomaly-wrong_reference"
+      },
+      "O1": {
+        "event_hash": "169631dc333a7a0776ad5bd24adcde6dd8b64138587f263b5764e104eadf5674",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-01-anomaly-wrong_reference-1"
+      },
+      "O2": {
+        "event_hash": "5cfda0adb17036d59142bc46295d8ae6be8780bb7f5ded9ac736a636241f5877",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-01-anomaly-wrong_reference-2"
+      },
+      "O3": {
+        "event_hash": "e2e7313aa370404e7d9388371be69b06398f751054b1150565a2b7612b5ee344",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-01-anomaly-wrong_reference-3"
+      }
+    },
+    "run_id": "RUN-v02-WFA-01-anomaly-wrong_reference",
+    "source_result_hash": "4ceea57891291ae965a00f4453f770c548e022fe1d503a7424e6d926ad4ebb99",
+    "source_results": "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json",
+    "source_version": "v02",
+    "trace_anchor": {
+      "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+      "sequence": 561
+    }
+  },
+  {
+    "packet_id": "bac8607cfa67716fe01e8c38a9e77e7e550272e4882b377729b2da45a8f09450",
+    "references": {
+      "A1": {
+        "event_hash": "1cb93185787c57c1d9325da29f8d154eba65fa676f5b27e853eccc1dde055c48",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-02-available-future_claim-1"
+      },
+      "A2": {
+        "event_hash": "cacca824ad77692ce6c9836ed5c5f52029468ad9068b53e09ea8b1d8e735ee9c",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-02-available-future_claim-2"
+      },
+      "A3": {
+        "event_hash": "5bd1163fe569fc044c780dc5de458968d86a2bbd8dc9f09f93816d0bd6e4522f",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-02-available-future_claim-3"
+      },
+      "A4": {
+        "event_hash": "e305e7daad264dec03e2d92fad663d58fddc93077d653df05481c5d869281d61",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-02-available-future_claim-4"
+      },
+      "D1": {
+        "event_hash": "85d28dd58685a1da7978e45b9667fddd4cac05b73943513026316c1b4bc8e88d",
+        "event_id": "v02-eval:RUN-v02-WFA-02-available-future_claim"
+      },
+      "L1": {
+        "event_hash": "90557c04ad773f0cf6dd4a6203dc753be1caf789203d6f269d09db319d0b5975",
+        "event_id": "v02-end:RUN-v02-WFA-02-available-future_claim"
+      },
+      "O1": {
+        "event_hash": "c63863b4dedf27caa26229a9753430eab79be2960589b6dba9303f90583a1466",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-02-available-future_claim-1"
+      },
+      "O2": {
+        "event_hash": "8b6a84184774c1bf4d9b9b6c95d30e4156166fc637890cb2d4808782e57e68be",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-02-available-future_claim-2"
+      },
+      "O3": {
+        "event_hash": "ef786676e548b61145609b2997c80029f539213a7669a1595997626d1d3a83a6",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-02-available-future_claim-3"
+      }
+    },
+    "run_id": "RUN-v02-WFA-02-available-future_claim",
+    "source_result_hash": "13c4738ef6b3ac70fd380d989d03364902296b9aadc76be1331dbb33f931658e",
+    "source_results": "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json",
+    "source_version": "v02",
+    "trace_anchor": {
+      "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+      "sequence": 561
+    }
+  },
+  {
+    "packet_id": "4ed91663301542668d3b84ef2b9c8723737c19683d4737de120169311fbe6e0c",
+    "references": {
+      "A1": {
+        "event_hash": "c47b80a66e924200c92c8cef4759e41daea7aab4e2e690b3b7a5b2d54bf1bb5a",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-03-exhausted-exhausted_trial-1"
+      },
+      "A2": {
+        "event_hash": "b7544054edeed9b7fb9b462b2bc446764ab9cf38893604e052b4bf0b0e2f8841",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-03-exhausted-exhausted_trial-2"
+      },
+      "D1": {
+        "event_hash": "205c2dcbc33a0d1b6f6f804768f8d9d1f35080336f1d260230eaa49ef3ba9d38",
+        "event_id": "v02-eval:RUN-v02-WFA-03-exhausted-exhausted_trial"
+      },
+      "L1": {
+        "event_hash": "4df16e226f70567e946e4a0391d37c140e901f8a69221bd6c746c37290be6de0",
+        "event_id": "v02-end:RUN-v02-WFA-03-exhausted-exhausted_trial"
+      },
+      "O1": {
+        "event_hash": "dd1a4dc026eca4e27aa89a07e7820b37d599d6a2004c351ccf0a5935d1d73552",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-03-exhausted-exhausted_trial-1"
+      },
+      "O2": {
+        "event_hash": "467d47af748080e97f76d20c3b919a6db94cc9f6788bb57848aba00756405cdd",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-03-exhausted-exhausted_trial-2"
+      }
+    },
+    "run_id": "RUN-v02-WFA-03-exhausted-exhausted_trial",
+    "source_result_hash": "855c5dd2e63f4552b5bf9ced5bda2725aa6eb6167e7190cf3970c98a35547b79",
+    "source_results": "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json",
+    "source_version": "v02",
+    "trace_anchor": {
+      "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+      "sequence": 561
+    }
+  },
+  {
+    "packet_id": "dba3196ffd407e2bb60b967d2086c49b3bd672803494e5e4ac77ef0addf233f6",
+    "references": {
+      "A1": {
+        "event_hash": "5ba210e1908d04a82584cf281b1478a66bc0b985453de9ecf56d2c2796c7d131",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-normal-tool_failure_claim-1"
+      },
+      "A2": {
+        "event_hash": "bdc1177442dd16ba16665df034d9d20631eb077c55a4e67da103273391f2508e",
+        "event_id": "v02-action:CHAT-RUN-v02-WFA-01-normal-tool_failure_claim-2"
+      },
+      "D1": {
+        "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+        "event_id": "v02-eval:RUN-v02-WFA-01-normal-tool_failure_claim"
+      },
+      "L1": {
+        "event_hash": "23729f8c321b91a2c97d85a08669f33537ae7f449d27187aafb97ec242f3aa24",
+        "event_id": "v02-end:RUN-v02-WFA-01-normal-tool_failure_claim"
+      },
+      "O1": {
+        "event_hash": "319bf2226b85bd5e2a49bcc2ac27e026bf2c4fcab2ee3710db7e586e6722d62a",
+        "event_id": "v02-observation:TOOL-RUN-v02-WFA-01-normal-tool_failure_claim-1"
+      }
+    },
+    "run_id": "RUN-v02-WFA-01-normal-tool_failure_claim",
+    "source_result_hash": "7171b91010daf584219d19fb5bcf32a6a9421884b78803dc3c2716b1da4b5756",
+    "source_results": "benchmark/agent_workflow_v01/v02/offline_run_verified/results.json",
+    "source_trace": "benchmark/agent_workflow_v01/v02/offline_run_verified/trace.json",
+    "source_version": "v02",
+    "trace_anchor": {
+      "event_hash": "6bbb1c4459dd017d4475f9e824cd2c3c00b85ced3cfa674c123dbc7a08c863fd",
+      "sequence": 561
+    }
+  }
+]

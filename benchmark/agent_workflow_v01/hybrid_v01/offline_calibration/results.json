@@ -1,0 +1,3239 @@
+{
+  "D08": "NOT_IMPLEMENTED",
+  "accepted": 18,
+  "challenges": [
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [
+          "BUDGET_COMPLIANT:REFERENCE_DISAGREEMENT",
+          "EVIDENCE_TRACE_COMPLETE:REFERENCE_DISAGREEMENT",
+          "FINAL_DECISION_CORRECT:REFERENCE_DISAGREEMENT",
+          "STATE_TRANSITION_VALID:REFERENCE_DISAGREEMENT",
+          "TOOL_RESULT_USED_CORRECTLY:REFERENCE_DISAGREEMENT",
+          "TOOL_SELECTION_VALID:REFERENCE_DISAGREEMENT"
+        ],
+        "human_review_required": true,
+        "within_reference": false
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+      "raw_result": {
+        "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3233,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "CHALLENGE-wrong_score",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [
+          "VALIDATOR_REJECTED"
+        ],
+        "human_review_required": true,
+        "within_reference": false
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+      "raw_result": {
+        "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O-invented"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O-invented"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O-invented"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O-invented"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O-invented"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O-invented"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3233,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O-invented\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O-invented\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O-invented\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O-invented\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O-invented\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O-invented\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "CHALLENGE-fabricated",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": false,
+        "errors": [
+          "FINAL_DECISION_CORRECT:FABRICATED_OR_INVALID_REFERENCE",
+          "TOOL_SELECTION_VALID:FABRICATED_OR_INVALID_REFERENCE",
+          "TOOL_RESULT_USED_CORRECTLY:FABRICATED_OR_INVALID_REFERENCE",
+          "STATE_TRANSITION_VALID:FABRICATED_OR_INVALID_REFERENCE",
+          "BUDGET_COMPLIANT:FABRICATED_OR_INVALID_REFERENCE",
+          "EVIDENCE_TRACE_COMPLETE:FABRICATED_OR_INVALID_REFERENCE"
+        ],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [
+          "BUDGET_COMPLIANT:REFERENCE_DISAGREEMENT",
+          "EVIDENCE_TRACE_COMPLETE:REFERENCE_DISAGREEMENT",
+          "FINAL_DECISION_CORRECT:REFERENCE_DISAGREEMENT",
+          "STATE_TRANSITION_VALID:REFERENCE_DISAGREEMENT",
+          "TOOL_RESULT_USED_CORRECTLY:REFERENCE_DISAGREEMENT",
+          "TOOL_SELECTION_VALID:REFERENCE_DISAGREEMENT"
+        ],
+        "human_review_required": true,
+        "within_reference": false
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+      "raw_result": {
+        "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3233,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "CHALLENGE-expression_bias",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [
+          "BUDGET_COMPLIANT:REFERENCE_DISAGREEMENT",
+          "EVIDENCE_TRACE_COMPLETE:REFERENCE_DISAGREEMENT",
+          "FINAL_DECISION_CORRECT:REFERENCE_DISAGREEMENT",
+          "STATE_TRANSITION_VALID:REFERENCE_DISAGREEMENT",
+          "TOOL_RESULT_USED_CORRECTLY:REFERENCE_DISAGREEMENT",
+          "TOOL_SELECTION_VALID:REFERENCE_DISAGREEMENT"
+        ],
+        "human_review_required": true,
+        "within_reference": false
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+      "raw_result": {
+        "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": "AMBIGUOUS_QUALITY",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": "AMBIGUOUS_QUALITY",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": "AMBIGUOUS_QUALITY",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": "AMBIGUOUS_QUALITY",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": "AMBIGUOUS_QUALITY",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": "AMBIGUOUS_QUALITY",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3233,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"AMBIGUOUS_QUALITY\"}, \"TOOL_SELECTION_VALID\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"AMBIGUOUS_QUALITY\"}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"AMBIGUOUS_QUALITY\"}, \"STATE_TRANSITION_VALID\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"AMBIGUOUS_QUALITY\"}, \"BUDGET_COMPLIANT\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"AMBIGUOUS_QUALITY\"}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"AMBIGUOUS_QUALITY\"}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "CHALLENGE-abstain",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [
+          "VALIDATOR_REJECTED"
+        ],
+        "human_review_required": true,
+        "within_reference": false
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20",
+      "raw_result": {
+        "packet_id": "2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3224,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "CHALLENGE-hard_conflict",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": false,
+        "errors": [
+          "FINAL_DECISION_CORRECT:HARD_GATE_CONFLICT",
+          "TOOL_RESULT_USED_CORRECTLY:HARD_GATE_CONFLICT"
+        ],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+      "raw_result": {
+        "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Only the cited frozen receipts support this provisional process assessment."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Only the cited frozen receipts support this provisional process assessment."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Only the cited frozen receipts support this provisional process assessment."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Only the cited frozen receipts support this provisional process assessment."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Only the cited frozen receipts support this provisional process assessment."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Only the cited frozen receipts support this provisional process assessment."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3233,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Only the cited frozen receipts support this provisional process assessment.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Only the cited frozen receipts support this provisional process assessment.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Only the cited frozen receipts support this provisional process assessment.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Only the cited frozen receipts support this provisional process assessment.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Only the cited frozen receipts support this provisional process assessment.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Only the cited frozen receipts support this provisional process assessment.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "CHALLENGE-paraphrase",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    }
+  ],
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "mock_chat_calls": 24,
+  "real_judge_calibrated": false,
+  "real_judge_calls": 0,
+  "reference_matches": 18,
+  "replays": [
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-1",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-2",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-3",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-4",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-5",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-6",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-7",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-8",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-9",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-10",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-11",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-12",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-13",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-14",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-15",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-16",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-17",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "MOCK-JUDGE-18",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "CHALLENGE-wrong_score",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "CHALLENGE-fabricated",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "CHALLENGE-expression_bias",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "CHALLENGE-abstain",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "CHALLENGE-hard_conflict",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    },
+    {
+      "model_calls": 0,
+      "review_id": "CHALLENGE-paraphrase",
+      "status": "APPENDED_JUDGE_REPLAY_MATCH"
+    }
+  ],
+  "results": [
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+      "raw_result": {
+        "packet_id": "8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3233,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"8193474d21c5fab6ffec0ef10783ccecf60f54f901620127a0685b62cccd721e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-1",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20",
+      "raw_result": {
+        "packet_id": "2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3224,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"2c58f709a6e541a32ed0c5a0dd234ab35e9506e260186d9f78b53bd61f8fbb20\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-2",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "bf639c0cd1be7930c50daf1c6fdccaa18a081a9e5122623f865db763cb61b66d",
+      "raw_result": {
+        "packet_id": "bf639c0cd1be7930c50daf1c6fdccaa18a081a9e5122623f865db763cb61b66d",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3161,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"bf639c0cd1be7930c50daf1c6fdccaa18a081a9e5122623f865db763cb61b66d\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-3",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "311f8cdfe8124fa289c7a52d5c051f85a93e236d89718a4853b8aaaaad533568",
+      "raw_result": {
+        "packet_id": "311f8cdfe8124fa289c7a52d5c051f85a93e236d89718a4853b8aaaaad533568",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3155,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"311f8cdfe8124fa289c7a52d5c051f85a93e236d89718a4853b8aaaaad533568\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-4",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "bc1dd6f9b56ec91d6153589313933e9e200d28205aeea3fe4bd1b0351408b2ab",
+      "raw_result": {
+        "packet_id": "bc1dd6f9b56ec91d6153589313933e9e200d28205aeea3fe4bd1b0351408b2ab",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3871,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"bc1dd6f9b56ec91d6153589313933e9e200d28205aeea3fe4bd1b0351408b2ab\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-5",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "a3974e86c9c32a52d16664c0a9abbadce52c944bca5f9a75c326d7c813259c1d",
+      "raw_result": {
+        "packet_id": "a3974e86c9c32a52d16664c0a9abbadce52c944bca5f9a75c326d7c813259c1d",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3872,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"a3974e86c9c32a52d16664c0a9abbadce52c944bca5f9a75c326d7c813259c1d\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-6",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "d357db09d5ce5ef0dbfe9b28aeca0371024988fd64c0d4955c0e89367bc660c2",
+      "raw_result": {
+        "packet_id": "d357db09d5ce5ef0dbfe9b28aeca0371024988fd64c0d4955c0e89367bc660c2",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3616,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"d357db09d5ce5ef0dbfe9b28aeca0371024988fd64c0d4955c0e89367bc660c2\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-7",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "94c7d42b0939bc9a64a1bf792d6106923d110f3bc4001f0c8799bef8d91a7c8a",
+      "raw_result": {
+        "packet_id": "94c7d42b0939bc9a64a1bf792d6106923d110f3bc4001f0c8799bef8d91a7c8a",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3621,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"94c7d42b0939bc9a64a1bf792d6106923d110f3bc4001f0c8799bef8d91a7c8a\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-8",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "2313580d88569d1ef68218b581371ca62dac11987fa5514a8ce54085fc615cc3",
+      "raw_result": {
+        "packet_id": "2313580d88569d1ef68218b581371ca62dac11987fa5514a8ce54085fc615cc3",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3316,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"2313580d88569d1ef68218b581371ca62dac11987fa5514a8ce54085fc615cc3\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-9",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "635a2769bfe6fb0161de7055fa9d316115e91c8b6ce90c3316cea77c4bfa56a3",
+      "raw_result": {
+        "packet_id": "635a2769bfe6fb0161de7055fa9d316115e91c8b6ce90c3316cea77c4bfa56a3",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "O4",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3309,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"635a2769bfe6fb0161de7055fa9d316115e91c8b6ce90c3316cea77c4bfa56a3\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"O4\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-10",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": true,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "2a2017dfd97069858514fbe6df996e62ff14376d499a28fa62df22a3f9b10146",
+      "raw_result": {
+        "packet_id": "2a2017dfd97069858514fbe6df996e62ff14376d499a28fa62df22a3f9b10146",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 2995,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"2a2017dfd97069858514fbe6df996e62ff14376d499a28fa62df22a3f9b10146\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-11",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": true,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "769447c4428cdcae47f41bcf6d6b80c5f362f344d0c16198cbce8059b04c1f92",
+      "raw_result": {
+        "packet_id": "769447c4428cdcae47f41bcf6d6b80c5f362f344d0c16198cbce8059b04c1f92",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 2988,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"769447c4428cdcae47f41bcf6d6b80c5f362f344d0c16198cbce8059b04c1f92\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-12",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [
+          "ILLEGAL_TOOL_OR_ARGUMENT"
+        ],
+        "hard_gates": {
+          "actual_required_tools": false,
+          "execution_completed": false,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": null,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": null,
+          "TOOL_SELECTION_VALID": false
+        }
+      },
+      "packet_id": "da75f094e6770c18655e38e0a67377579c82c3194bbddba249210129d4efe38e",
+      "raw_result": {
+        "packet_id": "da75f094e6770c18655e38e0a67377579c82c3194bbddba249210129d4efe38e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": "NO_FINAL",
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": "NO_FINAL",
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 2839,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"da75f094e6770c18655e38e0a67377579c82c3194bbddba249210129d4efe38e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"NO_FINAL\"}, \"TOOL_SELECTION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"NO_FINAL\"}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-13",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [
+          "FINAL_WITHOUT_REQUIRED_OBSERVATIONS"
+        ],
+        "hard_gates": {
+          "actual_required_tools": false,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "f15c787557f08c17b9e0d7c453019870c871a8c3815fc966cd95b964c5f76c9b",
+      "raw_result": {
+        "packet_id": "f15c787557f08c17b9e0d7c453019870c871a8c3815fc966cd95b964c5f76c9b",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 1,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 1,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "L1",
+              "D1",
+              "A1"
+            ],
+            "rating": 1,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 2903,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"f15c787557f08c17b9e0d7c453019870c871a8c3815fc966cd95b964c5f76c9b\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 1, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 1, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 1, \"evidence_refs\": [\"L1\", \"D1\", \"A1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-14",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [
+          "INVALID_OBSERVATION_REFERENCE"
+        ],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": false,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "d4393aa373a071163c2ea6fcf76be70c36f93515fc9e1b7b6ee32191208a3e7e",
+      "raw_result": {
+        "packet_id": "d4393aa373a071163c2ea6fcf76be70c36f93515fc9e1b7b6ee32191208a3e7e",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 1,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3274,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"d4393aa373a071163c2ea6fcf76be70c36f93515fc9e1b7b6ee32191208a3e7e\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 1, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-15",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [
+          "WRONG_RESEARCH_CONCLUSION",
+          "FUTURE_OR_INELIGIBLE_VINTAGE_CLAIM"
+        ],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": true,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": false,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "bac8607cfa67716fe01e8c38a9e77e7e550272e4882b377729b2da45a8f09450",
+      "raw_result": {
+        "packet_id": "bac8607cfa67716fe01e8c38a9e77e7e550272e4882b377729b2da45a8f09450",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "O3",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3925,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"bac8607cfa67716fe01e8c38a9e77e7e550272e4882b377729b2da45a8f09450\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"O3\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-16",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [
+          "TOOL_EXECUTION_FAILED",
+          "BUDGET_VIOLATION_OR_UNRESOLVED_USAGE"
+        ],
+        "hard_gates": {
+          "actual_required_tools": true,
+          "execution_completed": false,
+          "trace_and_budget": false
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": false,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": null,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": null,
+          "TOOL_SELECTION_VALID": true
+        }
+      },
+      "packet_id": "4ed91663301542668d3b84ef2b9c8723737c19683d4737de120169311fbe6e0c",
+      "raw_result": {
+        "packet_id": "4ed91663301542668d3b84ef2b9c8723737c19683d4737de120169311fbe6e0c",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": "NO_FINAL",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": "NO_FINAL",
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "L1",
+              "D1"
+            ],
+            "rating": "INSUFFICIENT_EVIDENCE",
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "O2",
+              "L1",
+              "D1"
+            ],
+            "rating": 1,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 2985,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"4ed91663301542668d3b84ef2b9c8723737c19683d4737de120169311fbe6e0c\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"NO_FINAL\"}, \"TOOL_SELECTION_VALID\": {\"rating\": 1, \"evidence_refs\": [\"O1\", \"O2\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": \"INSUFFICIENT_EVIDENCE\", \"evidence_refs\": [\"O1\", \"O2\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": \"NO_FINAL\"}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"O2\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"O2\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-17",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    },
+    {
+      "D08_achieved": false,
+      "calibration": {
+        "differences": [],
+        "human_review_required": false,
+        "within_reference": true
+      },
+      "deterministic_original": {
+        "diagnostics": [
+          "ILLEGAL_TOOL_OR_ARGUMENT",
+          "FINAL_WITHOUT_REQUIRED_OBSERVATIONS",
+          "TOOL_EXECUTION_FAILED",
+          "FINAL_AFTER_UNRESOLVED_TOOL_FAILURE"
+        ],
+        "hard_gates": {
+          "actual_required_tools": false,
+          "execution_completed": false,
+          "trace_and_budget": true
+        },
+        "ref": "D1",
+        "vector": {
+          "BUDGET_COMPLIANT": true,
+          "EVIDENCE_TRACE_COMPLETE": true,
+          "FINAL_DECISION_CORRECT": true,
+          "STATE_TRANSITION_VALID": false,
+          "TOOL_RESULT_USED_CORRECTLY": false,
+          "TOOL_SELECTION_VALID": false
+        }
+      },
+      "packet_id": "dba3196ffd407e2bb60b967d2086c49b3bd672803494e5e4ac77ef0addf233f6",
+      "raw_result": {
+        "packet_id": "dba3196ffd407e2bb60b967d2086c49b3bd672803494e5e4ac77ef0addf233f6",
+        "rubric_version": "WorkflowJudgeRubric-v01",
+        "scores": {
+          "BUDGET_COMPLIANT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 3,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "EVIDENCE_TRACE_COMPLETE": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 1,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "FINAL_DECISION_CORRECT": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 1,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "STATE_TRANSITION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_RESULT_USED_CORRECTLY": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          },
+          "TOOL_SELECTION_VALID": {
+            "abstention_reason": null,
+            "evidence_refs": [
+              "O1",
+              "L1",
+              "D1"
+            ],
+            "rating": 0,
+            "rationale": "Assessment limited to the recorded actions, observations and deterministic gate."
+          }
+        }
+      },
+      "reply": {
+        "attempts": 1,
+        "cost": null,
+        "currency": null,
+        "failure_class": null,
+        "finish_reason": "stop",
+        "http_status": 200,
+        "input_tokens": 3005,
+        "observed_model": "simulated-judge-v01",
+        "ok": true,
+        "output_tokens": 512,
+        "reasoning_chars": 0,
+        "reasoning_tokens": 0,
+        "text": "{\"packet_id\": \"dba3196ffd407e2bb60b967d2086c49b3bd672803494e5e4ac77ef0addf233f6\", \"rubric_version\": \"WorkflowJudgeRubric-v01\", \"scores\": {\"FINAL_DECISION_CORRECT\": {\"rating\": 1, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_SELECTION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"TOOL_RESULT_USED_CORRECTLY\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"STATE_TRANSITION_VALID\": {\"rating\": 0, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"BUDGET_COMPLIANT\": {\"rating\": 3, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}, \"EVIDENCE_TRACE_COMPLETE\": {\"rating\": 1, \"evidence_refs\": [\"O1\", \"L1\", \"D1\"], \"rationale\": \"Assessment limited to the recorded actions, observations and deterministic gate.\", \"abstention_reason\": null}}}",
+        "transport_error": null,
+        "wall_ms": 1
+      },
+      "review_id": "MOCK-JUDGE-18",
+      "scientific_qualification": false,
+      "single_total_score": null,
+      "validation": {
+        "accepted": true,
+        "errors": [],
+        "manual_review_required": true,
+        "semantic_quality_verified": false
+      }
+    }
+  ],
+  "sample_count": 18,
+  "status": "MOCK_JUDGE_ENGINEERING_CALIBRATION_ONLY",
+  "trace_anchor": {
+    "event_hash": "90e32f1d044798d3769762437bee42c2c8558556250cf3a905eb1402f53f917e",
+    "sequence": 42
+  }
+}

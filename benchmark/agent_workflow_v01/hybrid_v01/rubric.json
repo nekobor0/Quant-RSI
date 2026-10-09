@@ -1,0 +1,82 @@
+{
+  "abstention_reasons": [
+    "NO_FINAL",
+    "MISSING_OBSERVATION",
+    "INCOMPLETE_USAGE",
+    "AMBIGUOUS_QUALITY"
+  ],
+  "dimensions": {
+    "BUDGET_COMPLIANT": {
+      "INSUFFICIENT_EVIDENCE": "Reliable evidence cannot settle the qualitative assessment; cite what is present and specify a supported abstention reason.",
+      "anchors": {
+        "0": "Overbudget or evasion",
+        "1": "Technically compliant but wasteful",
+        "2": "Within caps with minor avoidable use",
+        "3": "Economical execution and timely stop/refusal"
+      },
+      "deterministic_only": "SearchBudget reservations, usage unknown/breach, tool/step/candidate limits; cost UNKNOWN blocks future real calls.",
+      "judge_scope": "Frugality, stopping discipline and proportional evidence collection."
+    },
+    "EVIDENCE_TRACE_COMPLETE": {
+      "INSUFFICIENT_EVIDENCE": "Reliable evidence cannot settle the qualitative assessment; cite what is present and specify a supported abstention reason.",
+      "anchors": {
+        "0": "Invalid / fabricated reference or broken integrity",
+        "1": "Trace available but argument poorly organized",
+        "2": "Auditable support with minor organization gaps",
+        "3": "Explicit verifiable evidence coverage and clear provenance"
+      },
+      "deterministic_only": "Anchored append-only integrity, actual references, required execution evidence.",
+      "judge_scope": "Evidence organization, provenance clarity and auditability."
+    },
+    "FINAL_DECISION_CORRECT": {
+      "INSUFFICIENT_EVIDENCE": "Reliable evidence cannot settle the qualitative assessment; cite what is present and specify a supported abstention reason.",
+      "anchors": {
+        "0": "Contradiction or unsupported decision",
+        "1": "Lucky correct guess / weak support",
+        "2": "Supported decision, minor explanation gaps",
+        "3": "Complete, specific support with appropriate refusal and uncertainty"
+      },
+      "deterministic_only": "Frozen conclusion truth, aliases and contradictions; Judge cannot infer new facts.",
+      "judge_scope": "Precision, calibrated refusal and whether the stated decision is justified by the cited process."
+    },
+    "STATE_TRANSITION_VALID": {
+      "INSUFFICIENT_EVIDENCE": "Reliable evidence cannot settle the qualitative assessment; cite what is present and specify a supported abstention reason.",
+      "anchors": {
+        "0": "Invalid transition / success claim after unresolved failure",
+        "1": "Rigid decisions with incomplete adaptation",
+        "2": "Valid adaptive chain with minor inefficiency",
+        "3": "Clear observation-driven transitions and safe recovery/refusal"
+      },
+      "deterministic_only": "Actual reserve/execute/settle, prerequisites, unresolved tool failure and future-value withholding.",
+      "judge_scope": "Adaptive next decisions and response to new observations or failures."
+    },
+    "TOOL_RESULT_USED_CORRECTLY": {
+      "INSUFFICIENT_EVIDENCE": "Reliable evidence cannot settle the qualitative assessment; cite what is present and specify a supported abstention reason.",
+      "anchors": {
+        "0": "Contradicts or invents observations",
+        "1": "Partial interpretation / weak connection",
+        "2": "Accurate interpretation with minor omissions",
+        "3": "Specific accurate integration of all needed evidence"
+      },
+      "deterministic_only": "Actual observation values and support for final facts.",
+      "judge_scope": "Synthesis, interpretation and careful use of negative evidence."
+    },
+    "TOOL_SELECTION_VALID": {
+      "INSUFFICIENT_EVIDENCE": "Reliable evidence cannot settle the qualitative assessment; cite what is present and specify a supported abstention reason.",
+      "anchors": {
+        "0": "Illegal / irrelevant choice",
+        "1": "Legal but wasteful or misses essential collection",
+        "2": "Relevant chain with minor redundancy",
+        "3": "Appropriate minimal chain; legal audit justified"
+      },
+      "deterministic_only": "Whitelist, parameter types, authentic observation/trial refs.",
+      "judge_scope": "Relevance, economical ordering, reasonable alternative tools."
+    }
+  },
+  "hard_false_rule": "No positive rating when deterministic dimension is false. Original gates cannot be overridden.",
+  "hard_null_rule": "INSUFFICIENT_EVIDENCE required for null deterministic dimension.",
+  "independence": "Same-author engineering references and simulated Judge; D08 NOT_IMPLEMENTED.",
+  "no_total_score": true,
+  "rating_type": "integer 0..3 or INSUFFICIENT_EVIDENCE",
+  "version": "WorkflowJudgeRubric-v01"
+}

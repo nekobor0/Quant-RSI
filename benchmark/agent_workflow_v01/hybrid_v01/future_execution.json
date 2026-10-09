@@ -1,0 +1,31 @@
+{
+  "codex_model_slot": "gpt-6-luna",
+  "currency": "UNKNOWN",
+  "future_budget": "Use canonical SearchBudget in a separate review Engineering root; never renew measured agents scientific roots. Reserve before each dispatch, reconcile actual usage and cost, retain unknown reservation. No extra models or second review automatically.",
+  "http_endpoint": "UNKNOWN",
+  "max_calls": 18,
+  "model_slot_source": "Current session create_thread/send_message_to_thread tool metadata; no invocation performed.",
+  "money_cap": "UNKNOWN",
+  "path_design": "Authorized isolated Codex task with model override gpt-6-luna, packet+frozen rubric only; import structured reply through JudgeResultValidator. No task creation/messaging authorized in this round. Alternative HTTP bridge only after endpoint and exact model are verified and frozen.",
+  "per_request_input_tokens": 32768,
+  "per_request_output_tokens": 2048,
+  "price": "UNKNOWN",
+  "public_api_model_id": "UNKNOWN",
+  "real_execution_blocked": true,
+  "reasoning_in_output": true,
+  "requested_model": "GPT-6 Luna",
+  "retries": 0,
+  "service_model_version": "UNKNOWN",
+  "status": "PREPARATION_ONLY_NOT_AUTHORIZED",
+  "stop_conditions": [
+    "no user batch authorization",
+    "unverified route/model version/usage or price/money cap",
+    "prompt/rubric/packet freeze mismatch",
+    "missing usage retains reservation; no further dispatch",
+    "rate-limit/transport failure: stop, no retry",
+    "token or currency cap reached"
+  ],
+  "timeout_s": 300,
+  "total_input_tokens": 589824,
+  "total_output_tokens": 36864
+}
