@@ -9,6 +9,39 @@ Track A 保持 PUBLIC / UNSEALED / PROVISIONAL；D05 deployment_status 仍是
 NOT_IMPLEMENTED，D08 未验收，Track B 与 D11/D12/D04B、sealed 资格均不变。
 真实 Agent / Judge / 数据 API 调用为 0，未推送 Git。
 
+## 阻塞后的当前安排（用户确认）
+
+D05 = BLOCKED_ENVIRONMENT_CAPABILITY，登记为**等待隔离环境就绪**，不再占用
+Track A 主线。保留提交 42e76af、三次原生启动失败记录及全部现有证据；十项
+安全验证与 Worker → Custodian 评分仍未完成，两个 D05 PASS 均未授予。
+
+不重试 Windows Restricted Token，不新增模拟隔离。未经用户另行明确授权，
+不安装或启动 Docker 服务、不修改 Windows ACL/系统权限、不创建系统账户、
+不拉取容器镜像，也不修改宿主机安全配置。
+
+最小恢复条件必须同时具备：
+
+- Docker Linux Engine 或等效可信隔离环境可用；
+- 已有可信的离线 Worker 镜像，或经过批准的构建路径；
+- 公共任务与私有 Oracle 具有真实隔离；
+- Worker 不能读取或修改私有材料；
+- Custodian 能独立接收提交并执行评分。
+
+仅在这些条件具备后，接续此前未完成的十项合成安全测试和一次端到端演示。
+不重做既有 B1/B2、Workflow 或 Hybrid 工程，也不从环境就绪自动推导 D05 PASS。
+
+Track A 保留 STATIC_DIAGNOSTIC v0.2、六题 Compatibility Pilot readiness、
+AGENT_WORKFLOW v0.2 和 HYBRID_EVALUATOR v0.1 的冻结成果。现阶段不增加
+新的离线 Workflow 或 Judge 模拟测试。下一项真实执行仍是已冻结的六题
+DeepSeek/Xiaomi 兼容性 Pilot，等待用户在合适计费时段单独授权；不自动启动。
+真实多轮 Agent 与 Luna Judge 验证也须另行冻结预算并取得授权。
+
+当前状态：Track A = PUBLIC / UNSEALED / PROVISIONAL；
+D08 = NOT_IMPLEMENTED / NOT_VERIFIED；真实 Agent/Judge 能力 = UNVERIFIED。
+Track B、D11/D12/D04B、Stage C2 保持原状态。本次调整仅记录状态，不进行
+API 调用、工程测试或远程 Git 推送；不新建 Roadmap、Checkpoint 或治理报告，
+记录完成后停止。
+
 ## 已检查的复用能力
 
 读取 HANDOFF、AGENTS、contracts/decisions.yaml、预算治理政策、B1/B2 的
