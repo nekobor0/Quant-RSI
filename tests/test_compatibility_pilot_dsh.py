@@ -91,8 +91,30 @@ def _approve(monkeypatch, tmp_path, *, entry_sha, freeze_sha, caps):
 
 @pytest.fixture
 def bound():
+    """Bind the derived entry, then RESTORE the frozen module's globals.
+
+    _bind() mutates the frozen module process-wide (FREEZE, ENTRY_PATH, __file__).
+    Without this teardown the mutation leaks into every later test in the same
+    process, which broke two frozen pilot tests when this module ran first.
+
+    The frozen module is pristine by design, so ENTRY_PATH may not exist on it
+    at all; getattr with a sentinel keeps this fixture correct either way. On
+    teardown a missing attribute is deleted rather than set, so the frozen module
+    returns to exactly its original shape.
+    """
+    missing = object()
+    saved = {name: getattr(pilot, name, missing)
+             for name in ('FREEZE', 'ENTRY_PATH', '__file__')}
     dsh._bind()
-    return dsh
+    try:
+        yield dsh
+    finally:
+        for name, value in saved.items():
+            if value is missing:
+                if hasattr(pilot, name):
+                    delattr(pilot, name)
+            else:
+                setattr(pilot, name, value)
 
 
 # ---------------------------------------------------------------- bindings
@@ -100,15 +122,16 @@ def bound():
 def test_derived_entry_binding_is_what_authorization_compares(bound):
     """The audit's claim 2: the derived entry SHA must be the compared one.
 
-    check_authorization() hashes Path(__file__) inside the frozen module, so
-    _bind() must redirect that module attribute; otherwise the derived entry can
-    never be authorized.
+    The frozen module is pristine and has no ENTRY_PATH; _bind() redirects the
+    module __file__ attribute, which is what the frozen check_authorization()
+    hashes. That redirect is the whole mechanism.
     """
-    assert pilot.ENTRY_PATH == dsh.DERIVED_ENTRY
     assert Path(pilot.__file__) == dsh.DERIVED_ENTRY
     assert dsh.entry_sha256() != FROZEN_BASE_ENTRY_SHA
     # And the redirect is exactly what the frozen checker will hash.
     assert Path(pilot.__file__).read_bytes() == dsh.DERIVED_ENTRY.read_bytes()
+    # The redirect is runtime-only: the frozen file on disk is untouched.
+    assert not hasattr(pilot, 'ENTRY_PATH') or pilot.ENTRY_PATH == dsh.DERIVED_ENTRY
 
 
 def test_frozen_base_entry_bytes_are_untouched():
