@@ -1,0 +1,16 @@
+{
+  "approved": false,
+  "call_cap": 12,
+  "entry_sha256": "9cf23246dd943eed2c3dc88efe2be39a0b6570975465e18874a43a0426b83f6f",
+  "freeze_sha256": "fb7eb0cbcdb0e4743c1894d0e964886c958a56772023dfb007fbd853c99f00e3",
+  "instruction": "Only set approved after user explicitly authorizes this exact new freeze, entry and batch. This engineering request is not real API authorization.",
+  "key_rotation_source": "User forwarded Pilot001 execution report confirms previous keys rotated; no credential access or revalidation in this preparation.",
+  "keys_rotated": true,
+  "money_caps_cny": {
+    "deepseek": "1.80",
+    "xiaomi": "1.20"
+  },
+  "run_id": "TRACK_A_V02_CLARIFIED_COMPATIBILITY_PILOT_002",
+  "state": "REQUEST_ONLY_NOT_AUTHORIZATION",
+  "total_money_cap_cny": "3.00"
+}

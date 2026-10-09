@@ -1,0 +1,196 @@
+{
+  "actual_entry": "python -B -m quant_rsi.harness.compatibility_pilot_clarified",
+  "attempts_per_task_per_model": 1,
+  "batch_rule": "New full 6x2 batch after public contract clarification; not a continuation or retry. Do not pool scores with the old prompt batch.",
+  "binding_note": "Every path listed in sha256 is verified by validate_freeze() before any dispatch. This freeze.json is deliberately NOT in the map: a self-hash would make the file's own digest unstable. The freeze digest is instead bound by authorization_request.json.",
+  "calls": 12,
+  "completion_per_call": 24000,
+  "completion_tokens_max": 288000,
+  "conditions_not_equivalent": [
+    "The two models receive byte-identical message text but are not run under identical sampling: MiMo thinking forces temperature=1.0 and top_p=0.95, while DeepSeek thinking ignores temperature=0 and uses provider-native sampling defaults.",
+    "The same numeric completion ceiling covers reasoning plus visible output, but tokenizers and the reasoning/answer allocation differ between providers.",
+    "Model aliases do not pin immutable weights; the MiMo immutable version is UNKNOWN.",
+    "Costs derived from usage are estimates, not settled invoices; cache accounting may be missing.",
+    "A 300 s socket timeout is not a strict generation wall deadline.",
+    "Six public static diagnostic tasks with no tools and no agent loop cannot establish formal rankings, significance, or stable capability differences.",
+    "Prompt version changed from Pilot 001; scores cannot be pooled across prompt versions. No independent/sealed/DSH Provider transport qualification is claimed."
+  ],
+  "contract_change": "Clarify canonical fact placeholders, scalar/type examples, exact identifiers and sources array; evaluator and ground truth unchanged.",
+  "controller_budget": {
+    "external_cap_enforcement": "NOT_IMPLEMENTED_BY_PYTHON; DSH must have its own hard cap or use a direct terminal without a paid controller.",
+    "external_dsh_cap_cny_proposal": "0.50",
+    "inside_python_runner": "NO_CONTROLLER_MODEL_CALLS",
+    "measurement_cap_cny": "3.00"
+  },
+  "derived_from": {
+    "changed": [
+      "public user answer contract clarification",
+      "failure observability",
+      "scoped entry binding and read-only replay"
+    ],
+    "freeze": "benchmark/capability_public/pilot_v02_dsh/freeze.json",
+    "freeze_sha256": "4447f5a66773152316af9acb26f61e8110aa213854ce8c2568e31aed00a4d504",
+    "unchanged": [
+      "six tasks and order",
+      "public_input",
+      "ground_truth",
+      "evaluator v0.2.0",
+      "system prompt",
+      "native parameters",
+      "token and money caps",
+      "zero retries"
+    ]
+  },
+  "dsh_execution_environment": {
+    "controller_metering": "External DSH controller not metered by this Python runner; its fees are not part of 3 CNY measured-call cap.",
+    "launcher": "DSH shell tool or direct terminal; no DSH Provider adapter involved",
+    "transport": "PYTHON_CHAT_PROVIDER_URLLIB"
+  },
+  "evaluator_version": "0.2.0",
+  "failure_capture": {
+    "error_body_byte_limit": 1048576,
+    "exception_text": "NOT_SERIALIZED",
+    "partial_bytes": "RETAIN_IF_SAFE",
+    "safety": "Scan available bytes against both authorized in-process keys before truncation; unsafe bytes not persisted.",
+    "version": 1
+  },
+  "input_per_call": 16384,
+  "input_tokens_max": 196608,
+  "known_blockers_before_execution": [
+    "new_explicit_batch_authorization: NOT_GRANTED"
+  ],
+  "labels": "PUBLIC_UNSEALED_PROVISIONAL",
+  "money_caps_cny": {
+    "deepseek": "1.80",
+    "xiaomi": "1.20"
+  },
+  "offpeak_rule": "UTC weekday 01:00-04:00 and 06:00-10:00 excluded; require room for 3600s scheduling window plus 300s socket timeout. Conservative on public holidays; no holiday data request.",
+  "parent_run": "TRACK_A_V02_DSH_COMPATIBILITY_PILOT_001",
+  "prepared_on": "2026-10-09",
+  "pricing_sources": {
+    "cost_basis": "Peak/all-cache-miss upper estimate; actual invoice unknown.",
+    "currency": "CNY",
+    "deepseek": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "verified_on": "2026-10-09",
+    "xiaomi": "https://mimo.mi.com/docs/en-US/price/pay-as-you-go"
+  },
+  "prompt_hashes": {
+    "A-BACKTEST-NOT-RUN": "7b5ecb70d7d3324b1afddf680e249bc113e4903a9b8a63005eb5b90de3f1e20d",
+    "A-META-COUNT-ITEMS": "9fdd861a4a5257fc774988d72c561588f1a2612008711ebac842bef83a45dab4",
+    "A-MULTIPLE-TESTING": "c22d08cdcd43479bc405d9fb7d5678f21a0e95c115d4bcaa8e16b9f14564aaf7",
+    "A-PIT-VINTAGE-PASS": "3e8da52ce54a04e3deb30f4ae1de3973657c4fb991a28c8f50b0652cad647261",
+    "A-PROVIDER-TOKEN-LIMIT": "8be69a2103c20d8b0cac73d8e58414fc0e6cd058e798ec5d191727d89dd36b30",
+    "A-SUPPORT-THRESHOLD-PASS": "e4d6944c088cfac8451fa18090932f1d89a6802fb24445a1f65ca38924b30905"
+  },
+  "providers": {
+    "deepseek": {
+      "chat_provider": {
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "base_url": "https://api.deepseek.com/v1",
+        "max_tokens": 24000,
+        "model_id": "deepseek-flash",
+        "provider_id": "deepseek",
+        "temperature": 0.0,
+        "timeout_s": 300
+      },
+      "completion_tokens_max": 144000,
+      "input_tokens_max": 98304,
+      "model_id_note": "deepseek-flash is the official model name and maps to DeepSeek-V4.1-Flash; legacy names deepseek-v4-flash and deepseek-v4-flash-vision-exp are still accepted and billed at Flash price. Confirmed from the official pricing page, no probe call made. Service identity is still checked in the real response.",
+      "model_id_status": "VERIFIED_OFFICIAL_DOCS",
+      "native_parameters": {
+        "reasoning_effort": "high",
+        "thinking": {
+          "type": "enabled"
+        }
+      },
+      "peak_rate": true,
+      "prices_cny_per_million": {
+        "input_hit": "0.04",
+        "input_miss": "2",
+        "output": "8"
+      },
+      "prices_cny_per_million_note": "Peak rates, official CNY page 2026-10-09. Off-peak is half: input_miss 1, input_hit 0.02, output 4.",
+      "pricing_status": "VERIFIED_OFFICIAL_CNY_2026_10_09",
+      "requests": 6,
+      "worst_cost_basis": "Rounded UP from the computed peak worst case 0.224768 CNY (16384 input cache-miss @ 2 CNY/M + 24000 output @ 8 CNY/M). Off-peak worst case is 0.112384 CNY.",
+      "worst_cost_cny_per_call": "0.30"
+    },
+    "xiaomi": {
+      "chat_provider": {
+        "api_key_env": "XIAOMI_API_KEY",
+        "base_url": "https://api.xiaomimimo.com/v1",
+        "max_tokens": 24000,
+        "model_id": "mimo-v2.6-pro",
+        "provider_id": "xiaomi",
+        "temperature": 0.0,
+        "timeout_s": 300
+      },
+      "completion_tokens_max": 144000,
+      "input_tokens_max": 98304,
+      "model_id_status": "VERIFIED_OFFICIAL_DOCS_AND_PILOT001_RESPONSE",
+      "native_parameters": {
+        "temperature": 1.0,
+        "thinking": {
+          "type": "enabled"
+        },
+        "top_p": 0.95
+      },
+      "peak_rate": false,
+      "prices_cny_per_million": {
+        "input_hit": "0.025",
+        "input_miss": "3",
+        "output": "6"
+      },
+      "pricing_status": "VERIFIED_OFFICIAL_CNY_2026_10_09",
+      "requests": 6,
+      "worst_cost_basis": "Rounded UP from the computed worst case 0.193152 CNY (16384 input cache-miss @ 3 CNY/M + 24000 output @ 6 CNY/M).",
+      "worst_cost_cny_per_call": "0.20"
+    }
+  },
+  "public_contract_version": "PUBLIC_ANSWER_CONTRACT_V0.2.1_CLARIFIED",
+  "real_run_status": "NOT_AUTHORIZED_NOT_RUN",
+  "retries": 0,
+  "run_id": "TRACK_A_V02_CLARIFIED_COMPATIBILITY_PILOT_002",
+  "run_kind": "TRACK_A_V02_CLARIFIED_CONTRACT_COMPATIBILITY_PILOT",
+  "scientific_candidate_variants": 0,
+  "sha256": {
+    "benchmark/capability_public/freeze_v02.json": "628062ee6d61e13a829108d28af5ecb6c62418784e45b8b0eb74a79c5413639c",
+    "benchmark/capability_public/pilot_v02/freeze.json": "d9bd47eb548243bdcbf2e1c1c683cd3c204af827f11216341bdf05b74644bf15",
+    "benchmark/capability_public/pilot_v02/prompts.json": "b30d923ad8b642c94dcddfc7fd1608feba51e9a1304cd77aa1b477f9db770210",
+    "benchmark/capability_public/pilot_v02/tasks.json": "ea3e37e18d56dc796abcdcf73790710ec12a593ff6a62f8b9e0cb7d70c710b38",
+    "benchmark/capability_public/pilot_v02_clarified/prompts.json": "54221b11299876f79e996e7b0ee7750c8ebebdf0bf26768c0e8c281b34705ab6",
+    "src/quant_rsi/harness/capability_oracle.py": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
+    "src/quant_rsi/harness/comparison.py": "f8826eb64e4a328d1c1c5673cfde97772809b1c767affd55c43420dbbe545960",
+    "src/quant_rsi/harness/compatibility_pilot.py": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+    "src/quant_rsi/harness/compatibility_pilot_clarified.py": "9cf23246dd943eed2c3dc88efe2be39a0b6570975465e18874a43a0426b83f6f",
+    "src/quant_rsi/harness/providers.py": "c27ee95358b4c572a42eb16aef441dad65b976a0679bcce281dc78f85e943559",
+    "src/quant_rsi/harness/request_capture.py": "9f2833ddf8b07a6c60d85abe0d88c62931ca1fbc31d97f1660e2ee604502f690",
+    "src/quant_rsi/ledger/store.py": "252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46"
+  },
+  "source_cluster_count": 6,
+  "source_independence_caveat": "Six distinct frozen source_incident_id clusters. Contract fixtures and synthetic controls are not six independently sampled real incidents. Same-author truth/evaluator construction is retained; evidence independence is not claimed.",
+  "stop_rules": [
+    "No key access or requests before explicit human batch authorization plus key-rotation confirmation bound to this freeze SHA and the entry SHA.",
+    "Reserve the full request/token/cost ceiling in the append-only trace before each single dispatch; never refund a reservation.",
+    "Stop the batch on: authentication failure, HTTP 429, model identity mismatch or missing model metadata, suspected credential leakage in output, per-call token budget breach, measured timeout overrun, missing or invalid usage, or exhausted budget.",
+    "No retry, no run restart, no higher-token rerun, no third measured model, no automatic full comparison.",
+    "A failed or uncertain-status request still consumes its request allowance.",
+    "Answer, format and reason errors retain the frozen score; evaluator review never modifies the evaluator during execution.",
+    "An interrupted reservation is an unresolved attempted request; do not restart or replay it over the network."
+  ],
+  "system_prompt_sha256": "1e357130abec34af57fe934b9691c67c9f57f636c129d3c1e50b9534984c6001",
+  "task_ids": [
+    "A-META-COUNT-ITEMS",
+    "A-PIT-VINTAGE-PASS",
+    "A-MULTIPLE-TESTING",
+    "A-BACKTEST-NOT-RUN",
+    "A-SUPPORT-THRESHOLD-PASS",
+    "A-PROVIDER-TOKEN-LIMIT"
+  ],
+  "task_kind": "STATIC_DIAGNOSTIC",
+  "timeout_s": 300,
+  "timeout_semantics": "socket I/O timeout; no guaranteed total wall deadline; stop the next dispatch on measured overrun.",
+  "total_money_cap_cny": "3.00",
+  "usage_missing_policy": "Keep the full cost/token reservation, estimated actual cost UNKNOWN, stop further dispatch; never infer zero usage.",
+  "wall_seconds": 3600
+}
