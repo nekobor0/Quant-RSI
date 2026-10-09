@@ -1,0 +1,40 @@
+{
+  "base_freeze_unchanged_sha256": "628062ee6d61e13a829108d28af5ecb6c62418784e45b8b0eb74a79c5413639c",
+  "coverage": [
+    "Fixed six-dimension / six-cluster selection and frozen prompts",
+    "Approval and key rotation gates precede credentials/network",
+    "Exactly twelve stubbed requests with correct native parameters and restored transport",
+    "Atomic reservation, no retry, no restart or higher-budget rerun",
+    "HTTP429/business/malformed-envelope/model/usage/token/security stops",
+    "Empty response, reasoning exhaustion, visible truncation and abnormal finish reason",
+    "Usage and cache pricing estimates with missing metadata handling",
+    "Prompt/raw-output/trace/score offline replay and mutation detection",
+    "Legal aliases, numeric forms, fences, negated wrong claims, contradiction detection",
+    "Free-prose reason remains a contract failure and full-pass synthetic runs trigger diagnosis"
+  ],
+  "credential_files_read": 0,
+  "engineering_caps": {
+    "offline_cli_checks": 2,
+    "pytest_invocations": 6,
+    "real_calls_authorized": 0
+  },
+  "entry_sha256": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+  "failed": 0,
+  "final_test_seconds": 18.52,
+  "freeze_sha256": "d9bd47eb548243bdcbf2e1c1c683cd3c204af827f11216341bdf05b74644bf15",
+  "limitations": [
+    "All HTTP responses are stubs, not real model outputs.",
+    "No ranking, model discrimination, real completion rates, confirmed evaluator misjudgments, actual usage, invoice or latency can be inferred.",
+    "Socket timeout is not a strict total generation deadline."
+  ],
+  "new_pilot_tests": 29,
+  "offline_cli_checks": 2,
+  "passed": 153,
+  "pytest_invocations": 2,
+  "real_api_calls": 0,
+  "remote_pushes": 0,
+  "status": "OFFLINE_PREPARATION_VALIDATED_REAL_NOT_RUN",
+  "test_command": "python -B -m pytest tests/test_compatibility_pilot.py tests/test_capability_v02.py tests/test_capability_comparison.py -q -p no:cacheprovider --basetemp .pytest_tmp/pilot_v02_validation_002",
+  "unchanged_v02_related_regressions": 124,
+  "verified_on": "2026-10-09"
+}

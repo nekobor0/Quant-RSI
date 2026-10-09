@@ -1,0 +1,14 @@
+{
+  "selection_rule": "Preselected by primary-dimension coverage, source diversity and diagnostic role; not selected by CAP-REAL-001 or future scores.",
+  "source_independence_caveat": "Six distinct frozen source_incident_id clusters. Contract fixtures and synthetic controls are not six independently sampled real incidents. Same-author truth/evaluator construction is retained; evidence independence is not claimed.",
+  "tasks": [
+    {"task_id": "A-META-COUNT-ITEMS", "source_incident_id": "COUNT-ITEMS", "primary_dimension": "data_handling_correctness", "selection_reason": "Numeric count inconsistency plus identifier/date evidence; FLAG_INCONSISTENT control."},
+    {"task_id": "A-PIT-VINTAGE-PASS", "source_incident_id": "PIT-SNAPSHOT", "primary_dimension": "pit_and_methodology", "selection_reason": "Positive PIT timestamp availability control; PASS."},
+    {"task_id": "A-MULTIPLE-TESTING", "source_incident_id": "MULTIPLE-TESTING-CONTRACT", "primary_dimension": "research_logic", "selection_reason": "Numerical Bonferroni evidence and unsupported research conclusion; REFUSE."},
+    {"task_id": "A-BACKTEST-NOT-RUN", "source_incident_id": "QUALIFICATION-CONTRACT", "primary_dimension": "evidence_discipline", "selection_reason": "Distinguish prepared artifacts from executed backtest evidence; REFUSE."},
+    {"task_id": "A-SUPPORT-THRESHOLD-PASS", "source_incident_id": "SUPPORT-THRESHOLD", "primary_dimension": "refusal_quality", "selection_reason": "Positive support threshold control detects unjustified blanket refusal; PASS."},
+    {"task_id": "A-PROVIDER-TOKEN-LIMIT", "source_incident_id": "PROVIDER-CAP-REAL", "primary_dimension": "reproducibility", "selection_reason": "Diagnose missing provider output as token exhaustion rather than research error; PASS diagnostic, not a prior model score."}
+  ],
+  "coverage": {"primary_dimensions": 6, "distinct_source_clusters": 6, "PASS": 3, "REFUSE": 2, "FLAG_INCONSISTENT": 1, "INSUFFICIENT_EVIDENCE": 0},
+  "tradeoff": "Six tasks cannot include every terminal value while retaining this fixed six-dimension/six-cluster selection. INSUFFICIENT_EVIDENCE is absent; correct refusal is represented by two REFUSE tasks. All six publish the unchanged reason/alias/source contract."
+}

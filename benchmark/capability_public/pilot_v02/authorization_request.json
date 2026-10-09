@@ -1,0 +1,13 @@
+{
+  "approved": false,
+  "call_cap": 12,
+  "entry_sha256": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+  "freeze_sha256": "d9bd47eb548243bdcbf2e1c1c683cd3c204af827f11216341bdf05b74644bf15",
+  "instruction": "Only after new explicit human batch authorization and confirmation that previously exposed keys were revoked or rotated. Never place credentials in this file.",
+  "keys_rotated": false,
+  "money_caps_cny": {
+    "deepseek": "4.80",
+    "xiaomi": "1.20"
+  },
+  "state": "REQUEST_ONLY_NOT_AUTHORIZATION"
+}

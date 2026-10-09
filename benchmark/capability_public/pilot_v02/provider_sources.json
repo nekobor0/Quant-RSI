@@ -1,0 +1,53 @@
+{
+  "verified_on": "2026-10-09",
+  "verification": "Unauthenticated public documentation only; model API calls: 0. Old 2026-10-08 measurements are not current verification.",
+  "account_currency_confirmation": {"deepseek": "CNY", "xiaomi": "CNY", "source": "Current human user replies"},
+  "deepseek": {
+    "model_id": "deepseek-v4-pro",
+    "documented_version": "DeepSeek-V4-Pro-0813",
+    "endpoint": "https://api.deepseek.com/v1/chat/completions",
+    "context_tokens": 1000000,
+    "max_output_tokens": 393216,
+    "budget_parameter": "max_tokens; thinking and visible output share the completion budget",
+    "thinking": "enabled; reasoning_effort=high",
+    "sampling": "temperature has no effect in thinking mode; native defaults retained",
+    "prices_cny_per_million": {"input_miss_peak": "9", "input_hit_peak": "0.30", "output_peak": "27", "input_miss_offpeak": "4.5", "input_hit_offpeak": "0.15", "output_offpeak": "13.5"},
+    "usage": ["prompt_tokens", "completion_tokens", "total_tokens", "prompt_cache_hit_tokens", "prompt_cache_miss_tokens", "prompt_tokens_details.cached_tokens", "completion_tokens_details.reasoning_tokens"],
+    "finish_reason": ["stop", "length", "content_filter", "tool_calls", "insufficient_system_resource", "aborted"],
+    "timeout": "Server may send keepalive blank lines; a documented ten-minute queue timeout is not a total generation deadline. Client timeout is socket I/O, not a guaranteed wall deadline.",
+    "rate_limit": "Published Pro concurrency limit 500; account load and effective available quota UNKNOWN.",
+    "sources": [
+      "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+      "https://api-docs.deepseek.com/quick_start/pricing/",
+      "https://api-docs.deepseek.com/api/create-chat-completion/",
+      "https://api-docs.deepseek.com/guides/thinking_mode/",
+      "https://api-docs.deepseek.com/quick_start/rate_limit/",
+      "https://api-docs.deepseek.com/quick_start/error_codes/"
+    ]
+  },
+  "xiaomi": {
+    "model_id": "mimo-v2.6-pro",
+    "documented_version": "UNKNOWN; model ID does not pin immutable weights",
+    "endpoint": "https://api.xiaomimimo.com/v1/chat/completions",
+    "context_tokens": 1000000,
+    "max_output_tokens": 131072,
+    "budget_parameter": "max_completion_tokens; includes reasoning and visible output",
+    "thinking": "enabled; separate reasoning_effort support UNKNOWN and omitted",
+    "sampling": "Thinking mode forces temperature=1.0 and top_p=0.95",
+    "prices_cny_per_million": {"input_miss": "3", "input_hit": "0.025", "output": "6"},
+    "usage": ["prompt_tokens", "completion_tokens", "total_tokens", "prompt_tokens_details.cached_tokens", "completion_tokens_details.reasoning_tokens"],
+    "finish_reason": ["stop", "length", "tool_calls", "content_filter", "repetition_truncation"],
+    "timeout": "No total generation SLA verified: UNKNOWN. Client timeout is socket I/O, not a guaranteed wall deadline.",
+    "rate_limit": "Published 100 RPM / 10M TPM aggregated per account and model; current available quota UNKNOWN. HTTP 429 or quota rejection stops the batch without retries.",
+    "sources": [
+      "https://mimo.mi.com/models/en-US/mimo-v2.6-pro",
+      "https://mimo.mi.com/docs/en-US/api/chat/openai-api",
+      "https://mimo.mi.com/docs/en-US/api/guidance/model-hyperparameters",
+      "https://mimo.mi.com/docs/en-US/price/pay-as-you-go",
+      "https://mimo.mi.com/docs/en-US/api/guidance/rate-limit",
+      "https://mimo.mi.com/docs/en-US/api/guidance/error-codes"
+    ]
+  },
+  "access_notes": "DeepSeek Chinese pricing timed out in the web reader, then succeeded through unauthenticated urllib HTML parsing. MiMo official documentation moved to mimo.mi.com; canonical pages and official static markdown were read. No credentials or authenticated model discovery were used.",
+  "billing_limitations": "Usage-derived costs are estimates, not settled invoices. DeepSeek uses peak rates as upper estimates regardless of actual time; missing cache counts use all-miss upper estimates. Missing or invalid token usage stops further dispatch and preserves the full reservation. No search/tool fees because no tools are supplied."
+}

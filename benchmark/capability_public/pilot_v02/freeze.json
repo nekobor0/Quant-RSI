@@ -1,0 +1,131 @@
+{
+  "actual_entry": "python -B -m quant_rsi.harness.compatibility_pilot",
+  "attempts_per_task_per_model": 1,
+  "budget_basis": "Published peak rates, all input cache misses, CNY accounts confirmed by human; no fine-grained billing optimization",
+  "calls": 12,
+  "completion_per_call": 24000,
+  "completion_tokens_max": 288000,
+  "conditions_not_equivalent": [
+    "Native thinking/sampling algorithms differ; Xiaomi forces temperature=1/top_p=.95, DeepSeek thinking ignores temperature=0 and uses provider-native sampling defaults.",
+    "Same numeric completion ceiling includes reasoning but tokenizers and allocation are not identical.",
+    "Mutable model aliases do not pin weights; IDs and raw metadata are retained.",
+    "Peak-rate estimates are not settled invoice costs; cache usage may be missing.",
+    "300s socket timeout is not a strict generation wall deadline, especially with keepalive.",
+    "No tools or agentic workflow; six public static diagnostic tasks do not establish formal rankings."
+  ],
+  "credential_availability": "NOT_CHECKED; no credential files or values read during preparation",
+  "evaluator_version": "0.2.0",
+  "input_per_call": 16384,
+  "input_tokens_max": 196608,
+  "key_rotation_confirmation": "NOT_CONFIRMED",
+  "labels": "PUBLIC_UNSEALED_PROVISIONAL",
+  "money_caps_cny": {
+    "deepseek": "4.80",
+    "xiaomi": "1.20"
+  },
+  "prepared_on": "2026-10-09",
+  "prompt_hashes": {
+    "A-BACKTEST-NOT-RUN": "af0cbc25feb2724736680810d031e8baafbff1a321364cee489bcf0926dca3ed",
+    "A-META-COUNT-ITEMS": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+    "A-MULTIPLE-TESTING": "0881473d6a1a74904824b5cb9d05af8022ac091320feab99f342eb5655763a8f",
+    "A-PIT-VINTAGE-PASS": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+    "A-PROVIDER-TOKEN-LIMIT": "b25de0b317b90ebff241ad94684e48bc0e8c612df89c29729c538e7f7561c350",
+    "A-SUPPORT-THRESHOLD-PASS": "00c484af5b79ea9d011c878fa91a028f1823493ef8c10fec5261836414a923aa"
+  },
+  "providers": {
+    "deepseek": {
+      "chat_provider": {
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "base_url": "https://api.deepseek.com/v1",
+        "max_tokens": 24000,
+        "model_id": "deepseek-v4-pro",
+        "provider_id": "deepseek",
+        "temperature": 0.0,
+        "timeout_s": 300
+      },
+      "completion_tokens_max": 144000,
+      "input_tokens_max": 98304,
+      "native_parameters": {
+        "reasoning_effort": "high",
+        "thinking": {
+          "type": "enabled"
+        }
+      },
+      "peak_rate": true,
+      "prices_cny_per_million": {
+        "input_hit": "0.30",
+        "input_miss": "9",
+        "output": "27"
+      },
+      "requests": 6,
+      "worst_cost_cny_per_call": "0.795456"
+    },
+    "xiaomi": {
+      "chat_provider": {
+        "api_key_env": "XIAOMI_API_KEY",
+        "base_url": "https://api.xiaomimimo.com/v1",
+        "max_tokens": 24000,
+        "model_id": "mimo-v2.6-pro",
+        "provider_id": "xiaomi",
+        "temperature": 0.0,
+        "timeout_s": 300
+      },
+      "completion_tokens_max": 144000,
+      "input_tokens_max": 98304,
+      "native_parameters": {
+        "temperature": 1.0,
+        "thinking": {
+          "type": "enabled"
+        },
+        "top_p": 0.95
+      },
+      "peak_rate": false,
+      "prices_cny_per_million": {
+        "input_hit": "0.025",
+        "input_miss": "3",
+        "output": "6"
+      },
+      "requests": 6,
+      "worst_cost_cny_per_call": "0.193152"
+    }
+  },
+  "real_run_status": "NOT_AUTHORIZED_NOT_RUN",
+  "retries": 0,
+  "run_kind": "TRACK_A_V02_COMPATIBILITY_PILOT",
+  "scientific_candidate_variants": 0,
+  "sha256": {
+    "benchmark/capability_public/freeze_v02.json": "628062ee6d61e13a829108d28af5ecb6c62418784e45b8b0eb74a79c5413639c",
+    "benchmark/capability_public/pilot_v02/prompts.json": "b30d923ad8b642c94dcddfc7fd1608feba51e9a1304cd77aa1b477f9db770210",
+    "benchmark/capability_public/pilot_v02/provider_sources.json": "bb7f7097502fea34762726169286502b40f2f005c5af393480a304f25d516282",
+    "benchmark/capability_public/pilot_v02/tasks.json": "ea3e37e18d56dc796abcdcf73790710ec12a593ff6a62f8b9e0cb7d70c710b38",
+    "src/quant_rsi/harness/compatibility_pilot.py": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+    "src/quant_rsi/ledger/store.py": "252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46",
+    "tests/test_compatibility_pilot.py": "598961be4e823e329870000ae1680bb6451472c066f3388cd2cc7f3ff2ab778e"
+  },
+  "source_cluster_count": 6,
+  "source_independence_caveat": "Six distinct frozen source_incident_id clusters. Contract fixtures and synthetic controls are not six independently sampled real incidents. Same-author truth/evaluator construction is retained; evidence independence is not claimed.",
+  "stop_rules": [
+    "No key access or requests before explicit human batch authorization plus rotation confirmation bound to freeze/entry SHA.",
+    "Reserve full request/token/cost ceilings in append-only trace before each single dispatch; never refund reservations.",
+    "Stop on auth errors, rate limits, model mismatch or missing model metadata, unsafe output, missing/invalid usage, token budget breach, measured timeout overrun or exhausted budget.",
+    "No retry, restart of an existing run, higher-token rerun, third model or automatic full comparison.",
+    "Answer/format/reason errors retain the frozen score; anomaly review never modifies evaluator during execution.",
+    "Interrupted reservation is an unresolved attempted request; do not restart or replay via network."
+  ],
+  "system_prompt_sha256": "1e357130abec34af57fe934b9691c67c9f57f636c129d3c1e50b9534984c6001",
+  "task_ids": [
+    "A-META-COUNT-ITEMS",
+    "A-PIT-VINTAGE-PASS",
+    "A-MULTIPLE-TESTING",
+    "A-BACKTEST-NOT-RUN",
+    "A-SUPPORT-THRESHOLD-PASS",
+    "A-PROVIDER-TOKEN-LIMIT"
+  ],
+  "task_kind": "STATIC_DIAGNOSTIC",
+  "timeout_s": 300,
+  "timeout_semantics": "socket I/O timeout; no guaranteed total wall deadline; stop next dispatch on measured overrun",
+  "total_money_cap_cny": "6.00",
+  "usage_missing_policy": "Keep full cost/token reservation, estimated actual cost UNKNOWN, stop further dispatch; never infer zero usage.",
+  "wall_seconds": 3600,
+  "worst_total_cost_cny": "5.931648"
+}
