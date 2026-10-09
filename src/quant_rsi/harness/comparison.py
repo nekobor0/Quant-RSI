@@ -92,8 +92,9 @@ def run_comparison(providers, run_id, output_root, trace_path=None, repeat=1):
     root.mkdir(parents=True)
     trace = TraceStore(trace_path or (root / 'trace.sqlite'))
 
-    prompt_hashes = {t: _hash_bytes(build_prompt(t, oracle.public_input(t)).encode())
-                     for t in task_ids}
+    prompt_hashes = {t: _hash_bytes(build_prompt(
+        t, oracle.public_input(t), oracle.required_evidence_keys(t)).encode())
+        for t in task_ids}
     release_hashes = {t: oracle.release_hash(t) for t in task_ids}
 
     trace.append(f'comparison-start:{run_id}', 'COMPARISON_STARTED', {
@@ -117,7 +118,8 @@ def run_comparison(providers, run_id, output_root, trace_path=None, repeat=1):
             if budget_stop:
                 break
             for trial in range(1, repeat + 1):
-                prompt = build_prompt(task_id, oracle.public_input(task_id))
+                prompt = build_prompt(task_id, oracle.public_input(task_id),
+                                      oracle.required_evidence_keys(task_id))
                 prompt_hash = prompt_hashes[task_id]
                 attempt_id = f'{run_id}:{provider.provider_id}:{task_id}:t{trial}'
                 reply = None
@@ -130,11 +132,16 @@ def run_comparison(providers, run_id, output_root, trace_path=None, repeat=1):
                     transport_error = f'{type(exc).__name__}: {exc}'
 
                 response_bytes = None
-                if reply is not None and reply.ok and reply.text is not None:
-                    response_bytes = reply.text.encode('utf-8')
-                transport_failed = response_bytes is None
+                truncated = False
+                if reply is not None and reply.ok:
+                    if reply.text is not None:
+                        response_bytes = reply.text.encode('utf-8')
+                    elif reply.truncated:
+                        truncated = True
+                transport_failed = response_bytes is None and not truncated
                 score = oracle.adjudicate(task_id, response_bytes,
-                                          transport_failed=transport_failed)
+                                          transport_failed=transport_failed,
+                                          truncated=truncated)
 
                 in_tok = (reply.input_tokens if reply and reply.input_tokens else 0)
                 out_tok = (reply.output_tokens if reply and reply.output_tokens else 0)
@@ -163,6 +170,9 @@ def run_comparison(providers, run_id, output_root, trace_path=None, repeat=1):
                     'http_status': reply.http_status if reply else None,
                     'transport_error': transport_error or (reply.transport_error if reply else None),
                     'provider_attempts': reply.attempts if reply else 0,
+                    'finish_reason': reply.finish_reason if reply else None,
+                    'reasoning_chars': reply.reasoning_chars if reply else None,
+                    'output_truncated': truncated,
                     'response_sha256': None if response_bytes is None else _hash_bytes(response_bytes),
                     'response_text': None if response_bytes is None else response_bytes.decode('utf-8', 'replace'),
                     'input_tokens': in_tok,

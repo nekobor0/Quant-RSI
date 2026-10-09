@@ -28,6 +28,19 @@ class ProviderReply:
     output_tokens: int | None
     wall_ms: int
     attempts: int
+    finish_reason: str | None = None
+    reasoning_chars: int | None = None
+
+    @property
+    def truncated(self):
+        """True when the model hit the token ceiling instead of finishing.
+
+        A reasoning model that exhausts max_tokens can return HTTP 200 with no
+        content at all, which would otherwise be scored as a malformed answer
+        and understate capability.
+        """
+        return self.finish_reason == 'length' or (
+            self.text is None and self.output_tokens is not None)
 
 
 class ProviderError(RuntimeError):
@@ -56,11 +69,32 @@ SYSTEM_PROMPT = (
 )
 
 
-def build_prompt(task_id, public_input_obj):
-    """Deterministic user message; byte-stable so its hash is reproducible."""
+def build_prompt(task_id, public_input_obj, required_keys=None):
+    """Deterministic user message; byte-stable so its hash is reproducible.
+
+    The required report keys are published here. Scoring tests whether the right
+    facts were established, not whether the model guessed an unstated schema, so
+    the facts to report are declared while their correct values are not.
+    """
     payload = json.dumps(public_input_obj, sort_keys=True, separators=(',', ':'),
                          ensure_ascii=True)
-    return f"task_id: {task_id}\ninput: {payload}\n\nReply with the JSON object only."
+    lines = [
+        f'task_id: {task_id}',
+        f'input: {payload}',
+        '',
+        'Your evidence object must report the following facts:',
+    ]
+    if required_keys:
+        lines.extend(f'  - {item}' for item in required_keys)
+    else:
+        lines.append('  - the concrete values you relied on')
+    lines.extend([
+        '',
+        'You may choose any clear key names. Report the exact values you found. '
+        'Reply with the raw JSON object only, with no markdown fence and no text '
+        'before or after it.',
+    ])
+    return '\n'.join(lines)
 
 
 # --------------------------------------------------------------------------
@@ -138,8 +172,15 @@ class ChatProvider:
     model_id: str
     base_url: str
     api_key_env: str
-    timeout_s: int = 120
-    max_tokens: int = 1500
+    timeout_s: int = 300
+    # Reasoning models spend this budget on hidden reasoning first. A ceiling the
+    # reasoning alone can exhaust yields HTTP 200 with EMPTY content, which reads
+    # as a malformed answer unless diagnosed. Measured: deepseek-v4-pro produced
+    # 36,120 characters of reasoning on one task and still hit an 8,000 ceiling.
+    max_tokens: int = 24000
+    # On truncation, retry once with this larger ceiling before giving up. A model
+    # that simply thought for a long time should not be scored as incapable.
+    retry_max_tokens: int = 64000
     temperature: float = 0.0
     max_retries: int = 1
     extra_headers: dict = field(default_factory=dict)
@@ -156,15 +197,8 @@ class ChatProvider:
         return self._key
 
     def reply(self, task_id, prompt):
-        body = {
-            'model': self.model_id,
-            'messages': [{'role': 'system', 'content': SYSTEM_PROMPT},
-                         {'role': 'user', 'content': prompt}],
-            'temperature': self.temperature,
-            'max_tokens': self.max_tokens,
-            'stream': False,
-        }
-        raw = json.dumps(body).encode()
+        messages = [{'role': 'system', 'content': SYSTEM_PROMPT},
+                    {'role': 'user', 'content': prompt}]
         url = self.base_url.rstrip('/') + '/chat/completions'
         headers = {'Content-Type': 'application/json',
                    'Authorization': 'Bearer ' + self._resolve_key(),
@@ -172,60 +206,97 @@ class ChatProvider:
         headers.update(self.extra_headers)
 
         last_error = None
+        # Up to (max_retries + 1) transport attempts; the final attempt may raise
+        # the token ceiling once if the model was cut off rather than finished.
         for attempt in range(1, self.max_retries + 2):
-            started = time.perf_counter()
-            request = urllib.request.Request(url, data=raw, headers=headers, method='POST')
-            try:
-                with urllib.request.urlopen(request, timeout=self.timeout_s) as response:
-                    status = response.status
-                    payload = json.loads(response.read().decode('utf-8'))
-                wall = max(1, int((time.perf_counter() - started) * 1000))
-                choices = payload.get('choices') or []
-                text = choices[0].get('message', {}).get('content') if choices else None
-                usage = payload.get('usage') or {}
-                return ProviderReply(True, text, status, None,
-                                     usage.get('prompt_tokens'), usage.get('completion_tokens'),
-                                     wall, attempt)
-            except urllib.error.HTTPError as exc:
-                wall = max(1, int((time.perf_counter() - started) * 1000))
-                detail = ''
+            limit = self.max_tokens
+            escalated = False
+            while True:
+                body = {'model': self.model_id, 'messages': messages,
+                        'temperature': self.temperature, 'max_tokens': limit,
+                        'stream': False}
+                raw = json.dumps(body).encode()
+                started = time.perf_counter()
+                request = urllib.request.Request(url, data=raw, headers=headers, method='POST')
                 try:
-                    detail = exc.read().decode('utf-8', 'replace')[:400]
-                except Exception:
-                    pass
-                last_error = ProviderReply(False, None, exc.code,
-                                           f'HTTPError {exc.code}: {detail}', None, None,
-                                           wall, attempt)
-                # 4xx other than 429 will not succeed on retry.
-                if exc.code != 429 and exc.code < 500:
-                    return last_error
-            except Exception as exc:  # transport, DNS, TLS, timeout
-                wall = max(1, int((time.perf_counter() - started) * 1000))
-                last_error = ProviderReply(False, None, None,
-                                           f'{type(exc).__name__}: {exc}', None, None,
-                                           wall, attempt)
+                    with urllib.request.urlopen(request, timeout=self.timeout_s) as response:
+                        status = response.status
+                        payload = json.loads(response.read().decode('utf-8'))
+                    wall = max(1, int((time.perf_counter() - started) * 1000))
+                    choices = payload.get('choices') or []
+                    message = (choices[0].get('message') or {}) if choices else {}
+                    text = message.get('content')
+                    if text is not None and not str(text).strip():
+                        text = None  # whitespace-only must not count as an answer
+                    reasoning = message.get('reasoning_content') or ''
+                    finish = choices[0].get('finish_reason') if choices else None
+                    usage = payload.get('usage') or {}
+                    reply = ProviderReply(True, text, status, None,
+                                          usage.get('prompt_tokens'),
+                                          usage.get('completion_tokens'),
+                                          wall, attempt, finish_reason=finish,
+                                          reasoning_chars=len(reasoning))
+                    # Cut off by the ceiling: retry once with a larger one instead
+                    # of reporting a truncated answer as a capability failure.
+                    if (reply.truncated and not escalated
+                            and limit < self.retry_max_tokens):
+                        escalated = True
+                        limit = self.retry_max_tokens
+                        continue
+                    return reply
+                except urllib.error.HTTPError as exc:
+                    wall = max(1, int((time.perf_counter() - started) * 1000))
+                    detail = ''
+                    try:
+                        detail = exc.read().decode('utf-8', 'replace')[:400]
+                    except Exception:
+                        pass
+                    last_error = ProviderReply(False, None, exc.code,
+                                               f'HTTPError {exc.code}: {detail}', None, None,
+                                               wall, attempt)
+                    if exc.code != 429 and exc.code < 500:
+                        return last_error
+                    break
+                except Exception as exc:  # transport, DNS, TLS, timeout
+                    wall = max(1, int((time.perf_counter() - started) * 1000))
+                    last_error = ProviderReply(False, None, None,
+                                               f'{type(exc).__name__}: {exc}', None, None,
+                                               wall, attempt)
+                    break
             if attempt <= self.max_retries:
                 time.sleep(min(2.0 * attempt, 5.0))
         return last_error
 
 
 # Registry of the intended comparison pair. No credential is stored here.
+#
+# Model ids below were read from each provider's /v1/models endpoint on
+# 2026-10-08 (both keys valid). Earlier placeholders ('deepseek-chat',
+# 'mimo-v2.6-pro' for the batch host) were wrong and are corrected here.
+#
+#   DeepSeek : deepseek-flash, deepseek-v4-pro
+#   Xiaomi   : mimo-v2.5, mimo-v2.5-asr, mimo-v2.5-pro, mimo-v2.5-tts,
+#              mimo-v2.5-tts-voiceclone, mimo-v2.5-tts-voicedesign,
+#              mimo-v2.6-flash, mimo-v2.6-pro, mimo-v2.6-pro-ultraspeed
+#
+# Provider ids match the DSH llm-pi-ai registration ('xiaomi') and the official
+# DeepSeek provider ('deepseek-official'), so a model chosen here can also be
+# named when delegating to a subagent.
 def planned_pairs():
     return {
         'deepseek': ChatProvider(
             provider_id='deepseek',
-            model_id=os.environ.get('QRSI_DEEPSEEK_MODEL', 'deepseek-chat'),
+            model_id=os.environ.get('QRSI_DEEPSEEK_MODEL', 'deepseek-v4-pro'),
             base_url=os.environ.get('QRSI_DEEPSEEK_BASE_URL', 'https://api.deepseek.com/v1'),
             api_key_env='DEEPSEEK_API_KEY'),
         'xiaomi': ChatProvider(
             provider_id='xiaomi',
             model_id=os.environ.get('QRSI_XIAOMI_MODEL', 'mimo-v2.6-pro'),
-            # Unauthenticated TLS probe (2026-10-08) on this machine:
-            #   batch-api-cn.xiaomimimo.com -> 404 on every API path, root is an
-            #   openresty batch service; it does not serve the chat API.
+            # Corrected after an unauthenticated TLS probe on 2026-10-08:
+            #   batch-api-cn.xiaomimimo.com -> 404 on every API path (it is an
+            #   openresty batch service, not the chat API).
             #   api.xiaomimimo.com -> 401 on /v1/models, 405 on GET
             #   /v1/chat/completions, i.e. the OpenAI-compatible surface.
-            # Override with QRSI_XIAOMI_BASE_URL if the provider confirms otherwise.
             base_url=os.environ.get('QRSI_XIAOMI_BASE_URL',
                                     'https://api.xiaomimimo.com/v1'),
             api_key_env='XIAOMI_API_KEY'),
