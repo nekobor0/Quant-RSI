@@ -164,7 +164,7 @@ def build():
              'task_kind': 'STATIC_DIAGNOSTIC', 'capability_dimensions': OLD['capability_dimensions'],
              'task_order': list(TASKS), 'tasks': TASKS,
              'independence': 'Same author builds fixtures, scorer and local manual review; no independent adjudication claimed.'}
-    (DEST / 'fixtures_v02.json').write_text(json.dumps(suite, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    (DEST / 'fixtures_v02.json').write_text(json.dumps(suite, indent=2, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
     examples = {}
     for tid, task in TASKS.items():
         truth = task['ground_truth']
@@ -174,7 +174,7 @@ def build():
         bad['verdict'] = 'PASS' if good['verdict'] != 'PASS' else 'REFUSE'
         examples[tid] = {'correct': good, 'wrong_decision': bad,
                          'expected_full_pass': {'correct': True, 'wrong_decision': False}}
-    (DEST / 'validation_samples_v02.json').write_text(json.dumps(examples, indent=2) + '\n', encoding='utf-8')
+    (DEST / 'validation_samples_v02.json').write_text(json.dumps(examples, indent=2) + '\n', encoding='utf-8', newline='\n')
     print('tasks', len(TASKS), 'clusters', len({t['source_incident_id'] for t in TASKS.values()}))
 
 

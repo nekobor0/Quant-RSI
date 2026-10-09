@@ -16,13 +16,18 @@ Stage C2、D11/D12/D04B 和 Track B 资格保持原状态。
   测试另外逐项注入事实、来源、矛盾和格式错误。不能称为独立人工裁决。
 - `freeze_v02.json`：顺序、真值、公开契约、代码/样例哈希、prompt、provider 和预算冻结。
   只计算本轮必要文件哈希，未扫描历史数据或重新验证 QV7。
-- `offline_validation_v02.json`：非敏感完整离线 manifest，逐任务原始响应、评分谓词、
-  真值、分数向量、失败分类和 cluster 差异，可随 Git 同步。
+- `offline_validation_v02_final.json`：最终 LF 冻结修订的非敏感完整离线 manifest，逐任务
+  原始响应、评分谓词、真值、分数向量、失败分类和 cluster 差异，可随 Git 同步。
+  前次 `offline_validation_v02.json` 保留，未覆盖原响应或评分。
 - 第 1 次定向测试：122 passed；审阅后第 2 次完整测试：**710 passed，1 skipped**，86.55 秒。
   无失败测试被删去或改写。准备脚本曾出现括号错误和 Windows 默认 GBK 读取 UTF-8 错误；
   均在产物生成前失败，随后修正，未产生真实调用。
-- 独立 CLI 离线运行 `CAP-OFFLINE-V02-001`：48 次响应、98 个 trace 事件，链验证通过，
+- 初次提交时 staged diff 检查发现新 JSON 的 CRLF 行尾问题，命令仍完成了提交
+  `6d33f24`。保留该提交，后续修正生成器为 LF；freeze 修订 2 仅改变序列化，
+  不改变真值或评分行为。第 3 次最终定向回归 **124 passed**。
+- 最终 CLI 离线运行 `CAP-OFFLINE-V02-002`：48 次响应、98 个 trace 事件，链验证通过，
   每次响应及时持久化，预算未停止。完整运行目录仍按原约定忽略于 Git。
+  旧 `CAP-OFFLINE-V02-001` 保留；standalone 离线比较共 2 次、96 次 fixture 响应，未超预算。
 
 ## 相对 CAP-REAL-001 的测量修复
 
@@ -130,7 +135,7 @@ python -B -m quant_rsi.harness.comparison --suite 0.2 --run-id <新的离线ID> 
 ```
 
 run ID 不得重用；freeze 绑定文件变更会在 dispatch 前阻止运行。新版本须保留旧结果。
-本轮 10 个变更/未忽略新文件已作凭据模式和受限路径检查：命中均为 0，冻结的
+本轮必要变更文件已作凭据模式和受限路径检查：命中均为 0，冻结的
 10 个文件绑定全部有效，`git diff --check` 通过。没有读取或散列凭据材料；这不是历史仓库全量扫描。
 必要源码、测试、fixture、freeze、可同步离线结果及本报告提交在
 `codex/track-a-v02`；具体 commit/push 状态见交付消息。受限数据、凭据和缓存不提交。

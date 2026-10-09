@@ -43,9 +43,9 @@
     "src/quant_rsi/harness/capability_oracle.py": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
     "src/quant_rsi/harness/providers.py": "c27ee95358b4c572a42eb16aef441dad65b976a0679bcce281dc78f85e943559",
     "src/quant_rsi/harness/comparison.py": "f8826eb64e4a328d1c1c5673cfde97772809b1c767affd55c43420dbbe545960",
-    "benchmark/capability_public/fixtures_v02.json": "14d54c3f042ed47ee3842c1640dfed82be0960dff9d8cf06be97d3ed69ac8789",
-    "benchmark/capability_public/validation_samples_v02.json": "3bfb130c20a9ac6d8bdbd1062b951f34c276287362b160ee09c368d8f8954271",
-    "tools/build_capability_v02.py": "308902e8e20348d077d6910ef6f54d876a0d32531851c673b55e61120273abd9",
+    "benchmark/capability_public/fixtures_v02.json": "655819304aea4036c153ac2489a99cef8c06b062165a206d368a8bfb31a00a27",
+    "benchmark/capability_public/validation_samples_v02.json": "e6a200e23ae03964a822c0e23175ad341b42e0287ed28058ec4714cde53e7e68",
+    "tools/build_capability_v02.py": "7ce00135b2c13dccef42cc8463ea3c1fa6dc89818d77774403cb3b5dab517565",
     "tests/test_capability_v02.py": "59a0bd62cec412c7ab3221768b49690694f29b8849aa8e2bd8ba29fdf961fdcc",
     "tests/test_capability_comparison.py": "f98727e501255739a7f6340d93befc01f5ec983873790b67ffeddafd6ab30930",
     "benchmark/capability_public/fixtures.json": "d0c8d88e13c179a4a9db52d6fdf7bd7433428a01f36cd8dde0686766ac36d155",
@@ -141,5 +141,7 @@
     "Safe environment-only new credentials",
     "Verify live exact model IDs, native reasoning parameters and pricing before any approval; no silent replacement",
     "Approve worst-case currency budget and any separately frozen public precheck"
-  ]
+  ],
+  "freeze_revision": 2,
+  "revision_reason": "LF serialization only, before real responses; scoring semantics and truth unchanged. CAP-OFFLINE-V02-001 retained."
 }
