@@ -1,0 +1,7 @@
+{
+  "scope": "dedicated synthetic probe only",
+  "private_acl": "O:S-1-5-21-2111021287-2277009818-1208309747-1001G:S-1-5-21-2111021287-2277009818-1208309747-1001D:PAI(A;OICI;FA;;;S-1-5-21-2111021287-2277009818-1208309747-1001)",
+  "inheritance_disabled": true,
+  "custodian_oracle_readable": true,
+  "worker_receipt_present": false
+}

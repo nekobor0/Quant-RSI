@@ -1,0 +1,113 @@
+{
+  "D05_FULL_SEALED_QUALIFIED": "NOT_GRANTED",
+  "D05_deployment_status": "NOT_IMPLEMENTED",
+  "D08": "NOT_IMPLEMENTED",
+  "binding_limitation": "Final launcher source is pinned for delivery; earlier launcher versions were not independently archived or frozen. Native reports and generated worker script bytes are retained. No historical pre-dispatch budget reservations are reconstructed.",
+  "budget": {
+    "engineering_native_launch_cap": 3,
+    "max_test_invocations": 6,
+    "native_launches": 3,
+    "scientific_candidate_trials": 0
+  },
+  "custodian_own_synthetic_oracle_read": true,
+  "d05_offline_isolation_engineering": "NOT_GRANTED",
+  "docker": {
+    "evidence": "docker version/image ls failed: named pipe dockerDesktopLinuxEngine not found; no container launched, pulled or service started",
+    "installed": true,
+    "linux_engine_running": false
+  },
+  "environment": "Windows ordinary user token; no SeAssignPrimaryToken/SeIncreaseQuota/SeImpersonate privileges advertised",
+  "independence": {
+    "evidence": "startup/ACL and failure evidence only; no independently read Worker submission",
+    "identity": "NOT_VERIFIED_NO_FUNCTIONAL_WORKER",
+    "outcome": "SAME_AUTHOR_INSUFFICIENT"
+  },
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "probes": [
+    {
+      "attempt": 1,
+      "exit_code_hex": "0xC0000022",
+      "interpreted_status": "BLOCKED_ENVIRONMENT_CAPABILITY",
+      "raw_report": {
+        "custodian_sid": "S-1-5-21-2111021287-2277009818-1208309747-1001",
+        "launch": {
+          "exit_code": 3221225506,
+          "inherited_handles": false,
+          "restricted_sid": "S-1-5-32-545",
+          "worker_pid": 26788
+        },
+        "status": "PROBE_EXECUTED"
+      },
+      "scope": "new synthetic directory only",
+      "worker_receipt_present": false,
+      "worker_script_sha256": "a9713e76f6441c89b5e88a58e260784ecdc2cb7b79c771f38f688e3a25e22bef"
+    },
+    {
+      "attempt": 2,
+      "exit_code_hex": "0xC0000022",
+      "interpreted_status": "BLOCKED_ENVIRONMENT_CAPABILITY",
+      "raw_report": {
+        "custodian_sid": "S-1-5-21-2111021287-2277009818-1208309747-1001",
+        "launch": {
+          "exit_code": 3221225506,
+          "inherited_handles": false,
+          "restricted_sid": "S-1-5-32-545",
+          "worker_pid": 25676
+        },
+        "reason": "Restricted child terminated before producing a permission probe receipt",
+        "status": "BLOCKED_ENVIRONMENT_CAPABILITY"
+      },
+      "scope": "new synthetic directory only",
+      "worker_receipt_present": false,
+      "worker_script_sha256": "a9713e76f6441c89b5e88a58e260784ecdc2cb7b79c771f38f688e3a25e22bef"
+    },
+    {
+      "attempt": 3,
+      "exit_code_hex": "0xC0000142",
+      "interpreted_status": "BLOCKED_ENVIRONMENT_CAPABILITY",
+      "raw_report": {
+        "custodian_sid": "S-1-5-21-2111021287-2277009818-1208309747-1001",
+        "launch": {
+          "exit_code": 3221225794,
+          "inherited_handles": false,
+          "restriction": "group SIDs only; user SID excluded",
+          "worker_pid": 31796
+        },
+        "reason": "Restricted child terminated before producing a permission probe receipt",
+        "status": "BLOCKED_ENVIRONMENT_CAPABILITY"
+      },
+      "scope": "new synthetic directory only",
+      "worker_receipt_present": false,
+      "worker_script_sha256": "a9713e76f6441c89b5e88a58e260784ecdc2cb7b79c771f38f688e3a25e22bef"
+    }
+  ],
+  "real_api_calls": 0,
+  "security_checks": {
+    "1": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "10": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "2": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "3": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "4": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "5": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "6": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "7": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "8": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED",
+    "9": "NOT_EXECUTED_WORKER_STARTUP_BLOCKED"
+  },
+  "source_binding": {
+    "scripts/d05_restricted_worker.ps1": "6e4e6ca35e413d71383068b7c1bbc4fa20a3b82953de74a7f8fc045c26e0ef76",
+    "tests/test_d05_environment_capability.py": "8d5e8db5438012f374ec5355053e1c31188af8b9106338b00920255678f85828"
+  },
+  "status": "BLOCKED_ENVIRONMENT_CAPABILITY",
+  "test_invocations": 1,
+  "tests_passed": 4,
+  "trace_anchor": {
+    "event_hash": "dbc929424833252af51a4e341d96bfb67032333bcbd8a5a97942403ed6699572",
+    "sequence": 5
+  },
+  "worker_to_custodian_e2e": "NOT_EXECUTED"
+}

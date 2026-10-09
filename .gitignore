@@ -62,6 +62,7 @@ artifacts/conversation_archive/*/
 docs/literature/papers/*.pdf
 
 # ---- Local machine noise -----------------------------------------------
+.d05_synthetic_probe_*/
 *.log
 *.tmp
 Thumbs.db
