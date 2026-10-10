@@ -1,5 +1,7 @@
 {
-  "approved": false,
+  "approved": true,
+  "authorization_recorded_on": "2026-10-09",
+  "authorization_source": "Direct user message in-session authorizing the TRACK_A_V02_CLARIFIED_COMPATIBILITY_PILOT_002 batch: 12 calls, 3.00 CNY measurement cap, keys rotation confirmation carried forward; controller capped separately.",
   "call_cap": 12,
   "entry_sha256": "9cf23246dd943eed2c3dc88efe2be39a0b6570975465e18874a43a0426b83f6f",
   "freeze_sha256": "fb7eb0cbcdb0e4743c1894d0e964886c958a56772023dfb007fbd853c99f00e3",
@@ -11,6 +13,6 @@
     "xiaomi": "1.20"
   },
   "run_id": "TRACK_A_V02_CLARIFIED_COMPATIBILITY_PILOT_002",
-  "state": "REQUEST_ONLY_NOT_AUTHORIZATION",
+  "state": "AUTHORIZED_BY_DIRECT_USER_MESSAGE",
   "total_money_cap_cny": "3.00"
 }
