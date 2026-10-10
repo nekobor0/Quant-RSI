@@ -1,0 +1,23 @@
+{
+  "architecture": "amd64",
+  "base_id": "sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258",
+  "base_repository_digest": "python@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258",
+  "entrypoint": [
+    "python",
+    "-I",
+    "-S",
+    "-B",
+    "/worker/runner.py"
+  ],
+  "os": "linux",
+  "preparation": {
+    "build_commands": 2,
+    "pull_commands": 1,
+    "record_timing": "POST_EXECUTION_NOT_RETROACTIVE_RESERVATION"
+  },
+  "python_version": "3.12.15",
+  "size_bytes": 49297749,
+  "user": "65532:65532",
+  "worker_content_id": "sha256:5175397ba18cc6c3b2e1a95c41b14da3c463e70c0d43b387c36c3dc78bee5142",
+  "worker_registry_digest": null
+}

@@ -1,0 +1,64 @@
+{
+  "budget_scope": "trusted supervisor wall/process CPU; Worker CPU aggregate UNKNOWN, cgroup quota enforced",
+  "created_at": "2026-10-10T06:36:38.702290+00:00",
+  "data_calls": 0,
+  "engine_security_options": [
+    "name=seccomp,profile=builtin",
+    "name=cgroupns"
+  ],
+  "image": {
+    "architecture": "amd64",
+    "base_id": "sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258",
+    "base_repository_digest": "python@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258",
+    "entrypoint": [
+      "python",
+      "-I",
+      "-S",
+      "-B",
+      "/worker/runner.py"
+    ],
+    "os": "linux",
+    "preparation": {
+      "build_commands": 2,
+      "pull_commands": 1,
+      "record_timing": "POST_EXECUTION_NOT_RETROACTIVE_RESERVATION"
+    },
+    "python_version": "3.12.15",
+    "size_bytes": 49297749,
+    "user": "65532:65532",
+    "worker_content_id": "sha256:5175397ba18cc6c3b2e1a95c41b14da3c463e70c0d43b387c36c3dc78bee5142",
+    "worker_registry_digest": null
+  },
+  "judge_calls": 0,
+  "model_calls": 0,
+  "policy": {
+    "automatic_retries": 0,
+    "cpu": 0.5,
+    "max_sessions": 24,
+    "memory": 536870912,
+    "output_bytes": 262144,
+    "pids": 32,
+    "submission_bytes": 65536,
+    "timeout_seconds": 5,
+    "tmpfs": 16777216
+  },
+  "sha256": {
+    "benchmark/capability_supplement_v01/cp_contracts.json": "225bc20d89671eb67ad854eeaa66320aaa8b13a59dfc310842edc0aee2513269",
+    "benchmark/capability_supplement_v01/freeze.json": "abee46ea594b2d5745175223b6f99167cae8ed7e7fe46a43d3c9625c55e48e4f",
+    "benchmark/cp_worker_isolation_v01/image.json": "d9672f094feb579e7eadd344a28fa5871d1153b8d8f3cac737e17bad26e43474",
+    "benchmark/cp_worker_isolation_v01/image/Dockerfile": "c3d62340c69ed6b8e200018822383868c871af38684986fe85b5313b59266810",
+    "benchmark/cp_worker_isolation_v01/image/runner.py": "364456e4296e26beb3d15c2f8ad2d948b0d6c40b19982be5d1e70415a3e8f7b5",
+    "src/quant_rsi/contracts/condition.py": "b6dc4602c6af0ef172b74deab99f3eee262566619862d118fbc3f60708f1682b",
+    "src/quant_rsi/contracts/research.py": "ae3d394fd6a5d621b79207875f416ac85d9712984edd140dc92f2cb14ff81934",
+    "src/quant_rsi/data/pit.py": "9d57c58e46c3cc4d95e9ebe316e20b89f2709e62dcd1e909886bc1088d311a74",
+    "src/quant_rsi/harness/agent_workflow.py": "e95dcdcb8157924d85bd8943c8f8779d7870d99204d61297270bbf1123bfc5ac",
+    "src/quant_rsi/harness/cp_boundary_probes.py": "ed243bb943d65ca9c0bf9fdea2ab1fe16c61e621934fe21e20dcc7e7677186e1",
+    "src/quant_rsi/harness/cp_isolation.py": "6e62059d80b82e93ed07d2de1aba8f9f75641f422a3fb1341a52a294654738a3",
+    "src/quant_rsi/harness/supplement_cp.py": "1c8915f07c95ca358a25885a500c6e78d584b0c784524021a18382a01cb11320",
+    "src/quant_rsi/harness/supplement_tasks.py": "96750439f76b6fb338cc973c928d236bf5998bb7a046a59628b1fadbbd2891d6",
+    "src/quant_rsi/ledger/budget.py": "6d23b5d68544a8692b100be41ad1dcc9b8a9adf5888cc566560b4515860e2162",
+    "src/quant_rsi/ledger/store.py": "252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46",
+    "tests/test_cp_isolation.py": "c943bcebadeefd5bd8e6cce78c07174e218f5b42a7ac15808877857412d85996"
+  },
+  "version": "CP-WORKER-ISOLATION-ENGINEERING-V01"
+}

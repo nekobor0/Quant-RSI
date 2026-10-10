@@ -1,0 +1,7390 @@
+{
+  "Q-CP-01": {
+    "cases": [
+      {
+        "expected": {
+          "after": [
+            []
+          ],
+          "before": [
+            []
+          ],
+          "exception": null,
+          "result": []
+        },
+        "label": "empty",
+        "properties": [
+          "empty"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            }
+          ]
+        },
+        "label": "sorted",
+        "properties": [
+          "permutation_invariant"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            }
+          ]
+        },
+        "label": "permuted",
+        "properties": [
+          "permutation_invariant"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            }
+          ]
+        },
+        "label": "duplicates",
+        "properties": [
+          "duplicate_idempotent"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "conflict",
+        "properties": [
+          "conflicting_prices"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1.000000001,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1.000000001,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "conflict_below_output_tolerance",
+        "properties": [
+          "conflicting_prices"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": " D ",
+                "price": 1,
+                "security": " A "
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": " D ",
+                "price": 1,
+                "security": " A "
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "date": " D ",
+              "price": 1,
+              "security": " A "
+            }
+          ]
+        },
+        "label": "exact_strings",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "date": "D1",
+              "price": 999,
+              "security": "A"
+            }
+          ]
+        },
+        "label": "fresh_input",
+        "properties": [
+          "fresh_result_no_input_mutation"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            {
+              "$tuple": [
+                {
+                  "date": "D1",
+                  "price": 1,
+                  "security": "A"
+                }
+              ]
+            }
+          ],
+          "before": [
+            {
+              "$tuple": [
+                {
+                  "date": "D1",
+                  "price": 1,
+                  "security": "A"
+                }
+              ]
+            }
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "tuple_container",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1
+            ]
+          ],
+          "before": [
+            [
+              1
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "row_not_dict",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "missing",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "extra": 0,
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "extra": 0,
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "extra",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": ""
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": ""
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "empty_security",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "empty_date",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": 1
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": 1
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "numeric_id",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": true,
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": true,
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "bool_date",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": 0,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": 0,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price-0",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": -1,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": -1,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price--1",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": true,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": true,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price-True",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": "1",
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": "1",
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price-1",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": null,
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": null,
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price-None",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "nan"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "nan"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price-{'$float': 'nan'}",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "inf"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "inf"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price-{'$float': 'inf'}",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "-inf"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "-inf"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "price-{'$float': '-inf'}",
+        "properties": [
+          "invalid_fields_types_values"
+        ]
+      }
+    ],
+    "expected_retained": [
+      {
+        "after": [
+          []
+        ],
+        "before": [
+          []
+        ],
+        "exception": null,
+        "result": []
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "date": "D1",
+            "price": 1,
+            "security": "A"
+          },
+          {
+            "date": "D2",
+            "price": 3,
+            "security": "A"
+          },
+          {
+            "date": "D1",
+            "price": 2,
+            "security": "B"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "date": "D1",
+            "price": 1,
+            "security": "A"
+          },
+          {
+            "date": "D2",
+            "price": 3,
+            "security": "A"
+          },
+          {
+            "date": "D1",
+            "price": 2,
+            "security": "B"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            },
+            {
+              "date": "D2",
+              "price": 3,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "B"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "date": "D1",
+            "price": 1,
+            "security": "A"
+          },
+          {
+            "date": "D2",
+            "price": 3,
+            "security": "A"
+          },
+          {
+            "date": "D1",
+            "price": 2,
+            "security": "B"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 2,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 1.000000001,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            },
+            {
+              "date": "D1",
+              "price": 1.000000001,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": " D ",
+              "price": 1,
+              "security": " A "
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": " D ",
+              "price": 1,
+              "security": " A "
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "date": " D ",
+            "price": 1,
+            "security": " A "
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "date": "D1",
+            "price": 999,
+            "security": "A"
+          }
+        ]
+      },
+      {
+        "after": [
+          {
+            "$tuple": [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          }
+        ],
+        "before": [
+          {
+            "$tuple": [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          }
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1
+          ]
+        ],
+        "before": [
+          [
+            1
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "extra": 0,
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "extra": 0,
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": ""
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": ""
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "",
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "",
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": 1
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 1,
+              "security": 1
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": true,
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": true,
+              "price": 1,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": 0,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": 0,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": -1,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": -1,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": true,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": true,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": "1",
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": "1",
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": null,
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": null,
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": {
+                "$float": "nan"
+              },
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": {
+                "$float": "nan"
+              },
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": {
+                "$float": "inf"
+              },
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": {
+                "$float": "inf"
+              },
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "date": "D1",
+              "price": {
+                "$float": "-inf"
+              },
+              "security": "A"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "date": "D1",
+              "price": {
+                "$float": "-inf"
+              },
+              "security": "A"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      }
+    ],
+    "function": "normalize_rows",
+    "links": [
+      {
+        "label": "permutation",
+        "left": 1,
+        "prefix": null,
+        "property": "permutation_invariant",
+        "right": 2
+      },
+      {
+        "label": "duplicate",
+        "left": 2,
+        "prefix": null,
+        "property": "duplicate_idempotent",
+        "right": 3
+      }
+    ],
+    "operations": [
+      {
+        "args": [
+          "normalize_rows",
+          [
+            []
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              },
+              {
+                "date": "D2",
+                "price": 3,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "B"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 2,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              },
+              {
+                "date": "D1",
+                "price": 1.000000001,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": " D ",
+                "price": 1,
+                "security": " A "
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          {
+            "path": [
+              0,
+              "price"
+            ],
+            "value": 999
+          }
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            {
+              "$tuple": [
+                {
+                  "date": "D1",
+                  "price": 1,
+                  "security": "A"
+                }
+              ]
+            }
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              1
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "extra": 0,
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": ""
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "",
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 1,
+                "security": 1
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": true,
+                "price": 1,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": 0,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": -1,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": true,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": "1",
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": null,
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "nan"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "inf"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "normalize_rows",
+          [
+            [
+              {
+                "date": "D1",
+                "price": {
+                  "$float": "-inf"
+                },
+                "security": "A"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      }
+    ],
+    "property_names": [
+      "empty",
+      "permutation_invariant",
+      "duplicate_idempotent",
+      "conflicting_prices",
+      "invalid_fields_types_values",
+      "fresh_result_no_input_mutation"
+    ]
+  },
+  "Q-CP-02": {
+    "cases": [
+      {
+        "expected": {
+          "after": [
+            [],
+            2
+          ],
+          "before": [
+            [],
+            2
+          ],
+          "exception": null,
+          "result": []
+        },
+        "label": "empty",
+        "properties": [
+          "empty"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              10,
+              12,
+              14,
+              16
+            ],
+            2
+          ],
+          "before": [
+            [
+              10,
+              12,
+              14,
+              16
+            ],
+            2
+          ],
+          "exception": null,
+          "result": [
+            null,
+            null,
+            11,
+            13
+          ]
+        },
+        "label": "window2",
+        "properties": [
+          "window_boundaries",
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              10,
+              12,
+              999,
+              777
+            ],
+            2
+          ],
+          "before": [
+            [
+              10,
+              12,
+              999,
+              777
+            ],
+            2
+          ],
+          "exception": null,
+          "result": [
+            null,
+            null,
+            11,
+            505.5
+          ]
+        },
+        "label": "changed_future",
+        "properties": [
+          "future_suffix_invariance",
+          "current_value_exclusion"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              10,
+              12,
+              14,
+              16,
+              999
+            ],
+            2
+          ],
+          "before": [
+            [
+              10,
+              12,
+              14,
+              16,
+              999
+            ],
+            2
+          ],
+          "exception": null,
+          "result": [
+            null,
+            null,
+            11,
+            13,
+            15
+          ]
+        },
+        "label": "extended_future",
+        "properties": [
+          "future_suffix_invariance"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              -2,
+              0,
+              5
+            ],
+            1
+          ],
+          "before": [
+            [
+              -2,
+              0,
+              5
+            ],
+            1
+          ],
+          "exception": null,
+          "result": [
+            null,
+            -2,
+            0
+          ]
+        },
+        "label": "window1",
+        "properties": [
+          "window_boundaries"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            2
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            2
+          ],
+          "exception": null,
+          "result": [
+            null,
+            null
+          ]
+        },
+        "label": "window_equal",
+        "properties": [
+          "window_boundaries"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            3
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            3
+          ],
+          "exception": null,
+          "result": [
+            null,
+            null
+          ]
+        },
+        "label": "window_larger",
+        "properties": [
+          "window_boundaries"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            0
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "window-0",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            -1
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            -1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "window--1",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            true
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            true
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "window-True",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            2.0
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            2.0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "window-2.0",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            "2"
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            "2"
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "window-2",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              2
+            ],
+            null
+          ],
+          "before": [
+            [
+              1,
+              2
+            ],
+            null
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "window-None",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              true
+            ],
+            1
+          ],
+          "before": [
+            [
+              1,
+              true
+            ],
+            1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "value-True",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              "1"
+            ],
+            1
+          ],
+          "before": [
+            [
+              1,
+              "1"
+            ],
+            1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "value-1",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              null
+            ],
+            1
+          ],
+          "before": [
+            [
+              1,
+              null
+            ],
+            1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "value-None",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              {
+                "$float": "nan"
+              }
+            ],
+            1
+          ],
+          "before": [
+            [
+              1,
+              {
+                "$float": "nan"
+              }
+            ],
+            1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "value-{'$float': 'nan'}",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              {
+                "$float": "inf"
+              }
+            ],
+            1
+          ],
+          "before": [
+            [
+              1,
+              {
+                "$float": "inf"
+              }
+            ],
+            1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "value-{'$float': 'inf'}",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1,
+              {
+                "$float": "-inf"
+              }
+            ],
+            1
+          ],
+          "before": [
+            [
+              1,
+              {
+                "$float": "-inf"
+              }
+            ],
+            1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "value-{'$float': '-inf'}",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            {
+              "$tuple": [
+                1,
+                2
+              ]
+            },
+            1
+          ],
+          "before": [
+            {
+              "$tuple": [
+                1,
+                2
+              ]
+            },
+            1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "tuple",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [],
+            0
+          ],
+          "before": [
+            [],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "invalid_empty_window",
+        "properties": [
+          "invalid_window_and_values"
+        ]
+      }
+    ],
+    "expected_retained": [
+      {
+        "after": [
+          [],
+          2
+        ],
+        "before": [
+          [],
+          2
+        ],
+        "exception": null,
+        "result": []
+      },
+      {
+        "after": [
+          [
+            10,
+            12,
+            14,
+            16
+          ],
+          2
+        ],
+        "before": [
+          [
+            10,
+            12,
+            14,
+            16
+          ],
+          2
+        ],
+        "exception": null,
+        "result": [
+          null,
+          null,
+          11,
+          13
+        ]
+      },
+      {
+        "after": [
+          [
+            10,
+            12,
+            999,
+            777
+          ],
+          2
+        ],
+        "before": [
+          [
+            10,
+            12,
+            999,
+            777
+          ],
+          2
+        ],
+        "exception": null,
+        "result": [
+          null,
+          null,
+          11,
+          505.5
+        ]
+      },
+      {
+        "after": [
+          [
+            10,
+            12,
+            14,
+            16,
+            999
+          ],
+          2
+        ],
+        "before": [
+          [
+            10,
+            12,
+            14,
+            16,
+            999
+          ],
+          2
+        ],
+        "exception": null,
+        "result": [
+          null,
+          null,
+          11,
+          13,
+          15
+        ]
+      },
+      {
+        "after": [
+          [
+            -2,
+            0,
+            5
+          ],
+          1
+        ],
+        "before": [
+          [
+            -2,
+            0,
+            5
+          ],
+          1
+        ],
+        "exception": null,
+        "result": [
+          null,
+          -2,
+          0
+        ]
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          2
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          2
+        ],
+        "exception": null,
+        "result": [
+          null,
+          null
+        ]
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          3
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          3
+        ],
+        "exception": null,
+        "result": [
+          null,
+          null
+        ]
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          0
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          -1
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          -1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          true
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          true
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          2.0
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          2.0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          "2"
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          "2"
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            2
+          ],
+          null
+        ],
+        "before": [
+          [
+            1,
+            2
+          ],
+          null
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            true
+          ],
+          1
+        ],
+        "before": [
+          [
+            1,
+            true
+          ],
+          1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            "1"
+          ],
+          1
+        ],
+        "before": [
+          [
+            1,
+            "1"
+          ],
+          1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            null
+          ],
+          1
+        ],
+        "before": [
+          [
+            1,
+            null
+          ],
+          1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            {
+              "$float": "nan"
+            }
+          ],
+          1
+        ],
+        "before": [
+          [
+            1,
+            {
+              "$float": "nan"
+            }
+          ],
+          1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            {
+              "$float": "inf"
+            }
+          ],
+          1
+        ],
+        "before": [
+          [
+            1,
+            {
+              "$float": "inf"
+            }
+          ],
+          1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1,
+            {
+              "$float": "-inf"
+            }
+          ],
+          1
+        ],
+        "before": [
+          [
+            1,
+            {
+              "$float": "-inf"
+            }
+          ],
+          1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          {
+            "$tuple": [
+              1,
+              2
+            ]
+          },
+          1
+        ],
+        "before": [
+          {
+            "$tuple": [
+              1,
+              2
+            ]
+          },
+          1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [],
+          0
+        ],
+        "before": [
+          [],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      }
+    ],
+    "function": "lagged_mean",
+    "links": [
+      {
+        "label": "prefix_through_current",
+        "left": 1,
+        "prefix": 3,
+        "property": "current_value_exclusion",
+        "right": 2
+      },
+      {
+        "label": "suffix_append",
+        "left": 1,
+        "prefix": 4,
+        "property": "future_suffix_invariance",
+        "right": 3
+      }
+    ],
+    "operations": [
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [],
+            2
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              10,
+              12,
+              14,
+              16
+            ],
+            2
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              10,
+              12,
+              999,
+              777
+            ],
+            2
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              10,
+              12,
+              14,
+              16,
+              999
+            ],
+            2
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              -2,
+              0,
+              5
+            ],
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            2
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            3
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            -1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            true
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            2.0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            "2"
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              2
+            ],
+            null
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              true
+            ],
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              "1"
+            ],
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              null
+            ],
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              {
+                "$float": "nan"
+              }
+            ],
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              {
+                "$float": "inf"
+              }
+            ],
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [
+              1,
+              {
+                "$float": "-inf"
+              }
+            ],
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            {
+              "$tuple": [
+                1,
+                2
+              ]
+            },
+            1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "lagged_mean",
+          [
+            [],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      }
+    ],
+    "property_names": [
+      "empty",
+      "window_boundaries",
+      "future_suffix_invariance",
+      "current_value_exclusion",
+      "invalid_window_and_values",
+      "input_preserved"
+    ]
+  },
+  "Q-CP-03": {
+    "cases": [
+      {
+        "expected": {
+          "after": [
+            [],
+            [],
+            0
+          ],
+          "before": [
+            [],
+            [],
+            0
+          ],
+          "exception": null,
+          "result": {
+            "pnl": [],
+            "pnl_sum": 0,
+            "positions": [],
+            "turnover": []
+          }
+        },
+        "label": "empty",
+        "properties": [
+          "empty"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1,
+              -0.2,
+              0.3
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            0.02
+          ],
+          "before": [
+            [
+              0.1,
+              -0.2,
+              0.3
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            0.02
+          ],
+          "exception": null,
+          "result": {
+            "pnl": [
+              0,
+              0,
+              0
+            ],
+            "pnl_sum": 0,
+            "positions": [
+              0,
+              0,
+              0
+            ],
+            "turnover": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "label": "zeros",
+        "properties": [
+          "zero_signals"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0,
+              0.1,
+              -0.1,
+              0.05
+            ],
+            [
+              1,
+              1,
+              0,
+              -1
+            ],
+            0.01
+          ],
+          "before": [
+            [
+              0,
+              0.1,
+              -0.1,
+              0.05
+            ],
+            [
+              1,
+              1,
+              0,
+              -1
+            ],
+            0.01
+          ],
+          "exception": null,
+          "result": {
+            "pnl": [
+              0,
+              0.09,
+              -0.1,
+              -0.01
+            ],
+            "pnl_sum": -0.02000000000000001,
+            "positions": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "turnover": [
+              0,
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        "label": "lag_cost",
+        "properties": [
+          "signal_lag",
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0,
+              0.1,
+              -0.1,
+              0.05
+            ],
+            [
+              1,
+              1,
+              0,
+              999
+            ],
+            0.01
+          ],
+          "before": [
+            [
+              0,
+              0.1,
+              -0.1,
+              0.05
+            ],
+            [
+              1,
+              1,
+              0,
+              999
+            ],
+            0.01
+          ],
+          "exception": null,
+          "result": {
+            "pnl": [
+              0,
+              0.09,
+              -0.1,
+              -0.01
+            ],
+            "pnl_sum": -0.02000000000000001,
+            "positions": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "turnover": [
+              0,
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        "label": "last_signal",
+        "properties": [
+          "signal_lag"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1,
+              -0.1,
+              0.2
+            ],
+            [
+              -1,
+              -1,
+              0
+            ],
+            0.01
+          ],
+          "before": [
+            [
+              0.1,
+              -0.1,
+              0.2
+            ],
+            [
+              -1,
+              -1,
+              0
+            ],
+            0.01
+          ],
+          "exception": null,
+          "result": {
+            "pnl": [
+              0,
+              0.09,
+              -0.2
+            ],
+            "pnl_sum": -0.11000000000000001,
+            "positions": [
+              0,
+              -1,
+              -1
+            ],
+            "turnover": [
+              0,
+              1,
+              0
+            ]
+          }
+        },
+        "label": "short",
+        "properties": [
+          "short_positions"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0,
+              0.1,
+              0.1,
+              -0.1
+            ],
+            [
+              1,
+              -1,
+              1,
+              0
+            ],
+            0.01
+          ],
+          "before": [
+            [
+              0,
+              0.1,
+              0.1,
+              -0.1
+            ],
+            [
+              1,
+              -1,
+              1,
+              0
+            ],
+            0.01
+          ],
+          "exception": null,
+          "result": {
+            "pnl": [
+              0,
+              0.09,
+              -0.12,
+              -0.12
+            ],
+            "pnl_sum": -0.15,
+            "positions": [
+              0,
+              1,
+              -1,
+              1
+            ],
+            "turnover": [
+              0,
+              1,
+              2,
+              2
+            ]
+          }
+        },
+        "label": "flip",
+        "properties": [
+          "direction_changes"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0,
+              0.5,
+              0.5
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            0
+          ],
+          "before": [
+            [
+              0,
+              0.5,
+              0.5
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            0
+          ],
+          "exception": null,
+          "result": {
+            "pnl": [
+              0,
+              0.5,
+              0.5
+            ],
+            "pnl_sum": 1.0,
+            "positions": [
+              0,
+              1,
+              1
+            ],
+            "turnover": [
+              0,
+              1,
+              0
+            ]
+          }
+        },
+        "label": "zero_cost_sum",
+        "properties": [
+          "nonnegative_finite_cost",
+          "signal_lag"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [],
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "length",
+        "properties": [
+          "length_mismatch"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            -0.01
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            -0.01
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "cost--0.01",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            true
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            true
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "cost-True",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            "0"
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            "0"
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "cost-0",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            null
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            null
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "cost-None",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "nan"
+            }
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "nan"
+            }
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "cost-{'$float': 'nan'}",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "inf"
+            }
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "inf"
+            }
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "cost-{'$float': 'inf'}",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "-inf"
+            }
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "-inf"
+            }
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "cost-{'$float': '-inf'}",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [],
+            [],
+            -1
+          ],
+          "before": [
+            [],
+            [],
+            -1
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "invalid_empty_cost",
+        "properties": [
+          "nonnegative_finite_cost"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              true
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "before": [
+            [
+              true
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series0-True",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              "1"
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "before": [
+            [
+              "1"
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series0-1",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              null
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "before": [
+            [
+              null
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series0-None",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "$float": "nan"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "before": [
+            [
+              {
+                "$float": "nan"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series0-{'$float': 'nan'}",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "$float": "inf"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "before": [
+            [
+              {
+                "$float": "inf"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series0-{'$float': 'inf'}",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "$float": "-inf"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "before": [
+            [
+              {
+                "$float": "-inf"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series0-{'$float': '-inf'}",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            {
+              "$tuple": [
+                0.1
+              ]
+            },
+            [
+              1
+            ],
+            0
+          ],
+          "before": [
+            {
+              "$tuple": [
+                0.1
+              ]
+            },
+            [
+              1
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "tuple0",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              true
+            ],
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              true
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series1-True",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              "1"
+            ],
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              "1"
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series1-1",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              null
+            ],
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              null
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series1-None",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "nan"
+              }
+            ],
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "nan"
+              }
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series1-{'$float': 'nan'}",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "inf"
+              }
+            ],
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "inf"
+              }
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series1-{'$float': 'inf'}",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "-inf"
+              }
+            ],
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "-inf"
+              }
+            ],
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "series1-{'$float': '-inf'}",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              0.1
+            ],
+            {
+              "$tuple": [
+                1
+              ]
+            },
+            0
+          ],
+          "before": [
+            [
+              0.1
+            ],
+            {
+              "$tuple": [
+                1
+              ]
+            },
+            0
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "tuple1",
+        "properties": [
+          "input_preserved"
+        ]
+      }
+    ],
+    "expected_retained": [
+      {
+        "after": [
+          [],
+          [],
+          0
+        ],
+        "before": [
+          [],
+          [],
+          0
+        ],
+        "exception": null,
+        "result": {
+          "pnl": [],
+          "pnl_sum": 0,
+          "positions": [],
+          "turnover": []
+        }
+      },
+      {
+        "after": [
+          [
+            0.1,
+            -0.2,
+            0.3
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          0.02
+        ],
+        "before": [
+          [
+            0.1,
+            -0.2,
+            0.3
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          0.02
+        ],
+        "exception": null,
+        "result": {
+          "pnl": [
+            0,
+            0,
+            0
+          ],
+          "pnl_sum": 0,
+          "positions": [
+            0,
+            0,
+            0
+          ],
+          "turnover": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "after": [
+          [
+            0,
+            0.1,
+            -0.1,
+            0.05
+          ],
+          [
+            1,
+            1,
+            0,
+            -1
+          ],
+          0.01
+        ],
+        "before": [
+          [
+            0,
+            0.1,
+            -0.1,
+            0.05
+          ],
+          [
+            1,
+            1,
+            0,
+            -1
+          ],
+          0.01
+        ],
+        "exception": null,
+        "result": {
+          "pnl": [
+            0,
+            0.09,
+            -0.1,
+            -0.01
+          ],
+          "pnl_sum": -0.02000000000000001,
+          "positions": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "turnover": [
+            0,
+            1,
+            0,
+            1
+          ]
+        }
+      },
+      {
+        "after": [
+          [
+            0,
+            0.1,
+            -0.1,
+            0.05
+          ],
+          [
+            1,
+            1,
+            0,
+            999
+          ],
+          0.01
+        ],
+        "before": [
+          [
+            0,
+            0.1,
+            -0.1,
+            0.05
+          ],
+          [
+            1,
+            1,
+            0,
+            999
+          ],
+          0.01
+        ],
+        "exception": null,
+        "result": {
+          "pnl": [
+            0,
+            0.09,
+            -0.1,
+            -0.01
+          ],
+          "pnl_sum": -0.02000000000000001,
+          "positions": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "turnover": [
+            0,
+            1,
+            0,
+            1
+          ]
+        }
+      },
+      {
+        "after": [
+          [
+            0.1,
+            -0.1,
+            0.2
+          ],
+          [
+            -1,
+            -1,
+            0
+          ],
+          0.01
+        ],
+        "before": [
+          [
+            0.1,
+            -0.1,
+            0.2
+          ],
+          [
+            -1,
+            -1,
+            0
+          ],
+          0.01
+        ],
+        "exception": null,
+        "result": {
+          "pnl": [
+            0,
+            0.09,
+            -0.2
+          ],
+          "pnl_sum": -0.11000000000000001,
+          "positions": [
+            0,
+            -1,
+            -1
+          ],
+          "turnover": [
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      {
+        "after": [
+          [
+            0,
+            0.1,
+            0.1,
+            -0.1
+          ],
+          [
+            1,
+            -1,
+            1,
+            0
+          ],
+          0.01
+        ],
+        "before": [
+          [
+            0,
+            0.1,
+            0.1,
+            -0.1
+          ],
+          [
+            1,
+            -1,
+            1,
+            0
+          ],
+          0.01
+        ],
+        "exception": null,
+        "result": {
+          "pnl": [
+            0,
+            0.09,
+            -0.12,
+            -0.12
+          ],
+          "pnl_sum": -0.15,
+          "positions": [
+            0,
+            1,
+            -1,
+            1
+          ],
+          "turnover": [
+            0,
+            1,
+            2,
+            2
+          ]
+        }
+      },
+      {
+        "after": [
+          [
+            0,
+            0.5,
+            0.5
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          0
+        ],
+        "before": [
+          [
+            0,
+            0.5,
+            0.5
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          0
+        ],
+        "exception": null,
+        "result": {
+          "pnl": [
+            0,
+            0.5,
+            0.5
+          ],
+          "pnl_sum": 1.0,
+          "positions": [
+            0,
+            1,
+            1
+          ],
+          "turnover": [
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [],
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          -0.01
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          -0.01
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          true
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          true
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          "0"
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          "0"
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          null
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          null
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          {
+            "$float": "nan"
+          }
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          {
+            "$float": "nan"
+          }
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          {
+            "$float": "inf"
+          }
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          {
+            "$float": "inf"
+          }
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          {
+            "$float": "-inf"
+          }
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            1
+          ],
+          {
+            "$float": "-inf"
+          }
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [],
+          [],
+          -1
+        ],
+        "before": [
+          [],
+          [],
+          -1
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            true
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "before": [
+          [
+            true
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            "1"
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "before": [
+          [
+            "1"
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            null
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "before": [
+          [
+            null
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "$float": "nan"
+            }
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "before": [
+          [
+            {
+              "$float": "nan"
+            }
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "$float": "inf"
+            }
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "before": [
+          [
+            {
+              "$float": "inf"
+            }
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "$float": "-inf"
+            }
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "before": [
+          [
+            {
+              "$float": "-inf"
+            }
+          ],
+          [
+            1
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          {
+            "$tuple": [
+              0.1
+            ]
+          },
+          [
+            1
+          ],
+          0
+        ],
+        "before": [
+          {
+            "$tuple": [
+              0.1
+            ]
+          },
+          [
+            1
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            true
+          ],
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            true
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            "1"
+          ],
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            "1"
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            null
+          ],
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            null
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            {
+              "$float": "nan"
+            }
+          ],
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            {
+              "$float": "nan"
+            }
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            {
+              "$float": "inf"
+            }
+          ],
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            {
+              "$float": "inf"
+            }
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          [
+            {
+              "$float": "-inf"
+            }
+          ],
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          [
+            {
+              "$float": "-inf"
+            }
+          ],
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            0.1
+          ],
+          {
+            "$tuple": [
+              1
+            ]
+          },
+          0
+        ],
+        "before": [
+          [
+            0.1
+          ],
+          {
+            "$tuple": [
+              1
+            ]
+          },
+          0
+        ],
+        "exception": "ValueError",
+        "result": null
+      }
+    ],
+    "function": "interval_pnl",
+    "links": [
+      {
+        "label": "last_signal_not_used",
+        "left": 2,
+        "prefix": null,
+        "property": "signal_lag",
+        "right": 3
+      }
+    ],
+    "operations": [
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [],
+            [],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1,
+              -0.2,
+              0.3
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            0.02
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0,
+              0.1,
+              -0.1,
+              0.05
+            ],
+            [
+              1,
+              1,
+              0,
+              -1
+            ],
+            0.01
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0,
+              0.1,
+              -0.1,
+              0.05
+            ],
+            [
+              1,
+              1,
+              0,
+              999
+            ],
+            0.01
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1,
+              -0.1,
+              0.2
+            ],
+            [
+              -1,
+              -1,
+              0
+            ],
+            0.01
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0,
+              0.1,
+              0.1,
+              -0.1
+            ],
+            [
+              1,
+              -1,
+              1,
+              0
+            ],
+            0.01
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0,
+              0.5,
+              0.5
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            -0.01
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            true
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            "0"
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            null
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "nan"
+            }
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "inf"
+            }
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              1
+            ],
+            {
+              "$float": "-inf"
+            }
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [],
+            [],
+            -1
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              true
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              "1"
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              null
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              {
+                "$float": "nan"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              {
+                "$float": "inf"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              {
+                "$float": "-inf"
+              }
+            ],
+            [
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            {
+              "$tuple": [
+                0.1
+              ]
+            },
+            [
+              1
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              true
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              "1"
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              null
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "nan"
+              }
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "inf"
+              }
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            [
+              {
+                "$float": "-inf"
+              }
+            ],
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "interval_pnl",
+          [
+            [
+              0.1
+            ],
+            {
+              "$tuple": [
+                1
+              ]
+            },
+            0
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      }
+    ],
+    "property_names": [
+      "empty",
+      "zero_signals",
+      "short_positions",
+      "direction_changes",
+      "length_mismatch",
+      "nonnegative_finite_cost",
+      "signal_lag",
+      "input_preserved"
+    ]
+  },
+  "Q-CP-04": {
+    "cases": [
+      {
+        "expected": {
+          "after": [
+            []
+          ],
+          "before": [
+            []
+          ],
+          "exception": null,
+          "result": []
+        },
+        "label": "empty",
+        "properties": [
+          "empty"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "amount": 2,
+              "cumulative_amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "cumulative_amount": 1,
+              "event_id": "A2"
+            }
+          ]
+        },
+        "label": "A_first",
+        "properties": [
+          "same_process_twice",
+          "A_B_A",
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "amount": 2,
+              "cumulative_amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "cumulative_amount": 1,
+              "event_id": "A2"
+            }
+          ]
+        },
+        "label": "A_repeat",
+        "properties": [
+          "same_process_twice"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 100,
+                "event_id": "B1"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 100,
+                "event_id": "B1"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "amount": 100,
+              "cumulative_amount": 100,
+              "event_id": "B1"
+            }
+          ]
+        },
+        "label": "B",
+        "properties": [
+          "A_B_A"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "amount": 2,
+              "cumulative_amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "cumulative_amount": 1,
+              "event_id": "A2"
+            }
+          ]
+        },
+        "label": "A_after_B",
+        "properties": [
+          "A_B_A",
+          "return_mutation_independence"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "amount": 2,
+              "cumulative_amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "cumulative_amount": 1,
+              "event_id": "A2"
+            }
+          ]
+        },
+        "label": "A_after_mutation",
+        "properties": [
+          "return_mutation_independence"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            []
+          ],
+          "before": [
+            []
+          ],
+          "exception": null,
+          "result": []
+        },
+        "label": "empty_after_calls",
+        "properties": [
+          "empty",
+          "same_process_twice"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 0.5,
+                "event_id": "D"
+              },
+              {
+                "amount": -2,
+                "event_id": "D"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 0.5,
+                "event_id": "D"
+              },
+              {
+                "amount": -2,
+                "event_id": "D"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "amount": 0.5,
+              "cumulative_amount": 0.5,
+              "event_id": "D"
+            },
+            {
+              "amount": -2,
+              "cumulative_amount": -1.5,
+              "event_id": "D"
+            }
+          ]
+        },
+        "label": "duplicate_event_ids",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          "exception": null,
+          "result": [
+            {
+              "amount": 999,
+              "cumulative_amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "cumulative_amount": 1,
+              "event_id": "A2"
+            }
+          ]
+        },
+        "label": "fresh_input",
+        "properties": [
+          "input_preserved"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            {
+              "$tuple": [
+                {
+                  "amount": 2,
+                  "event_id": "A1"
+                },
+                {
+                  "amount": -1,
+                  "event_id": "A2"
+                }
+              ]
+            }
+          ],
+          "before": [
+            {
+              "$tuple": [
+                {
+                  "amount": 2,
+                  "event_id": "A1"
+                },
+                {
+                  "amount": -1,
+                  "event_id": "A2"
+                }
+              ]
+            }
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "tuple",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              1
+            ]
+          ],
+          "before": [
+            [
+              1
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "event-1",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {}
+            ]
+          ],
+          "before": [
+            [
+              {}
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "event-{}",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "event_id": "X"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "event_id": "X"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "event-{'event_id': 'X'}",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 1,
+                "event_id": "X",
+                "extra": 0
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 1,
+                "event_id": "X",
+                "extra": 0
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "event-{'event_id': 'X', 'amount': 1, 'extra': 0}",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 1,
+                "event_id": ""
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 1,
+                "event_id": ""
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "event-{'event_id': '', 'amount': 1}",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": 1,
+                "event_id": 1
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": 1,
+                "event_id": 1
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "event-{'event_id': 1, 'amount': 1}",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": true,
+                "event_id": "X"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": true,
+                "event_id": "X"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "amount-True",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": "1",
+                "event_id": "X"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": "1",
+                "event_id": "X"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "amount-1",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": null,
+                "event_id": "X"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": null,
+                "event_id": "X"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "amount-None",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": {
+                  "$float": "nan"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": {
+                  "$float": "nan"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "amount-{'$float': 'nan'}",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": {
+                  "$float": "inf"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": {
+                  "$float": "inf"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "amount-{'$float': 'inf'}",
+        "properties": [
+          "invalid_events"
+        ]
+      },
+      {
+        "expected": {
+          "after": [
+            [
+              {
+                "amount": {
+                  "$float": "-inf"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          "before": [
+            [
+              {
+                "amount": {
+                  "$float": "-inf"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          "exception": "ValueError",
+          "result": null
+        },
+        "label": "amount-{'$float': '-inf'}",
+        "properties": [
+          "invalid_events"
+        ]
+      }
+    ],
+    "expected_retained": [
+      {
+        "after": [
+          []
+        ],
+        "before": [
+          []
+        ],
+        "exception": null,
+        "result": []
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "amount": 999,
+            "cumulative_amount": 2,
+            "event_id": "A1"
+          },
+          {
+            "amount": -1,
+            "cumulative_amount": 1,
+            "event_id": "A2"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "amount": 2,
+            "cumulative_amount": 2,
+            "event_id": "A1"
+          },
+          {
+            "amount": -1,
+            "cumulative_amount": 1,
+            "event_id": "A2"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 100,
+              "event_id": "B1"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 100,
+              "event_id": "B1"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "amount": 100,
+            "cumulative_amount": 100,
+            "event_id": "B1"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "amount": 2,
+            "cumulative_amount": 2,
+            "event_id": "A1"
+          },
+          {
+            "amount": -1,
+            "cumulative_amount": 1,
+            "event_id": "A2"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "amount": 2,
+            "cumulative_amount": 2,
+            "event_id": "A1"
+          },
+          {
+            "amount": -1,
+            "cumulative_amount": 1,
+            "event_id": "A2"
+          }
+        ]
+      },
+      {
+        "after": [
+          []
+        ],
+        "before": [
+          []
+        ],
+        "exception": null,
+        "result": []
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 0.5,
+              "event_id": "D"
+            },
+            {
+              "amount": -2,
+              "event_id": "D"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 0.5,
+              "event_id": "D"
+            },
+            {
+              "amount": -2,
+              "event_id": "D"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "amount": 0.5,
+            "cumulative_amount": 0.5,
+            "event_id": "D"
+          },
+          {
+            "amount": -2,
+            "cumulative_amount": -1.5,
+            "event_id": "D"
+          }
+        ]
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 2,
+              "event_id": "A1"
+            },
+            {
+              "amount": -1,
+              "event_id": "A2"
+            }
+          ]
+        ],
+        "exception": null,
+        "result": [
+          {
+            "amount": 999,
+            "cumulative_amount": 2,
+            "event_id": "A1"
+          },
+          {
+            "amount": -1,
+            "cumulative_amount": 1,
+            "event_id": "A2"
+          }
+        ]
+      },
+      {
+        "after": [
+          {
+            "$tuple": [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          }
+        ],
+        "before": [
+          {
+            "$tuple": [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          }
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            1
+          ]
+        ],
+        "before": [
+          [
+            1
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {}
+          ]
+        ],
+        "before": [
+          [
+            {}
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "event_id": "X"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "event_id": "X"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 1,
+              "event_id": "X",
+              "extra": 0
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 1,
+              "event_id": "X",
+              "extra": 0
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 1,
+              "event_id": ""
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 1,
+              "event_id": ""
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": 1,
+              "event_id": 1
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": 1,
+              "event_id": 1
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": true,
+              "event_id": "X"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": true,
+              "event_id": "X"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": "1",
+              "event_id": "X"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": "1",
+              "event_id": "X"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": null,
+              "event_id": "X"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": null,
+              "event_id": "X"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": {
+                "$float": "nan"
+              },
+              "event_id": "X"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": {
+                "$float": "nan"
+              },
+              "event_id": "X"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": {
+                "$float": "inf"
+              },
+              "event_id": "X"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": {
+                "$float": "inf"
+              },
+              "event_id": "X"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      },
+      {
+        "after": [
+          [
+            {
+              "amount": {
+                "$float": "-inf"
+              },
+              "event_id": "X"
+            }
+          ]
+        ],
+        "before": [
+          [
+            {
+              "amount": {
+                "$float": "-inf"
+              },
+              "event_id": "X"
+            }
+          ]
+        ],
+        "exception": "ValueError",
+        "result": null
+      }
+    ],
+    "function": "build_ledger",
+    "links": [
+      {
+        "label": "repeat",
+        "left": 1,
+        "prefix": null,
+        "property": "same_process_twice",
+        "right": 2
+      },
+      {
+        "label": "A_B_A",
+        "left": 1,
+        "prefix": null,
+        "property": "A_B_A",
+        "right": 4
+      }
+    ],
+    "operations": [
+      {
+        "args": [
+          "build_ledger",
+          [
+            []
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 100,
+                "event_id": "B1"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "mutate_previous": {
+          "index": 1,
+          "path": [
+            "result",
+            0,
+            "amount"
+          ],
+          "value": 999
+        }
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            []
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 0.5,
+                "event_id": "D"
+              },
+              {
+                "amount": -2,
+                "event_id": "D"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 2,
+                "event_id": "A1"
+              },
+              {
+                "amount": -1,
+                "event_id": "A2"
+              }
+            ]
+          ],
+          {
+            "path": [
+              0,
+              "amount"
+            ],
+            "value": 999
+          }
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            {
+              "$tuple": [
+                {
+                  "amount": 2,
+                  "event_id": "A1"
+                },
+                {
+                  "amount": -1,
+                  "event_id": "A2"
+                }
+              ]
+            }
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              1
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {}
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "event_id": "X"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 1,
+                "event_id": "X",
+                "extra": 0
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 1,
+                "event_id": ""
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": 1,
+                "event_id": 1
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": true,
+                "event_id": "X"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": "1",
+                "event_id": "X"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": null,
+                "event_id": "X"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": {
+                  "$float": "nan"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": {
+                  "$float": "inf"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      },
+      {
+        "args": [
+          "build_ledger",
+          [
+            [
+              {
+                "amount": {
+                  "$float": "-inf"
+                },
+                "event_id": "X"
+              }
+            ]
+          ],
+          null
+        ],
+        "function": "inspect_call"
+      }
+    ],
+    "property_names": [
+      "empty",
+      "same_process_twice",
+      "A_B_A",
+      "return_mutation_independence",
+      "input_preserved",
+      "invalid_events"
+    ]
+  }
+}

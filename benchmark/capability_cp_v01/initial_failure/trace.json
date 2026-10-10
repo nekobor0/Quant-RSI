@@ -1,0 +1,427 @@
+[
+  {
+    "created_at": "2026-10-10T09:22:28.678925+00:00",
+    "event_hash": "ef5a234515ccada219ac439d99f8e7729657fdffbfe8b1049a081a8f903af3a4",
+    "event_id": "concept:MAP-CP-ISO",
+    "kind": "CONCEPT_REGISTERED",
+    "payload": {
+      "concept_mapping_id": "MAP-CP-ISO",
+      "feature_refs": [
+        "FEAT-boundary"
+      ],
+      "mechanism": "synthetic engineering",
+      "observable": "OS syscalls",
+      "proxy": "no scientific claim"
+    },
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "sequence": 1
+  },
+  {
+    "created_at": "2026-10-10T09:22:28.686320+00:00",
+    "event_hash": "1505979a417a7dcaedab6e7b04dc1c52f04c8846187154b58cc5f0b67c3f0c79",
+    "event_id": "hypothesis:HYP-CP-ISO",
+    "kind": "HYPOTHESIS_REGISTERED",
+    "payload": {
+      "claim": "isolation conformance",
+      "claim_id": "CLAIM-CP-ISO",
+      "concept_mapping_id": "MAP-CP-ISO",
+      "falsification_condition": "unauthorized access succeeds",
+      "hypothesis_id": "HYP-CP-ISO"
+    },
+    "previous_hash": "ef5a234515ccada219ac439d99f8e7729657fdffbfe8b1049a081a8f903af3a4",
+    "sequence": 2
+  },
+  {
+    "created_at": "2026-10-10T09:22:28.693600+00:00",
+    "event_hash": "0f3be7a9a984e6bd910af5b8acfb9f3579f1a4014a4b9736c62a2fec395eaad6",
+    "event_id": "family:FAM-CP-ISO",
+    "kind": "FAMILY_REGISTERED",
+    "payload": {
+      "claim_id": "CLAIM-CP-ISO",
+      "parent_family_ids": [],
+      "scientific_family_id": "FAM-CP-ISO",
+      "selection_scope": "engineering only"
+    },
+    "previous_hash": "1505979a417a7dcaedab6e7b04dc1c52f04c8846187154b58cc5f0b67c3f0c79",
+    "sequence": 3
+  },
+  {
+    "created_at": "2026-10-10T09:22:28.713568+00:00",
+    "event_hash": "ca8d0900c0b8256c9bc9e4b5240537fcfc18e18b72477af41d0ca3da90166b44",
+    "event_id": "sha256:b67400987ded1aefab1355645c757d69b8fe9c6b1d38887b0a95e62d2e1bea74",
+    "kind": "DECISION_SNAPSHOT",
+    "payload": {
+      "activation": {
+        "empirical": {
+          "authorized": false,
+          "requires_frozen": [
+            "D04B",
+            "D11",
+            "D12"
+          ]
+        },
+        "shadow": {
+          "authorized": false,
+          "requires_frozen": [
+            "D09"
+          ]
+        },
+        "stage_A": {
+          "authorized_work_items": [
+            "W01",
+            "W02",
+            "W03",
+            "W04",
+            "W05",
+            "W06"
+          ],
+          "mode": "SYNTHETIC_GOVERNANCE_ONLY",
+          "stop_after": "W06"
+        },
+        "stage_B": {
+          "authorized": false,
+          "requirement": "explicit_new_user_authorization"
+        },
+        "stage_B1": {
+          "authorized": true,
+          "authorized_work_items": [
+            "W07",
+            "W08",
+            "W20"
+          ],
+          "conditional_work_items": {
+            "W09": "TM-01 independent custodian PASS; no unresolved P0/P1"
+          },
+          "mode": "SYNTHETIC_ENGINEERING_ONLY",
+          "stop_after": "stage_b1_acceptance.yaml"
+        },
+        "stage_B2": {
+          "authorized": true,
+          "authorized_work_items": [
+            "W10A",
+            "W11",
+            "W12",
+            "W13",
+            "W14"
+          ],
+          "mode": "SYNTHETIC_AGENT_EVALUATOR_ONLY",
+          "stop_after": "stage_b2_acceptance.yaml"
+        }
+      },
+      "authority": "user_stage_A_authorization",
+      "canonical": true,
+      "decision_ids": [
+        "D01",
+        "D02",
+        "D03",
+        "D04A",
+        "D04B",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13"
+      ],
+      "decisions": {
+        "D01": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "A_SHARE_ORDINARY_STOCK_DAILY"
+        },
+        "D02": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "RESEARCH_AGENT_ONLY"
+        },
+        "D03": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "CLOSED_DATA"
+        },
+        "D04A": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": {
+            "accounting_policy_version": "0.2",
+            "benchmark_budget_owner": "AgentBenchmarkRun.budget_root_run_id",
+            "budget_exhaustion": "reject_and_preserve_denial_event",
+            "capability_denominator": "own_budget_root_run_attempts_only",
+            "continuation": "same_condition_and_model_inherits_parent_budget_root",
+            "cross_model_penalty_on_capability": "forbidden",
+            "elapsed_time": "persisted_as_integer_milliseconds",
+            "family_inheritance": "union_parent_ancestry_no_deletion_no_double_counting",
+            "limits": "task_specific_explicit_nonnegative_integers_no_default_unlimited",
+            "model_switch": "independent_comparison_run_new_identity_same_frozen_condition",
+            "peak_memory": "per_attempt_resource_limit_not_cumulative_search_counter",
+            "pooling": "explicit_family_parent_links_for_joint_final_claim_selection_only",
+            "reserve": "atomic_before_attempt_started",
+            "retries": "counted_attempts_same_budget_root_no_reset",
+            "scientific_claim_owner": "ScientificSearchFamily.scientific_family_id",
+            "scientific_denominator": "deduplicated_attempts_and_variants_in_selected_family_ancestry",
+            "settlement": "search_counters_never_refunded_resource_actuals_recorded",
+            "stage_A_scientific_search": {
+              "candidate_trials": 0,
+              "external_web_queries": 0,
+              "parameter_searches": 0,
+              "sealed_submissions": 0
+            },
+            "unknown_usage": "reserve_upper_bound_and_block_new_dispatch_until_reconciled",
+            "work_item_limits": {
+              "engineering_attempts": 3,
+              "max_cpu_seconds": 7200,
+              "max_memory_mb": 4096,
+              "max_retries": 2,
+              "max_test_invocations": 6,
+              "max_total_tokens": 120000,
+              "max_wall_seconds": 14400
+            }
+          }
+        },
+        "D04B": {
+          "category": "DEFER_UNTIL_EMPIRICAL",
+          "status": "DEFERRED",
+          "value": {
+            "CSCV_blocks": null,
+            "alpha": null,
+            "bootstrap_block_length": null,
+            "calibration_geometry_ref": null,
+            "effect_threshold": null,
+            "effective_trial_method": null,
+            "inference_allowed": false,
+            "resamples": null,
+            "sample_minimum": null
+          }
+        },
+        "D05": {
+          "category": "FREEZE_NOW",
+          "deployment_status": "NOT_IMPLEMENTED",
+          "mock_is_benchmark_grade": false,
+          "status": "FROZEN",
+          "value": "INDEPENDENT_CUSTODIAN_IDENTITY_STORAGE"
+        },
+        "D06": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "HARD_GATES_AND_SCORE_VECTOR_NO_TOTAL_SCORE"
+        },
+        "D07": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "MODEL_AGNOSTIC_ADAPTER_FAKE_PROVIDER_FIRST"
+        },
+        "D08": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "INDEPENDENT_CONTEXT_PREFER_DIFFERENT_MODEL_NO_SELF_REVIEW"
+        },
+        "D09": {
+          "category": "DEFER_UNTIL_SHADOW",
+          "status": "DEFERRED",
+          "value": {
+            "evaluation_cadence": null,
+            "minimum_observations": null,
+            "retirement_thresholds": null
+          }
+        },
+        "D10": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "NO_LIVE_AUTOMATIC_ORDERS"
+        },
+        "D11": {
+          "category": "DEFER_UNTIL_EMPIRICAL",
+          "status": "DEFERRED",
+          "value": {
+            "cleaning_calibration": null,
+            "data_source": null,
+            "sample_dates": null,
+            "snapshot": null
+          }
+        },
+        "D12": {
+          "category": "DEFER_UNTIL_EMPIRICAL",
+          "status": "DEFERRED",
+          "value": {
+            "capital": null,
+            "cost_rates": null,
+            "impact_parameters": null,
+            "reference_portfolio": null
+          }
+        },
+        "D13": {
+          "category": "FREEZE_NOW",
+          "status": "FROZEN",
+          "value": "INDEPENDENT_QUANT_RSI_NO_EXTERNAL_PROJECT_REUSE"
+        }
+      },
+      "scope": "independent_Quant_RSI_Governance_Kernel",
+      "supersedes": {
+        "D04": [
+          "D04A",
+          "D04B"
+        ]
+      },
+      "version": "0.4"
+    },
+    "previous_hash": "0f3be7a9a984e6bd910af5b8acfb9f3579f1a4014a4b9736c62a2fec395eaad6",
+    "sequence": 4
+  },
+  {
+    "created_at": "2026-10-10T09:22:28.713568+00:00",
+    "event_hash": "6d93e1dd5c81c41adae504da14873738ec8c354c40e50c943deb5dadd077a33f",
+    "event_id": "condition:5c4f62c9a09dcc13b87daafa7fb84cfa1e0af37e890eabb28e198716fd1d2933",
+    "kind": "CONDITION_REGISTERED",
+    "payload": {
+      "task": {
+        "asof_cutoff": "2000-01-15T00:00:00+00:00",
+        "benchmark_ref": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+        "budget_limits": {
+          "attempts": 24,
+          "candidate_trials": 0,
+          "cpu_milliseconds": 1440000,
+          "factor_variants": 0,
+          "human_interventions": 0,
+          "hypotheses_seen": 0,
+          "input_tokens": 0,
+          "model_trials": 1,
+          "output_tokens": 0,
+          "parameter_trials": 0,
+          "prompt_revisions": 0,
+          "retries": 0,
+          "sealed_submissions": 0,
+          "validation_queries": 24,
+          "wall_milliseconds": 1440000
+        },
+        "budget_policy_version": "0.2",
+        "calendar_version": "synthetic",
+        "cleaning_spec_version": "TRACK_A_CAPABILITY_SUPPLEMENT_V0.1",
+        "cost_model_version": "COST-no-market",
+        "data_spec_hash": "2fd6e602d20d35c3f717e36f84fec9bab68bb616b4e6b6b10340c261d97e1aee",
+        "decision_registry_hash": "b67400987ded1aefab1355645c757d69b8fe9c6b1d38887b0a95e62d2e1bea74",
+        "decision_registry_version": "0.4",
+        "decision_snapshot_ref": "sha256:b67400987ded1aefab1355645c757d69b8fe9c6b1d38887b0a95e62d2e1bea74",
+        "env_version": "TRACK_A_CAPABILITY_SUPPLEMENT_V0.1",
+        "evaluator_version": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+        "execution_timing": "offline tools only",
+        "frozen_at": "2026-10-10T09:22:13.213547+00:00",
+        "frozen_by": "same-author-offline-engineering",
+        "horizon": "synthetic fixture",
+        "market": "A_SHARE_ORDINARY_STOCK_DAILY",
+        "market_rules_version": "not-market-execution",
+        "memory_limit_mb": 64,
+        "mode": "SYNTHETIC",
+        "research_type": "RESEARCH_AGENT_ONLY",
+        "snapshot_hash": "748b7baa739ee20e60cf3ca9439ade610017c9ee539e913af7f383db7af00f31",
+        "split_version": "no-market-split",
+        "statistical_protocol_version": "STAT-no-inference",
+        "target": "trusted supervisor wall/process CPU; Worker CPU aggregate UNKNOWN, cgroup quota enforced",
+        "task_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+        "task_version": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+        "track": "CLOSED_DATA",
+        "universe_ref": "workflow-universe-v01"
+      }
+    },
+    "previous_hash": "ca8d0900c0b8256c9bc9e4b5240537fcfc18e18b72477af41d0ca3da90166b44",
+    "sequence": 5
+  },
+  {
+    "created_at": "2026-10-10T09:22:28.713568+00:00",
+    "event_hash": "c8448cdac7b7a361d10bc851901aabfd60f6a039d4516d443c7f10116c3982eb",
+    "event_id": "run:CP-FULL-ISOLATED-ACCEPTANCE-V01",
+    "kind": "RUN_REGISTERED",
+    "payload": {
+      "agent_model": "trusted-author-code",
+      "agent_model_version": "3.12.15",
+      "benchmark_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+      "budget_root_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+      "code_hash": "066477712e3d704b202d26d99e27646dce471140bcdb01ecd5286ff3f60ba69f",
+      "condition_hash": "5c4f62c9a09dcc13b87daafa7fb84cfa1e0af37e890eabb28e198716fd1d2933",
+      "dependency_hash": "613cb2c7321ffe60769fd22f938cef1ecb2ea0cefacfdc08cfb4b77d2d5cc759",
+      "parent_run_id": null,
+      "prompt_hash": "8c997780891ad40407e01a8ce03606920dbf470886467a7cda33b8b071285964",
+      "provider": "local-docker-no-model",
+      "registered_at": "2026-10-10T09:22:13.213547+00:00",
+      "requested_settings": {},
+      "returned_metadata": {},
+      "scientific_family_id": "FAM-CP-ISO"
+    },
+    "previous_hash": "6d93e1dd5c81c41adae504da14873738ec8c354c40e50c943deb5dadd077a33f",
+    "sequence": 6
+  },
+  {
+    "created_at": "2026-10-10T09:22:28.733598+00:00",
+    "event_hash": "a601d5f0aee5f30f79bafc6e8dc93be3d83eb3fcdbc9f6768fe00c8928385404",
+    "event_id": "attempt:CP-ISO-q-cp-01-reference",
+    "kind": "ATTEMPT_STARTED",
+    "payload": {
+      "attempt_id": "CP-ISO-q-cp-01-reference",
+      "benchmark_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+      "budget_root_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+      "condition_hash": "5c4f62c9a09dcc13b87daafa7fb84cfa1e0af37e890eabb28e198716fd1d2933",
+      "envelope": {
+        "attempts": 1,
+        "candidate_trials": 0,
+        "cpu_milliseconds": 60000,
+        "factor_variants": 0,
+        "human_interventions": 0,
+        "hypotheses_seen": 0,
+        "input_tokens": 0,
+        "model_trials": 1,
+        "output_tokens": 0,
+        "parameter_trials": 0,
+        "prompt_revisions": 0,
+        "retries": 0,
+        "sealed_submissions": 0,
+        "validation_queries": 1,
+        "wall_milliseconds": 60000
+      },
+      "experiment_id": null,
+      "retry_of": null,
+      "scientific_family_id": "FAM-CP-ISO",
+      "scientific_variant_id": null
+    },
+    "previous_hash": "c8448cdac7b7a361d10bc851901aabfd60f6a039d4516d443c7f10116c3982eb",
+    "sequence": 7
+  },
+  {
+    "created_at": "2026-10-10T09:22:35.571961+00:00",
+    "event_hash": "1fe3c08305950c08b82c8d937f24da300190e44170dc72c84a53e3ea27248d96",
+    "event_id": "cp-evidence:q-cp-01-reference",
+    "kind": "CP_CONTAINER_EVIDENCE",
+    "payload": {
+      "error": "RuntimeError:Error response from daemon: cannot kill container: 6981150aed25a0f03717f94e195a4f767ac43e6112c363fb4e7290a8ca5ae95f: container 6981150aed25a0f03717f94e195a4f767ac43e6112c363fb4e7290a8ca5ae95f is not running\n",
+      "freeze_sha256": "445c9ec0bf1add8b996634c4a7df97de20c704b78bc67491c633446ce9d3a8b8",
+      "label": "q-cp-01-reference",
+      "public_sha256": "6d2c394c20ff4e0aa346bf651f277b01512c56ad5a6dcec31a325a7e4fdb95ad",
+      "real_model_calls": 0,
+      "status": "SUPERVISOR_FAILURE",
+      "submission_sha256": "9d87d0112618e3385a4601d50cbab41b3c75e16f8a2c8c9ef5b31aa3d8fad70b",
+      "worker_cpu_milliseconds": null,
+      "worker_cpu_state": "UNKNOWN_NOT_ZERO"
+    },
+    "previous_hash": "a601d5f0aee5f30f79bafc6e8dc93be3d83eb3fcdbc9f6768fe00c8928385404",
+    "sequence": 8
+  },
+  {
+    "created_at": "2026-10-10T09:22:35.584615+00:00",
+    "event_hash": "f5595d89307ce0e0ce4b97a8e91fead34b28a7b3ec42b8a8d221c9e1fdf52b8d",
+    "event_id": "settle:CP-ISO-q-cp-01-reference",
+    "kind": "ATTEMPT_SETTLED",
+    "payload": {
+      "actual_resources": null,
+      "artifact_hashes": {
+        "container_evidence": "807f9056b93492d0c154fa705740b0f72549378224f4533690fee631052d7df1"
+      },
+      "attempt_id": "CP-ISO-q-cp-01-reference",
+      "failure": "SUPERVISOR_FAILURE",
+      "status": "FAILED",
+      "usage_state": "UNKNOWN"
+    },
+    "previous_hash": "1fe3c08305950c08b82c8d937f24da300190e44170dc72c84a53e3ea27248d96",
+    "sequence": 9
+  }
+]

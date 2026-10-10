@@ -1,0 +1,30 @@
+{
+  "budgets": {
+    "automatic_retries": 0,
+    "data_calls": 0,
+    "judge_calls": 0,
+    "max_sessions": 24,
+    "max_test_commands": 10,
+    "planned_sessions": 16,
+    "predecessor_attempts": 1,
+    "real_model_calls": 0,
+    "remaining_sessions": 23
+  },
+  "execution_freeze_sha256": "672b473101e5a9b09f5830fac2ee3b719e03b1c7d4681e995e5018eef0ece5b1",
+  "sample_scope": "4 synthetic tasks, 16 isolated sessions, authored code only",
+  "scoring": "Original full-pass/composite property scores retained; orthogonal diagnostic vector appended",
+  "sha256": {
+    "benchmark/capability_cp_v01/freeze.json": "672b473101e5a9b09f5830fac2ee3b719e03b1c7d4681e995e5018eef0ece5b1",
+    "benchmark/capability_cp_v01/receipt.json": "7b43840af7a752e1f78c9ca2c1bb981c1193b3e5277af94e8db2d907a9e8a0d2",
+    "benchmark/capability_cp_v01/results.json": "af96ef80b8eb54579800cd915e6d45e0f5ec6b857ca434278fcef3d720353088",
+    "benchmark/capability_cp_v01/trace.json": "bf6f2339f644c0eebba467ac1422becabc5b44940dc843cc1d2b87aa885fb330",
+    "src/quant_rsi/harness/cp_acceptance_finalize.py": "1eae0a450d6b4538ca74f48e47ac820c99fe926f0d0f37ccafa1da930019038f",
+    "tests/test_cp_acceptance_finalize.py": "999d41824781bff0c2cbdaa92cfd0fedc1ba5ba8bb8e0840fdb775830f4776b5"
+  },
+  "track_a": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "version": "CP-ORTHOGONAL-DIAGNOSTICS-V01"
+}

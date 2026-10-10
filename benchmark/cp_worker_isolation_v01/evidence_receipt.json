@@ -1,0 +1,38 @@
+{
+  "CP_all_properties_in_isolation": false,
+  "D05_complete_acceptance": false,
+  "D08_verified": false,
+  "data_calls": 0,
+  "freeze_sha256": "4bc2290d4a0abcd38d2c6ea10dee8fb776eea0d0c40a14fb670e8c68a780be44",
+  "image_build_commands": 2,
+  "judge_calls": 0,
+  "model_calls": 0,
+  "offline_negative_review": {
+    "cp04-wrong": {
+      "passed": false,
+      "reason": "BEHAVIOR_OR_STATE_MISMATCH"
+    },
+    "score-forgery": {
+      "passed": false,
+      "reason": "INVALID_RESULT_SCHEMA"
+    }
+  },
+  "registry_image_pull_commands": 1,
+  "sha256": {
+    "image.json": "d9672f094feb579e7eadd344a28fa5871d1153b8d8f3cac737e17bad26e43474",
+    "results.json": "24c437cea5d01aa1f085daf1ef7d6328695b90d05ca59ccbfae62da906035052",
+    "trace.json": "0ed632eea971f819554c42047560a1ebb9ea74db8b276756578437a5963dbd9e",
+    "worker_image.tar": "c3f63aaa132672492cac12dfa5086c1fa83475d788985f9f9f109b07573c054b"
+  },
+  "tests": {
+    "budget_trace": 30,
+    "cp_reference": 33,
+    "new": 4,
+    "pytest_invocations": 3,
+    "total_unique": 67
+  },
+  "trace_anchor": {
+    "event_hash": "e161d060525653ca666791389cc7985a12518813f99a155fc464f6e28932e280",
+    "sequence": 55
+  }
+}

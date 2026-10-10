@@ -1,0 +1,11 @@
+{
+  "error": "RuntimeError:Error response from daemon: cannot kill container: 6981150aed25a0f03717f94e195a4f767ac43e6112c363fb4e7290a8ca5ae95f: container 6981150aed25a0f03717f94e195a4f767ac43e6112c363fb4e7290a8ca5ae95f is not running\n",
+  "freeze_sha256": "445c9ec0bf1add8b996634c4a7df97de20c704b78bc67491c633446ce9d3a8b8",
+  "label": "q-cp-01-reference",
+  "public_sha256": "6d2c394c20ff4e0aa346bf651f277b01512c56ad5a6dcec31a325a7e4fdb95ad",
+  "real_model_calls": 0,
+  "status": "SUPERVISOR_FAILURE",
+  "submission_sha256": "9d87d0112618e3385a4601d50cbab41b3c75e16f8a2c8c9ef5b31aa3d8fad70b",
+  "worker_cpu_milliseconds": null,
+  "worker_cpu_state": "UNKNOWN_NOT_ZERO"
+}

@@ -1,0 +1,24 @@
+{
+  "benchmark_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+  "blocked": true,
+  "budget_root_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+  "capability_score": null,
+  "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+  "usage": {
+    "attempts": 1,
+    "candidate_trials": 0,
+    "cpu_milliseconds": 60000,
+    "factor_variants": 0,
+    "human_interventions": 0,
+    "hypotheses_seen": 0,
+    "input_tokens": 0,
+    "model_trials": 1,
+    "output_tokens": 0,
+    "parameter_trials": 0,
+    "prompt_revisions": 0,
+    "retries": 0,
+    "sealed_submissions": 0,
+    "validation_queries": 1,
+    "wall_milliseconds": 60000
+  }
+}

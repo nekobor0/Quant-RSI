@@ -1,0 +1,98 @@
+[
+  {
+    "kind": "reference",
+    "label": "q-cp-01-reference",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-01-reference.py",
+    "task_id": "Q-CP-01"
+  },
+  {
+    "kind": "equivalent",
+    "label": "q-cp-01-equivalent",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-01-equivalent.py",
+    "task_id": "Q-CP-01"
+  },
+  {
+    "kind": "silent-conflict",
+    "label": "q-cp-01-silent-conflict",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-01-silent-conflict.py",
+    "task_id": "Q-CP-01"
+  },
+  {
+    "kind": "input-alias",
+    "label": "q-cp-01-input-alias",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-01-input-alias.py",
+    "task_id": "Q-CP-01"
+  },
+  {
+    "kind": "reference",
+    "label": "q-cp-02-reference",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-02-reference.py",
+    "task_id": "Q-CP-02"
+  },
+  {
+    "kind": "equivalent",
+    "label": "q-cp-02-equivalent",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-02-equivalent.py",
+    "task_id": "Q-CP-02"
+  },
+  {
+    "kind": "current-lookahead",
+    "label": "q-cp-02-current-lookahead",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-02-current-lookahead.py",
+    "task_id": "Q-CP-02"
+  },
+  {
+    "kind": "mutates-input",
+    "label": "q-cp-02-mutates-input",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-02-mutates-input.py",
+    "task_id": "Q-CP-02"
+  },
+  {
+    "kind": "reference",
+    "label": "q-cp-03-reference",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-03-reference.py",
+    "task_id": "Q-CP-03"
+  },
+  {
+    "kind": "equivalent",
+    "label": "q-cp-03-equivalent",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-03-equivalent.py",
+    "task_id": "Q-CP-03"
+  },
+  {
+    "kind": "wrong-cost",
+    "label": "q-cp-03-wrong-cost",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-03-wrong-cost.py",
+    "task_id": "Q-CP-03"
+  },
+  {
+    "kind": "compound-sum",
+    "label": "q-cp-03-compound-sum",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-03-compound-sum.py",
+    "task_id": "Q-CP-03"
+  },
+  {
+    "kind": "reference",
+    "label": "q-cp-04-reference",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-04-reference.py",
+    "task_id": "Q-CP-04"
+  },
+  {
+    "kind": "equivalent",
+    "label": "q-cp-04-equivalent",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-04-equivalent.py",
+    "task_id": "Q-CP-04"
+  },
+  {
+    "kind": "mutable-default",
+    "label": "q-cp-04-mutable-default",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-04-mutable-default.py",
+    "task_id": "Q-CP-04"
+  },
+  {
+    "kind": "shared-return",
+    "label": "q-cp-04-shared-return",
+    "source": "benchmark/capability_cp_v01/submissions/q-cp-04-shared-return.py",
+    "task_id": "Q-CP-04"
+  }
+]

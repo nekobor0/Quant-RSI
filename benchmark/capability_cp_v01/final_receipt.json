@@ -1,0 +1,11 @@
+{
+  "anchor": {
+    "event_hash": "5230169ecfc88333138fc835aded64954e5a2a87e0c355941d2c607a85903cad",
+    "sequence": 92
+  },
+  "sha256": {
+    "acceptance.json": "baab6ddd9f00852deccedb0065995739ca3f5afce5cdc65ade40140edeb496e1",
+    "diagnostic_trace.json": "ec72d4b1d685d16a7839e5274d2cbacdce9f49e62d120cc2e6724d9168b6e225",
+    "final_freeze.json": "d802f24c49e16d51e4f5cb8e2c31caf44c9695f0e2c3d704027e08807df8ab04"
+  }
+}

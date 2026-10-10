@@ -1,0 +1,364 @@
+{
+  "D05_full_sealed_qualified": false,
+  "D08_verified": false,
+  "anchor": {
+    "event_hash": "5230169ecfc88333138fc835aded64954e5a2a87e0c355941d2c607a85903cad",
+    "sequence": 92
+  },
+  "budget": {
+    "benchmark_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01-ENGINEERING-FIX1",
+    "blocked": false,
+    "budget_root_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01-ENGINEERING-FIX1",
+    "capability_score": null,
+    "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+    "usage": {
+      "attempts": 16,
+      "candidate_trials": 0,
+      "cpu_milliseconds": 1244,
+      "factor_variants": 0,
+      "human_interventions": 0,
+      "hypotheses_seen": 0,
+      "input_tokens": 0,
+      "model_trials": 1,
+      "output_tokens": 0,
+      "parameter_trials": 0,
+      "prompt_revisions": 0,
+      "retries": 0,
+      "sealed_submissions": 0,
+      "validation_queries": 16,
+      "wall_milliseconds": 40685
+    }
+  },
+  "completed_sessions": 16,
+  "data_calls": 0,
+  "execution_attempts": 17,
+  "final_freeze_sha256": "d802f24c49e16d51e4f5cb8e2c31caf44c9695f0e2c3d704027e08807df8ab04",
+  "fixture_calls_per_session": {
+    "Q-CP-01": 24,
+    "Q-CP-02": 21,
+    "Q-CP-03": 30,
+    "Q-CP-04": 22
+  },
+  "judge_calls": 0,
+  "model_calls": 0,
+  "predecessor_budget": {
+    "benchmark_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+    "blocked": true,
+    "budget_root_run_id": "CP-FULL-ISOLATED-ACCEPTANCE-V01",
+    "capability_score": null,
+    "score_status": "NOT_IMPLEMENTED_W11_OUT_OF_SCOPE",
+    "usage": {
+      "attempts": 1,
+      "candidate_trials": 0,
+      "cpu_milliseconds": 60000,
+      "factor_variants": 0,
+      "human_interventions": 0,
+      "hypotheses_seen": 0,
+      "input_tokens": 0,
+      "model_trials": 1,
+      "output_tokens": 0,
+      "parameter_trials": 0,
+      "prompt_revisions": 0,
+      "retries": 0,
+      "sealed_submissions": 0,
+      "validation_queries": 1,
+      "wall_milliseconds": 60000
+    }
+  },
+  "published_property_groups": 26,
+  "rows": [
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "reference",
+      "label": "fix1-q-cp-01-reference",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-01-reference",
+      "task_id": "Q-CP-01",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "equivalent",
+      "label": "fix1-q-cp-01-equivalent",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-01-equivalent",
+      "task_id": "Q-CP-01",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "INVALID_INPUT_HANDLING"
+      ],
+      "kind": "silent-conflict",
+      "label": "fix1-q-cp-01-silent-conflict",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-01-silent-conflict",
+      "task_id": "Q-CP-01",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": false,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "INPUT_PRESERVED"
+      ],
+      "kind": "input-alias",
+      "label": "fix1-q-cp-01-input-alias",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-01-input-alias",
+      "task_id": "Q-CP-01",
+      "vector": {
+        "INPUT_PRESERVED": false,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "reference",
+      "label": "fix1-q-cp-02-reference",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-02-reference",
+      "task_id": "Q-CP-02",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "equivalent",
+      "label": "fix1-q-cp-02-equivalent",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-02-equivalent",
+      "task_id": "Q-CP-02",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "RESULT_FACTS_CORRECT",
+        "METAMORPHIC_RELATIONS_VALID"
+      ],
+      "kind": "current-lookahead",
+      "label": "fix1-q-cp-02-current-lookahead",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-02-current-lookahead",
+      "task_id": "Q-CP-02",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": false,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": false,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "INPUT_PRESERVED"
+      ],
+      "kind": "mutates-input",
+      "label": "fix1-q-cp-02-mutates-input",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-02-mutates-input",
+      "task_id": "Q-CP-02",
+      "vector": {
+        "INPUT_PRESERVED": false,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "reference",
+      "label": "fix1-q-cp-03-reference",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-03-reference",
+      "task_id": "Q-CP-03",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "equivalent",
+      "label": "fix1-q-cp-03-equivalent",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-03-equivalent",
+      "task_id": "Q-CP-03",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "RESULT_FACTS_CORRECT"
+      ],
+      "kind": "wrong-cost",
+      "label": "fix1-q-cp-03-wrong-cost",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-03-wrong-cost",
+      "task_id": "Q-CP-03",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": false,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "RESULT_FACTS_CORRECT"
+      ],
+      "kind": "compound-sum",
+      "label": "fix1-q-cp-03-compound-sum",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-03-compound-sum",
+      "task_id": "Q-CP-03",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": false,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "reference",
+      "label": "fix1-q-cp-04-reference",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-04-reference",
+      "task_id": "Q-CP-04",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [],
+      "kind": "equivalent",
+      "label": "fix1-q-cp-04-equivalent",
+      "original_full_pass": true,
+      "original_score_ref": "results.json#fix1-q-cp-04-equivalent",
+      "task_id": "Q-CP-04",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": true,
+        "RETURN_STATE_INDEPENDENT": true
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "RESULT_FACTS_CORRECT",
+        "RETURN_STATE_INDEPENDENT",
+        "METAMORPHIC_RELATIONS_VALID"
+      ],
+      "kind": "mutable-default",
+      "label": "fix1-q-cp-04-mutable-default",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-04-mutable-default",
+      "task_id": "Q-CP-04",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": false,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": false,
+        "RETURN_STATE_INDEPENDENT": false
+      }
+    },
+    {
+      "execution_failure": null,
+      "failed_dimensions": [
+        "RESULT_FACTS_CORRECT",
+        "RETURN_STATE_INDEPENDENT"
+      ],
+      "kind": "shared-return",
+      "label": "fix1-q-cp-04-shared-return",
+      "original_full_pass": false,
+      "original_score_ref": "results.json#fix1-q-cp-04-shared-return",
+      "task_id": "Q-CP-04",
+      "vector": {
+        "INPUT_PRESERVED": true,
+        "INVALID_INPUT_HANDLING": true,
+        "METAMORPHIC_RELATIONS_VALID": true,
+        "OBSERVATION_SCHEMA_VALID": true,
+        "RESULT_FACTS_CORRECT": false,
+        "RETURN_STATE_INDEPENDENT": false
+      }
+    }
+  ],
+  "status": "PASS_CP_FULL_ISOLATED_ENGINEERING"
+}
