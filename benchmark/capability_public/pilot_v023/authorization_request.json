@@ -1,0 +1,18 @@
+{
+  "approved": false,
+  "authorization_source": null,
+  "call_cap": 12,
+  "entry_sha256": "38025d530f6290e38733671b7511de3d7fc6da0ac926d36a71dde4249c2f9a44",
+  "freeze_sha256": "2baf9281c195383681232c723c9f86a34878c8882fa4968b1e55e4e8d265b2c2",
+  "instruction": "Current offline engineering authorization does not authorize real calls. User must approve this exact new batch and launch it in a non-model terminal.",
+  "key_rotation_source": "Prior human confirmation retained; no credentials read.",
+  "keys_rotated": true,
+  "launch_channel": "USER_OPERATED_TERMINAL_NO_PAID_CONTROLLER",
+  "money_caps_cny": {
+    "deepseek": "1.80",
+    "xiaomi": "1.20"
+  },
+  "run_id": "TRACK_A_V023_PUBLIC_CONTRACT_COMPATIBILITY_PILOT_003",
+  "state": "AWAITING_NEW_EXPLICIT_BATCH_AUTHORIZATION",
+  "total_money_cap_cny": "3.00"
+}

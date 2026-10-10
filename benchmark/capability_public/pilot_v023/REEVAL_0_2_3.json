@@ -1,0 +1,1102 @@
+{
+  "batches": [
+    {
+      "provenance": {
+        "admission": "NONCOMPLIANT_CONTROLLER_BUDGET_ENGINEERING_EVIDENCE_ONLY",
+        "entry": {
+          "path": "src\\quant_rsi\\harness\\compatibility_pilot_clarified.py",
+          "sha256": "9cf23246dd943eed2c3dc88efe2be39a0b6570975465e18874a43a0426b83f6f"
+        },
+        "files_sha256": {
+          "attempt_01.json": "768b1177f4299327747d1c2fa9834d08348256dbd9f2c754477922dee25da6b7",
+          "attempt_02.json": "a1596967f186456afb7f578bf815d1aa8a4e1e1aee1a3716ae5f5ee739af28c1",
+          "attempt_03.json": "33ea9a11952752d558162b1a18776fc35e5a2a13cee4ca1f4f1bc5ee73ec8fea",
+          "attempt_04.json": "271bf54975e280356bb1e1910509b35d1bf2778a729dba35298a7df4b8394c0d",
+          "attempt_05.json": "9db982b0fd2375958e4e28e4aa36c4e069ec7fe1f3c22a574d9371558807a062",
+          "attempt_06.json": "00c3bc5b0f56a3febb53261ac991b1e6cfbf1344b6d056c7fdeceac3e0c5e486",
+          "attempt_07.json": "8b463ddbbda33db606ad5dc3b7d1316eb08ca32eb2c63ef8b5990fc19ffdbdc2",
+          "attempt_08.json": "fba176ca4e97886cb2f47100a65e1172d809f3bdaebdaca73a5b3ba81477ec5d",
+          "attempt_09.json": "977c92f08ef76d54ad82a3496367e643fd0a3381b2782b237d106c6c21617ca6",
+          "attempt_10.json": "837e814496cbeb9d33295501f77080d18a27eb1aea1400c5de17608fc8bbff2b",
+          "attempt_11.json": "1d326082cd4d61a9e957251483a9b72239e5c8f05de45133ea93e06a9a443ab5",
+          "attempt_12.json": "d860fdebc4b313434393f3cba5a52ed2545ca26c3e0fb07293f593ee7c874c25",
+          "prompts.json": "54221b11299876f79e996e7b0ee7750c8ebebdf0bf26768c0e8c281b34705ab6",
+          "raw_01.json": "0846cd4164d64159cc6e30799f6d4199a8ddb53b46de164d3f855a2d9688ee8e",
+          "raw_02.json": "91f37da99eb5a7f0cafb734144a77c3c1a0b8d0fac883c2a553a98b5c5344842",
+          "raw_03.json": "18c041fbae0431e13b9599351e0f2329b2cd75e6dba3f5d86d70157639044249",
+          "raw_04.json": "d607af76a455be39330634877443ae1d035f438ff45005f8d983b4ddd668d3ab",
+          "raw_05.json": "456f842e577e5ad88104e78f3d0c0ee838303b6711e3a35444cb0648a8e14e45",
+          "raw_06.json": "21a2941d99890eb93abeaa0cd265c78c5028e7be277e641d42ac64a04ed13a8e",
+          "raw_07.json": "5a44f04f8558fd9ccc95dc56346a1f2900b434ae3dacce43821497d651855902",
+          "raw_08.json": "ca516e2e6cfdc3e877a7ff03881a5a683835d6b50aa53da0468b4af59af4e3ca",
+          "raw_09.json": "8444482ef82df330780af2a3479bb6f6aadb1f1c9980073908cd761c2b9a2e8f",
+          "raw_10.json": "d1f28833ae9e2f60218f294318c0962457edace58cd19ee83b7b4af1b8e78a0a",
+          "raw_11.json": "fa5e06d7625a324ad517c056458d5e4f5ae5f2c14151bb17fe1f3e18b16c3d8e",
+          "raw_12.json": "6d64b8406991924b229151bebfd1ba5ad26c216b687735866afde99b2f84f45d",
+          "result.json": "95a63c49185d503c6bd096d5f8592d1890849fcb3b4d990af6ca8bff15a6206e",
+          "trace.sqlite": "d588425cdc54d06cb2000fa3975a7946fddffbc6cb43813872543f4b17a5b6a5"
+        },
+        "freeze": {
+          "path": "benchmark\\capability_public\\pilot_v02_clarified\\freeze.json",
+          "sha256": "fb7eb0cbcdb0e4743c1894d0e964886c958a56772023dfb007fbd853c99f00e3"
+        },
+        "records": [
+          {
+            "prompt_sha256": "9fdd861a4a5257fc774988d72c561588f1a2612008711ebac842bef83a45dab4",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_01.json",
+            "raw_sha256": "0846cd4164d64159cc6e30799f6d4199a8ddb53b46de164d3f855a2d9688ee8e",
+            "response_sha256": "0a1fba85ee7bf987bd54f52b98f47d567dfa3f595ba1ac4e60dac0942a74e1c5",
+            "task_id": "A-META-COUNT-ITEMS"
+          },
+          {
+            "prompt_sha256": "9fdd861a4a5257fc774988d72c561588f1a2612008711ebac842bef83a45dab4",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_02.json",
+            "raw_sha256": "91f37da99eb5a7f0cafb734144a77c3c1a0b8d0fac883c2a553a98b5c5344842",
+            "response_sha256": "c94f6bc5c61d664d2458a736e814accc8353dc7e277bc0e9a6b0ca966e4a1b27",
+            "task_id": "A-META-COUNT-ITEMS"
+          },
+          {
+            "prompt_sha256": "3e8da52ce54a04e3deb30f4ae1de3973657c4fb991a28c8f50b0652cad647261",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_03.json",
+            "raw_sha256": "18c041fbae0431e13b9599351e0f2329b2cd75e6dba3f5d86d70157639044249",
+            "response_sha256": "745b6dc85704c5f66fd13a054dbbdfcd79c0f9b6df2b635248be6d0dfaa3bf86",
+            "task_id": "A-PIT-VINTAGE-PASS"
+          },
+          {
+            "prompt_sha256": "3e8da52ce54a04e3deb30f4ae1de3973657c4fb991a28c8f50b0652cad647261",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_04.json",
+            "raw_sha256": "d607af76a455be39330634877443ae1d035f438ff45005f8d983b4ddd668d3ab",
+            "response_sha256": "34c71eb9dc47e91bdd4db58a9bc3894c948bc8ed0fa798e3b8c4b72eeb809fc0",
+            "task_id": "A-PIT-VINTAGE-PASS"
+          },
+          {
+            "prompt_sha256": "c22d08cdcd43479bc405d9fb7d5678f21a0e95c115d4bcaa8e16b9f14564aaf7",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_05.json",
+            "raw_sha256": "456f842e577e5ad88104e78f3d0c0ee838303b6711e3a35444cb0648a8e14e45",
+            "response_sha256": "881aab8b3d90208230635a3a90d91be9ee8c373eaab4ade899715581edcc9587",
+            "task_id": "A-MULTIPLE-TESTING"
+          },
+          {
+            "prompt_sha256": "c22d08cdcd43479bc405d9fb7d5678f21a0e95c115d4bcaa8e16b9f14564aaf7",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_06.json",
+            "raw_sha256": "21a2941d99890eb93abeaa0cd265c78c5028e7be277e641d42ac64a04ed13a8e",
+            "response_sha256": "68735df4c1ec009c63c4a2ae4d5b0659a9515a74ba6837ae88e167737948da6d",
+            "task_id": "A-MULTIPLE-TESTING"
+          },
+          {
+            "prompt_sha256": "7b5ecb70d7d3324b1afddf680e249bc113e4903a9b8a63005eb5b90de3f1e20d",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_07.json",
+            "raw_sha256": "5a44f04f8558fd9ccc95dc56346a1f2900b434ae3dacce43821497d651855902",
+            "response_sha256": "3550525cbfe3e96b9d228db1405f664516736af9b516ce08c2392adfd77dab8f",
+            "task_id": "A-BACKTEST-NOT-RUN"
+          },
+          {
+            "prompt_sha256": "7b5ecb70d7d3324b1afddf680e249bc113e4903a9b8a63005eb5b90de3f1e20d",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_08.json",
+            "raw_sha256": "ca516e2e6cfdc3e877a7ff03881a5a683835d6b50aa53da0468b4af59af4e3ca",
+            "response_sha256": "872cbd1cfcbb8c826aa550e9723ec4da0a6457234be57b4baaf73c5d6f35c080",
+            "task_id": "A-BACKTEST-NOT-RUN"
+          },
+          {
+            "prompt_sha256": "e4d6944c088cfac8451fa18090932f1d89a6802fb24445a1f65ca38924b30905",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_09.json",
+            "raw_sha256": "8444482ef82df330780af2a3479bb6f6aadb1f1c9980073908cd761c2b9a2e8f",
+            "response_sha256": "28e3aa230a21402251617608ccdab63390eeab161cbc83b1cad4b1075859789c",
+            "task_id": "A-SUPPORT-THRESHOLD-PASS"
+          },
+          {
+            "prompt_sha256": "e4d6944c088cfac8451fa18090932f1d89a6802fb24445a1f65ca38924b30905",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_10.json",
+            "raw_sha256": "d1f28833ae9e2f60218f294318c0962457edace58cd19ee83b7b4af1b8e78a0a",
+            "response_sha256": "e76a900fe5fb48dc4963625c2defc79cbe46ee7ee44cf77ae89a821989946315",
+            "task_id": "A-SUPPORT-THRESHOLD-PASS"
+          },
+          {
+            "prompt_sha256": "8be69a2103c20d8b0cac73d8e58414fc0e6cd058e798ec5d191727d89dd36b30",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_11.json",
+            "raw_sha256": "fa5e06d7625a324ad517c056458d5e4f5ae5f2c14151bb17fe1f3e18b16c3d8e",
+            "response_sha256": "d8d06bddbc52049c2bc0d620a0763f2088e3ead5288a6e1710efcfdf80062465",
+            "task_id": "A-PROVIDER-TOKEN-LIMIT"
+          },
+          {
+            "prompt_sha256": "8be69a2103c20d8b0cac73d8e58414fc0e6cd058e798ec5d191727d89dd36b30",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_12.json",
+            "raw_sha256": "6d64b8406991924b229151bebfd1ba5ad26c216b687735866afde99b2f84f45d",
+            "response_sha256": "d58cb1ef43b1d2668ab25e240c79a813aebb9eebbef9a1f17aecb579af17363f",
+            "task_id": "A-PROVIDER-TOKEN-LIMIT"
+          }
+        ],
+        "trace_anchor": "27670e3ba8712c24e61a66775244a97941736f78c701119a7e8444a83cdd5488"
+      },
+      "rows": [
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "task_id": "A-META-COUNT-ITEMS"
+        },
+        {
+          "changed": true,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [
+            "The supplied fields contradict each other"
+          ],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "task_id": "A-META-COUNT-ITEMS"
+        },
+        {
+          "changed": true,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [
+            "The supplied evidence supports this scoped decision"
+          ],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "task_id": "A-PIT-VINTAGE-PASS"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "task_id": "A-PIT-VINTAGE-PASS"
+        },
+        {
+          "changed": true,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [
+            "The supplied evidence does not support the proposed claim"
+          ],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": true
+          },
+          "task_id": "A-MULTIPLE-TESTING"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": true
+          },
+          "task_id": "A-MULTIPLE-TESTING"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-BACKTEST-NOT-RUN",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-BACKTEST-NOT-RUN",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-BACKTEST-NOT-RUN",
+            "verdict_ok": true
+          },
+          "task_id": "A-BACKTEST-NOT-RUN"
+        },
+        {
+          "changed": true,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [
+            "The supplied evidence does not support the proposed claim"
+          ],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "unsupported_evidence_field"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-BACKTEST-NOT-RUN",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "unsupported_evidence_field"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-BACKTEST-NOT-RUN",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "unsupported_evidence_field",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "REFUSE",
+            "parsed": true,
+            "task_id": "A-BACKTEST-NOT-RUN",
+            "verdict_ok": true
+          },
+          "task_id": "A-BACKTEST-NOT-RUN"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-SUPPORT-THRESHOLD-PASS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-SUPPORT-THRESHOLD-PASS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-SUPPORT-THRESHOLD-PASS",
+            "verdict_ok": true
+          },
+          "task_id": "A-SUPPORT-THRESHOLD-PASS"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-SUPPORT-THRESHOLD-PASS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-SUPPORT-THRESHOLD-PASS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-SUPPORT-THRESHOLD-PASS",
+            "verdict_ok": true
+          },
+          "task_id": "A-SUPPORT-THRESHOLD-PASS"
+        },
+        {
+          "changed": true,
+          "changed_from_0_2_2": true,
+          "contract_retrospective_status": "PUBLIC_CONTRACT_AMBIGUITY_REVIEW_REQUIRED",
+          "period_rescued_clauses": [
+            "The supplied evidence supports this scoped decision"
+          ],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "failure_class:MISSING_OR_CONTRADICTORY"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "reason:failure_class:CONTRADICTORY_ASSERTION"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PROVIDER-TOKEN-LIMIT",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": null,
+            "forbidden_values": [],
+            "full_pass": true,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PROVIDER-TOKEN-LIMIT",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "failure_class:MISSING_OR_CONTRADICTORY",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "reason:failure_class:CONTRADICTORY_ASSERTION"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PROVIDER-TOKEN-LIMIT",
+            "verdict_ok": true
+          },
+          "task_id": "A-PROVIDER-TOKEN-LIMIT"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": true,
+          "contract_retrospective_status": "PUBLIC_CONTRACT_AMBIGUITY_REVIEW_REQUIRED",
+          "period_rescued_clauses": [],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "failure_class:MISSING_OR_CONTRADICTORY"
+            ],
+            "failure_type": "WRONG_TERMINAL",
+            "forbidden_values": [
+              "reason:failure_class:CONTRADICTORY_ASSERTION"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "INSUFFICIENT_EVIDENCE",
+            "parsed": true,
+            "task_id": "A-PROVIDER-TOKEN-LIMIT",
+            "verdict_ok": false
+          },
+          "score_0_2_3": {
+            "evidence_ok": true,
+            "exact_mismatches": [],
+            "failure_type": "WRONG_TERMINAL",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "INSUFFICIENT_EVIDENCE",
+            "parsed": true,
+            "task_id": "A-PROVIDER-TOKEN-LIMIT",
+            "verdict_ok": false
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "failure_class:MISSING_OR_CONTRADICTORY"
+            ],
+            "failure_type": "WRONG_TERMINAL",
+            "forbidden_values": [
+              "reason:failure_class:CONTRADICTORY_ASSERTION"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "INSUFFICIENT_EVIDENCE",
+            "parsed": true,
+            "task_id": "A-PROVIDER-TOKEN-LIMIT",
+            "verdict_ok": false
+          },
+          "task_id": "A-PROVIDER-TOKEN-LIMIT"
+        }
+      ],
+      "run_dir": "D:\\Claude_work_Territory\\Quant-RSI\\benchmark\\capability_public\\runs\\compatibility_pilot\\TRACK_A_V02_CLARIFIED_COMPATIBILITY_PILOT_002",
+      "summary": {
+        "full_pass_0_2_2": 9,
+        "full_pass_0_2_3": 10,
+        "full_pass_original": 6,
+        "records": 12
+      }
+    },
+    {
+      "provenance": {
+        "admission": "PARTIAL_ENGINEERING_EVIDENCE_ONLY",
+        "entry": {
+          "path": "src\\quant_rsi\\harness\\compatibility_pilot_dsh.py",
+          "sha256": "4decb95f916d76f98bdd88773f7c6c7d3f0128523be695bf3533606648eb2975"
+        },
+        "files_sha256": {
+          "attempt_01.json": "de2fa3f64e5ebb65bdbdc531f037ec54c0bc37d2569d892f8e99dbaacf322834",
+          "attempt_02.json": "f2c5aff3eefeab87ad2a86eb5b03f7fc693128163a9c18c8bc5903a0662c54be",
+          "attempt_03.json": "b23d76ffb1865fa8a456dc22cd337ba880c4a6da4d373d406ad07c45870f223b",
+          "attempt_04.json": "5b8f6fbc5b50b615a64cb6d67b3b230478f2d1725d5720c42cce8fc88b382359",
+          "attempt_05.json": "5033b5455bd5f23de02770a64f69d32d4b63fc1724fdab1f0a82e68663507e20",
+          "prompts.json": "b30d923ad8b642c94dcddfc7fd1608feba51e9a1304cd77aa1b477f9db770210",
+          "raw_01.json": "67f42f868d813f512d74631161838efb72be67ab72b43e409d110b4ab6a8c336",
+          "raw_02.json": "72d6e717b8e0d63d8fe2b80dd84124ba7d81a67e56dd19fd742e085b40cd55ef",
+          "raw_03.json": "97c24ddfea992a8a33756e88afae2aec2dd906318ef8575e61a6cc6ff87dade8",
+          "raw_04.json": "13e1a698e4b1597973db5e86fd28180427411f63861539fb7a530a26c00a460d",
+          "result.json": "f5c156fe7328d70fac6a30fb26e5da9ee14b3aeab3149863273beac589088974",
+          "trace.sqlite": "78dbe24fad5beb081a9bb8481f78bd87659cc6c624678db0e2a3aee09682f732"
+        },
+        "freeze": {
+          "path": "benchmark\\capability_public\\pilot_v02_dsh\\freeze.json",
+          "sha256": "4447f5a66773152316af9acb26f61e8110aa213854ce8c2568e31aed00a4d504"
+        },
+        "records": [
+          {
+            "prompt_sha256": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_01.json",
+            "raw_sha256": "67f42f868d813f512d74631161838efb72be67ab72b43e409d110b4ab6a8c336",
+            "response_sha256": "f66b4f07f68156977557391d200ce481278899df4c6a4c45faacd78d0ecd00c1",
+            "task_id": "A-META-COUNT-ITEMS"
+          },
+          {
+            "prompt_sha256": "d2263705c92522dd2f14ec5c07b9ea8230cdcc63bc6816cbfd23b7b87de42b9d",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_02.json",
+            "raw_sha256": "72d6e717b8e0d63d8fe2b80dd84124ba7d81a67e56dd19fd742e085b40cd55ef",
+            "response_sha256": "f0ae2f20bec8872697e2b9b30c7e5f1764e22a5b5791c1d6265ea2e8309fd61c",
+            "task_id": "A-META-COUNT-ITEMS"
+          },
+          {
+            "prompt_sha256": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+            "provider_id": "xiaomi",
+            "raw_ref": "raw_03.json",
+            "raw_sha256": "97c24ddfea992a8a33756e88afae2aec2dd906318ef8575e61a6cc6ff87dade8",
+            "response_sha256": "9db9612c620ee1b8e5ad7fa851d61fd0bb07b4141424bc77d47635489d6d399d",
+            "task_id": "A-PIT-VINTAGE-PASS"
+          },
+          {
+            "prompt_sha256": "24c1042100521485f01f177bcdc00622cc8f015db13083d245bf390159f0d9ad",
+            "provider_id": "deepseek",
+            "raw_ref": "raw_04.json",
+            "raw_sha256": "13e1a698e4b1597973db5e86fd28180427411f63861539fb7a530a26c00a460d",
+            "response_sha256": "9e17e94f56cb9e54325388a22638f78939bd6441c2121f47bc23644af7d16f70",
+            "task_id": "A-PIT-VINTAGE-PASS"
+          },
+          {
+            "prompt_sha256": "0881473d6a1a74904824b5cb9d05af8022ac091320feab99f342eb5655763a8f",
+            "provider_id": "deepseek",
+            "raw_ref": null,
+            "raw_sha256": null,
+            "response_sha256": null,
+            "task_id": "A-MULTIPLE-TESTING"
+          }
+        ],
+        "trace_anchor": "0c498654d39b05b76382ce05fe5deb0792b7381f189faa0af518dbd6098b0259"
+      },
+      "rows": [
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "task_id": "A-META-COUNT-ITEMS"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "unsupported_evidence_field",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "UNSUPPORTED_OR_MISSING_SOURCE"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "unsupported_evidence_field",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "UNSUPPORTED_OR_MISSING_SOURCE"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "unsupported_evidence_field",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "UNSUPPORTED_OR_MISSING_SOURCE"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "FLAG_INCONSISTENT",
+            "parsed": true,
+            "task_id": "A-META-COUNT-ITEMS",
+            "verdict_ok": true
+          },
+          "task_id": "A-META-COUNT-ITEMS"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "xiaomi",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "selected_available_at:MISSING_OR_CONTRADICTORY"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "reason:selected_available_at:CONTRADICTORY_ASSERTION"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "selected_available_at:MISSING_OR_CONTRADICTORY"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "reason:selected_available_at:CONTRADICTORY_ASSERTION"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "selected_available_at:MISSING_OR_CONTRADICTORY"
+            ],
+            "failure_type": "DISQUALIFYING_CLAIM",
+            "forbidden_values": [
+              "reason:selected_available_at:CONTRADICTORY_ASSERTION"
+            ],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "task_id": "A-PIT-VINTAGE-PASS"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_0_2_3": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [
+              "reason:UNSUPPORTED_CLAUSE",
+              "reason:UNSUPPORTED_CLAUSE"
+            ],
+            "failure_type": "EVIDENCE_INCOMPLETE",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": "PASS",
+            "parsed": true,
+            "task_id": "A-PIT-VINTAGE-PASS",
+            "verdict_ok": true
+          },
+          "task_id": "A-PIT-VINTAGE-PASS"
+        },
+        {
+          "changed": false,
+          "changed_from_0_2_2": false,
+          "contract_retrospective_status": "POST_HOC_POLICY_RESCORING",
+          "period_rescued_clauses": [],
+          "provider_id": "deepseek",
+          "score_0_2_2": {
+            "evidence_ok": false,
+            "exact_mismatches": [],
+            "failure_type": "TRANSPORT_FAILED",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": null,
+            "parsed": false,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": false
+          },
+          "score_0_2_3": {
+            "evidence_ok": false,
+            "exact_mismatches": [],
+            "failure_type": "TRANSPORT_FAILED",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": null,
+            "parsed": false,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": false
+          },
+          "score_original": {
+            "evidence_ok": false,
+            "exact_mismatches": [],
+            "failure_type": "TRANSPORT_FAILED",
+            "forbidden_values": [],
+            "full_pass": false,
+            "missing_keys": [],
+            "observed_verdict": null,
+            "parsed": false,
+            "task_id": "A-MULTIPLE-TESTING",
+            "verdict_ok": false
+          },
+          "task_id": "A-MULTIPLE-TESTING"
+        }
+      ],
+      "run_dir": "D:\\Claude_work_Territory\\Quant-RSI\\benchmark\\capability_public\\runs\\compatibility_pilot\\TRACK_A_V02_DSH_COMPATIBILITY_PILOT_001",
+      "summary": {
+        "full_pass_0_2_2": 0,
+        "full_pass_0_2_3": 0,
+        "full_pass_original": 0,
+        "records": 5
+      }
+    }
+  ],
+  "bindings": {
+    "fixture": {
+      "path": "benchmark\\capability_public\\fixtures_v02.json",
+      "sha256": "655819304aea4036c153ac2489a99cef8c06b062165a206d368a8bfb31a00a27"
+    },
+    "freeze_sha256": "2baf9281c195383681232c723c9f86a34878c8882fa4968b1e55e4e8d265b2c2",
+    "frozen_evaluator": {
+      "path": "src\\quant_rsi\\harness\\capability_oracle.py",
+      "sha256": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297"
+    },
+    "new_evaluator": {
+      "path": "src\\quant_rsi\\harness\\evaluator_023.py",
+      "sha256": "ee5c8b2bf6114f8b2020a0ca59bcf282c6c616ee7fd0d06196cc27636560c878",
+      "version": "0.2.3-public-diagnostics"
+    },
+    "period_evaluator": {
+      "path": "src\\quant_rsi\\harness\\evaluator_022.py",
+      "sha256": "c76ef9fe5b1f3cb6f145ada6d1f4f640cc328aa85753c5b72e23413160c05eff",
+      "version": "0.2.2-period-tolerant"
+    },
+    "public_policy": {
+      "path": "benchmark\\capability_public\\pilot_v023\\answer_policy.json",
+      "sha256": "4a4aa518f415bfdcef4feb8787019305c21f1e2e7d84efd89887e05863fefd09"
+    }
+  },
+  "confirmed_legal_answer_misjudgments": null,
+  "evaluator_version": "0.2.3-public-diagnostics",
+  "network_calls": 0,
+  "real_credentials_read": 0,
+  "status": "POST_HOC_OFFLINE_POLICY_RESCORING"
+}

@@ -1,0 +1,29 @@
+{
+  "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3",
+  "evaluator_version": "0.2.3-public-diagnostics",
+  "reason_policy": "A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+  "verdict_policy": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+  "failure_class_catalog": {
+    "TOKEN_BUDGET_EXHAUSTED": {
+      "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion.",
+      "accepted_exact_value_aliases": ["TOKEN_BUDGET_EXHAUSTED", "TOKEN_LIMIT", "length"]
+    },
+    "EMPTY_CONTENT": {
+      "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+    },
+    "HTTP_ERROR": {
+      "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+    },
+    "TRANSPORT_FAILED": {
+      "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+    },
+    "BUSINESS_ERROR": {
+      "definition": "A provider error envelope, even when delivered with HTTP 200."
+    },
+    "PROVIDER_RESPONSE_INVALID": {
+      "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+    }
+  },
+  "alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+  "revision_scope": "Post-hoc clarification informed by two public pilots, applied identically to all providers. Old scores and frozen task inputs/ground_truth remain unchanged. Historical re-scores are policy sensitivity analysis, not evidence of model improvement."
+}
