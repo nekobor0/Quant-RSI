@@ -1,5 +1,10 @@
 # DS-Harness 六题澄清合同兼容性批次 — 执行结果
 
+> 2026-10-10 审计补充：本批次因控制器硬封顶未落实，仅保留为不合规执行的工程证据，
+> 不作为合规 Pilot 验收。下文是历史执行报告；句号影响计数、合法答案误判声明和
+> token-limit 两模型的测量歧义，以 `REEVAL_0_2_2_REPORT.md` 第 8 节修订为准。
+> Pilot 001 第五次失败根因仍为 UNKNOWN，不能由缺失的原始响应推断为 JSON 解析失败。
+
 运行 ID：`TRACK_A_V02_CLARIFIED_COMPATIBILITY_PILOT_002`
 日期：2026-10-09（UTC 周六 00:25 起）
 合同：`PUBLIC_ANSWER_CONTRACT_V0.2.1_CLARIFIED`
