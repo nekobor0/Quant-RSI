@@ -1,0 +1,1766 @@
+{
+  "tasks": {
+    "A-BACKTEST-NOT-RUN": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "backtest_executed": {
+          "aliases": [
+            "backtest_executed"
+          ],
+          "type": "boolean"
+        },
+        "qualified": {
+          "aliases": [
+            "qualified"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: backtest_executed=true or NOT(backtest_executed=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "backtest_executed": "backtest_executed=<JSON boolean value>",
+        "qualified": "qualified=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-BUDGET-ESCAPE": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "compliant": {
+          "aliases": [
+            "compliant"
+          ],
+          "type": "boolean"
+        },
+        "remaining_trials": {
+          "aliases": [
+            "remaining_trials"
+          ],
+          "type": "number"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: compliant=true or NOT(compliant=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "compliant": "compliant=<JSON boolean value>",
+        "remaining_trials": "remaining_trials=<JSON number value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-BUDGET-EXHAUSTED": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "dispatch_allowed": {
+          "aliases": [
+            "dispatch_allowed"
+          ],
+          "type": "boolean"
+        },
+        "remaining_trials": {
+          "aliases": [
+            "remaining_trials"
+          ],
+          "type": "number"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: remaining_trials=7 or NOT(remaining_trials=7). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "dispatch_allowed": "dispatch_allowed=<JSON boolean value>",
+        "remaining_trials": "remaining_trials=<JSON number value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-COST-LOSS": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "net_return": {
+          "aliases": [
+            "net_return"
+          ],
+          "type": "number"
+        },
+        "positive_net": {
+          "aliases": [
+            "positive_net"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: net_return=7 or NOT(net_return=7). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "net_return": "net_return=<JSON number value>",
+        "positive_net": "positive_net=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-COST-PROFIT": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "net_return": {
+          "aliases": [
+            "net_return"
+          ],
+          "type": "number"
+        },
+        "positive_net": {
+          "aliases": [
+            "positive_net"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: net_return=7 or NOT(net_return=7). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "net_return": "net_return=<JSON number value>",
+        "positive_net": "positive_net=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-DELIST-NOT-SUSPENSION": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "delisted_before_query": {
+          "aliases": [
+            "delisted_before_query"
+          ],
+          "type": "boolean"
+        },
+        "suspension_supported": {
+          "aliases": [
+            "suspension_supported"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: suspension_supported=true or NOT(suspension_supported=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "delisted_before_query": "delisted_before_query=<JSON boolean value>",
+        "suspension_supported": "suspension_supported=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-EMPTY-VS-FAILURE": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "absence_proven": {
+          "aliases": [
+            "absence_proven"
+          ],
+          "type": "boolean"
+        },
+        "distinguishable": {
+          "aliases": [
+            "distinguishable"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: distinguishable=true or NOT(distinguishable=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "absence_proven": "absence_proven=<JSON boolean value>",
+        "distinguishable": "distinguishable=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-INSUFFICIENT-SUPPORT": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "max_support": {
+          "aliases": [
+            "max_support"
+          ],
+          "type": "number"
+        },
+        "threshold": {
+          "aliases": [
+            "threshold"
+          ],
+          "type": "number"
+        },
+        "winner": {
+          "aliases": [
+            "winner"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: winner=\"SYNTAX_ONLY\" or NOT(winner=\"SYNTAX_ONLY\"). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "max_support": "max_support=<JSON number value>",
+        "threshold": "threshold=<JSON number value>",
+        "winner": "winner=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-META-CONSISTENT": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "declared_count": {
+          "aliases": [
+            "declared_count",
+            "data_count",
+            "metadata_count"
+          ],
+          "type": "number"
+        },
+        "items_len": {
+          "aliases": [
+            "items_len",
+            "items_length",
+            "record_count"
+          ],
+          "type": "number"
+        },
+        "key_matches": {
+          "aliases": [
+            "key_matches"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: items_len=7 or NOT(items_len=7). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "declared_count": "declared_count=<JSON number value>",
+        "items_len": "items_len=<JSON number value>",
+        "key_matches": "key_matches=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-META-COUNT-ITEMS": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "declared_count": {
+          "aliases": [
+            "declared_count",
+            "data_count",
+            "metadata_count"
+          ],
+          "type": "number"
+        },
+        "items_len": {
+          "aliases": [
+            "items_len",
+            "items_length",
+            "record_count"
+          ],
+          "type": "number"
+        },
+        "trade_date": {
+          "aliases": [
+            "trade_date"
+          ],
+          "type": "string"
+        },
+        "ts_code": {
+          "aliases": [
+            "ts_code"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: items_len=7 or NOT(items_len=7). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "declared_count": "declared_count=<JSON number value>",
+        "items_len": "items_len=<JSON number value>",
+        "trade_date": "trade_date=<JSON string value>",
+        "ts_code": "ts_code=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-MULTIPLE-TESTING": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "adjusted_threshold": {
+          "aliases": [
+            "adjusted_threshold"
+          ],
+          "type": "number"
+        },
+        "significant": {
+          "aliases": [
+            "significant"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: adjusted_threshold=7 or NOT(adjusted_threshold=7). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "adjusted_threshold": "adjusted_threshold=<JSON number value>",
+        "significant": "significant=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "effective_date": {
+          "aliases": [
+            "effective_date"
+          ],
+          "type": "string"
+        },
+        "still_listed": {
+          "aliases": [
+            "still_listed"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: still_listed=true or NOT(still_listed=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "effective_date": "effective_date=<JSON string value>",
+        "still_listed": "still_listed=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-PIT-BACKFILL-REFUSAL": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "is_as_of": {
+          "aliases": [
+            "is_as_of"
+          ],
+          "type": "boolean"
+        },
+        "missing_fields": {
+          "aliases": [
+            "missing_fields"
+          ],
+          "type": "string_set"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: is_as_of=true or NOT(is_as_of=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "is_as_of": "is_as_of=<JSON boolean value>",
+        "missing_fields": "missing_fields=<JSON string_set value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-PIT-LATE-REVISION": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "revision_eligible": {
+          "aliases": [
+            "revision_eligible"
+          ],
+          "type": "boolean"
+        },
+        "revision_value": {
+          "aliases": [
+            "revision_value"
+          ],
+          "type": "number"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: revision_eligible=true or NOT(revision_eligible=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "revision_eligible": "revision_eligible=<JSON boolean value>",
+        "revision_value": "revision_value=<JSON number value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-PIT-VINTAGE-PASS": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "selected_available_at": {
+          "aliases": [
+            "selected_available_at"
+          ],
+          "type": "string"
+        },
+        "selected_value": {
+          "aliases": [
+            "selected_value"
+          ],
+          "type": "number"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: selected_value=7 or NOT(selected_value=7). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "selected_available_at": "selected_available_at=<JSON string value>",
+        "selected_value": "selected_value=<JSON number value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-PROVIDER-EMPTY": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "answer_observed": {
+          "aliases": [
+            "answer_observed"
+          ],
+          "type": "boolean"
+        },
+        "failure_class": {
+          "aliases": [
+            "failure_class"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: failure_class=\"SYNTAX_ONLY\" or NOT(failure_class=\"SYNTAX_ONLY\"). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "answer_observed": "answer_observed=<JSON boolean value>",
+        "failure_class": "failure_class=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-PROVIDER-HTTP": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "answer_observed": {
+          "aliases": [
+            "answer_observed"
+          ],
+          "type": "boolean"
+        },
+        "failure_class": {
+          "aliases": [
+            "failure_class"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: failure_class=\"SYNTAX_ONLY\" or NOT(failure_class=\"SYNTAX_ONLY\"). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "answer_observed": "answer_observed=<JSON boolean value>",
+        "failure_class": "failure_class=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-PROVIDER-TOKEN-LIMIT": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "answer_observed": {
+          "aliases": [
+            "answer_observed"
+          ],
+          "type": "boolean"
+        },
+        "failure_class": {
+          "aliases": [
+            "failure_class"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: failure_class=\"SYNTAX_ONLY\" or NOT(failure_class=\"SYNTAX_ONLY\"). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "answer_observed": "answer_observed=<JSON boolean value>",
+        "failure_class": "failure_class=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-SOURCE-FABRICATION": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "event_status": {
+          "aliases": [
+            "event_status"
+          ],
+          "type": "string"
+        },
+        "source_available": {
+          "aliases": [
+            "source_available"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: source_available=true or NOT(source_available=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "event_status": "event_status=<JSON string value>",
+        "source_available": "source_available=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-SUPPORT-THRESHOLD-PASS": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "max_support": {
+          "aliases": [
+            "max_support"
+          ],
+          "type": "number"
+        },
+        "threshold": {
+          "aliases": [
+            "threshold"
+          ],
+          "type": "number"
+        },
+        "winner": {
+          "aliases": [
+            "winner"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: winner=\"SYNTAX_ONLY\" or NOT(winner=\"SYNTAX_ONLY\"). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "max_support": "max_support=<JSON number value>",
+        "threshold": "threshold=<JSON number value>",
+        "winner": "winner=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-SUSPENSION-CONFIRMED": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "key_matches": {
+          "aliases": [
+            "key_matches"
+          ],
+          "type": "boolean"
+        },
+        "suspension_supported": {
+          "aliases": [
+            "suspension_supported"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: suspension_supported=true or NOT(suspension_supported=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "key_matches": "key_matches=<JSON boolean value>",
+        "suspension_supported": "suspension_supported=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-UNKNOWN-NOT-PASS": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "root_cause": {
+          "aliases": [
+            "root_cause"
+          ],
+          "type": "string"
+        },
+        "scientific_accepted": {
+          "aliases": [
+            "scientific_accepted"
+          ],
+          "type": "boolean"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: scientific_accepted=true or NOT(scientific_accepted=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "root_cause": "root_cause=<JSON string value>",
+        "scientific_accepted": "scientific_accepted=<JSON boolean value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-WRONG-DATE": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "key_matches": {
+          "aliases": [
+            "key_matches"
+          ],
+          "type": "boolean"
+        },
+        "trade_date": {
+          "aliases": [
+            "trade_date"
+          ],
+          "type": "string"
+        },
+        "ts_code": {
+          "aliases": [
+            "ts_code"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: key_matches=true or NOT(key_matches=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "key_matches": "key_matches=<JSON boolean value>",
+        "trade_date": "trade_date=<JSON string value>",
+        "ts_code": "ts_code=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    },
+    "A-WRONG-SECURITY": {
+      "diagnostic_alias_scope": "Only the failure_class string value on A-PROVIDER-TOKEN-LIMIT accepts the three exact token-limit spellings, equally in evidence and canonical reason assertions, including NOT. Case changes and other strings remain invalid. No verdict aliases or automatic terminal corrections are introduced.",
+      "evidence_structure": "Flat object: declared aliases and sources only. All supplied aliases must agree.",
+      "execution_diagnostics": {
+        "BUSINESS_ERROR": {
+          "definition": "A provider error envelope, even when delivered with HTTP 200."
+        },
+        "EMPTY_CONTENT": {
+          "definition": "No usable visible content, without a supplied token-limit or higher-priority failure diagnosis."
+        },
+        "HTTP_ERROR": {
+          "definition": "An unsuccessful HTTP response. HTTP 200 alone is not proof of usable content."
+        },
+        "PROVIDER_RESPONSE_INVALID": {
+          "definition": "A completely received response could not be parsed as a valid provider envelope. Do not infer this class merely from missing raw bytes."
+        },
+        "TOKEN_BUDGET_EXHAUSTED": {
+          "accepted_exact_value_aliases": [
+            "TOKEN_BUDGET_EXHAUSTED",
+            "TOKEN_LIMIT",
+            "length"
+          ],
+          "definition": "Generation ended at its token ceiling; finish_reason=length. This can exhaust reasoning plus output and may leave empty visible content. It is an execution diagnosis, not proof of a wrong research conclusion."
+        },
+        "TRANSPORT_FAILED": {
+          "definition": "Transport failed or did not yield a complete verifiable response. Preserve uncertain usage; do not infer a research conclusion."
+        }
+      },
+      "facts": {
+        "key_matches": {
+          "aliases": [
+            "key_matches"
+          ],
+          "type": "boolean"
+        },
+        "trade_date": {
+          "aliases": [
+            "trade_date"
+          ],
+          "type": "string"
+        },
+        "ts_code": {
+          "aliases": [
+            "ts_code"
+          ],
+          "type": "string"
+        }
+      },
+      "identifier_policy": "Copy string identifiers and timestamps exactly from the supplied input. Do not insert hyphens, change timezone spelling, or reformat date/time strings.",
+      "output_keys": [
+        "verdict",
+        "reason",
+        "evidence"
+      ],
+      "reason_example_note": "Angle brackets mark placeholders, not literal answer text. Syntax examples: key_matches=true or NOT(key_matches=true). These example values are arbitrary, not answers; obtain actual values from input. JSON strings use double quotes, numbers are unquoted, booleans are true/false.",
+      "reason_explanations": [
+        "The supplied evidence supports this scoped decision.",
+        "The supplied evidence does not support the proposed claim.",
+        "The supplied fields contradict each other.",
+        "This is a diagnostic result only."
+      ],
+      "reason_role": "Semicolon-separated clauses: a listed reason_explanations sentence, <canonical_fact_name>=<JSON value of the declared fact type>, or NOT(<canonical_fact_name>=<JSON value of the declared fact type>). Replace canonical_fact_name with a key from facts, for example items_len; it is a placeholder, not the literal word fact. Do not write fact={...}. Use one named fact per clause. Evidence aliases are accepted only in evidence; reason requires canonical names. NOT denies that single assertion; do not deny a true fact. Arbitrary prose assertions are unsupported. A listed non-factual explanation alone is permitted; evidence remains mandatory. A published non-factual explanation may omit its one trailing period. No case folding, internal whitespace normalization, prefixes, extra punctuation or fuzzy matches are accepted. Fact assertions and NOT assertions retain the published exact grammar.",
+      "reason_syntax_examples": {
+        "key_matches": "key_matches=<JSON boolean value>",
+        "trade_date": "trade_date=<JSON string value>",
+        "ts_code": "ts_code=<JSON string value>"
+      },
+      "refusal_conditions": "Do not promote UNKNOWN, invent sources, claim unexecuted work, reset exhausted budgets, or use future information. Evaluate only the supplied question and constraints.",
+      "sources": "evidence must contain sources: an array of every source ID in input, exactly once. The singular field source is not accepted. Unknown sources are rejected.",
+      "transformations": "Declared aliases only; finite numeric strings equal numbers; booleans or true/false strings; identifiers exact; string sets order invariant without duplicates; field order irrelevant; one optional json/untagged code fence.",
+      "verdict_meanings": {
+        "FLAG_INCONSISTENT": "Input contradicts a stated integrity condition.",
+        "INSUFFICIENT_EVIDENCE": "Input cannot settle the requested claim.",
+        "PASS": "PASS means that the supplied evidence supports the requested scoped decision, including a well-supported execution diagnosis. A diagnostic PASS does not mean provider execution succeeded, a research claim is correct, or a strategy is qualified. INSUFFICIENT_EVIDENCE means the supplied fields cannot settle the requested decision.",
+        "REFUSE": "Proposed action violates a stated constraint or lacks required support."
+      },
+      "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+    }
+  },
+  "version": "PUBLIC_ANSWER_CONTRACT_V0.2.3"
+}

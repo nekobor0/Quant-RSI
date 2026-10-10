@@ -1,0 +1,331 @@
+{
+  "artifact_sha256": {
+    "contracts.json": "ff3a0a886579b3d02a0987436d991040e3cf346dbf5fd35dc3eaff07fcc50358",
+    "prompts.json": "3b440d1dbedb5934a05ec0c1e7f04c91ea3f33bf8c2f889d07181dd6a61a9d9f"
+  },
+  "binding_note": "Logical task order is inherited; segment dispatch order is not frozen. JSON subobject hashes use this module encode(); text hashes use UTF-8. This binding does not authorize the old six-task pilot or any API call.",
+  "budget_authorized": false,
+  "context_policy": "Independent task context; no other task/model answer or audit report.",
+  "evaluator_version": "0.2.3-public-diagnostics",
+  "execution_entry": null,
+  "execution_freeze_status": "NOT_CREATED",
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "messages_per_request": [
+    "system",
+    "user"
+  ],
+  "model_ids": null,
+  "prepared_on": "2026-10-10",
+  "primary_dimension_counts": {
+    "data_handling_correctness": 4,
+    "evidence_discipline": 4,
+    "pit_and_methodology": 4,
+    "refusal_quality": 4,
+    "reproducibility": 4,
+    "research_logic": 4
+  },
+  "public_contract_version": "PUBLIC_ANSWER_CONTRACT_V0.2.3",
+  "real_execution_authorized": false,
+  "scope": "PUBLIC_CONTRACT_AND_PROMPTS_ONLY",
+  "segment_schedule": null,
+  "sha256": {
+    "benchmark/capability_public/fixtures_v02.json": "655819304aea4036c153ac2489a99cef8c06b062165a206d368a8bfb31a00a27",
+    "benchmark/capability_public/freeze_v02.json": "628062ee6d61e13a829108d28af5ecb6c62418784e45b8b0eb74a79c5413639c",
+    "benchmark/capability_public/pilot_v02/freeze.json": "d9bd47eb548243bdcbf2e1c1c683cd3c204af827f11216341bdf05b74644bf15",
+    "benchmark/capability_public/pilot_v02/prompts.json": "b30d923ad8b642c94dcddfc7fd1608feba51e9a1304cd77aa1b477f9db770210",
+    "benchmark/capability_public/pilot_v02/tasks.json": "ea3e37e18d56dc796abcdcf73790710ec12a593ff6a62f8b9e0cb7d70c710b38",
+    "benchmark/capability_public/pilot_v023/answer_policy.json": "4a4aa518f415bfdcef4feb8787019305c21f1e2e7d84efd89887e05863fefd09",
+    "benchmark/capability_public/pilot_v023/freeze.json": "2baf9281c195383681232c723c9f86a34878c8882fa4968b1e55e4e8d265b2c2",
+    "benchmark/capability_public/pilot_v02_clarified/prompts.json": "54221b11299876f79e996e7b0ee7750c8ebebdf0bf26768c0e8c281b34705ab6",
+    "benchmark\\capability_public\\pilot_v023\\prompts.json": "fb33149d91912f8d34948084d5698d8512091657f4728f77bfcadab9a8d57a73",
+    "src/quant_rsi/harness/capability_oracle.py": "ac42a75593e7c3535831c78ada304ffaddf251eb846c17414a940093cd7e4297",
+    "src/quant_rsi/harness/comparison.py": "f8826eb64e4a328d1c1c5673cfde97772809b1c767affd55c43420dbbe545960",
+    "src/quant_rsi/harness/compatibility_pilot.py": "cb5cef8e17e1142a3758ece4b584e0254c2e27ad64f66b1874e52a9ba4195419",
+    "src/quant_rsi/harness/compatibility_pilot_023.py": "38025d530f6290e38733671b7511de3d7fc6da0ac926d36a71dde4249c2f9a44",
+    "src/quant_rsi/harness/compatibility_pilot_clarified.py": "9cf23246dd943eed2c3dc88efe2be39a0b6570975465e18874a43a0426b83f6f",
+    "src/quant_rsi/harness/evaluator_022.py": "c76ef9fe5b1f3cb6f145ada6d1f4f640cc328aa85753c5b72e23413160c05eff",
+    "src/quant_rsi/harness/evaluator_023.py": "ee5c8b2bf6114f8b2020a0ca59bcf282c6c616ee7fd0d06196cc27636560c878",
+    "src/quant_rsi/harness/providers.py": "c27ee95358b4c572a42eb16aef441dad65b976a0679bcce281dc78f85e943559",
+    "src/quant_rsi/harness/public_contract_023.py": "40c442e142bc91e4b4c667df3401f13f86355e2ff05bf08f62b5fd63191f2f64",
+    "src/quant_rsi/harness/request_capture.py": "9f2833ddf8b07a6c60d85abe0d88c62931ca1fbc31d97f1660e2ee604502f690",
+    "src/quant_rsi/ledger/store.py": "252e07f5db87283f0ab8aecae8d5b50ad15401d0869a792fb1ab97f635e5df46",
+    "tests/test_pilot_023.py": "b330c4b8ca12209d642959e27eb71c38e1f2c30612616d869f0e5e6574c37646"
+  },
+  "source_cluster_count": 10,
+  "system_prompt_sha256": "f4f3f79f355701cf2d9b3bfa3f7921d9972ffafde664624103dc8893949c1109",
+  "target_calls_after_separate_authorization": 48,
+  "task_ids": [
+    "A-META-COUNT-ITEMS",
+    "A-EMPTY-VS-FAILURE",
+    "A-PIT-BACKFILL-REFUSAL",
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE",
+    "A-DELIST-NOT-SUSPENSION",
+    "A-BUDGET-ESCAPE",
+    "A-INSUFFICIENT-SUPPORT",
+    "A-META-CONSISTENT",
+    "A-WRONG-SECURITY",
+    "A-WRONG-DATE",
+    "A-SOURCE-FABRICATION",
+    "A-UNKNOWN-NOT-PASS",
+    "A-BACKTEST-NOT-RUN",
+    "A-PIT-VINTAGE-PASS",
+    "A-PIT-LATE-REVISION",
+    "A-COST-LOSS",
+    "A-COST-PROFIT",
+    "A-MULTIPLE-TESTING",
+    "A-SUPPORT-THRESHOLD-PASS",
+    "A-SUSPENSION-CONFIRMED",
+    "A-BUDGET-EXHAUSTED",
+    "A-PROVIDER-EMPTY",
+    "A-PROVIDER-TOKEN-LIMIT",
+    "A-PROVIDER-HTTP"
+  ],
+  "task_kind": "STATIC_DIAGNOSTIC",
+  "tasks": {
+    "A-BACKTEST-NOT-RUN": {
+      "contract_sha256": "9e133f48184f4369fc41270390f828d7ac7d469f1ea20ac93f1d6ff8b3eb8749",
+      "primary_dimension": "evidence_discipline",
+      "public_input_sha256": "cedd548f00065b03c87cf367a9419a0f473afe3b5037716a4b7d93512211d50b",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "source_incident_id": "QUALIFICATION-CONTRACT",
+      "user_prompt_sha256": "70da31c3c79d25380abd1237f5dea9042cde589d32691351c1902af164889efd"
+    },
+    "A-BUDGET-ESCAPE": {
+      "contract_sha256": "d60cc0095133af5def077cc5583118f5fafb3e9795761a00e33383e1be130031",
+      "primary_dimension": "reproducibility",
+      "public_input_sha256": "b1f7da3f20eb35df4bece8d89737aa0b147b96422dbccebae4b7c21548150cda",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "user_prompt_sha256": "e080e03cc21c096359aa8d2f893baece6f934feefaa50043c7bdde8b1b9b1257"
+    },
+    "A-BUDGET-EXHAUSTED": {
+      "contract_sha256": "bca89ba63ef7ae3f45434315e60538eb1157b2d88df766671e15fb6596f60e66",
+      "primary_dimension": "refusal_quality",
+      "public_input_sha256": "ef8ce9a98e2cb71af4b138d6948136a616d4fc73b5ccfecf1e6112b878b52664",
+      "secondary_dimensions": [
+        "reproducibility"
+      ],
+      "source_incident_id": "BUDGET-ROOT",
+      "user_prompt_sha256": "c98179aa2725f8c6dc2ded3ca9c0e074db2d22404fdff772c5b70d6713ec3453"
+    },
+    "A-COST-LOSS": {
+      "contract_sha256": "3069cce7973a302507191ae5a0d8171b7a1f538d5baeff2d47c5b3b02a76b8e5",
+      "primary_dimension": "research_logic",
+      "public_input_sha256": "c6536035151d77792d146d0941a06376e64e718484b1db920814c615cf9a1771",
+      "secondary_dimensions": [
+        "pit_and_methodology"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "user_prompt_sha256": "e9f51a0248c724ec82044eae88d7cabdd29250de230bc88c86d571a1a691a0cf"
+    },
+    "A-COST-PROFIT": {
+      "contract_sha256": "3069cce7973a302507191ae5a0d8171b7a1f538d5baeff2d47c5b3b02a76b8e5",
+      "primary_dimension": "research_logic",
+      "public_input_sha256": "d7a5c9d80c71b1bb0cb518ede71af4c37abcc3d1f32d525540a573169aa37cc8",
+      "secondary_dimensions": [
+        "pit_and_methodology"
+      ],
+      "source_incident_id": "COST-CONTRACT",
+      "user_prompt_sha256": "8f2d5a775d0314d1b6b9f722866dbbe764dc84eac92518409ed5d4f1e646da58"
+    },
+    "A-DELIST-NOT-SUSPENSION": {
+      "contract_sha256": "659b265fa48bfd937934e6c6efe394001d30c4efdddbc005ac72d65984d29ea0",
+      "primary_dimension": "evidence_discipline",
+      "public_input_sha256": "30d40a275216ff8618aa8934def30ca1dda8eca592365cc58ce3a52d016d9d4e",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "user_prompt_sha256": "917575d8466aea7ca1f70f367101e7a375305869f4d450ab85b4dbf97c15559c"
+    },
+    "A-EMPTY-VS-FAILURE": {
+      "contract_sha256": "b8812a06c32f79b45a0a107373803bfed20e3cb2689ab49fa09153a1b83172ce",
+      "primary_dimension": "data_handling_correctness",
+      "public_input_sha256": "d18709308f91b786dee25bba0784b0151d3ece1f9367e19370810420fd2f0107",
+      "secondary_dimensions": [
+        "evidence_discipline",
+        "refusal_quality"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "user_prompt_sha256": "6cf66b42e600dfc917d1ba4b9b0690c08be52c34026f74ec9b66c3421f4a7323"
+    },
+    "A-INSUFFICIENT-SUPPORT": {
+      "contract_sha256": "299e714ef2144248766661b7f58d20f490dfe9e8f34fd806d1be3274b83f086f",
+      "primary_dimension": "refusal_quality",
+      "public_input_sha256": "f6d47738758511f1593323e3be0f35f465c88e07fb4a7897aee3a5d95f63c977",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "user_prompt_sha256": "025cb5ee29bb6f250c307abd5512325156d71fdbb51ada713571e1ef81c0da49"
+    },
+    "A-META-CONSISTENT": {
+      "contract_sha256": "145f2d620a6630037597b9930c26ab1c69fc90068561d26df438b1bec3cefd16",
+      "primary_dimension": "research_logic",
+      "public_input_sha256": "e88bda28bff4ba6e9e199566ce1b159253be965a734f559292cf0e62f5a7830d",
+      "secondary_dimensions": [
+        "data_handling_correctness"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "user_prompt_sha256": "578a97c78107dd7530e4851c211c2afa87d30fd71aeeb2e6db9496672c575222"
+    },
+    "A-META-COUNT-ITEMS": {
+      "contract_sha256": "7d9f1ffee11b9ae602f51ad33fe4fe69e1c86d90c2fa46ebcc54c29df6699a17",
+      "primary_dimension": "data_handling_correctness",
+      "public_input_sha256": "e016dc85d3b05949426c39d9fa5542328374a04a34b1e2a9960e05a0446e4dfa",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "user_prompt_sha256": "3e63a90aacbdb6b5d48bc9754bd997d6d1444cd7473533f88cffe44a8eddadd7"
+    },
+    "A-MULTIPLE-TESTING": {
+      "contract_sha256": "c405a14e7df1dfef645bd196c141ad8c4387644ade7fcac005f337b0d0f6bedb",
+      "primary_dimension": "research_logic",
+      "public_input_sha256": "40dd16a439a18afec1dce13e271d48a16e00b0410e48e6735d5c94829c5e4fed",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "source_incident_id": "MULTIPLE-TESTING-CONTRACT",
+      "user_prompt_sha256": "67850274ebf53d719b6ed519c962f298bc9d76635c0924888a4dec72f45bc004"
+    },
+    "A-PIT-ANNOUNCEMENT-VS-EFFECTIVE": {
+      "contract_sha256": "a810272bf1b51205c278615c70033fb8d1d8ce6ff78a4cff53ad1799a93612a5",
+      "primary_dimension": "pit_and_methodology",
+      "public_input_sha256": "85812d3d765c7d1783c5c32b4fa2309fb19d9862ffe1869c6a2897dbae5a0012",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "source_incident_id": "SSE-TERMINATION",
+      "user_prompt_sha256": "7eea373e68975b45c9ab5abe2cbb861c5889ae1a99b34c5e1afaac2156e45d44"
+    },
+    "A-PIT-BACKFILL-REFUSAL": {
+      "contract_sha256": "ab803b469fa958188e6b39669068da6104bd38f317e451ec3ead5745f7f052ec",
+      "primary_dimension": "pit_and_methodology",
+      "public_input_sha256": "b8f9302cc9b6c910995878d68c16748667fa63bc8eabdfa5a44669889ca8e57d",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "user_prompt_sha256": "1c9764c1e787bb2c6e55743f771791532afe6dc07c053308fe50e6b61bc2c8fb"
+    },
+    "A-PIT-LATE-REVISION": {
+      "contract_sha256": "f39d2e2803335880db519fdfd7e8562e143a376303a03d85ede42737a2b877df",
+      "primary_dimension": "pit_and_methodology",
+      "public_input_sha256": "58522ab4e7c9051d5d74e858e49733baf0f3c2c943b383db4cbd538c636cda26",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "user_prompt_sha256": "6217f2d6ee6e784ab786dc506971d9b7e1ab35f3d3945b550eae745390bb330d"
+    },
+    "A-PIT-VINTAGE-PASS": {
+      "contract_sha256": "0d45e415db5fb4282c195c0860d0fd7f81461e3eea533278c6bb2531d59dad55",
+      "primary_dimension": "pit_and_methodology",
+      "public_input_sha256": "2ad54d72dbbb5b17facf6fe568fdf2b5df16bd354af0cbf82a78c55b957f1ca2",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PIT-SNAPSHOT",
+      "user_prompt_sha256": "9ec76e1927575d89e6d9b0265c86d2db4a7a1a9e4a0b598f9e4338a90813b440"
+    },
+    "A-PROVIDER-EMPTY": {
+      "contract_sha256": "5d183c5f586ae8527ab2a8c86ad9a7aa05d92558b192c32f91cee187859d8e7c",
+      "primary_dimension": "reproducibility",
+      "public_input_sha256": "95a4c801bbf86ea0b0ff95dc389969f814602ab9a872032c076856175eacbfab",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "user_prompt_sha256": "b12bdb0ee5a11163583b38f892e8cf54828e743b2bff3bcdddbe92575f8151ba"
+    },
+    "A-PROVIDER-HTTP": {
+      "contract_sha256": "5d183c5f586ae8527ab2a8c86ad9a7aa05d92558b192c32f91cee187859d8e7c",
+      "primary_dimension": "reproducibility",
+      "public_input_sha256": "84e48b523e0a6c59ef04b37d1543374db4652de801529a9173fb3b9e6bc19ea3",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "user_prompt_sha256": "fc49c210df65f62879820b3c85aa6233bf90a11c9f689cb774564dea9fdae7cf"
+    },
+    "A-PROVIDER-TOKEN-LIMIT": {
+      "contract_sha256": "5d183c5f586ae8527ab2a8c86ad9a7aa05d92558b192c32f91cee187859d8e7c",
+      "primary_dimension": "reproducibility",
+      "public_input_sha256": "9da4fcd2b8e9d41d3e446d98b2ac2a64e6d8a6b4de29707ea108963c9dd40415",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "PROVIDER-CAP-REAL",
+      "user_prompt_sha256": "0dda056cf9d7af21a8726e6f1b9ebfe1e31901fb162be07079735412a3626b01"
+    },
+    "A-SOURCE-FABRICATION": {
+      "contract_sha256": "9420606c8ad0f61ece61e88e085dd63851aeb52b751027dd4302122c354c510b",
+      "primary_dimension": "evidence_discipline",
+      "public_input_sha256": "1e4f6cde6cedfa5f7b659bf4c4af676e7aca59cb4ddb1af0046030c3ff133c1c",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "user_prompt_sha256": "e8dc570b88e7ddedc468f253f1e40d40e1d0702abe0a46ea9fab0f47077c9529"
+    },
+    "A-SUPPORT-THRESHOLD-PASS": {
+      "contract_sha256": "299e714ef2144248766661b7f58d20f490dfe9e8f34fd806d1be3274b83f086f",
+      "primary_dimension": "refusal_quality",
+      "public_input_sha256": "73f5aa806aee35fd13e44c56174242e48d2aee87181c187a8deaebb1320f9be0",
+      "secondary_dimensions": [
+        "research_logic"
+      ],
+      "source_incident_id": "SUPPORT-THRESHOLD",
+      "user_prompt_sha256": "c452ab4fe9685fc154c6e87aee54e973cf4ba311b8c80af6a0d085ef81708ddf"
+    },
+    "A-SUSPENSION-CONFIRMED": {
+      "contract_sha256": "d36d1ac105432f02598bb051b474bfeb2e8dfc0a562d6c8250558327ed5ecefb",
+      "primary_dimension": "refusal_quality",
+      "public_input_sha256": "18d85a606caa660c0be9760438bdb1342a1f741cf7ec8f92e5dcf9943cbefb0c",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "user_prompt_sha256": "a02fa5a50547463ccf1bf88bcebe7e1b86cf9a8e0e6353eeca6ca61f7a520b7a"
+    },
+    "A-UNKNOWN-NOT-PASS": {
+      "contract_sha256": "72708466b7083d644395d530866862b9b5d7328a3e8a65392dd89976b2d1e21f",
+      "primary_dimension": "evidence_discipline",
+      "public_input_sha256": "6dc856fe3e6f54fdcad08c3251926243afaa5978ff2dd39c624535beabc3bee9",
+      "secondary_dimensions": [
+        "refusal_quality"
+      ],
+      "source_incident_id": "EMPTY-UNKNOWN",
+      "user_prompt_sha256": "80a20ce3c686b5ba5231419e9eb3bc20971fa0a953a30aebeb5586b606bf8aa5"
+    },
+    "A-WRONG-DATE": {
+      "contract_sha256": "50ea52fe383b3d61452cf9896c651dc0e47784d11e1ad426958d8731e555d8be",
+      "primary_dimension": "data_handling_correctness",
+      "public_input_sha256": "dc4a571618161dfc14c4e40ea416a325644797fbc79a9672d15c2edf9a865f99",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "user_prompt_sha256": "4e4dc8c0b21a66b971e6bd6d424a3c3b92437ace5aa4cf00e6064158506c9fd0"
+    },
+    "A-WRONG-SECURITY": {
+      "contract_sha256": "50ea52fe383b3d61452cf9896c651dc0e47784d11e1ad426958d8731e555d8be",
+      "primary_dimension": "data_handling_correctness",
+      "public_input_sha256": "eb69b8000ecd4b6223b63dd27be77c2addbbf55d8377e6b9ac3b5ccd8d91e268",
+      "secondary_dimensions": [
+        "evidence_discipline"
+      ],
+      "source_incident_id": "COUNT-ITEMS",
+      "user_prompt_sha256": "f26775231f98dc325290d0e065258557611a7e1127907fbd40630505852c66c2"
+    }
+  }
+}

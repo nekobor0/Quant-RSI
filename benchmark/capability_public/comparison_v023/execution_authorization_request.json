@@ -1,0 +1,19 @@
+{
+  "approved": false,
+  "authorization_source": null,
+  "call_cap": 48,
+  "entry_sha256": "511400c30f148b6b70f3988a453fc47437a7402be2764ea3525c3054e1047a8b",
+  "freeze_sha256": "90426ee50fbe112c3afab985eccd56da95634f6e34eef3ec2bf1e4a7dc60feee",
+  "instruction": "Preparation only. Requires explicit human 48-call approval and date-bound price confirmation. No paid controller.",
+  "key_rotation_source": "Prior human confirmation retained; no credentials read.",
+  "keys_rotated": true,
+  "launch_channel": "USER_OPERATED_TERMINAL_NO_PAID_CONTROLLER",
+  "money_caps_cny": {
+    "deepseek": "7.20",
+    "xiaomi": "4.80"
+  },
+  "prices_reconfirmed": false,
+  "run_id": "TRACK_A_V023_STATIC_24X2_001",
+  "total_money_cap_cny": "12.00",
+  "valid_on": null
+}
