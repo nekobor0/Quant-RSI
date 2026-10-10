@@ -1,0 +1,186 @@
+{
+  "common": {
+    "container": "list only",
+    "input_mutation": "forbidden",
+    "invalid": "ValueError",
+    "number": "finite int/float; never bool",
+    "references": "src/quant_rsi/harness/supplement_cp.py; trusted author code, not model submission",
+    "tolerance": 1e-08
+  },
+  "environment_status": "BLOCKED_ENVIRONMENT_CAPABILITY",
+  "future_execution": {
+    "capabilities": "drop_all",
+    "cpu": 0.5,
+    "image_digest": null,
+    "memory_mb": 512,
+    "mounts": "submission/public_input_only; no repository, oracle, credentials or Docker socket",
+    "network": "none",
+    "no_new_privileges": true,
+    "output_bytes": 262144,
+    "pids": 32,
+    "root_filesystem": "read_only",
+    "seccomp": "default",
+    "submission_bytes": 65536,
+    "timeout_seconds": 5,
+    "tmpfs_mb": 16,
+    "user": "nonroot"
+  },
+  "model_code_executions": 0,
+  "route": "Docker Desktop WSL2 Linux",
+  "status": "PREPARED_NOT_EXECUTION_ACCEPTED",
+  "tasks": {
+    "Q-CP-01": {
+      "example_input": [
+        {
+          "date": "D1",
+          "price": 2,
+          "security": "B"
+        },
+        {
+          "date": "D1",
+          "price": 1,
+          "security": "A"
+        }
+      ],
+      "fields": [
+        "security",
+        "date",
+        "price"
+      ],
+      "output": "sorted by (security,date), merge identical rows; conflicting key price raises ValueError",
+      "price": "strictly positive finite real",
+      "properties": [
+        "empty",
+        "permutation_invariant",
+        "duplicate_idempotent",
+        "conflicting_prices",
+        "invalid_fields_types_values",
+        "fresh_result_no_input_mutation"
+      ],
+      "signature": "normalize_rows(rows)",
+      "strings": "nonempty, preserve exactly"
+    },
+    "Q-CP-02": {
+      "example_input": {
+        "values": [
+          10,
+          12,
+          14,
+          16
+        ],
+        "window": 2
+      },
+      "example_output": [
+        null,
+        null,
+        11,
+        13
+      ],
+      "output": "length equals input; mean of values[t-window:t], null if insufficient history",
+      "properties": [
+        "empty",
+        "window_boundaries",
+        "future_suffix_invariance",
+        "current_value_exclusion",
+        "invalid_window_and_values",
+        "input_preserved"
+      ],
+      "signature": "lagged_mean(values, window)",
+      "window": "positive int, never bool"
+    },
+    "Q-CP-03": {
+      "example_input": {
+        "cost_rate": 0.01,
+        "returns": [
+          0,
+          0.1,
+          -0.1,
+          0.05
+        ],
+        "signals": [
+          1,
+          1,
+          0,
+          -1
+        ]
+      },
+      "example_output": {
+        "pnl": [
+          0,
+          0.09,
+          -0.1,
+          -0.01
+        ],
+        "pnl_sum": -0.02,
+        "positions": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "turnover": [
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "formula": "q[0]=0; q[t]=signals[t-1]; turn[t]=abs(q[t]-q[t-1]), q[-1]=0; pnl=q*r-cost*turn",
+      "interpretation": "arithmetic interval PnL sum, NOT compound wealth return",
+      "output_fields": [
+        "positions",
+        "turnover",
+        "pnl",
+        "pnl_sum"
+      ],
+      "properties": [
+        "empty",
+        "zero_signals",
+        "short_positions",
+        "direction_changes",
+        "length_mismatch",
+        "nonnegative_finite_cost",
+        "signal_lag",
+        "input_preserved"
+      ],
+      "signature": "interval_pnl(returns, signals, cost_rate)"
+    },
+    "Q-CP-04": {
+      "broken_source": "def build_ledger(events, ledger=[]):\n    running = 0\n    for event in events:\n        running += event[\"amount\"]\n        ledger.append({\"event_id\": event[\"event_id\"], \"amount\": event[\"amount\"], \"cumulative_amount\": running})\n    return ledger\n",
+      "event_fields": [
+        "event_id",
+        "amount"
+      ],
+      "example_input": [
+        {
+          "amount": 2,
+          "event_id": "E1"
+        },
+        {
+          "amount": -1,
+          "event_id": "E2"
+        },
+        {
+          "amount": 3,
+          "event_id": "E3"
+        }
+      ],
+      "output_fields": [
+        "event_id",
+        "amount",
+        "cumulative_amount"
+      ],
+      "properties": [
+        "empty",
+        "same_process_twice",
+        "A_B_A",
+        "return_mutation_independence",
+        "input_preserved",
+        "invalid_events"
+      ],
+      "semantics": "append each current-call event with cumulative current-call amount; no cross-call state",
+      "session_rule": "all repetition and mutation probes run in the SAME isolated process",
+      "signature": "build_ledger(events)"
+    }
+  }
+}

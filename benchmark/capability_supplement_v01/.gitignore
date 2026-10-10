@@ -1,0 +1,7 @@
+# Runtime SQLite caches; complete append-only events are exported as JSON.
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+offline_run_verified/*.sqlite
+offline_run_verified/*.sqlite-shm
+offline_run_verified/*.sqlite-wal

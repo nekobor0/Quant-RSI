@@ -1,0 +1,65 @@
+{
+  "version": "TRACK_A_CAPABILITY_SUPPLEMENT_V0.1",
+  "status": "28_TASKS_OFFLINE_ENGINEERING_VERIFIED_CP_PREPARED_ONLY",
+  "base_tasks": 28,
+  "structured_tasks": 8,
+  "workflow_tasks": 20,
+  "extra_fixture_arms": 2,
+  "positive_samples_pass": 30,
+  "negative_samples_not_full_pass": 30,
+  "replay_matches": 60,
+  "supervisor_stop_not_agent_final": "Q-AT-03",
+  "simulated_chat_requests": 182,
+  "offline_fixture_tool_calls": 124,
+  "simulated_usage": {
+    "input_tokens": 222470,
+    "output_tokens": 29120
+  },
+  "unknown_tool_usage_reservations": 2,
+  "real_model_calls": 0,
+  "real_judge_calls": 0,
+  "real_data_calls": 0,
+  "credentials_read": false,
+  "real_network": false,
+  "actual_currency_cost": null,
+  "tests": {
+    "new_supplement": 77,
+    "trusted_cp_reference": 33,
+    "unchanged_workflow_B1_B2": 219,
+    "provider_targeted": 5,
+    "passed_total_across_invocations": 334
+  },
+  "engineering_budget": {
+    "test_invocation_conservative_charge": 26,
+    "test_invocation_cap": 40,
+    "full_batches_used": 3,
+    "full_batch_cap": 3
+  },
+  "old_selected_frozen_bindings": {
+    "checked": 32,
+    "mismatches": []
+  },
+  "bindings": {
+    "freeze_sha256": "abee46ea594b2d5745175223b6f99167cae8ed7e7fe46a43d3c9625c55e48e4f",
+    "entry_sha256": "b6a0041f876945737e2b97ad4f80444d7078d445ff9b2e1cc7da48930d17ead1",
+    "run_manifest_sha256": "91cf9f2c664becb31132563681240a1ddac01be1ec857d20166fb199442432e3"
+  },
+  "CP": "CONTRACT_AND_REFERENCE_ONLY_EXECUTION_BLOCKED",
+  "D05": "BLOCKED_ENVIRONMENT_CAPABILITY",
+  "D08": "NOT_IMPLEMENTED / NOT_VERIFIED",
+  "real_agent_judge_ability": "UNVERIFIED",
+  "track_a": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "git_commit_performed": false,
+  "git_push_performed": false,
+  "engineering_failures_retained_in_report": [
+    "PYTHONPATH_COLLECTION",
+    "MISPLACED_TEST_VARIANT",
+    "FLOAT_LITERAL_COMPARISON",
+    "COUNTERFACTUAL_INITIAL_SCHEMA_LEAK"
+  ],
+  "binding_correction": "public optional tool included in WorkerRequest.tools and replay"
+}

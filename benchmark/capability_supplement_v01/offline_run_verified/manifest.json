@@ -1,0 +1,11 @@
+{
+  "cp_execution": "BLOCKED_ENVIRONMENT_CAPABILITY",
+  "freeze_hash": "abee46ea594b2d5745175223b6f99167cae8ed7e7fe46a43d3c9625c55e48e4f",
+  "real_calls": 0,
+  "records": 60,
+  "sha256": {
+    "results.json": "3e2191bcf4e75153817ecd281d9c5531b8fb33a91c63ed27d375d1a1b235ac02",
+    "trace.json": "694f1d7f69dbc53771019c708da95e4973d499ed5186ffd420291c109f1ee2ec"
+  },
+  "source_clusters": 28
+}

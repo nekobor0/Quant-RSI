@@ -1,0 +1,25 @@
+{
+  "FINAL": {
+    "action": "FINAL",
+    "conclusion": "object matching conclusion_contract",
+    "evidence": "unique actual observation/input IDs"
+  },
+  "TOOL_CALL": {
+    "action": "TOOL_CALL",
+    "arguments": {
+      "observations": "all prior observation IDs in order"
+    },
+    "tool": "public_tool_name"
+  },
+  "actions": [
+    "TOOL_CALL",
+    "FINAL"
+  ],
+  "aliases": {
+    "args": "arguments",
+    "result": "conclusion",
+    "type": "action"
+  },
+  "boundary": "Only supervisor executes whitelisted fixture operations. No shell, network, code submission or permission changes.",
+  "version": "TRACK_A_CAPABILITY_SUPPLEMENT_V0.1"
+}
