@@ -1,0 +1,40 @@
+{
+  "FINAL": {
+    "action": "FINAL",
+    "conclusion": "object matching conclusion_contract",
+    "evidence": {
+      "description": "Actual observation/input IDs permitted by citation_policy; strings are not arrays",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "TOOL_CALL": {
+    "action": "TOOL_CALL",
+    "arguments": {
+      "observations": "ALL previously returned tool observation IDs in order; first call MUST use []; INPUT IDs are task sources, never tool observations"
+    },
+    "tool": "public_tool_name"
+  },
+  "actions": [
+    "TOOL_CALL",
+    "FINAL"
+  ],
+  "aliases": {
+    "args": "arguments",
+    "result": "conclusion",
+    "type": "action"
+  },
+  "boundary": "Only supervisor executes whitelisted fixture operations. No shell, network, code submission or permission changes.",
+  "example_scope": "Format only; conclusion must match this task schema; example IDs grant no permission",
+  "format_only_FINAL_example": {
+    "action": "FINAL",
+    "conclusion": {},
+    "evidence": [
+      "OBS-EXAMPLE-1"
+    ]
+  },
+  "version": "workflow-public-contract-v02.3"
+}

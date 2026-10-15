@@ -1,0 +1,28 @@
+{
+  "engineering": {
+    "max_test_commands": 4,
+    "real_calls": 0
+  },
+  "labels": [
+    "PUBLIC",
+    "UNSEALED",
+    "PROVISIONAL"
+  ],
+  "legacy_policy": "Strict failures retained; symmetric expression diagnostics are not admitted scores",
+  "public_contract_version": "workflow-public-contract-v02.3",
+  "real_execution_authorized": false,
+  "runtime": {
+    "PyYAML": "6.0.1",
+    "implementation": "CPython",
+    "python": "3.12.7"
+  },
+  "sha256": {
+    "benchmark/agent_workflow_v01/http_comparison_v01/freeze.json": "d74e3fffa514c9848efe1588986e1567945085c464b10a8b3e3e4ff8987bcdf2",
+    "benchmark/agent_workflow_v01/measurement_v023/action_contract.json": "831356dd12c971f058f48c39392fe0f1776fa3edeebb6631e08ea663e9ef738e",
+    "benchmark/agent_workflow_v01/measurement_v023/public_initial_messages.json": "f2e24b9b20f69b105c7121b1d7b5a28419b6c043e663be48a83720b3a38dec7a",
+    "benchmark/agent_workflow_v01/unified_workflow_v01/freeze.json": "4886a10d89dcc1fd2ed8d0f644ecd891e40e86e0b9761d4368260886a4bd1b74",
+    "src/quant_rsi/harness/workflow_measurement_v023.py": "98f16329dc03f07a9ea3d0684f0a800807688b45330660f05a0ef2d8982d9f75",
+    "tests/test_workflow_measurement_v023.py": "bce1fb0fe76d6e2d720bbb3f233a1dc4bb471f20457752186eabe4ab5ee43897"
+  },
+  "version": "workflow-measurement-v02.3"
+}
